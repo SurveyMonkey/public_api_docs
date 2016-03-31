@@ -45,7 +45,7 @@ Scopes also respect plan limits. So while the Create/Modify Surveys scope is ava
 
 The SurveyMonkey API supports OAuth 2.0. 
 
-![OAuth 2](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/oauth_2.png)
+![OAuth 2](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/oauth_2.png)
 
 If your application will only access your own SurveyMonkey account, you can use the access token, generated when you registered your app, as part of your application's configuration. Obtain this token in the **Settings** of your app in the [**MY APPS**](https://developer.surveymonkey.com/apps/) tab.
 

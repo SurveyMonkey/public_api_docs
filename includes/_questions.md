@@ -237,7 +237,7 @@ All questions have a `family` and `subtype` that define their type. See below fo
     }
 }
 ```
-![Single Choice](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/single-choice.png)
+![Single Choice](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/single-choice.png)
 
 Name | Description | Type
 ----- | ------ | -----
@@ -271,7 +271,7 @@ choices[_].position (optional) | Position of the current choice | Integer
     }
 }
 ```
-![Multiple Choice](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/multiple-choice.png)
+![Multiple Choice](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/multiple-choice.png)
 
 Name | Description | Type
 ----- | ------ | -----
@@ -317,7 +317,7 @@ choices[_].position (optional) | Position of the current choice | Integer
     }
 }
 ```
-![Matrix Single](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/matrix-single.png)
+![Matrix Single](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/matrix-single.png)
 
 Name | Description | Type
 ----- | ------ | -----
@@ -369,7 +369,7 @@ choices[_].position (optional) | Position of the current choice | Integer
     }
 }
 ```
-![Matrix Rating](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/matrix-rating.png)
+![Matrix Rating](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/matrix-rating.png)
 
 Name | Description | Type
 ----- | ------ | -----
@@ -410,7 +410,7 @@ choices[_].position (optional) | Position of the row | Integer
     }
 }
 ```
-![Matrix Ranking](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/matrix-ranking.png)
+![Matrix Ranking](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/matrix-ranking.png)
 
 Name | Description | Type
 ----- | ------ | -----
@@ -476,7 +476,7 @@ rows[_].position (optional) | Position of the row | Integer
     }
 }
 ```
-![Matrix Menu](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/matrix-menu.png)
+![Matrix Menu](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/matrix-menu.png)
 
 Name | Description | Type
 ----- | ------ | -----
@@ -506,7 +506,7 @@ cols[\_].choices[_].position (required) | Position of choice | Integer
     "subtype": "single"
 }
 ```
-![Open Ended Single](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/open-ended-single.png)
+![Open Ended Single](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/open-ended-single.png)
 
 Only requires a `heading`.
 
@@ -536,7 +536,7 @@ Only requires a `heading`.
     }
 }
 ```
-![Open Ended Multi](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/open-ended-multi.png)
+![Open Ended Multi](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/open-ended-multi.png)
 
 Name | Description | Type
 ----- | ------ | -----
@@ -579,7 +579,7 @@ rows[_].position (optional) | Position of the current row | Integer
     }
 }
 ```
-![Open Ended Numerical](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/open-ended-numerical.png)
+![Open Ended Numerical](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/open-ended-numerical.png)
 
 Name | Description | Type
 ----- | ------ | -----
@@ -660,7 +660,7 @@ rows[_].position (optional) | Position of the current row | Integer
     }
 }
 ```
-![Demographic](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/demographic.png)
+![Demographic](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/demographic.png)
 
 This corresponds to the **Contact Information** question type in the SurveyMonkey UI.
 
@@ -700,7 +700,7 @@ rows[_].text (optional) | Optional label of demographic data, will default to ty
     }
 }
 ```
-![DateTime](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/datetime.png)
+![DateTime](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/datetime.png)
 
 Name | Description | Type
 ----- | ------ | -----
@@ -726,7 +726,7 @@ rows[_].position (optional) | Position of date/time input box | Integer
     "subtype": "descriptive_text"
 }
 ```
-![DateTime](https://code.corp.surveymonkey.com/raw/devmonkeys/api_docs/master/images/datetime.png)
+![DateTime](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/datetime.png)
 
 If `image` is included, this corresponds to the **Image** question type in the SurveyMonkey UI. If not included, it corresponds to the **Text** question type. 
 
