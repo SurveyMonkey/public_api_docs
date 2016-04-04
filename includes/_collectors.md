@@ -600,12 +600,12 @@ bounced | Recipients that have previously bounced | Array
 opted_out | Recipientents that have opted out of recieving emails | Array
 duplicate | Duplicate recipients that were provided | Array
 
-###/collectors/{id}/messages/recipients/{id}
+###/collectors/{id}/recipients/{id}
 
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/collectors/{collector_id}/messages/recipients/{recipient_id}
+GET https://api.surveymonkey.net/v3/collectors/{collector_id}/recipients/{recipient_id}
 ```
 >Example Request
 

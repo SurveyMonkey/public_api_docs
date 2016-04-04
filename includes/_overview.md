@@ -21,25 +21,25 @@ Scopes allow your application to access particular resources on behalf of a user
 
 Some scopes are only available to accounts on SurveyMonkey paid plans. If your application uses scopes tied to paid plans, any accounts authenticating with your application need that plan or higher. If your application will only access your own account, you will need to [upgrade to the appropriate paid plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) for the scopes you intend to use.
 
-Scopes also respect plan limits. So while the Create/Modify Surveys scope is available to Free (Basic) plans, users will still need to upgrade in order to create a survey with more than 10 questions. See [plans](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) for more information on plan limits. 
+Scopes also respect plan limits. See [plans](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) for more information on plan limits. 
 
 
 |Scope|Minimum SurveyMonkey plan|What the scope allows|
 |-----|------------|-----------------------------|
-|View Surveys|Basic (Free)|The application can fetch a list of and the details for surveys the user has access to.|
-|Create/Modify Surveys|Platinum/Enterprise|The application can create surveys, modify, or delete surveys on behalf of a user.|
-|View Collectors|Basic (Free)|The application can fetch collectors for surveys that the user has access to.|
-|Create/Modify Collectors|Basic (Free)|The application can create, modify, or delete survey collectors on behalf of the user.|
-|View Contacts|Basic (Free)|The application can fetch a user's contacts and contact lists.|
-|Create/Modify Contacts|Basic (Free)|The application can create, modify, or delete contacts in the user's account or contact lists.|
-|View Responses|Basic|The application can fetch survey responses.|
-|View Response Details|Gold|The application can fetch answer data for survey responses.|
-|Create/Modify Responses|Platinum/Enterprise|The application can create, modify, or delete survey responses for surveys the user has access to.|
-|View Webhooks|Basic (Free)|The application can fetch a user's list of webhooks and their details.|
-|Create/Modify Webhooks|Basic (Free)|The application can create, modify, or delete webhooks on behalf of the user.|
-|View Users|Basic (Free)|The application can fetch a user's details.|
-|View Groups|Platinum/Enterprise|The application can fetch a user's group details.|
-|View Library Assets|Basic (Free)|The application can fetch a user's library assets (survey themes and templates).|
+|View Surveys|BASIC (Free)|The application can fetch a list of and the details for surveys the user has access to.|
+|Create/Modify Surveys|SELECT|The application can create surveys, modify, or delete surveys on behalf of a user.|
+|View Collectors|BASIC (Free)|The application can fetch collectors for surveys that the user has access to.|
+|Create/Modify Collectors|BASIC (Free)|The application can create, modify, or delete survey collectors on behalf of the user.|
+|View Contacts|BASIC (Free)|The application can fetch a user's contacts and contact lists.|
+|Create/Modify Contacts|BASIC (Free)|The application can create, modify, or delete contacts in the user's account or contact lists.|
+|View Responses|BASIC (Free)|The application can fetch survey responses.|
+|View Response Details|GOLD|The application can fetch answer data for survey responses.|
+|Create/Modify Responses|PLATINUM|The application can create, modify, or delete survey responses for surveys the user has access to.|
+|View Webhooks|BASIC (Free)|The application can fetch a user's list of webhooks and their details.|
+|Create/Modify Webhooks|BASIC (Free)|The application can create, modify, or delete webhooks on behalf of the user.|
+|View Users|BASIC (Free)|The application can fetch a user's details.|
+|View Groups|PLATINUM|The application can fetch a user's group details.|
+|View Library Assets|BASIC (Free)|The application can fetch a user's library assets (survey themes and templates).|
 
 ##Authentication
 

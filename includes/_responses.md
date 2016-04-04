@@ -2,14 +2,14 @@
 
 These endpoints let you create responses directly via the API and view responses you have collected through any [collector type](http://help.surveymonkey.com/articles/en_US/kb/How-to-collect-responses).
 
-[Scopes](#scopes) to use some of these endpoints require a [paid plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs"). The View Response Details scope requires A GOLD plan and the Create/Modify Responses scope requires ENTERPRISE/PLATINUM plan. The View Response Details scope is required for bulk and details endpoints.
+[Scopes](#scopes) to use some of these endpoints require a [paid plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs"). The View Response Details scope requires A GOLD plan and the Create/Modify Responses scope requires a PLATINUM plan. The View Response Details scope is required for bulk and details endpoints.
 
 
 ###/surveys/{id}/responses
 
 ####Available Methods
 
- * `GET`: Returns a list of responses in same format as `GET` to [/collectors/{id}/responses]()
+ * `GET`: Returns a list of responses in same format as `GET` to [/collectors/{id}/responses](#collectors-id-responses)
 
 
 ###/collectors/{id}/responses
