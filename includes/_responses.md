@@ -35,6 +35,7 @@ payload = {
     "custvar_1": "one",
     "custvar_2": "two"
   },
+  "custom_value": "custom identifier for the response",
   "date_created": "2015-10-06T12:56:55+00:00",
   "ip_address": "127.0.0.1",
   "recipient_id": "564728340",
@@ -106,6 +107,7 @@ data.href | URL for the response resource | String
 Name | Required | Description | Type
 ------ | ------- | ------- | -------
 custom_variables | No| Values to any available custom variables in the survey | Object
+custom_value | No| A custom value to attach to the response for a [weblink collector](#collectors-id) | String
 date_created | No | Date the response was created | Date String
 ip_address | No | IP Address the response was taken from | String
 recipient_id | No | The recipient ID from an email collector | Integer
@@ -178,8 +180,10 @@ s.get(url, params=payload)
     "collection_mode": "normal",
     "href": "https://api.surveymonkey.net/v3/responses/5007154325",
     "custom_variables": {
-      "custom1": "MyValue"
+      "custvar_1": "one",
+      "custvar_2": "two"
     },
+    "custom_value": "custom identifier for the response",
     "ip_address": "",
     "pages": [{
       "id": "103332310",
@@ -192,7 +196,6 @@ s.get(url, params=payload)
     }],
     "date_modified": "1970-01-17T19:07:34+00:00",
     "response_status": "completed",
-    "custom_value": "",
     "id": "5007154325",
     "collector_id": "50253586",
     "recipient_id": "0",
@@ -241,7 +244,7 @@ data.collector_id | ID of the collector the response was taken for | String
 data.recipient_id | ID of the recipient (only for email collectors) | String
 data.total_time | Total time in seconds spent on the survey | Integer
 data.last_name | Last name of the recipient (if recipient ID was provided) | String
-data.custom_value | Custom value associated with a recipient | String
+data.custom_value | Custom value associated with a response | String
 data.ip_address | IP Address the response was taken from | String
 data.custom_variables | Values to any available custom variables in the survey | Object
 response_status | Status of the response: "completed", "new", "overquota", or "disqualified" | String
@@ -300,7 +303,11 @@ s.get(url)
   "metadata": {},
   "date_modified": "2015-12-28T21:59:38+00:00",
   "response_status": "completed",
-  "custom_value": "",
+  "custom_variables": {
+    "custvar_1": "one",
+    "custvar_2": "two"
+  },
+  "custom_value": "custom identifier for the response",
   "current_page_id": "0",
   "page_path": [],
   "collector_id": "50253690",
@@ -329,7 +336,7 @@ collector_id | ID of the collector the response was taken for | String
 recipient_id | ID of the recipient (only for email collectors) | String
 total_time | Total time in seconds spent on the survey | Integer
 last_name | Last name of the recipient (if recipient ID was provided) | String
-custom_value | Custom value associated with a recipient | String
+custom_value | Custom value associated with a response | String
 survey_completed | Whether or not the the survey is completed | Boolean
 ip_address | IP Address the response was taken from | String
 custom_variables | Values to any available custom variables in the survey | Object
@@ -384,7 +391,11 @@ s.get(url)
   "metadata": {},
   "date_modified": "2015-12-28T21:59:38+00:00",
   "response_status": "completed",
-  "custom_value": "",
+  "custom_variables": {
+    "custvar_1": "one",
+    "custvar_2": "two"
+  },
+  "custom_value": "custom identifier for the response",
   "current_page_id": "0",
   "page_path": [],
   "pages": [{
@@ -417,7 +428,7 @@ collector_id | ID of the collector the response was taken for | String
 recipient_id | ID of the recipient (only for email collectors) | String
 total_time | Total time in seconds spent on the survey | Integer
 last_name (Required) | Last name of the recipient (if recipient ID was provided) | String
-custom_value | Custom value associated with a recipient | String
+custom_value | Custom value associated with a response | String
 survey_completed  | Whether or not the the survey is completed | Boolean
 ip_address | IP Address the response was taken from | String
 custom_variables | Values to any available custom variables in the survey | Object
