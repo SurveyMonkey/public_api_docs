@@ -38,7 +38,6 @@ s.post(url, data=payload)
 ```json
 {
   "title": "My Survey",
-  "custom_variables": ["custom_variable"],
   "language": "en",
   "question_count": 10,
   "page_count": 10,
@@ -51,6 +50,9 @@ s.post(url, data=payload)
     "prev_button": "Prev",
     "exit_button": "Exit",
     "next_button": "Next"
+  },
+  "custom_variables": {
+    "name": "label"
   },
   "preview": "https://www.surveymonkey.com/r/Preview/"
 }
@@ -88,13 +90,15 @@ data.href | Resource API URL | String
 Name |Required| Description | Type
 ------ | ----- | ------- | -------
 title | No (default="New Survey")|Survey title | String
-from_template_id | No | Survey template to copy from. See [/survey_templates](#survey_templates) | String
+from_template_id | No | Survey template to copy from. See [/survey_templates](#survey_templates). If defined, `title` is the only other applicable variable | String
+from_survey_id | No | Survey id to copy from. If defined, `title` is the only other applicable variable | String
 language | No (default="en") | Survey language | String
 buttons_text | No | Survey Buttons text container | Objects
 buttons_text.next_button | No | Button text | String
 buttons_text.prev_button | No | Button text | String
 buttons_text.exit_button | No | Button text | String
 buttons_text.done_button | No | Button text | String
+custom_variables | No | Dictionary of Custom Variables | String Dictionary
 
 ####Request Body Arguments for Bulk POST
 
@@ -138,7 +142,6 @@ s.get(url)
 ```json
 {
   "title": "My Survey",
-  "custom_variables": [],
   "language": "en",
   "question_count": 0,
   "page_count": 0,
@@ -151,6 +154,9 @@ s.get(url)
     "prev_button": "Prev",
     "exit_button": "Exit",
     "next_button": "Next"
+  },
+  "custom_variables": {
+    "name": "label"
   },
   "preview": "https://www.surveymonkey.com/r/Preview/"
 }
