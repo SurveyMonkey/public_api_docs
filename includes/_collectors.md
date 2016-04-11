@@ -2,7 +2,6 @@
 
 Collectors allow you to collect survey responses with a link to your survey. There are two `types` of collectors available via the API, `weblink` and `email`. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL and email collectors can be used to send survey invites messages that include a survey URL via the /messages endpoints. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)). 
 
-The View Collectors and Create/Modify Collectors [scopes](#scopes) are both available Basic (Free) plans, however you will need to upgrade to a [paid plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to view more than 100 responses or to use the [survey responses endpoints](#survey-responses). 
 
 ###/surveys/{id}/collectors
 

@@ -3,7 +3,7 @@
 Benchmark data comes from SurveyMonkey customers who used [Question Bank](http://help.surveymonkey.com/articles/en_US/kb/What-is-Question-Bank) questions in their surveys. Organizations of all shapes and sizes use Question Bank, like local coffee shops, schools, and Fortune 500 companies. Benchmarks give context to your survey results by allowing you to compare your results to others who used the same Question Bank questions as you.
 
 <aside class="notice">
-<a href="http://help.surveymonkey.com/articles/en_US/kb/Benchmarks">Benchmarks</a> are available as an add on only. If you are interested in benchmarks please contact: <a href="mailto: benchmarksales@surveymonkey.com">benchmarksales@surveymonkey.com</a>.</aside>
+<a href="http://help.surveymonkey.com/articles/en_US/kb/Benchmarks">Benchmarks</a> are available as an add on only for Private apps. If you are interested in benchmarks please contact: <a href="mailto: benchmarksales@surveymonkey.com">benchmarksales@surveymonkey.com</a>.</aside>
 
 ###/benchmark_bundles
 

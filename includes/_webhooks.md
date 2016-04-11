@@ -10,7 +10,7 @@ Create webhooks that subscribe to various events in SurveyMonkey. You can create
  * A survey's collector is updated ('collector_updated')
  * A survey's collector is deleted ('collector_deleted')
 
-You can specify one or more survey or collector ids to be included. The view webhooks and create/modify webhooks [scopes](#scopes) are available on a Basic(Free) [SurveyMonkey plan](https://www.surveymonkey.com/pricing/enterprise/?ut_source=dev_portal&ut_source2=docs).
+You can specify one or more survey or collector ids to be included. 
 
 ###/webhooks
 
