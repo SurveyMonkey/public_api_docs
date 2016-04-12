@@ -45,13 +45,14 @@ s.post(url, data=payload)
   "date_created": "2015-10-06T12:56:55+00:00",
   "date_modified": "2015-10-06T12:56:55+00:00",
   "id": "1234",
-  "href":"http://api.surveymonkey.com/v3/surveys/1234",
+  "href": "https://api.surveymonkey.com/v3/surveys/1234",
   "buttons_text": {
     "done_button": "Done",
     "prev_button": "Prev",
     "exit_button": "Exit",
     "next_button": "Next"
-  }
+  },
+  "preview": "https://www.surveymonkey.com/r/Preview/"
 }
 ```
 
@@ -150,7 +151,8 @@ s.get(url)
     "prev_button": "Prev",
     "exit_button": "Exit",
     "next_button": "Next"
-  }
+  },
+  "preview": "https://www.surveymonkey.com/r/Preview/"
 }
 ```
 ####Available Methods
@@ -190,6 +192,7 @@ buttons_text.next_button | Button text | String
 buttons_text.prev_button | Button text | String
 buttons_text.exit_button | Button text | String
 buttons_text.done_button | Button text | String
+preview | Survey preview URL | String 
 href | Resource API URL | String
 
 
@@ -237,7 +240,14 @@ s.get(url)
         }
       ]
     }
-  ]
+  ],
+  "buttons_text": {
+    "done_button": "Done",
+    "prev_button": "Prev",
+    "exit_button": "Exit",
+    "next_button": "Next"
+  },
+  "preview": "https://www.surveymonkey.com/r/Preview/"
 }
 ```
 
