@@ -4,15 +4,15 @@
 
 <aside class="notice">SurveyMonkey recently released a v3 of our API! We've made some huge improvements with this version and we encourage you to check it out. If you already use our v2 API, you can find its documentation <a href="https://developer.surveymonkey.com/docs/overview/getting-started/">here</a>.</aside>
 
-The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will need to determine if your app will eventually be published as Public or Private, determine which scopes you will need and if you need SurveyMonkey to approve of your use case tp publish, and register an app in our developer portal. 
+The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will [register an app](#registering-an-app) in our developer portal. Before you register, you should determine if your app will eventually be [published](#publishing-an-app) as Public or Private and which [scopes](#scopes) you will need. If you are creating a Public app and using certain scopes, SurveyMonkey will need to approve your app before it can be published. Read more about [scopes](#scopes) and [publishing your app](#publishing-your-app) to determine if you should contact us before you begin to develop your app.
 
-Newly registered apps are given a draft state window in which developers can use all paid scopes for free when querying against the associated SurveyMonkey account for up to 90 days. No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must publish it as either Public or Private and upgrade your account as needed. 
+Newly registered apps are given a draft state window in which developers can use all paid scopes for free when querying against the associated SurveyMonkey account for up to 90 days. No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must publish your app as either Public or Private and upgrade your account as needed. 
 
-SurveyMonkey lists code examples on [Github](https://github.com/SurveyMonkey) and monitors questions tagged as `surveymonkey` on [StackOverflow](http://stackoverflow.com/search?q=surveymonkey). If you have an SDK or example you would like added, let us know. We also offer limited email support for technical questions at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com).
+SurveyMonkey lists code examples on [Github](https://github.com/SurveyMonkey) and monitors questions tagged as `surveymonkey` on [StackOverflow](http://stackoverflow.com/search?q=surveymonkey). If you have an SDK or example you would like added, let us know. We also offer email support at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com).
 
 ###Registering an App
  
-When registering your app it is important to know if you will eventually publish your app as Private or Public and which scopes you plan to use. If you are createing a Public app, and the scopes you choose determine which paid plans your users will need and if SurveyMonkey will need to approve your app before it can be published. Read more about [scopes](#scopes) and [publishing your app](#publishing-your-app) before you register an app. 
+When registering your app it is important to know if you will eventually publish your app as Private or Public and which scopes you plan to use. If you are createing a Public app, the scopes you choose determine which paid plans your users will need and if SurveyMonkey needs to approve your app before it can be published. Read more about [scopes](#scopes) and [publishing your app](#publishing-your-app) before you register an app. 
 
 To register an app:
 
@@ -27,8 +27,8 @@ When you create a new app you are given a 90-day draft window during which you c
 
 To publish your app:
 
- 1. [Upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) your account to the required plan 
- 2. Visit your app's settings in the [developer portal](https://developer.surveymonkey.com/apps/) and select either **Public** or **Private** 
+ 1. [Upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) your account to the required plan. This will be Platinum for any Private apps and will vary for Public ones based on the scopes you use.
+ 2. Visit your app's settings in the [developer portal](https://developer.surveymonkey.com/apps/) and select either **Public** or **Private**.
 
 ####Public Apps
 
@@ -51,22 +51,24 @@ Publish as a Private app if:
 
 ###Scopes
 
-Scopes allow your application to access particular resources on behalf of a user. For example, the Create/Modify surveys scope allows your application to create a survey in a user's account. During the OAuth process the user will approve or disapprove the scopes you have requested access to. Based on your application's needs you can choose to either require scopes, set them as optional, or not require them. All required scopes must be approved by the user for the OAuth process to succeed.
+Scopes allow your application to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your application to create a survey in a user's account. During the OAuth process the user will approve or disapprove the scopes you have requested access to. Based on your application's needs you can choose to either require scopes, set them as optional, or not require them. All required scopes must be approved by the user for the OAuth process to succeed.
 
 Some scopes are only available to accounts on SurveyMonkey paid plans. If your Public application uses scopes tied to paid plans, any accounts authenticating with your application need that plan or higher. 
+
+If you are creating a Public app and using scopes that require SurveyMonkey's approval to publish, please contact us at  [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
 
 
 |Scope|Minimum SurveyMonkey plan|What the scope allows|
 |-----|------------|-----------------------------|
 |View Surveys|BASIC (Free)|The application can fetch a list of and the details for surveys the user has access to.|
-|Create/Modify Surveys|SELECT|The application can create surveys, modify, or delete surveys on behalf of a user.|
+|Create/Modify Surveys|SELECT|The application can create surveys, modify, or delete surveys on behalf of a user. NOTE: SurveyMonkey needs to approve any Public apps using this scope before they can be published.|
 |View Collectors|BASIC (Free)|The application can fetch collectors for surveys that the user has access to.|
 |Create/Modify Collectors|BASIC (Free)|The application can create, modify, or delete survey collectors on behalf of the user.|
 |View Contacts|BASIC (Free)|The application can fetch a user's contacts and contact lists.|
 |Create/Modify Contacts|BASIC (Free)|The application can create, modify, or delete contacts in the user's account or contact lists.|
 |View Responses|BASIC (Free)|The application can fetch survey responses.|
 |View Response Details|GOLD|The application can fetch answer data for survey responses.|
-|Create/Modify Responses|PLATINUM|The application can create, modify, or delete survey responses for surveys the user has access to.|
+|Create/Modify Responses|PLATINUM|The application can create, modify, or delete survey responses for surveys the user has access to. NOTE: SurveyMonkey needs to approve any Public apps using this scope before they can be published.|
 |View Webhooks|BASIC (Free)|The application can fetch a user's list of webhooks and their details.|
 |Create/Modify Webhooks|BASIC (Free)|The application can create, modify, or delete webhooks on behalf of the user.|
 |View Users|BASIC (Free)|The application can fetch a user's details.|
