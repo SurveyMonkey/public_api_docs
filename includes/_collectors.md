@@ -200,7 +200,8 @@ s = requests.session()
 payload = {
   'subject': 'Please help me by taking my survey',
   'body_text': 'Thank you in advance for taking my survey. [SurveyLink], [OptOutLink], [FooterLink]',
-  'is_branding_enabled': True
+  'is_branding_enabled': True,
+  'type': 'invite'
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages?api_key=%s" % (collector_id, YOUR_API_KEY)
 s.post(url)
@@ -563,7 +564,8 @@ s.post(url, data=payload)
 {
   "succeeded": [{
     "id": "1234",
-    "email": "test@surveymonkey.com"
+    "email": "test@surveymonkey.com",
+    "href": "https://api.surveymonkey.net/v3/collectors/1234/recipients/1234"
   }],
   "invalids": [],
   "existing": [],
