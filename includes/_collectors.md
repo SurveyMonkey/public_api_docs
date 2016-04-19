@@ -307,7 +307,7 @@ status | Whether the message is: 'sent', 'not_sent', or 'processing'| String
 is_scheduled | If a message has been secheduled to send. See [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send) | Boolean
 is_branding_enabled | Whether the email has SurveyMonkey branding | Boolean
 date_created | Date message was created | Date String
-scheduled_date | Date message was scheduled | Date String
+scheduled_date | Date message was scheduled to be sent | Date String
 type | Message type: 'invite', 'reminder', or 'thank_you' | String
 recipient_status | Recipient filter: 'reminder' or 'thank_you' | String 
 id | Message id | String
@@ -376,7 +376,7 @@ scheduled_date | No | Date when the message should send. If not specified, messa
 Name | Description | Type
 ------ | ------- | -------
 is_scheduled | If a message has been secheduled to send | Boolean
-scheduled_date | Date when the message should send | Date String
+scheduled_date | Date message was scheduled to be sent | Date String
 body | The plain text body of the email message to be sent to recipients. | String
 subject | Subject of the email message to be sent to recipients | String
 recipients | List of recipient ids | Array
