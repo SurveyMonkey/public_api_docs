@@ -278,11 +278,12 @@ s.get(url)
 ```json
 {
     "status": "not_sent",
-    "is_scheduled": false,
+    "is_scheduled": true,
     "subject": "Email subject",
     "body": "Email body",
     "is_branding_enabled": true,
     "date_created": "2015-10-06T12:56:55+00:00",
+    "scheduled_date": "2015-10-07T12:56:55+00:00",
     "type": "invite",
     "recipient_status": null,
     "id": "1234",
@@ -306,6 +307,7 @@ status | Whether the message is: 'sent', 'not_sent', or 'processing'| String
 is_scheduled | If a message has been secheduled to send. See [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send) | Boolean
 is_branding_enabled | Whether the email has SurveyMonkey branding | Boolean
 date_created | Date message was created | Date String
+scheduled_date | Date message was scheduled | Date String
 type | Message type: 'invite', 'reminder', or 'thank_you' | String
 recipient_status | Recipient filter: 'reminder' or 'thank_you' | String 
 id | Message id | String
