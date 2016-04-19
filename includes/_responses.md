@@ -22,7 +22,7 @@ POST https://api.surveymonkey.net/v3/collectors/{collector_id}/responses
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses?api_key=YOUR_API_KEY -d '{"type":"weblink"}'
+curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses?api_key=YOUR_API_KEY -d '{"custom_variables":{"custvar_1": "one", "custvar_2": "two"},"response_status": "overquota","custom_value": "custom identifier for the response","date_created": "2015-10-06T12:56:55+00:00","ip_address": "127.0.0.1","recipient_id": "564728340","pages": [{"id": "103332310","questions": [{"answers": [{"choice_id": "3057839051"}],"id": "319352786"}]}]}'
 ```
 
 ```python
@@ -35,6 +35,7 @@ payload = {
     "custvar_1": "one",
     "custvar_2": "two"
   },
+  "response_status": "completed",
   "custom_value": "custom identifier for the response",
   "date_created": "2015-10-06T12:56:55+00:00",
   "ip_address": "127.0.0.1",
@@ -57,12 +58,38 @@ s.post(url, data=payload)
 
 ```json
 {
-  "per_page": 2,
-  "data": [{
-    "id": "12345678",
-    "href": "https://api.surveymonkey.net/v3/surveys/%s/responses/12345678"
+  "total_time": 144,
+  "survey_completed": true,
+  "ip_address": "192.168.4.16",
+  "recipient_id": "0",
+  "email_address": "",
+  "id": "5007154402",
+  "logic_path": {},
+  "metadata": {},
+  "date_modified": "2015-12-28T21:59:38+00:00",
+  "response_status": "completed",
+  "custom_variables": {
+    "custvar_1": "one",
+    "custvar_2": "two"
+  },
+  "edit_url": "https://www.surveymonkey.com/r/",
+  "custom_value": "custom identifier for the response",
+  "current_page_id": "0",
+  "page_path": [],
+  "pages": [{
+    "id": "103332310",
+    "questions": [{
+        "answers": [{
+            "choice_id": "3057839051"
+        }],
+        "id": "319352786"
+    }]
   }],
-  "page": 1
+  "collector_id": "50253690",
+  "survey_version": 17,
+  "date_created": "2015-12-28T21:57:14+00:00",
+  "survey_id": "105724755",
+  "collection_mode": "default"
 }
 ```
 ####Available Methods
@@ -109,6 +136,7 @@ Name | Required | Description | Type
 custom_variables | No| Values to any available custom variables in the survey | Object
 custom_value | No| A custom value to attach to the response for a [weblink collector](#collectors-id) | String
 date_created | No | Date the response was created | Date String
+response_status | No | Status of the response ['completed', 'partial', 'overquota', 'disqualified'] | String-ENUM
 ip_address | No | IP Address the response was taken from | String
 recipient_id | No | The recipient ID from an email collector | Integer
 pages | Yes | Pages from the survey and their associated responses | Array
@@ -184,6 +212,7 @@ s.get(url, params=payload)
       "custvar_2": "two"
     },
     "custom_value": "custom identifier for the response",
+    "edit_url": "https://www.surveymonkey.com/r/",
     "ip_address": "",
     "pages": [{
       "id": "103332310",
@@ -221,7 +250,7 @@ start_created_at | Responses started after this date | Date String
 end_created_at | Responses started before this date | Date String
 start_modified_at | Responses modified after this date | Date String
 end_modified_at | Responses modified before this date | Date String
-status | Status of the response ['completely', 'partially', 'overquota', 'disqualified'] | String-ENUM
+status | Status of the response ['completed', 'partial', 'overquota', 'disqualified'] | String-ENUM
 email | Email of the recipient | String
 first_name | First Name of the recipient | String
 last_name | Last Name of the recipient | String
@@ -245,6 +274,7 @@ data.recipient_id | ID of the recipient (only for email collectors) | String
 data.total_time | Total time in seconds spent on the survey | Integer
 data.last_name | Last name of the recipient (if recipient ID was provided) | String
 data.custom_value | Custom value associated with a response | String
+data.edit_url | Weblink to the survey taking page to edit the response | String
 data.ip_address | IP Address the response was taken from | String
 data.custom_variables | Values to any available custom variables in the survey | Object
 response_status | Status of the response: "completed", "new", "overquota", or "disqualified" | String
@@ -308,6 +338,7 @@ s.get(url)
     "custvar_2": "two"
   },
   "custom_value": "custom identifier for the response",
+  "edit_url": "https://www.surveymonkey.com/r/",
   "current_page_id": "0",
   "page_path": [],
   "collector_id": "50253690",
@@ -337,6 +368,7 @@ recipient_id | ID of the recipient (only for email collectors) | String
 total_time | Total time in seconds spent on the survey | Integer
 last_name | Last name of the recipient (if recipient ID was provided) | String
 custom_value | Custom value associated with a response | String
+edit_url | Weblink to the survey taking page to edit the response | String
 survey_completed | Whether or not the the survey is completed | Boolean
 ip_address | IP Address the response was taken from | String
 custom_variables | Values to any available custom variables in the survey | Object
@@ -396,6 +428,7 @@ s.get(url)
     "custvar_2": "two"
   },
   "custom_value": "custom identifier for the response",
+  "edit_url": "https://www.surveymonkey.com/r/",
   "current_page_id": "0",
   "page_path": [],
   "pages": [{
@@ -429,6 +462,7 @@ recipient_id | ID of the recipient (only for email collectors) | String
 total_time | Total time in seconds spent on the survey | Integer
 last_name (Required) | Last name of the recipient (if recipient ID was provided) | String
 custom_value | Custom value associated with a response | String
+edit_url | Weblink to the survey taking page to edit the response | String
 survey_completed  | Whether or not the the survey is completed | Boolean
 ip_address | IP Address the response was taken from | String
 custom_variables | Values to any available custom variables in the survey | Object
