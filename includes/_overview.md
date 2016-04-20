@@ -24,22 +24,22 @@ Some scopes are only available to accounts on SurveyMonkey paid plans. If your a
 Scopes also respect plan limits. See [plans](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) for more information on plan limits. 
 
 
-|Scope|Minimum SurveyMonkey plan|What the scope allows|
-|-----|------------|-----------------------------|
-|View Surveys|BASIC (Free)|The application can fetch a list of and the details for surveys the user has access to.|
-|Create/Modify Surveys|SELECT|The application can create surveys, modify, or delete surveys on behalf of a user.|
-|View Collectors|BASIC (Free)|The application can fetch collectors for surveys that the user has access to.|
-|Create/Modify Collectors|BASIC (Free)|The application can create, modify, or delete survey collectors on behalf of the user.|
-|View Contacts|BASIC (Free)|The application can fetch a user's contacts and contact lists.|
-|Create/Modify Contacts|BASIC (Free)|The application can create, modify, or delete contacts in the user's account or contact lists.|
-|View Responses|BASIC (Free)|The application can fetch survey responses.|
-|View Response Details|GOLD|The application can fetch answer data for survey responses.|
-|Create/Modify Responses|PLATINUM|The application can create, modify, or delete survey responses for surveys the user has access to.|
-|View Webhooks|BASIC (Free)|The application can fetch a user's list of webhooks and their details.|
-|Create/Modify Webhooks|BASIC (Free)|The application can create, modify, or delete webhooks on behalf of the user.|
-|View Users|BASIC (Free)|The application can fetch a user's details.|
-|View Groups|PLATINUM|The application can fetch a user's group details.|
-|View Library Assets|BASIC (Free)|The application can fetch a user's library assets (survey themes and templates).|
+|Scope Name|Scope Description (text used for OAuth, "you" refers to owner of authenticating account)|Minimum Plan Needed|
+|----------|---------------------------------------|-----------|
+|View Surveys|View your surveys and those shared with you|BASIC (Free)|
+|Create/Modify Surveys|Create or edit surveys in your account|PLATINUM/ENTERPRISE|
+|View Collectors|View collectors for your surveys and those shared with you|BASIC (Free)|
+|Create/Modify Collectors|Create or edit collectors for surveys in your account|PLATINUM/ENTERPRISE|
+|View Contacts|View your contacts and contact lists|BASIC (Free)| 
+|Create/Modify Contacts|Create or edit contacts in your account|BASIC (Free)| 
+|View Responses|View if surveys in your account have responses and their metadata |BASIC (Free)|
+|View Response Details|View answers along with responses|GOLD|
+|Create/Modify Responses|Create or edit survey responses in your account|PLATINUM/ENTERPRISE|
+|View Webhooks|View webhooks to receive notifications when there are changes in your account|BASIC (Free)| 
+|Create/Modify Webhooks|Create and edit webhooks to receive notifications when there are changes in your account|BASIC (Free)| 
+|View Users|View your user information|BASIC (Free)| 
+|View Groups|View groups you belong to|PLATINUM/ENTERPRISE| 
+|View Library Assets|View your library of survey themes and templates|BASIC (Free)| 
 
 ##Authentication
 
