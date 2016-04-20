@@ -1,10 +1,12 @@
 ##Surveys, Pages, and Questions
 
-The following endpoints let you create surveys, survey pages, and add questions to survey pages. They require the View Surveys and Create/Modify Surveys [scopes](#scopes). The View Surveys scope is available on the BASIC (Free) plan and the Create/Modify Surveys scope requires a SELECT [plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs).
+The following endpoints let you create surveys, survey pages, and add questions to survey pages. 
 
 A POST to /surveys will create an empty survey to which you can add [pages](#surveys-id-pages) and [questions](#surveys-id-pages-id-questions) (See [formatting question types](#formatting-question-types)). This endpoint also accepts a survey or template ID as an arguement to create a pre-populated survey that can be used as is or modified by deleting, updating, or adding pages or questions. 
 
 A survey needs at least one page and question in order to record a survey [response](#surveys-id-responses). 
+
+<aside class="notice">strong>NOTE for Public Apps</strong>: The View Surveys scope is available on the BASIC (Free) plan and the Create/Modify Surveys scope requires a <a href="https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs">SELECT plan</a>.</aside>
  
 
 ###/surveys
