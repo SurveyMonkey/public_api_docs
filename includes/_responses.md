@@ -109,7 +109,7 @@ start_created_at | Responses started after this date | Date String
 end_created_at | Responses started before this date | Date String
 start_modified_at | Responses modified after this date | Date String
 end_modified_at | Responses modified before this date | Date String
-status | Status of the response ['completely', 'partially', 'overquota', 'disqualified'] | String-ENUM
+status | Status of the response ['completed', 'partial', 'overquota', 'disqualified'] | String-ENUM
 email | Email of the recipient | String
 first_name | First Name of the recipient | String
 last_name | Last Name of the recipient | String
@@ -277,7 +277,7 @@ data.custom_value | Custom value associated with a response | String
 data.edit_url | Weblink to the survey taking page to edit the response | String
 data.ip_address | IP Address the response was taken from | String
 data.custom_variables | Values to any available custom variables in the survey | Object
-response_status | Status of the response: "completed", "new", "overquota", or "disqualified" | String
+response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
 collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit" | Object
 data.date_created | Date the response was created | Date String
 data.date_modified | Date the response was last modified  | Object
@@ -376,7 +376,7 @@ email_address | Email address associated with a recipient | String
 logic_path | Logic path taken during the survey | Object
 metadata | Other associated metadata or custom values | Object
 first_name | First name associated with a recipient | String
-response_status | Status of the response: "completed", "new", "overquota", or "disqualified" | String
+response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
 current_page_id |  ID of the page the respondent is currently on, "0" if completed | String
 page_path | The order in which the pages were responded to. | Array
 survey_version | The version of the survey the response was taken for | Integer
@@ -470,7 +470,7 @@ email_address | Email address associated with a recipient | String
 logic_path | Logic path taken during the survey | Object
 metadata | Other associated metadata or custom values | Object
 first_name | First name associated with a recipient | String
-response_status | Status of the response: "completed", "new", "overquota", or "disqualified" | String
+response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
 current_page_id |  ID of the page the respondent is currently on, "0" if completed | String
 page_path | The order in which the pages were responded to. | Array
 survey_version | The version of the survey the response was taken for | Integer
