@@ -18,12 +18,12 @@ To register an app:
 
 1. Click on the **MY APPS** tab in the upper left corner and sign into your SurveyMonkey account.
 1. Enter an existing **Mashery User Name** and **API Secret** or accept our [API Developer terms of service](https://developer.surveymonkey.com/tou/) and sign up for a new Mashery account.
-1. Click **+ Add New App**. Enter your **App Name** and provide your app's **Redirect URI** and click **Create App**. Under **App Details** you will find an API key and secret you can use for OAuth and an access token for your own SurveMonkey account. New apps are given a 90 day draft state during which you can use paid scopes for free. 
-1. Click **Settings** to review and adjust scopes for your app. Scopes allow your application to access particular resources on behalf of a user. For Public apps, the scopes you use determine which paid SurveyMonkey plan your app's users will need and if your application will need to be approved by SurveyMonkey before you can publish. Click on scopes to toggle their requirements and click **Update Scopes** when finished.
+1. Click **+ Add New App**. Enter your **App Name** and click **Create App**. Under **App Details** you will find an API key and secret you can use for OAuth and an access token for your own SurveMonkey account. New apps are given a 90 day draft state during which you can use paid scopes for free. 
+1. Click **Settings** to edit your app's **Redirect URI**, and review and adjust scopes for your app. Scopes allow your application to access particular resources on behalf of a user. For Public apps, the scopes you use determine which paid SurveyMonkey plan your app's users will need and if your application will need to be approved by SurveyMonkey before you can publish. Click on scopes to toggle their requirements and click **Update Scopes** when finished.
 
 ###Publishing an App
 
-When you create a new app you are given a 90-day draft window during which you can use all paid [scopes](#scopes) for free when querying against the associated SurveyMonkey account. No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must publish your app as either Public or Private or your app will be disabled. If your app is disabled, you can publish it as either Public or Private or contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to request an extension.  
+When you create a new app you are given a 90-day draft window during which you can use all paid [scopes](#scopes) for free when querying against the associated SurveyMonkey account. No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must publish your app as either Public or Private or your app will be disabled. If your app is disabled, you can publish it as either Public or Private, or contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to request an extension.  
 
 To publish your app:
 
