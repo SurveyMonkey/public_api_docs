@@ -60,9 +60,9 @@ If you are creating a Public app and using scopes that require SurveyMonkey's ap
 
 |Scope Name|Scope Description (text used for OAuth, "you" refers to owner of authenticating account)|Minimum Plan Needed|
 |----------|---------------------------------------|-----------|
-|View Surveys|View your surveys and those shared with you| BASIC (Free)|
-|Create/Modify Surveys|Create or edit surveys in your account|PLATINUM/ENTERPRISE|
-|View Collectors|View collectors for your surveys and those shared with you| BASIC (Free)|
+|View Surveys|View your surveys and those shared with you|BASIC (Free)|
+|Create/Modify Surveys|Create or edit surveys in your account|SELECT|
+|View Collectors|View collectors for your surveys and those shared with you|BASIC (Free)|
 |Create/Modify Collectors|Create or edit collectors for surveys in your account|PLATINUM/ENTERPRISE|
 |View Contacts|View your contacts and contact lists|BASIC (Free)| 
 |Create/Modify Contacts|Create or edit contacts in your account|BASIC (Free)| 
