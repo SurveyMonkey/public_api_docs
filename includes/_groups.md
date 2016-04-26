@@ -32,7 +32,10 @@ s.get(url)
     "id": "1234",
     "name": "Test Group",
     "href": "http://api.surveymonkey.com/v3/groups/1234"
-  }]
+  }],
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/groups?page=1&per_page=50"
+  }
 }
 ```
 
@@ -150,7 +153,10 @@ s.get(url)
     "id": "1234",
     "username": "test_user",
     "href": "http://api.surveymonkey.com/v3/members/1234"
-  }]
+  }],
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/groups/12345/members?page=1&per_page=50"
+  }
 }
 ```
 

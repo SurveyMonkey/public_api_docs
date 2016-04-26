@@ -36,7 +36,10 @@ s.get(url)
     "id": "1234",
     "href": "https://api.surveymonkey.com/v3/errors/1234",
     "name": "Known Error"
-  }]
+  }],
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/errors?page=1&per_page=50"
+  }
 }
 ```
 ####Available Methods

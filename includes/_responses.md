@@ -232,7 +232,10 @@ s.get(url, params=payload)
     "date_created": "1970-01-17T19:07:34+00:00",
     "survey_id": "105723396"
   }],
-  "page": 1
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/surveys/123456/responses/bulk?page=1&per_page=50"
+  }
 }
 ```
 

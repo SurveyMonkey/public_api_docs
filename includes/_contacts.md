@@ -649,7 +649,10 @@ s.get(url)
       "href": "https://api.surveymonkey.net/v3/contact_fields/1",
       "id": "1",
       "label": "Custom 1"
-    }]
+    }],
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/contact_fields?page=1&per_page=50"
+  }
 }
 ```
 

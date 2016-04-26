@@ -296,7 +296,10 @@ s.get(url)
   "data": [{
     "name": "Category Name",
     "id": "community"
-  }]
+  }],
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/survey_categories?page=1&per_page=50"
+  }
 }
 ```
 
@@ -361,7 +364,10 @@ s.get(url, params=payload)
     "name": "Template Name",
     "available": true,
     "id": "49"
-  }]
+  }],
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/survey_templates?page=1&per_page=50"
+  }
 }
 ```
 
