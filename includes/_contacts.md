@@ -523,7 +523,7 @@ s.post(url, data=payload)
     "first_name": "John",
     "last_name": "Doe",
     "id": "1234",
-    "email": "test@surveymonkey.com"
+    "email": "test@surveymonkey.com",
     "custom_fields": {
       "1": "Mr",
       "2": "Company",
@@ -643,6 +643,7 @@ s.get(url)
 {
   "page": 1,
   "per_page": 1,
+  "total": 1,
   "data": [
     {
       "href": "https://api.surveymonkey.net/v3/contact_fields/1",

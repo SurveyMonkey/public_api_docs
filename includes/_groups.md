@@ -27,6 +27,7 @@ s.get(url)
 {
   "per_page": 1,
   "page": 1,
+  "total": 1,
   "data": [{
     "id": "1234",
     "name": "Test Group",
@@ -144,6 +145,7 @@ s.get(url)
 {
   "per_page": 1,
   "page": 1,
+  "total": 5,
   "data": [{
     "id": "1234",
     "username": "test_user",

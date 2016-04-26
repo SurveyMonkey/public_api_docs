@@ -33,6 +33,7 @@ s.get(url)
 ```json
 {
   "per_page": 5,
+  "total": 5,
   "data": [
     {
       "href": "https://api.surveymonkey.net/v3/benchmark_bundles/nps_education",

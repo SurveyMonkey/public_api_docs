@@ -31,6 +31,7 @@ s.get(url)
 {
   "page": 1,
   "per_page": 1,
+  "total": 1,
   "data": [{
     "id": "1234",
     "href": "https://api.surveymonkey.com/v3/errors/1234",

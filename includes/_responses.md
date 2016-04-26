@@ -203,6 +203,7 @@ s.get(url, params=payload)
 ```json
 {
   "per_page": 2,
+  "total": 1,
   "data": [{
     "total_time": 0,
     "collection_mode": "normal",
