@@ -6,7 +6,7 @@ A POST to /surveys will create an empty survey to which you can add [pages](#sur
 
 A survey needs at least one page and question in order to record a survey [response](#surveys-id-responses). 
 
-<aside class="notice">strong>NOTE for Public Apps</strong>: The View Surveys scope is available on the BASIC (Free) plan and the Create/Modify Surveys scope requires a <a href="https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs">SELECT plan</a>.</aside>
+<aside class="notice"><strong>NOTE for Public Apps</strong>: The View Surveys scope is available on the BASIC (Free) plan and the Create/Modify Surveys scope requires a <a href="https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs">paid plan</a>.</aside>
  
 
 ###/surveys

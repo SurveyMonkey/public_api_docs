@@ -2,7 +2,7 @@
 
 These endpoints let you create responses directly via the API and view responses you have collected through any [collector type](http://help.surveymonkey.com/articles/en_US/kb/How-to-collect-responses).
 
-<aside class="notice"><strong>NOTE for Public Apps</strong>: The View Response Details scope requires A GOLD plan and the Create/Modify Responses scope requires a PLATINUM plan. The View Response Details scope is required for bulk and details endpoints.</aside>
+<aside class="notice"><strong>NOTE for Public Apps</strong>: The View Response Details scope requires An annual paid plan and the Create/Modify Responses scope requires a PLATINUM plan. The View Response Details scope is required for bulk and details endpoints.</aside>
 
 
 ###/surveys/{id}/responses

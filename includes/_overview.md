@@ -58,16 +58,16 @@ Some scopes are only available to accounts on SurveyMonkey paid plans. If your P
 If you are creating a Public app and using scopes that require SurveyMonkey's approval to publish, please contact us at  [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
 
 
-|Scope Name|Scope Description (text used for OAuth, "you" refers to owner of authenticating account)|Minimum Plan Needed|
+|Scope Name|Scope Description (text used for OAuth, "you" refers to owner of authenticating account)|Plan Needed|
 |----------|---------------------------------------|-----------|
 |View Surveys|View your surveys and those shared with you|BASIC (Free)|
-|Create/Modify Surveys|Create or edit surveys in your account|SELECT|
+|Create/Modify Surveys|Create or edit surveys in your account|Any Paid Plan|
 |View Collectors|View collectors for your surveys and those shared with you|BASIC (Free)|
 |Create/Modify Collectors|Create or edit collectors for surveys in your account|PLATINUM/ENTERPRISE|
 |View Contacts|View your contacts and contact lists|BASIC (Free)| 
 |Create/Modify Contacts|Create or edit contacts in your account|BASIC (Free)| 
 |View Responses|View if surveys in your account have responses and their metadata |BASIC (Free)|
-|View Response Details|View answers along with responses|GOLD|
+|View Response Details|View answers along with responses|Any Annual Plan|
 |Create/Modify Responses|Create or edit survey responses in your account|PLATINUM/ENTERPRISE|
 |View Webhooks|View webhooks to receive notifications when there are changes in your account|BASIC (Free)| 
 |Create/Modify Webhooks|Create and edit webhooks to receive notifications when there are changes in your account|BASIC (Free)| 
