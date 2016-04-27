@@ -333,6 +333,13 @@ s.get(url)
  * `OPTIONS`: Returns available methods
  * `GET`: Returns the benchmark for the given question
 
+####Query String for GET
+
+Name | Description | Type
+------ | ------- | -------
+percentile_start (optional)  | Starting percentile to filter by (default=0). | Integer
+percentile_end (optional) | Ending percentile to filter by (default=100). | Integer
+
 ####Question Benchmark
 
 Name | Description | Type
