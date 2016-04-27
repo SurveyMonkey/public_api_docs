@@ -651,7 +651,7 @@ s.get(url)
       "label": "Custom 1"
     }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/contact_fields?page=1&per_page=50"
+    "self": "https://api.surveymonkey.net/v3/contact_fields?page=1&per_page=1"
   }
 }
 ```

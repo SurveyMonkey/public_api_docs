@@ -38,7 +38,7 @@ s.get(url)
     "name": "Known Error"
   }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/errors?page=1&per_page=50"
+    "self": "https://api.surveymonkey.net/v3/errors?page=1&per_page=1"
   }
 }
 ```
@@ -59,9 +59,9 @@ per_page | Number of resources to return per page | Integer
 
 Name | Description | Type
 ------ | ------- | -------
-data.id | Error id | String
-data.href  | Resource API URL | String
-data.name | Error name | String
+data[_].id | Error id | String
+data[_].href  | Resource API URL | String
+data[_].name | Error name | String
 
 
 ###/errors/{id}

@@ -34,7 +34,7 @@ s.get(url)
     "href": "http://api.surveymonkey.com/v3/groups/1234"
   }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/groups?page=1&per_page=50"
+    "self": "https://api.surveymonkey.net/v3/groups?page=1&per_page=1"
   }
 }
 ```
@@ -148,14 +148,14 @@ s.get(url)
 {
   "per_page": 1,
   "page": 1,
-  "total": 5,
+  "total": 1,
   "data": [{
     "id": "1234",
     "username": "test_user",
     "href": "http://api.surveymonkey.com/v3/members/1234"
   }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/groups/12345/members?page=1&per_page=50"
+    "self": "https://api.surveymonkey.net/v3/groups/12345/members?page=1&per_page=1"
   }
 }
 ```
