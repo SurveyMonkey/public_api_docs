@@ -83,9 +83,9 @@ end_modified_at | Surveys must be last modified before this date. | Date String
 
 Name | Description | Type
 ------ | ------- | -------
-data.id | Survey id | String
-data.title | Survey title | String
-data.href | Resource API URL | String
+data[_].id | Survey id | String
+data[_].title | Survey title | String
+data[_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
@@ -292,10 +292,14 @@ s.get(url)
 {
   "page": 1,
   "per_page": 1,
+  "total": 1,
   "data": [{
     "name": "Category Name",
     "id": "community"
-  }]
+  }],
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/survey_categories?page=1&per_page=1"
+  }
 }
 ```
 
@@ -354,12 +358,16 @@ s.get(url, params=payload)
 {
   "page": 1,
   "per_page": 1,
+  "total": 1,
   "data": [{
     "category": "community",
     "name": "Template Name",
     "available": true,
     "id": "49"
-  }]
+  }],
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/survey_templates?page=1&per_page=1"
+  }
 }
 ```
 
@@ -445,12 +453,12 @@ per_page | Number of resources to return per page | Integer
 
 Name | Description | Type
 ------ | ------- | -------
-data.id | Page ID | String
-data.title | Page Title | String
-data.description | Page Description | String
-data.href | Resource API URL | String
-data.position | Position of page in survey | Integer
-data.question_count | Number of questions on the page | Integer
+data[_].id | Page ID | String
+data[_].title | Page Title | String
+data[_].description | Page Description | String
+data[_].href | Resource API URL | String
+data[_].position | Position of page in survey | Integer
+data[_].question_count | Number of questions on the page | Integer
 
 ####Request Body Arguments for POST
 

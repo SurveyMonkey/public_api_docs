@@ -85,10 +85,10 @@ per_page | Number of resources to return per page | Integer
 
 Name | Description | Type
 ------ | ------- | -------
-data.id | Question id | String
-data.heading | Question heading | String
-data.href | Resource API URL | String
-data.position | Position of question on page | Integer
+data[_].id | Question id | String
+data[_].heading | Question heading | String
+data[_].href | Resource API URL | String
+data[_].position | Position of question on page | Integer
 
 ####Request Body Arguments for POST
 

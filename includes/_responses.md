@@ -125,8 +125,8 @@ sort_by | Field used to sort returned responses ['date_modified'] | String-ENUM
 
 Name | Description | Type
 ------ | ------- | -------
-data.id | Response id | String
-data.href | URL for the response resource | String
+data[_].id | Response id | String
+data[_].href | URL for the response resource | String
 
 
 ####Request Body Arguments for POST
@@ -203,6 +203,7 @@ s.get(url, params=payload)
 ```json
 {
   "per_page": 2,
+  "total": 1,
   "data": [{
     "total_time": 0,
     "collection_mode": "normal",
@@ -231,7 +232,10 @@ s.get(url, params=payload)
     "date_created": "1970-01-17T19:07:34+00:00",
     "survey_id": "105723396"
   }],
-  "page": 1
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/surveys/123456/responses/bulk?page=1&per_page=2"
+  }
 }
 ```
 
@@ -266,32 +270,32 @@ sort_by | Field used to sort returned responses ['date_modified'] | String-ENUM
 
 Name | Description | Type
 ------ | ------- | -------
-data.id | Response id | String
-data.href | URL for the response resource | String
-data.survey_id | ID of the survey the response was taken for | String
-data.collector_id | ID of the collector the response was taken for | String
-data.recipient_id | ID of the recipient (only for email collectors) | String
-data.total_time | Total time in seconds spent on the survey | Integer
-data.last_name | Last name of the recipient (if recipient ID was provided) | String
-data.custom_value | Custom value associated with a response | String
-data.edit_url | Weblink to the survey taking page to edit the response | String
-data.ip_address | IP Address the response was taken from | String
-data.custom_variables | Values to any available custom variables in the survey | Object
-response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
-collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit" | Object
-data.date_created | Date the response was created | Date String
-data.date_modified | Date the response was last modified  | Object
-data.pages | Pages from the survey and their associated responses | Array
-data.pages[\_].id | The ID of the page with responses | Integer
-data.pages[\_].questions | The questions on that page with responses | Array
-data.pages[\_].questions[\_].id | ID of the question with responses | Integer
-data.pages[\_].questions[\_].variable_id| ID of the random assignment variable for the question | Integer
-data.pages[\_].questions[\_].answers | The answers for the question with responses | List
-data.pages[\_].questions[\_].answers[\_].choice_id | The choice selected | Integer
-data.pages[\_].questions[\_].answers[\_].row_id | The row selected | Integer
-data.pages[\_].questions[\_].answers[\_].col_id | The column selected | Integer
-data.pages[\_].questions[\_].answers[\_].other_id | The other text choice selected | Integer
-data.pages[\_].questions[\_].answers[\_].text | Any open ended text | String
+data[_].id | Response id | String
+data[_].href | URL for the response resource | String
+data[_].survey_id | ID of the survey the response was taken for | String
+data[_].collector_id | ID of the collector the response was taken for | String
+data[_].recipient_id | ID of the recipient (only for email collectors) | String
+data[_].total_time | Total time in seconds spent on the survey | Integer
+data[_].last_name | Last name of the recipient (if recipient ID was provided) | String
+data[_].custom_value | Custom value associated with a response | String
+data[_].edit_url | Weblink to the survey taking page to edit the response | String
+data[_].ip_address | IP Address the response was taken from | String
+data[_].custom_variables | Values to any available custom variables in the survey | Object
+data[_].response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
+data[_].collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit" | Object
+data[_].date_created | Date the response was created | Date String
+data[_].date_modified | Date the response was last modified  | Object
+data[_].pages | Pages from the survey and their associated responses | Array
+data[_].pages[\_].id | The ID of the page with responses | Integer
+data[_].pages[\_].questions | The questions on that page with responses | Array
+data[_].pages[\_].questions[\_].id | ID of the question with responses | Integer
+data[_].pages[\_].questions[\_].variable_id| ID of the random assignment variable for the question | Integer
+data[_].pages[\_].questions[\_].answers | The answers for the question with responses | List
+data[_].pages[\_].questions[\_].answers[\_].choice_id | The choice selected | Integer
+data[_].pages[\_].questions[\_].answers[\_].row_id | The row selected | Integer
+data[_].pages[\_].questions[\_].answers[\_].col_id | The column selected | Integer
+data[_].pages[\_].questions[\_].answers[\_].other_id | The other text choice selected | Integer
+data[_].pages[\_].questions[\_].answers[\_].text | Any open ended text | String
 
 
 

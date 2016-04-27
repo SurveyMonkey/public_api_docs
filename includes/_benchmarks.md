@@ -33,6 +33,7 @@ s.get(url)
 ```json
 {
   "per_page": 5,
+  "total": 5,
   "data": [
     {
       "href": "https://api.surveymonkey.net/v3/benchmark_bundles/nps_education",
@@ -60,7 +61,10 @@ s.get(url)
       "title": "Health and Human Services"
     }
   ],
-  "page": 1
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/benchmark_bundles?page=1&per_page=5"
+  }
 }
 ```
 
@@ -82,9 +86,9 @@ country | Country to get the bundles for. Defaults to US | String
 
 Name | Description | Type
 ------ | ------- | -------
-data.id | Benchmark Bundle id | String
-data.title | Benchmark Bundle name | String
-data.href |  Benchmark Bundle resource link| String
+data[_].id | Benchmark Bundle id | String
+data[_].title | Benchmark Bundle name | String
+data[_].href |  Benchmark Bundle resource link| String
 
 ###/benchmark_bundles/{id}
 
