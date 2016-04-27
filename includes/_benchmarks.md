@@ -274,3 +274,70 @@ date_end  | End date for included responses in the benchmark | String
 benchmarks | List of benchmark results for each question in the bundle, with the question details | List
 
 
+###/surveys/{id}/pages/{id}/questions/{id}/benchmark
+
+>Definition
+
+```
+GET https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark
+```
+
+>Example Request
+
+```shell
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark?api_key=YOUR_API_KEY
+```
+
+```python
+import requests
+
+s = requests.session()
+
+url = "https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark?api_key=%s" % (survey_id, page_id, question_id, YOUR_API_KEY)
+s.get(url)
+```
+
+>Example Response
+
+```json
+{
+  "date_end": "2015-12-31T00:00:00+00:00",
+  "date_start": "2015-01-01T00:00:00+00:00",
+  "benchmark": {
+    "num_responses": 12921174,
+    "num_data_points": 76147,
+    "quartile_values": {
+      "0": -100,
+      "25": 2.8,
+      "50": 40,
+      "75": 67.6,
+      "100": 100
+    },
+    "distribution_values": {
+      "0": 0.2603693321,
+      "100": 0.5344724075,
+      "-100": 0.2051582605
+    },
+    "data_point_type_distribution": {
+      "respondent_data_points": 0,
+      "entity_data_points": 100
+    }
+  },
+  "id": "327620251"
+}
+```
+
+####Available Methods
+
+ * `HEAD`: Checks if resource is available
+ * `OPTIONS`: Returns available methods
+ * `GET`: Returns the benchmark for the given question
+
+####Question Benchmark
+
+Name | Description | Type
+------ | ------- | -------
+id  | Benchmark question id | String
+date_start | Start date for included responses in the benchmark | String
+date_end  | End date for included responses in the benchmark | String
+benchmark | Benchmark result for the question | Object
