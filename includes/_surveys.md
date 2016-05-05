@@ -98,7 +98,7 @@ language | No (default="en") | Survey language | String
 buttons_text | No | Survey Buttons text container | Objects
 buttons_text.next_button | No | Button text | String
 buttons_text.prev_button | No | Button text | String
-buttons_text.exit_button | No | Button text | String
+buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey | String
 buttons_text.done_button | No | Button text | String
 custom_variables | No | Dictionary of Custom Variables | String Dictionary
 
@@ -111,7 +111,7 @@ language | No (default="en") | Survey language | String
 buttons_text | No | Survey Buttons text container | Objects
 buttons_text.next_button | No | Button text | String
 buttons_text.prev_button | No | Button text | String
-buttons_text.exit_button | No | Button text | String
+buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey  | String
 buttons_text.done_button | No | Button text | String
 pages | Yes | Pages to be created | List of Page Objects
 pages[_].questions | Yes | Questions to be created | List of Question Objects
@@ -181,7 +181,7 @@ language | No (`PUT` default="en") | Survey language | String
 buttons_text | No | Survey Buttons text container | Objects
 buttons_text.next_button | No | Button text | String
 buttons_text.prev_button | No | Button text | String
-buttons_text.exit_button | No | Button text | String
+buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey | String
 buttons_text.done_button | No | Button text | String
 
 ####Survey Resource
