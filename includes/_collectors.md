@@ -75,9 +75,9 @@ end_date | Collectors must be created before this date. | Date String
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id| Collector id | String
-data[_].name | Collector name | String
-data[_].href | Resource API URL | String
+data[\_].id| Collector id | String
+data[\_].name | Collector name | String
+data[\_].href | Resource API URL | String
 
  
 ####Request Body Arguments for POST
@@ -492,8 +492,8 @@ per_page | Number of resources to return per page | Integer
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id | Recipient id | String
-data[_].email | Email of recipient added to collector | String
+data[\_].id | Recipient id | String
+data[\_].email | Email of recipient added to collector | String
 
 ####Requests Body Arguments for POST (if passing contact_id)
 
@@ -586,7 +586,7 @@ Name |  Required |Description | Type
 ------ | ------- | ------- | -------
 data[\_].contact_ids | No | Contact ids | Array
 data[\_].contact_list_ids | No | Contact list ids | Array
-data[_].email | No | Contact emails | String
+data[\_].email | No | Contact emails | String
 data[\_].first_name | No | Contact's first name | String
 data[\_].last_name  | No | Contact's last name | String
 data[\_].custom_fields | No | Custom fields for contact | Dictionary

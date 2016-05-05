@@ -57,9 +57,9 @@ per_page | Number of resources to return per page | Integer
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id  | Contact list id | String
-data[_].name | Contact list name | String
-data[_].href | Resource API URL | String
+data[\_].id  | Contact list id | String
+data[\_].name | Contact list name | String
+data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
@@ -292,11 +292,11 @@ search | Query used to search | String
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id | Contact id | String
+data[\_].id | Contact id | String
 data[\_].first_name | Contact first name | String
 data[\_].last_name | Contact last name | String
-data[_].email | Contact email address | String
-data[_].href | Resource API URL | String
+data[\_].email | Contact email address | String
+data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
@@ -379,7 +379,7 @@ Name | Required | Description | Type
 ------ | ------- | ------- | -------
 data[\_].first_name | Yes | Contact first name | String
 data[\_].last_name | Yes | Contact last name | String
-data[_].email | Yes | Contact email | String
+data[\_].email | Yes | Contact email | String
 data[\_].custom_fields | No | Custom contact fields | Dictionary
 
 
@@ -462,11 +462,11 @@ search | Query used to search | String
 
 Name |Description | Type
 ------ | ------- | -------
-data[_].id | Contact id | String
+data[\_].id | Contact id | String
 data[\_].first_name | Contact first name | String
 data[\_].last_name | Contact last name | String
-data[_].email | Contact email address | String
-data[_].href | Resource API URL | String
+data[\_].email | Contact email address | String
+data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
@@ -549,7 +549,7 @@ Name | Required | Description | Type
 ------ | ------- | ------- | -------
 data[\_].first_name | Yes | Contact first name | String
 data[\_].last_name | Yes | Contact last name | String
-data[_].email | Yes | Contact email | String
+data[\_].email | Yes | Contact email | String
 data[\_].custom_fields | No | Custom contact fields | Dictionary
 
 
@@ -673,9 +673,9 @@ per_page | Number of contacts to return per page | Integer
 
 Name |Description | Type
 ------ | ------- | -------
-data[_].id | Contact id | String
-data[_].label | Contact Field Label | String
-data[_].href | Resource API URL | String
+data[\_].id | Contact id | String
+data[\_].label | Contact Field Label | String
+data[\_].href | Resource API URL | String
 
 
 ###/contact_fields/{id}

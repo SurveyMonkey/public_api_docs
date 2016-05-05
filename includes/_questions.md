@@ -85,23 +85,23 @@ per_page | Number of resources to return per page | Integer
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id | Question id | String
-data[_].heading | Question heading | String
-data[_].href | Resource API URL | String
-data[_].position | Position of question on page | Integer
+data[\_].id | Question id | String
+data[\_].heading | Question heading | String
+data[\_].href | Resource API URL | String
+data[\_].position | Position of question on page | Integer
 
 ####Request Body Arguments for POST
 
 Name | Required |Description | Type
 ----- | ------ |------ | -----
 headings | Yes |Question heading | List
-headings[_].heading | Yes |The title of the question, or empty string if `random_assignment` is defined | String
-headings[_].description | No | If `random_assignment` is defined, and `family` is `presentation_image` this is the title | String
-headings[_].image | No |Image data when question `family` is `presentation_image`| Object or null
-headings[_].image.url | No | URL of image when question `family` is `presentation_image`| String
-headings[_].random_assignment | No |Random assignment data | Object or null
-headings[_].random_assignment.percent | Yes |Percent chance of this random assignment showing up (must sum to 100) | Integer
-headings[_].random_assignment.position | No |Position of the random_assignment in survey creation page | Integer
+headings[\_].heading | Yes |The title of the question, or empty string if `random_assignment` is defined | String
+headings[\_].description | No | If `random_assignment` is defined, and `family` is `presentation_image` this is the title | String
+headings[\_].image | No |Image data when question `family` is `presentation_image`| Object or null
+headings[\_].image.url | No | URL of image when question `family` is `presentation_image`| String
+headings[\_].random_assignment | No |Random assignment data | Object or null
+headings[\_].random_assignment.percent | Yes |Percent chance of this random assignment showing up (must sum to 100) | Integer
+headings[\_].random_assignment.position | No |Position of the random_assignment in survey creation page | Integer
 headings[\_].random\_assignment.variable\_name | No |Internal use name for question tracking, can be `""` | String
 position | No (default=last) | Position of question on page | Integer
 visible | No default=True) | Whether the question is visible (corresponds with being deleted in the UI) | Boolean
@@ -129,13 +129,13 @@ answers |Yes  for all question types except open_ended_single| Answers object, r
 Name  |Description | Type
 ----- |------ | -----
 headings  |Question heading | List
-headings[_].heading  |The title of the question, or empty string if `random_assignment` is defined | String
-headings[_].description  | If `random_assignment` is defined, and `family` is `presentation_image` this is the title | String
-headings[_].image  |Image data when question `family` is `presentation_image`| Object or null
-headings[_].image.url  | URL of image when question `family` is `presentation_image`| String
-headings[_].random_assignment  |Random assignment data | Object or null
-headings[_].random_assignment.percent  |Percent chance of this random assignment showing up (must sum to 100) | Integer
-headings[_].random_assignment.position  |Position of the random_assignment in survey creation page | Integer
+headings[\_].heading  |The title of the question, or empty string if `random_assignment` is defined | String
+headings[\_].description  | If `random_assignment` is defined, and `family` is `presentation_image` this is the title | String
+headings[\_].image  |Image data when question `family` is `presentation_image`| Object or null
+headings[\_].image.url  | URL of image when question `family` is `presentation_image`| String
+headings[\_].random_assignment  |Random assignment data | Object or null
+headings[\_].random_assignment.percent  |Percent chance of this random assignment showing up (must sum to 100) | Integer
+headings[\_].random_assignment.position  |Position of the random_assignment in survey creation page | Integer
 headings[\_].random\_assignment.variable\_name  |Internal use name for question tracking, can be `""` | String
 headings[\_].random\_assignment.id  |Internal use id for question tracking | String
 position  | Position of question on page | Integer
@@ -242,8 +242,8 @@ All questions have a `family` and `subtype` that define their type. See below fo
 Name | Description | Type
 ----- | ------ | -----
 choices (required) | List of available choices for the user | List
-choices[_].text (required) | Choice for user selection | String
-choices[_].position (optional) | Position of the current choice | Integer
+choices[\_].text (required) | Choice for user selection | String
+choices[\_].position (optional) | Position of the current choice | Integer
 
 ####Multiple Choice
 
@@ -276,8 +276,8 @@ choices[_].position (optional) | Position of the current choice | Integer
 Name | Description | Type
 ----- | ------ | -----
 choices (required) | List of available choices for the user | List
-choices[_].text (required) | Choice for user selection | String
-choices[_].position (optional) | Position of the current choice | Integer
+choices[\_].text (required) | Choice for user selection | String
+choices[\_].position (optional) | Position of the current choice | Integer
 
 ####Matrix - Single
 
@@ -322,11 +322,11 @@ choices[_].position (optional) | Position of the current choice | Integer
 Name | Description | Type
 ----- | ------ | -----
 rows (required) | List of rows in the matrix | List
-rows[_].text (required) | Text label for the row | String
-rows[_].position (optional) | Position of the row | Integer
+rows[\_].text (required) | Text label for the row | String
+rows[\_].position (optional) | Position of the row | Integer
 choices (required) | List of available choices for the user | List
-choices[_].text (required) | Choice for user selection | String
-choices[_].position (optional) | Position of the current choice | Integer
+choices[\_].text (required) | Choice for user selection | String
+choices[\_].position (optional) | Position of the current choice | Integer
 
 ####Matrix - Rating
 
@@ -374,12 +374,12 @@ choices[_].position (optional) | Position of the current choice | Integer
 Name | Description | Type
 ----- | ------ | -----
 rows (required) | List of rows in the matrix | List
-rows[_].text (required) | Text label for the row | String
-rows[_].position (optional) | Position of the row | Integer
+rows[\_].text (required) | Text label for the row | String
+rows[\_].position (optional) | Position of the row | Integer
 choices (required) | List of available choices for the user | List
-choices[_].text (required) | Choice for user selection | String
-choices[_].weight (required) | Weight value of the choice | Integer
-choices[_].position (optional) | Position of the row | Integer
+choices[\_].text (required) | Choice for user selection | String
+choices[\_].weight (required) | Weight value of the choice | Integer
+choices[\_].position (optional) | Position of the row | Integer
 
 ####Matrix - Ranking
 
@@ -415,8 +415,8 @@ choices[_].position (optional) | Position of the row | Integer
 Name | Description | Type
 ----- | ------ | -----
 rows (required) | List of rows in the matrix | List
-rows[_].text (required) | Text label for the row | String
-rows[_].position (optional) | Position of the row | Integer
+rows[\_].text (required) | Text label for the row | String
+rows[\_].position (optional) | Position of the row | Integer
 
 ####Matrix - Menu
 
@@ -481,13 +481,13 @@ rows[_].position (optional) | Position of the row | Integer
 Name | Description | Type
 ----- | ------ | -----
 rows (required) | List of rows in the matrix | List
-rows[_].text (required) | Text label for the row | String
-rows[_].position (optional) | Position of the row | Integer
+rows[\_].text (required) | Text label for the row | String
+rows[\_].position (optional) | Position of the row | Integer
 cols (required) | List of columns in the matrix | List
-cols[_].text (required) | Text label for column | String
-cols[_].choices (required) | List of available choices for the user in dropdown menu | List
-cols[\_].choices[_].text (required) | Choice for user selection | String
-cols[\_].choices[_].position (required) | Position of choice | Integer
+cols[\_].text (required) | Text label for column | String
+cols[\_].choices (required) | List of available choices for the user in dropdown menu | List
+cols[\_].choices[\_].text (required) | Choice for user selection | String
+cols[\_].choices[\_].position (required) | Position of choice | Integer
 
 
 ####Open Ended - Single or Essay
@@ -541,8 +541,8 @@ Only requires a `heading`.
 Name | Description | Type
 ----- | ------ | -----
 rows (required) | List of textboxes | List
-rows[_].text (required) | Text label for textbox | String
-rows[_].position (optional) | Position of the current row | Integer
+rows[\_].text (required) | Text label for textbox | String
+rows[\_].position (optional) | Position of the current row | Integer
 
 ####Open Ended - Numerical
 
@@ -584,8 +584,8 @@ rows[_].position (optional) | Position of the current row | Integer
 Name | Description | Type
 ----- | ------ | -----
 rows (required) | List of textboxes | List
-rows[_].text (required) | Text label for textbox | String
-rows[_].position (optional) | Position of the current row | Integer
+rows[\_].text (required) | Text label for textbox | String
+rows[\_].position (optional) | Position of the current row | Integer
 
 
 ####Demographic
@@ -669,10 +669,10 @@ Each `type` represented in the example object must be included, to disable one, 
 Name | Description | Type
 ----- | ------ | -----
 rows | List of available demographic data | Object
-rows[_].visible (required) | Visibility of demographic data type | Boolean
-rows[_].required (required) | Whether demographic data type is required | Boolean
-rows[_].type (required) | Type of demographic data | String
-rows[_].text (optional) | Optional label of demographic data, will default to type | String
+rows[\_].visible (required) | Visibility of demographic data type | Boolean
+rows[\_].required (required) | Whether demographic data type is required | Boolean
+rows[\_].type (required) | Type of demographic data | String
+rows[\_].text (optional) | Optional label of demographic data, will default to type | String
 
 
 ####DateTime
@@ -704,8 +704,8 @@ rows[_].text (optional) | Optional label of demographic data, will default to ty
 
 Name | Description | Type
 ----- | ------ | -----
-rows[_].text (required) | Label for date/time input box | String
-rows[_].position (optional) | Position of date/time input box | Integer
+rows[\_].text (required) | Label for date/time input box | String
+rows[\_].position (optional) | Position of date/time input box | Integer
 
 ####Presentation
 
@@ -733,4 +733,4 @@ If `image` is included, this corresponds to the **Image** question type in the S
 Name | Description | Type
 ----- | ----- | -----
  image (optional)| Image to present|dictionary
- image[_].image_url (required)| URL of image to present | String |
+ image[\_].image_url (required)| URL of image to present | String |

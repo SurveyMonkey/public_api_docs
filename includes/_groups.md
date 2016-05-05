@@ -56,9 +56,9 @@ per_page | Number of resources to return per page | Integer
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id | Group id | String
-data[_].name | Group name | String
-data[_].href | Resource API URL | String
+data[\_].id | Group id | String
+data[\_].name | Group name | String
+data[\_].href | Resource API URL | String
 
 ###/groups/{id}
 
@@ -177,9 +177,9 @@ per_page | Number of resources to return per page | Integer
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id | Member id | String
-data[_].username | Member username | String
-data[_].href | Resource API URL | String
+data[\_].id | Member id | String
+data[\_].username | Member username | String
+data[\_].href | Resource API URL | String
 
 
 ###/groups/{id}/members/{id}

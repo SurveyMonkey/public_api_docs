@@ -86,9 +86,9 @@ country | Country to get the bundles for. Defaults to US | String
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id | Benchmark Bundle id | String
-data[_].title | Benchmark Bundle name | String
-data[_].href |  Benchmark Bundle resource link| String
+data[\_].id | Benchmark Bundle id | String
+data[\_].title | Benchmark Bundle name | String
+data[\_].href |  Benchmark Bundle resource link| String
 
 ###/benchmark_bundles/{id}
 

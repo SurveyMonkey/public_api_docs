@@ -83,9 +83,9 @@ end_modified_at | Surveys must be last modified before this date. | Date String
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id | Survey id | String
-data[_].title | Survey title | String
-data[_].href | Resource API URL | String
+data[\_].id | Survey id | String
+data[\_].title | Survey title | String
+data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
@@ -114,7 +114,7 @@ buttons_text.prev_button | No | Button text | String
 buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey  | String
 buttons_text.done_button | No | Button text | String
 pages | Yes | Pages to be created | List of Page Objects
-pages[_].questions | Yes | Questions to be created | List of Question Objects
+pages[\_].questions | Yes | Questions to be created | List of Question Objects
 
 
 ###/surveys/{id}
@@ -321,8 +321,8 @@ language  | Category language to filter by (default=en) | String-ENUM
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id | Resource id | String
-data[_].name | Resource name | String
+data[\_].id | Resource id | String
+data[\_].name | Resource name | String
 
 
 ###/survey_templates
@@ -390,10 +390,10 @@ category | Category to filter by, see [/survey_categories](#survey_categories) f
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id (Required) | Resource id | String
-data[_].name (Required) | Resource name | String
-data[_].category (Required) | Template Category | String
-data[_].available (Required) | Template is availabel to user | Boolean
+data[\_].id (Required) | Resource id | String
+data[\_].name (Required) | Resource name | String
+data[\_].category (Required) | Template Category | String
+data[\_].available (Required) | Template is availabel to user | Boolean
 
 
 ###/surveys/{id}/pages
@@ -453,12 +453,12 @@ per_page | Number of resources to return per page | Integer
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id | Page ID | String
-data[_].title | Page Title | String
-data[_].description | Page Description | String
-data[_].href | Resource API URL | String
-data[_].position | Position of page in survey | Integer
-data[_].question_count | Number of questions on the page | Integer
+data[\_].id | Page ID | String
+data[\_].title | Page Title | String
+data[\_].description | Page Description | String
+data[\_].href | Resource API URL | String
+data[\_].position | Position of page in survey | Integer
+data[\_].question_count | Number of questions on the page | Integer
 
 ####Request Body Arguments for POST
 

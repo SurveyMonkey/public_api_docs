@@ -74,9 +74,9 @@ per_page | Number of resources to return per page | Integer
 
 Name | Description | Type
 ------ | ------- | -------
-data[_].id | Webhook id | String
-data[_].name | Webhook name | String
-data[_].href | Resource API URL | String
+data[\_].id | Webhook id | String
+data[\_].name | Webhook name | String
+data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
