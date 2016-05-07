@@ -56,7 +56,11 @@ s.post(url, data=payload)
   "custom_variables": {
     "name": "label"
   },
-  "preview": "https://www.surveymonkey.com/r/Preview/"
+  "preview": "https://www.surveymonkey.com/r/Preview/",
+  "edit_url": "https://www.surveymonkey.com/create/",
+  "collect_url": "https://www.surveymonkey.com/collect/list",
+  "analyze_url": "https://www.surveymonkey.com/analyze/",
+  "summary_url": "https://www.surveymonkey.com/summary/"
 }
 ```
 
@@ -160,7 +164,11 @@ s.get(url)
   "custom_variables": {
     "name": "label"
   },
-  "preview": "https://www.surveymonkey.com/r/Preview/"
+  "preview": "https://www.surveymonkey.com/r/Preview/",
+  "edit_url": "https://www.surveymonkey.com/create/",
+  "collect_url": "https://www.surveymonkey.com/collect/list",
+  "analyze_url": "https://www.surveymonkey.com/analyze/",
+  "summary_url": "https://www.surveymonkey.com/summary/"
 }
 ```
 ####Available Methods
@@ -201,6 +209,10 @@ buttons_text.prev_button | Button text | String
 buttons_text.exit_button | Button text | String
 buttons_text.done_button | Button text | String
 preview | Survey preview URL | String 
+edit_url | Survey edit URL | String 
+collect_url | Survey collect URL | String 
+analyze_url | Survey analyze URL | String 
+summary_url | Survey summary URL | String 
 href | Resource API URL | String
 
 
@@ -255,7 +267,11 @@ s.get(url)
     "exit_button": "Exit",
     "next_button": "Next"
   },
-  "preview": "https://www.surveymonkey.com/r/Preview/"
+  "preview": "https://www.surveymonkey.com/r/Preview/",
+  "edit_url": "https://www.surveymonkey.com/create/",
+  "collect_url": "https://www.surveymonkey.com/collect/list",
+  "analyze_url": "https://www.surveymonkey.com/analyze/",
+  "summary_url": "https://www.surveymonkey.com/summary/"
 }
 ```
 
