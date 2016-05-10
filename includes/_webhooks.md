@@ -81,7 +81,7 @@ Name | Required | Description | Type
 ------ | ------- | ------- | -------
 name | Yes | Webhook name | String
 event_type | Yes | Event type that the webhook listens to: 'response_completed', 'response_disqualified', or 'response_updated' | String-ENUM
-object_type | Yes | Object type to filter events by: 'survey'| String-ENUM
+object_type | Yes | Object type to filter events by: 'survey' or 'collector'| String-ENUM
 object_ids | Yes | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event) | Array
 subscription_url | Yes | Subscription url that events are sent to | String
 
@@ -138,8 +138,8 @@ Name | Description | Type
 ------ | ------- | -------
 id  | Webhook id | String
 name  | Webhook name | String
-event_type | Event type that the webhook listens to: 'response_completed', 'response_disqualified', 'response_updated', or 'response_completed' | String
-object_type | Object type to filter events by: 'survey' | String-ENUM
+event_type | Event type that the webhook listens to: 'response_completed', 'response_disqualified', or 'response_updated' | String-ENUM
+object_type | Object type to filter events by: 'survey' or 'collector' | String-ENUM
 object_ids | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event) | Array
 subscription_url | Subscription url that callback events are sent to | String
 href | Resource API URL | String
@@ -162,8 +162,8 @@ href | Resource API URL | String
 Name | Description | Type
 ----- | ----- | -----
 name | Webhook name | String
-event_type | Event type that the webhook listens to: 'response_completed', 'response_updated', or 'response_disqualified' | String
+event_type | Event type that the webhook listens to: 'response_completed', 'response_disqualified', or 'response_updated' | String-ENUM
 event_id | Event id | String
-object_type | Will be: "response" | String
-object_id | id of object | String
+object_type | Type of object that event occured for | String
+object_id | id of object that event occured for | String
 event_datetime | ISO 8601 string of date/time that the event occured | String
