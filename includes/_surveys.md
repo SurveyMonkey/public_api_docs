@@ -390,10 +390,14 @@ category | Category to filter by, see [/survey_categories](#survey_categories) f
 
 Name | Description | Type
 ------ | ------- | -------
-data[\_].id (Required) | Resource id | String
-data[\_].name (Required) | Resource name | String
-data[\_].category (Required) | Template Category | String
-data[\_].available (Required) | Template is availabel to user | Boolean
+data[\_].id | Resource id | String
+data[\_].name | Resource name | String
+data[\_].title | Survey title | String
+data[\_].description | Template description | String
+data[\_].category | Template category | String
+data[\_].available | Template is available to user | Boolean
+data[\_].num_questions | Number of questions in the template | Integer
+data[\_].preview_link | Template preview URL | String
 
 
 ###/surveys/{id}/pages
