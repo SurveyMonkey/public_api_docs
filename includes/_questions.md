@@ -21,43 +21,43 @@ s = requests.session()
 
 payload = {
   "headings": [
-        {
-          "heading": "A question about primates.",
-          "random_assignment": {
-            "percent": 50,
-            "position": 1
-          },
-        },
-        {
-          "heading": "A question about primates phrased slightly differently.",
-          "random_assignment": {
-            "percent": 50,
-            "position": 2
-          },
-        }
-    ],
-  "family": "open_ended",
-  "subtype": "single",
-  "position": 1,
-  "sorting": {
-    "type": "textasc",
-    "ignore_last": True
-  },
-  "required": {
-    "text": "This question is required!",
-    "type": "at_least",
-    "amount": "1"
-  },
-  "validation": {
-    "type": "integer",
-    "text": "Validation has failed!",
-    "min": 20,
-    "max": 30
-  },
-  "forced_ranking": True,
+    {
+      "random_assignment": {
+        "position": 1,
+        "percent": 50
+      },
+      "heading": "Multiple Choice with Random Assignment v1"
+    },
+    {
+      "random_assignment": {
+        "position": 2,
+        "percent": 50
+      },
+      "heading": "Multiple Choice with Random Assignment v2"
+    }
+  ],
+  "family": "single_choice",
+  "subtype": "vertical",
   "answers": {
-    #SEE ANSWERS SECTION
-  }
+    "choices": [
+      {
+        "text": "a",
+        "visible": true,
+        "position": 1
+      },
+      {
+        "text": "b",
+        "visible": true,
+        "position": 2
+      },
+      {
+        "text": "c",
+        "visible": true,
+        "position": 3
+      }
+    ]
+  },
+  "position": 3
 }
 url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s/questions" % (survey_id, page_id, YOUR_API_KEY)
 s.post(url, data=payload)
