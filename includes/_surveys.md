@@ -99,12 +99,12 @@ title | No (default="New Survey")|Survey title | String
 from_template_id | No | Survey template to copy from. See [/survey_templates](#survey_templates). If defined, `title` is the only other applicable variable | String
 from_survey_id | No | Survey id to copy from. If defined, `title` is the only other applicable variable | String
 language | No (default="en") | Survey language | String
-buttons_text | No | Survey Buttons text container | Objects
+buttons_text | No | Survey Buttons text container | Object
 buttons_text.next_button | No | Button text | String
 buttons_text.prev_button | No | Button text | String
 buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey | String
 buttons_text.done_button | No | Button text | String
-custom_variables | No | Dictionary of Custom Variables | String Dictionary
+custom_variables | No | Dictionary of survey variables | Object
 
 ####Request Body Arguments for Bulk POST
 
@@ -186,7 +186,7 @@ Name | Required | Description | Type
 ------ | ----- | ------- | -------
 title | No (`PUT` default="New Survey") |Survey title | String
 language | No (`PUT` default="en") | Survey language | String
-buttons_text | No | Survey Buttons text container | Objects
+buttons_text | No | Survey Buttons text container | Object
 buttons_text.next_button | No | Button text | String
 buttons_text.prev_button | No | Button text | String
 buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey | String
@@ -198,7 +198,7 @@ Name | Description | Type
 ------ | ------- | -------
 id | Survey id | String
 title | Survey title | String
-custom_variables | List of survey variables | Array
+custom_variables | Dictionary of survey variables | Object
 language | Survey language | String
 question_count | Number of questions in survey | Integer
 page_count | Number of pages in survey | Integer
@@ -244,7 +244,9 @@ s.get(url)
 ```json
 {
   "title": "My Survey",
-  "custom_variables": ["custom_variable"],
+  "custom_variables": {
+    "name": "label"
+  },
   "language": "en",
   "question_count": 10,
   "page_count": 10,
