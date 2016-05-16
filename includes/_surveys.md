@@ -191,6 +191,7 @@ buttons_text.next_button | No | Button text | String
 buttons_text.prev_button | No | Button text | String
 buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey | String
 buttons_text.done_button | No | Button text | String
+custom_variables | No | Dictionary of survey variables | Object
 
 ####Survey Resource
 
