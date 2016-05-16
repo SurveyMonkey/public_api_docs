@@ -276,6 +276,7 @@ data[\_].survey_id | ID of the survey the response was taken for | String
 data[\_].collector_id | ID of the collector the response was taken for | String
 data[\_].recipient_id | ID of the recipient (only for email collectors) | String
 data[\_].total_time | Total time in seconds spent on the survey | Integer
+data[\_].first_name | First name of the recipient (if recipient ID was provided) | String
 data[\_].last_name | Last name of the recipient (if recipient ID was provided) | String
 data[\_].custom_value | Custom value associated with a response | String
 data[\_].edit_url | Weblink to the survey taking page to edit the response | String
@@ -370,6 +371,7 @@ survey_id | ID of the survey the response was taken for | String
 collector_id | ID of the collector the response was taken for | String
 recipient_id | ID of the recipient (only for email collectors) | String
 total_time | Total time in seconds spent on the survey | Integer
+first_name | First name of the recipient (if recipient ID was provided) | String
 last_name | Last name of the recipient (if recipient ID was provided) | String
 custom_value | Custom value associated with a response | String
 edit_url | Weblink to the survey taking page to edit the response | String
@@ -464,7 +466,8 @@ survey_id | ID of the survey the response was taken for | String
 collector_id | ID of the collector the response was taken for | String
 recipient_id | ID of the recipient (only for email collectors) | String
 total_time | Total time in seconds spent on the survey | Integer
-last_name (Required) | Last name of the recipient (if recipient ID was provided) | String
+first_name | First name of the recipient (if recipient ID was provided) | String
+last_name | Last name of the recipient (if recipient ID was provided) | String
 custom_value | Custom value associated with a response | String
 edit_url | Weblink to the survey taking page to edit the response | String
 survey_completed  | Whether or not the the survey is completed | Boolean
