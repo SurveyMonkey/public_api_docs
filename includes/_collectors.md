@@ -96,6 +96,7 @@ edit_response_type | No (default='until_complete') | When respondents can edit t
 anonymous_type | No (default='not_anonymous') | Turns off IP tracking. For email collectors, also removes respondent email address and name from response: 'not_anonymous', 'partially_anonymous', 'fully_anonymous' | String-ENUM
 allow_multiple_responses |  No (default=False) | Allows respondents to take a survey more than once from the same browser on the same computer | Boolean
 password | No | Set a password to restrict access to your survey | String
+sender_email | No | Sender email on email collector | String
 
 ###/collectors/{id}
 
