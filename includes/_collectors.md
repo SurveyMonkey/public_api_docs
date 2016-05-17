@@ -50,6 +50,7 @@ s.post(url, data=payload)
   "open": true,
   "date_created": "2015-10-06T12:56:55+00:00",
   "password_enabled": false,
+  "sender_email": null,
   "href": "https://api.surveymonkey.net/v3/collectors/1234"
 }
 ```
@@ -96,6 +97,7 @@ edit_response_type | No (default='until_complete') | When respondents can edit t
 anonymous_type | No (default='not_anonymous') | Turns off IP tracking. For email collectors, also removes respondent email address and name from response: 'not_anonymous', 'partially_anonymous', 'fully_anonymous' | String-ENUM
 allow_multiple_responses |  No (default=False) | Allows respondents to take a survey more than once from the same browser on the same computer | Boolean
 password | No | Set a password to restrict access to your survey | String
+sender_email | No | Sender email for email collectors | String
 
 ###/collectors/{id}
 
@@ -140,6 +142,8 @@ s.get(url)
   "date_modified": "2015-10-06T12:56:55+00:00",
   "url": "https://www.surveymonkey.com/r/2Q3RXZB",
   "date_created": "2015-10-06T12:56:55+00:00",
+  "sender_email": null,
+  "password_enabled": false,
   "href": "https://api.surveymonkey.net/v3/collectors/1234"
 }
 ```
@@ -174,6 +178,8 @@ allow_multiple_responses| Allows respondents to take a survey more than once fro
 date_modified | Date collector was last modified | Date String
 url | If collector is a Web Collector (type 'weblink') then the url for the collector | String
 date_created | Date collector was created | Date String
+password_enabled | True if the collector is password protected | Boolean
+sender_email | Sender email for email collectors. User's email is used if null | String 
 href | Resource API URL | String
 
 
