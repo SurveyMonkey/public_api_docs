@@ -272,11 +272,6 @@ data[\_].survey_id | ID of the survey the response was taken for | String
 data[\_].collector_id | ID of the collector the response was taken for | String
 data[\_].recipient_id | ID of the recipient (only for email collectors) | String
 data[\_].total_time | Total time in seconds spent on the survey | Integer
-<<<<<<< HEAD
-data[\_].first_name | First name of the recipient (if recipient ID was provided) | String
-data[\_].last_name | Last name of the recipient (if recipient ID was provided) | String
-=======
->>>>>>> 283dc6d... Fix response resources and examples
 data[\_].custom_value | Custom value associated with a response | String
 data[\_].edit_url | Weblink to the survey taking page to edit the response | String
 data[\_].ip_address | IP Address the response was taken from | String
@@ -366,11 +361,6 @@ survey_id | ID of the survey the response was taken for | String
 collector_id | ID of the collector the response was taken for | String
 recipient_id | ID of the recipient (only for email collectors) | String
 total_time | Total time in seconds spent on the survey | Integer
-<<<<<<< HEAD
-first_name | First name of the recipient (if recipient ID was provided) | String
-last_name | Last name of the recipient (if recipient ID was provided) | String
-=======
->>>>>>> 283dc6d... Fix response resources and examples
 custom_value | Custom value associated with a response | String
 edit_url | Weblink to the survey taking page to edit the response | String
 ip_address | IP Address the response was taken from | String
@@ -455,11 +445,6 @@ survey_id | ID of the survey the response was taken for | String
 collector_id | ID of the collector the response was taken for | String
 recipient_id | ID of the recipient (only for email collectors) | String
 total_time | Total time in seconds spent on the survey | Integer
-<<<<<<< HEAD
-first_name | First name of the recipient (if recipient ID was provided) | String
-last_name | Last name of the recipient (if recipient ID was provided) | String
-=======
->>>>>>> 283dc6d... Fix response resources and examples
 custom_value | Custom value associated with a response | String
 edit_url | Weblink to the survey taking page to edit the response | String
 ip_address | IP Address the response was taken from | String
