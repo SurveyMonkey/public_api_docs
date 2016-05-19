@@ -59,10 +59,8 @@ s.post(url, data=payload)
 ```json
 {
   "total_time": 144,
-  "survey_completed": true,
   "ip_address": "192.168.4.16",
-  "recipient_id": "0",
-  "email_address": "",
+  "recipient_id": "",
   "id": "5007154402",
   "logic_path": {},
   "metadata": {},
@@ -74,7 +72,6 @@ s.post(url, data=payload)
   },
   "edit_url": "https://www.surveymonkey.com/r/",
   "custom_value": "custom identifier for the response",
-  "current_page_id": "0",
   "page_path": [],
   "pages": [{
     "id": "103332310",
@@ -86,7 +83,6 @@ s.post(url, data=payload)
     }]
   }],
   "collector_id": "50253690",
-  "survey_version": 17,
   "date_created": "2015-12-28T21:57:14+00:00",
   "survey_id": "105724755",
   "collection_mode": "default"
@@ -206,7 +202,7 @@ s.get(url, params=payload)
   "total": 1,
   "data": [{
     "total_time": 0,
-    "collection_mode": "normal",
+    "collection_mode": "default",
     "href": "https://api.surveymonkey.net/v3/responses/5007154325",
     "custom_variables": {
       "custvar_1": "one",
@@ -276,14 +272,17 @@ data[\_].survey_id | ID of the survey the response was taken for | String
 data[\_].collector_id | ID of the collector the response was taken for | String
 data[\_].recipient_id | ID of the recipient (only for email collectors) | String
 data[\_].total_time | Total time in seconds spent on the survey | Integer
+<<<<<<< HEAD
 data[\_].first_name | First name of the recipient (if recipient ID was provided) | String
 data[\_].last_name | Last name of the recipient (if recipient ID was provided) | String
+=======
+>>>>>>> 283dc6d... Fix response resources and examples
 data[\_].custom_value | Custom value associated with a response | String
 data[\_].edit_url | Weblink to the survey taking page to edit the response | String
 data[\_].ip_address | IP Address the response was taken from | String
 data[\_].custom_variables | Values to any available custom variables in the survey | Object
 data[\_].response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
-data[\_].collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit" | Object
+data[\_].collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit" | String-ENUM
 data[\_].date_created | Date the response was created | Date String
 data[\_].date_modified | Date the response was last modified  | Object
 data[\_].pages | Pages from the survey and their associated responses | Array
@@ -329,10 +328,8 @@ s.get(url)
 ```json
 {
   "total_time": 144,
-  "survey_completed": true,
   "ip_address": "192.168.4.16",
-  "recipient_id": "0",
-  "email_address": "",
+  "recipient_id": "",
   "id": "5007154402",
   "logic_path": {},
   "metadata": {},
@@ -344,10 +341,8 @@ s.get(url)
   },
   "custom_value": "custom identifier for the response",
   "edit_url": "https://www.surveymonkey.com/r/",
-  "current_page_id": "0",
   "page_path": [],
   "collector_id": "50253690",
-  "survey_version": 17,
   "date_created": "2015-12-28T21:57:14+00:00",
   "survey_id": "105724755",
   "collection_mode": "default"
@@ -371,22 +366,20 @@ survey_id | ID of the survey the response was taken for | String
 collector_id | ID of the collector the response was taken for | String
 recipient_id | ID of the recipient (only for email collectors) | String
 total_time | Total time in seconds spent on the survey | Integer
+<<<<<<< HEAD
 first_name | First name of the recipient (if recipient ID was provided) | String
 last_name | Last name of the recipient (if recipient ID was provided) | String
+=======
+>>>>>>> 283dc6d... Fix response resources and examples
 custom_value | Custom value associated with a response | String
 edit_url | Weblink to the survey taking page to edit the response | String
-survey_completed | Whether or not the the survey is completed | Boolean
 ip_address | IP Address the response was taken from | String
 custom_variables | Values to any available custom variables in the survey | Object
-email_address | Email address associated with a recipient | String
 logic_path | Logic path taken during the survey | Object
 metadata | Other associated metadata or custom values | Object
-first_name | First name associated with a recipient | String
 response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
-current_page_id |  ID of the page the respondent is currently on, "0" if completed | String
 page_path | The order in which the pages were responded to. | Array
-survey_version | The version of the survey the response was taken for | Integer
-collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit" | Object
+collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit" | String-ENUM
 date_created | Date the response was created | Date String
 date_modified | Date the response was last modified  | Object
 
@@ -420,10 +413,8 @@ s.get(url)
 ```json
 {
   "total_time": 144,
-  "survey_completed": true,
   "ip_address": "192.168.4.16",
-  "recipient_id": "0",
-  "email_address": "",
+  "recipient_id": "",
   "id": "5007154402",
   "logic_path": {},
   "metadata": {},
@@ -435,7 +426,6 @@ s.get(url)
   },
   "custom_value": "custom identifier for the response",
   "edit_url": "https://www.surveymonkey.com/r/",
-  "current_page_id": "0",
   "page_path": [],
   "pages": [{
     "id": "103332310",
@@ -447,7 +437,6 @@ s.get(url)
     }]
   }],
   "collector_id": "50253690",
-  "survey_version": 17,
   "date_created": "2015-12-28T21:57:14+00:00",
   "survey_id": "105724755",
   "collection_mode": "default"
@@ -466,22 +455,21 @@ survey_id | ID of the survey the response was taken for | String
 collector_id | ID of the collector the response was taken for | String
 recipient_id | ID of the recipient (only for email collectors) | String
 total_time | Total time in seconds spent on the survey | Integer
+<<<<<<< HEAD
 first_name | First name of the recipient (if recipient ID was provided) | String
 last_name | Last name of the recipient (if recipient ID was provided) | String
+=======
+>>>>>>> 283dc6d... Fix response resources and examples
 custom_value | Custom value associated with a response | String
 edit_url | Weblink to the survey taking page to edit the response | String
-survey_completed  | Whether or not the the survey is completed | Boolean
 ip_address | IP Address the response was taken from | String
 custom_variables | Values to any available custom variables in the survey | Object
-email_address | Email address associated with a recipient | String
 logic_path | Logic path taken during the survey | Object
 metadata | Other associated metadata or custom values | Object
-first_name | First name associated with a recipient | String
 response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
 current_page_id |  ID of the page the respondent is currently on, "0" if completed | String
 page_path | The order in which the pages were responded to. | Array
-survey_version | The version of the survey the response was taken for | Integer
-collection_mode| The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit"| Object
+collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit"| String-ENUM
 date_created | Date the response was created | Date String
 date_modified | Date the response was last modified  | Object
 pages | Pages from the survey and their associated responses | Array
