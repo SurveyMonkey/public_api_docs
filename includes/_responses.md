@@ -294,19 +294,24 @@ data[\_].pages[\_].questions[\_].answers[\_].text | Any open ended text | String
 
 
 
-###/responses/{id}
+###/surveys/{id}/responses/{id}
+
+Same as [/collectors/{id}/responses/{id}](#collectors-id-responses-id)
+
+###/collectors/{id}/responses/{id}
 
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/responses/{response_id}
+GET https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}
+GET https://api.surveymonkey.net/v3/collectors/{collector_id}/responses/{response_id}
 ```
 
 >Example Request
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/responses/{response_id}?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}?api_key=YOUR_API_KEY
 ```
 
 ```python
@@ -314,7 +319,7 @@ import requests
 
 s = requests.session()
 
-url = "https://api.surveymonkey.net/v3/responses/%s?api_key=%s" % (response_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s?api_key=%s" % (survey_id, response_id, YOUR_API_KEY)
 s.get(url)
 ```
 
@@ -374,19 +379,25 @@ date_created | Date the response was created | Date String
 date_modified | Date the response was last modified  | Object
 
 
-###/responses/{id}/details
+
+###/surveys/{id}/responses/{id}/details
+
+Same as [/collectors/{id}/responses/{id}/details](#collectors-id-responses-id-details)
+
+###/collectors/{id}/responses/{id}/details
 
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/responses/{response_id}/details
+GET https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}/details
+GET https://api.surveymonkey.net/v3/collectors/{collector_id}/responses/{response_id}/details
 ```
 
 >Example Request
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/responses/{response_id}/details?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}/details?api_key=YOUR_API_KEY
 ```
 
 ```python
@@ -394,7 +405,7 @@ import requests
 
 s = requests.session()
 
-url = "https://api.surveymonkey.net/v3/responses/%s/details?api_key=%s" % (response_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s/details?api_key=%s" % (survey_id, response_id, YOUR_API_KEY)
 s.get(url)
 ```
 
