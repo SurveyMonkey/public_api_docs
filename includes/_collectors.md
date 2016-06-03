@@ -368,7 +368,7 @@ s.post(url, data=payload)
 ```
 ####Available Methods
 
- * `POST`: Send or schedule to send an existing message to all message recipients that have not received the message. See [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients) to add recipients
+ * `POST`: Send or schedule to send an existing message to all message recipients. Targeted message must have a `status` of `not_sent`. See [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients) to add recipients to a message and [/collectors/{id}/messages](#collectores-id-messages) to create messages
 
 ####Request Body Arguments for POST
 
