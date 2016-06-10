@@ -472,7 +472,7 @@ Name | Description | Type
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
-####Page Resource
+####Page List Resource
 
 Name | Description | Type
 ------ | ------- | -------
@@ -481,7 +481,6 @@ data[\_].title | Page Title | String
 data[\_].description | Page Description | String
 data[\_].href | Resource API URL | String
 data[\_].position | Position of page in survey | Integer
-data[\_].question_count | Number of questions on the page | Integer
 
 ####Request Body Arguments for POST
 

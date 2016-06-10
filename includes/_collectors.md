@@ -592,11 +592,11 @@ Name |  Required |Description | Type
 ------ | ------- | ------- | -------
 data[\_].contact_ids | No | Contact ids | Array
 data[\_].contact_list_ids | No | Contact list ids | Array
-data[\_].email | No | Contact emails | String
-data[\_].first_name | No | Contact's first name | String
-data[\_].last_name  | No | Contact's last name | String
-data[\_].custom_fields | No | Custom fields for contact | Dictionary
-data[\_].extra_fields | No | Extra fields needed for the message body | Dictionary
+data[\_].contacts.email | No | Contact emails | String
+data[\_].contacts.first_name | No | Contact's first name | String
+data[\_].contacts.last_name  | No | Contact's last name | String
+data[\_].contacts.custom_fields | No | Custom fields for contact | Dictionary
+data[\_].contacts.extra_fields | No | Extra fields needed for the message body | Dictionary
 
 ####Bulk Response
 

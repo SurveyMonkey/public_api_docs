@@ -169,6 +169,7 @@ id | Benchmark Bundle id | String
 title | Benchmark Bundle name | String
 details | Benchmark Bundle description | String
 questions | The questions associated with the bundle | List
+href | Resource API URL | String
 
 
 ###/benchmark_bundles/{id}/analyze

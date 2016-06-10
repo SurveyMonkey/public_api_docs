@@ -354,8 +354,8 @@ s.get(url)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a response
- * `PATCH`: Modifies a response (updates any fields accepted as arguments to `POST` [/responses](#responses))
- * `PUT`: Replaces a response (same arguments and requirements as `POST` [/responses](#responses))
+ * `PATCH`: Modifies a response (updates any fields accepted as arguments to `POST` [/surveys/{id}/responses](#surveys-id-responses))
+ * `PUT`: Replaces a response (same arguments and requirements as `POST` [/surveys/{id}/responses](#surveys-id-responses))
  * `DELETE`: Deletes a response
 
 ####Response Resource
