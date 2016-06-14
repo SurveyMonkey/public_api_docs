@@ -235,6 +235,20 @@ If you think you may be in danger of exceeding your request-limit threshold, ple
 
 ##Error Codes
 
+>Example Error Response
+
+```json
+{
+  "error": {
+    "docs": "https://developer.surveymonkey.com/api/v3/#error-codes",
+    "message": "Oh bananas! We couldn’t process your request.",
+    "id": "1050",
+    "name": "Internal Server Error",
+    "http_status_code": 500
+  }
+}
+```
+
 |Error Code|HTTP Status Code|Message|
 |----------|----------------|-------|
 |1000|400 Bad Request|Unable to process the request with the provided input.|
