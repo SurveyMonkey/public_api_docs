@@ -244,7 +244,7 @@ s.get(url, params=payload)
 Name | Description | Type
 ------ | ------- | -------
 page | Page of resources to return. Defaults to 1 | Integer
-per_page | Number of resources to return per page | Integer
+per_page | Number of resources to return per page. Max of 100 allowed per page. | Integer
 collector_ids | Only include responses for this list of collector IDs | Comma Separated List
 start_created_at | Responses started after this date | Date String
 end_created_at | Responses started before this date | Date String
