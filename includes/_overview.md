@@ -72,7 +72,7 @@ If you are creating a Public app and using scopes that require SurveyMonkey's ap
 |View Webhooks|View webhooks to receive notifications when there are changes in your account|BASIC (Free)| 
 |Create/Modify Webhooks|Create and edit webhooks to receive notifications when there are changes in your account|BASIC (Free)| 
 |View Users|View your user information|BASIC (Free)| 
-|View Groups|View groups you belong to|PLATINUM/ENTERPRISE|
+|View Groups|View groups you belong to|GOLD|
 |View Library Assets|View your library of survey themes and templates|BASIC (Free)| 
 
 ##Authentication

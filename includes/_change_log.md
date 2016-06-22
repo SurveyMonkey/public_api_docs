@@ -234,3 +234,27 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Endpoints Affected**: [/surveys/{id}/responses/{id}](#surveys-id-responses-id), [/collectors/{id}/responses/{id}](#collectors-id-responses-id), [/surveys/{id}/responses/{id}/details](#surveys-id-responses-id-details), [/collectors/{id}/responses/{id}/details](#collectors-id-responses-id-details)
 
 **Developer Actions Required**: Update all apps currently pointing to '/responses/{id}' or '/responses/{id}/details'. The old endpoints with continue to work for the time being, and an email will be distributed to inform developers of their deprecation date.
+
+
+
+###June 22nd, 2016
+
+
+####Default Email Collector Message to HTML
+
+**Description of Changes**: Previously, a plaintext version of the default email message was used if no value was passed for 'body_text' or 'body_html'. This has been updated to default to an HTML version. 
+
+**Endpoints Affected**: [/collectors/{id}/messages](#collectors-id-messages), [/collectors/{id}/messages/{id}](#collectors-id-messages-id)
+
+**Developer Actions Required**: None
+
+
+####Make View Groups Available to Gold Plans
+
+**Description of Changes**: To align correctly with the availabilty of team collaboration (groups) through the SurveyMonkey website, the groups endpoints are now available to Gold level plans.
+
+**Endpoints Affected**: [/groups](#groups), [/groups/{id}](#groups-id), [/groups/{id}/members](#groups-id-members), [/groups/{id}/members/{id}](#groups-id-members-id)
+
+**Developer Actions Required**: Reauthorization of Gold users looking to make use of the affected endpoints.
+
+

@@ -441,11 +441,11 @@ payload = {
     "5": "Country",
     "6": "Phone Number"
   },
-  "extra_fields": [
+  "extra_fields": {
       "favorite_color": "Red",
       "second_favorite_color": "Black",
       "third_favorite_color": "Green"
-  ]
+  }
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients?api_key=%s" % (collector_id, message_id, YOUR_API_KEY)
 s.post(url, data=payload)
