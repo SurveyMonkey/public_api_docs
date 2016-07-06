@@ -178,7 +178,7 @@ payload = {
   "per_page": 2,
   "start_created_at": "2015-10-06T12:56:55+00:00",
   "end_created_at": "2015-10-06T12:56:55+00:00",
-  "status": "completely",
+  "status": "completed",
   "email": "test@surveymonkey.com",
   "first_name": "Jon",
   "last_name": "Doe",
