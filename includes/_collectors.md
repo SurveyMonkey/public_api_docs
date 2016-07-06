@@ -240,7 +240,15 @@ Name | Description | Type
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
-####Request Body Arguments for POST
+####Request Body Arguments for POST (if copying from existing message)
+
+Name | Required |Description | Type
+------ | ------- | ------- | -------
+from_collector_id | Yes | Collector ID to copy message from | String
+from_message_id | Yes | Message ID to copy from | String
+include_recipients | No | Include recipients attached to existing message | Boolean
+
+####Request Body Arguments for POST (if not copying from existing message)
 
 Name | Required |Description | Type
 ------ | ------- | ------- | -------

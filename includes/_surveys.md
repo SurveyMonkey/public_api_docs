@@ -91,13 +91,19 @@ data[\_].id | Survey id | String
 data[\_].title | Survey title | String
 data[\_].href | Resource API URL | String
 
-####Request Body Arguments for POST
+####Request Body Arguments for POST (if copying from existing survey or template)
 
 Name |Required| Description | Type
 ------ | ----- | ------- | -------
 title | No (default="New Survey")|Survey title | String
-from_template_id | No | Survey template to copy from. See [/survey_templates](#survey_templates). If defined, `title` is the only other applicable variable | String
-from_survey_id | No | Survey id to copy from. If defined, `title` is the only other applicable variable | String
+from_template_id | No (required if from_survey_id not provided) | Survey template to copy from. See [/survey_templates](#survey_templates) | String
+from_survey_id | No (required if from_template_id not provided) | Survey id to copy from | String
+
+####Request Body Arguments for POST (if creating blank survey)
+
+Name |Required| Description | Type
+------ | ----- | ------- | -------
+title | No (default="New Survey")|Survey title | String
 language | No (default="en") | Survey language | String
 buttons_text | No | Survey Buttons text container | Object
 buttons_text.next_button | No | Button text | String

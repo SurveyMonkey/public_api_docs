@@ -258,3 +258,16 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Developer Actions Required**: Reauthorization of Gold users looking to make use of the affected endpoints.
 
 
+
+###June 30th, 2016
+
+
+####Allow Copying from an Existing Email Message
+
+**Description of Changes**: POSTing to [/collectors/{id}/messages](#collectors-id-messages) with 'from_collector_id' and 'from_message_id' will copy an existing message with an option to include original set of recipients.
+
+**Endpoints Affected**: [/collectors/{id}/messages](#collectors-id-messages)
+
+**Developer Actions Required**: None
+
+

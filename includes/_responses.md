@@ -134,7 +134,7 @@ custom_value | No| A custom value to attach to the response for a [weblink colle
 date_created | No | Date the response was created | Date String
 response_status | No | Status of the response ['completed', 'partial', 'overquota', 'disqualified'] | String-ENUM
 ip_address | No | IP Address the response was taken from | String
-recipient_id | No | The recipient ID from an email collector | Integer
+recipient_id | No | The recipient ID from an email collector. See [collector recipient](#collectors-id-recipients-id) | Integer
 pages | Yes | Pages from the survey and their associated responses | Array
 pages[\_].id | Yes | The ID of the page with responses | Integer
 pages[\_].questions | Yes | The questions on that page with responses | Array
@@ -270,7 +270,7 @@ data[\_].id | Response id | String
 data[\_].href | URL for the response resource | String
 data[\_].survey_id | ID of the survey the response was taken for | String
 data[\_].collector_id | ID of the collector the response was taken for | String
-data[\_].recipient_id | ID of the recipient (only for email collectors) | String
+data[\_].recipient_id | ID of the recipient (only for email collectors). See [collector recipient](#collectors-id-recipients-id) | String
 data[\_].total_time | Total time in seconds spent on the survey | Integer
 data[\_].custom_value | Custom value associated with a response | String
 data[\_].edit_url | Weblink to the survey taking page to edit the response | String
@@ -364,7 +364,7 @@ Name | Description | Type
 ------ | ------- | -------
 survey_id | ID of the survey the response was taken for | String
 collector_id | ID of the collector the response was taken for | String
-recipient_id | ID of the recipient (only for email collectors) | String
+recipient_id | ID of the recipient (only for email collectors). See [collector recipient](#collectors-id-recipients-id) | String
 total_time | Total time in seconds spent on the survey | Integer
 custom_value | Custom value associated with a response | String
 edit_url | Weblink to the survey taking page to edit the response | String
@@ -454,7 +454,7 @@ Name | Description | Type
 ------ | ------- | -------
 survey_id | ID of the survey the response was taken for | String
 collector_id | ID of the collector the response was taken for | String
-recipient_id | ID of the recipient (only for email collectors) | String
+recipient_id | ID of the recipient (only for email collectors). See [collector recipient](#collectors-id-recipients-id) | String
 total_time | Total time in seconds spent on the survey | Integer
 custom_value | Custom value associated with a response | String
 edit_url | Weblink to the survey taking page to edit the response | String
