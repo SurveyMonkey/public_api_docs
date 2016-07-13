@@ -71,6 +71,7 @@ s.post(url, data=payload)
     "custvar_2": "two"
   },
   "edit_url": "https://www.surveymonkey.com/r/",
+  "analyze_url": "https://www.surveymonkey.com/analyze/browse/",
   "custom_value": "custom identifier for the response",
   "page_path": [],
   "pages": [{
@@ -210,6 +211,7 @@ s.get(url, params=payload)
     },
     "custom_value": "custom identifier for the response",
     "edit_url": "https://www.surveymonkey.com/r/",
+    "analyze_url": "https://www.surveymonkey.com/analyze/browse/",
     "ip_address": "",
     "pages": [{
       "id": "103332310",
@@ -274,6 +276,7 @@ data[\_].recipient_id | ID of the recipient (only for email collectors). See [co
 data[\_].total_time | Total time in seconds spent on the survey | Integer
 data[\_].custom_value | Custom value associated with a response | String
 data[\_].edit_url | Weblink to the survey taking page to edit the response | String
+data[\_].analyze_url | Weblink to the analyze page to view the response | String
 data[\_].ip_address | IP Address the response was taken from | String
 data[\_].custom_variables | Values to any available custom variables in the survey | Object
 data[\_].response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
@@ -341,6 +344,7 @@ s.get(url)
   },
   "custom_value": "custom identifier for the response",
   "edit_url": "https://www.surveymonkey.com/r/",
+  "analyze_url": "https://www.surveymonkey.com/analyze/browse/",
   "page_path": [],
   "collector_id": "50253690",
   "date_created": "2015-12-28T21:57:14+00:00",
@@ -368,6 +372,7 @@ recipient_id | ID of the recipient (only for email collectors). See [collector r
 total_time | Total time in seconds spent on the survey | Integer
 custom_value | Custom value associated with a response | String
 edit_url | Weblink to the survey taking page to edit the response | String
+analyze_url | Weblink to the analyze page to view the response | String
 ip_address | IP Address the response was taken from | String
 custom_variables | Values to any available custom variables in the survey | Object
 logic_path | Logic path taken during the survey | Object
@@ -427,6 +432,7 @@ s.get(url)
   },
   "custom_value": "custom identifier for the response",
   "edit_url": "https://www.surveymonkey.com/r/",
+  "analyze_url": "https://www.surveymonkey.com/analyze/browse/",
   "page_path": [],
   "pages": [{
     "id": "103332310",
@@ -458,6 +464,7 @@ recipient_id | ID of the recipient (only for email collectors). See [collector r
 total_time | Total time in seconds spent on the survey | Integer
 custom_value | Custom value associated with a response | String
 edit_url | Weblink to the survey taking page to edit the response | String
+analyze_url | Weblink to the analyze page to view the response | String
 ip_address | IP Address the response was taken from | String
 custom_variables | Values to any available custom variables in the survey | Object
 logic_path | Logic path taken during the survey | Object
