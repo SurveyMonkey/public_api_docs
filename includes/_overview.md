@@ -4,50 +4,64 @@
 
 <aside class="notice">SurveyMonkey recently released a v3 of our API! We've made some huge improvements with this version and we encourage you to check it out. If you already use our v2 API, you can find its documentation <a href="https://developer.surveymonkey.com/docs/overview/getting-started/">here</a>.</aside>
 
-The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will [register an app](#registering-an-app) in our developer portal. Before you register, you should determine if your app will eventually be [published](#publishing-an-app) as Public or Private and which [scopes](#scopes) you will need. If you are creating a Public app and using certain scopes, SurveyMonkey will need to approve your app before it can be published. Read more about [scopes](#scopes) and [publishing your app](#publishing-your-app) to determine if you should contact us before you begin to develop your app.
+The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will [register an app](#registering-an-app) in our developer portal. Before you register, you should determine if your app will eventually be [deployed](#deploying-an-app) as Public or Private and which [scopes](#scopes) you will need. If you are creating a Public app and using certain scopes, SurveyMonkey will need to approve your app before it can be deployed. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) to determine if you should contact us before you begin to develop your app.
 
-Newly registered apps are given a draft state window in which developers can use all paid scopes for free when querying against the associated SurveyMonkey account for up to 90 days. No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must publish your app as either Public or Private and upgrade your account as needed. 
+Newly registered apps are given a draft state window in which developers can use all paid scopes for free when querying against the associated SurveyMonkey account for up to 90 days. No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must deploy your app as either Public or Private and upgrade your account as needed. 
 
 SurveyMonkey lists code examples on [Github](https://github.com/SurveyMonkey) and monitors questions tagged as `surveymonkey` on [StackOverflow](http://stackoverflow.com/search?q=surveymonkey). If you have an SDK or example you would like added, let us know. We also offer email support at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com).
 
 ###Registering an App
  
-When registering your app it is important to know if you will eventually publish your app as Private or Public and which scopes you plan to use. If you are createing a Public app, the scopes you choose determine which paid plans your users will need and if SurveyMonkey needs to approve your app before it can be published. Read more about [scopes](#scopes) and [publishing your app](#publishing-your-app) before you register an app. 
+When registering your app it is important to know if you will eventually deploy your app as Private or Public and which scopes you plan to use. If you are createing a Public app, the scopes you choose determine which paid plans your users will need and if SurveyMonkey needs to approve your app before it can be deployed. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) before you register an app. 
 
 To register an app:
 
 1. Click on the **MY APPS** tab in the upper left corner and sign into your SurveyMonkey account.
 1. Enter an existing **Mashery User Name** and **API Secret** or accept our [API Developer terms of service](https://developer.surveymonkey.com/tou/) and sign up for a new Mashery account.
 1. Click **+ Add New App**. Enter your **App Name** and click **Create App**. Under **App Details** you will find an API key and secret you can use for OAuth and an access token for your own SurveMonkey account. New apps are given a 90 day draft state during which you can use paid scopes for free. 
-1. Click **Settings** to edit your app's **Redirect URI**, and review and adjust scopes for your app. Scopes allow your application to access particular resources on behalf of a user. For Public apps, the scopes you use determine which paid SurveyMonkey plan your app's users will need and if your application will need to be approved by SurveyMonkey before you can publish. Click on scopes to toggle their requirements and click **Update Scopes** when finished.
+1. Click **Settings** to edit your app's **Redirect URI**, and review and adjust scopes for your app. Scopes allow your application to access particular resources on behalf of a user. For Public apps, the scopes you use determine which paid SurveyMonkey plan your app's users will need and if your application will need to be approved by SurveyMonkey before you can deploy. Click on scopes to toggle their requirements and click **Update Scopes** when finished.
 
-###Publishing an App
+###Deploying an App
 
-When you create a new app you are given a 90-day draft window during which you can use all paid [scopes](#scopes) for free when querying against the associated SurveyMonkey account. No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must publish your app as either Public or Private or your app will be disabled. If your app is disabled, you can publish it as either Public or Private, or contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to request an extension.  
+When you create a new app you are given a 90-day draft window during which you can use all paid [scopes](#scopes) for free when querying against the associated SurveyMonkey account. 
 
-To publish your app:
+No other SurveyMonkey accounts can authenticate a draft app. 
 
- 1. [Upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) your account to the required plan. This will be Platinum for any Private apps and will vary for Public ones based on the scopes you use.
- 2. Visit your app's settings in the [developer portal](https://developer.surveymonkey.com/apps/) and select either **Public** or **Private**.
+Before the 90-day period ends, you must deploy your app as either Public or Private or your app will be disabled. If your app is disabled, you can deploy it as either Public or Private, or contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to request an extension.  
 
-####Public Apps
+To deploy your app:
 
-The [scopes](#scopes) that your app uses will determine the [SurveyMonkey plan level](https://www.surveymonkey.com/pricing/?ut_source=dev_portal) needed by those that use it. 
+ 1. Visit your app's settings in the [developer portal](https://developer.surveymonkey.com/apps/) and select either **Public** or **Private**. See below for details on these options.
+ 2. If necessary, [upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) your account to the required plan. This will be Platinum for any Private apps and will vary for Public ones based on the scopes you use.
 
-Publish as a Public app only if:
+####Public Apps 
+
+Deploy as a Public app only if:
 
  * your app will be used by many SurveyMonkey accounts that do not belong to the same group plan. 
 
-If a public app is going to use the **Create/Modify Surveys** or **Create/Modify Responses** scopes, your use case must be approved by SurveyMonkey before your app can be published. If you are creating a public app that will use these scopes, please contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
+Examples of Public apps include:
+
+ * An integration of SurveyMonkey functionality into a pre-existing tool
+ * Stand alone applications that extend SurveyMonkey's functionality  
+
+The [scopes](#scopes) that your app uses determines the [SurveyMonkey plan level](https://www.surveymonkey.com/pricing/?ut_source=dev_portal) users will need to access it. 
+
+If a public app is going to use the **Create/Modify Surveys** or **Create/Modify Responses** scopes, your use case must be approved by SurveyMonkey before your app can be deployed. If you are creating a public app that will use these scopes, please contact us at [api-support@surveymonkey.comublish](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
 
 ####Private Apps
 
-Publishing as a Private app requires you to [upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to a Platinum or Platinum group plan. Private apps can use all available scopes. 
+Deploying as a Private app requires you to [upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to a Platinum or Platinum group plan. Private apps can use all available scopes. 
 
-Publish as a Private app if:
+Deploy as a Private app if:
 
- * your app will only be used by SurveyMonkey accounts that belong to the same [Platinum group plan](http://help.surveymonkey.com/articles/en_US/kb/Groups), or 
- * your app will only be used by one individual Platinum SurveyMonkey account. 
+ * your app will only be used by one Platinum SurveyMonkey account or many SurveyMonkey accounts that belong to the same [Platinum group plan](http://help.surveymonkey.com/articles/en_US/kb/Groups)/
+
+ Examples of Private apps include:
+
+ * A developer uses the API to send surveys or import survey results data from their own account
+ * A developer purchases SurveyMonkey seats on behalf of employees or customers and builds an application for multiple users
+ 
 
 ###Scopes
 
@@ -55,7 +69,7 @@ Scopes allow your application to access particular resources on behalf of a user
 
 Some scopes are only available to accounts on SurveyMonkey paid plans. If your Public application uses scopes tied to paid plans, any accounts authenticating with your application need that plan or higher. 
 
-If you are creating a Public app and using scopes that require SurveyMonkey's approval to publish, please contact us at  [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
+If you are creating a Public app and using scopes that require SurveyMonkey's approval to deploy, please contact us at  [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
 
 
 |Scope Name|Scope Description (text used for OAuth, "you" refers to owner of authenticating account)|Plan Needed|
@@ -75,17 +89,42 @@ If you are creating a Public app and using scopes that require SurveyMonkey's ap
 |View Groups|View groups you belong to|GOLD|
 |View Library Assets|View your library of survey themes and templates|BASIC (Free)| 
 
+##Request and Response Limits 
+
+You can [upgrade your SurveyMonkey account](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to get higher request limits. When you upgrade to a higher plan, it can take up to an hour for your new request limit to take effect.
+
+####Request Limits 
+
+All Public and Private apps will initially be subject to the following API Rate limits:
+
+| Max Requests Per Second | Max Requests Per Day
+| ------- | -------
+8 | 10,000
+
+####Increasing Limits
+
+If you think you may be in danger of exceeding your request-limit threshold, please [fill out this form](https://surveymonkey.wufoo.com/forms/apis-advanced-access-request/) with an estimate of your anticipated API activity. SurveyMonkey will review all requests within 5 business days. Additional fees may apply for increased rate limits.
+
+####Response Limits
+
+We also have global response limits for database utilization fair use.
+
+Property | Limit
+------- | -------
+Max Page Size | 1000 unless otherwise specified
+Max Survey Size | 1000 questions, surveys over limit will return a 413
+
 ##Authentication
 
 The SurveyMonkey API supports OAuth 2.0. 
 
 ![OAuth 2](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/oauth_2.png)
 
-If you have a [Private application](#publishing-your-app) and will only access your own SurveyMonkey account, you can use the access token, generated when you registered your app, as part of your application's configuration. Obtain this token in the **Settings** of your app in the [**MY APPS**](https://developer.surveymonkey.com/apps/) tab.
+If you have a [Private application](#deploying-your-app) and will only access your own SurveyMonkey account, you can use the access token, generated when you registered your app, as part of your application's configuration. Obtain this token in the **Settings** of your app in the [**MY APPS**](https://developer.surveymonkey.com/apps/) tab.
 
 If your application will access many SurveyMonkey accounts, implement the OAuth 2.0 three-step flow outlined below to allow users to authorize your app to access their accounts. This flow generates a long-lived access token your application can use with every API call to the associated SurveyMonkey account. It's important to note that the access token only grants access when used in combination with your API credentials (API key and client ID) and only to the SurveyMonkey account which was authorized. Your application will need to obtain additional access tokens for each SurveyMonkey account you wish to access. 
 
-If your [Public application](#publishing-your-app) has required [scopes](#scopes), users may need a [paid SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to successfully Oauth into your application.   
+If your [Public application](#deploying-your-app) has required [scopes](#scopes), users may need a [paid SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to successfully Oauth into your application.   
 
 ####Step 1: Direct user to SurveyMonkey's OAuth authorization page
 
@@ -206,32 +245,6 @@ To unauthorize an app:
 1. Log into the linked SurveyMonkey account 
 2. Select **My Account** from the username dropdown in the upper right
 3. Scroll to **Linked Accounts** and click **Remove** next to the app you want to unauthorize
-
-##Request and Response Limits 
-
-You can [upgrade your SurveyMonkey account](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to get higher request limits. When you upgrade to a higher plan, it can take up to an hour for your new request limit to take effect.
-
-####Request Limits for SurveyMonkey Plans
-
-Plan | Max Requests Per Second | Max Requests Per Day
-------- | ------- | -------
-BASIC (free) | 2 | 1,000
-SELECT | 4 | 5,000
-GOLD | 6 | 7,000
-PLATINUM/ENTERPRISE | 10 | 15,000
-
-####Response Limits
-
-We also have global response limits for database utilization fair use.
-
-Property | Limit
-------- | -------
-Max Page Size | 1000 unless otherwise specified
-Max Survey Size | 1000 questions, surveys over limit will return a 413
-
-####Increasing Limits
-
-If you think you may be in danger of exceeding your request-limit threshold, please [fill out this form](https://surveymonkey.wufoo.com/forms/apis-advanced-access-request/) with an estimate of your anticipated API activity. We may be able to increase your limit to meet your application's needs.
 
 ##Error Codes
 

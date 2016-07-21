@@ -82,6 +82,7 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Developer Actions Required**: None
 
 
+
 ###April 21st, 2016
 
 
@@ -271,3 +272,45 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Developer Actions Required**: None
 
 
+
+###July 13th, 2016
+
+
+####Add Response Analyze URL
+
+**Description of Changes**: Return response analyze URL, 'analyze_url' for response resource. User needs to be logged in to visit the URL.
+
+**Endpoints Affected**: [/surveys/{id}/responses/{id}](#surveys-id-responses-id), [/collectors/{id}/responses/{id}](#collectors-id-responses-id)
+
+**Developer Actions Required**: None
+
+
+####Improve OAuth Error Page
+
+**Description of Changes**: Users confronted with a disabled app, or a private app they do not have access to will be provided with a improved error page describing the issue and an option to log in as a different user in the latter case.
+
+**Endpoints Affected**: /oauth/authorize
+
+**Developer Actions Required**: None
+
+
+
+###July 25th, 2016
+
+
+####Fix Forbidden Access 500s
+
+**Description of Changes**: A number of endpoints listed below were returning a 500 is one or more of the resources did not belong to the user. This has been fixed to return 404s.
+
+**Endpoints Affected**: [/benchmark_bundles/{id}/analyze](#benchmark_bundles-id-analyze), [/surveys/{id}/collectors](#surveys-id-collectors), [/collectors/{id}/messages](#collectors-id-messages), [/surveys/{id}/pages](#surveys-id-pages), [/surveys/{id}/pages/{id}](#surveys-id-pages-id), [/surveys/{id}/pages/{id}/questions](#surveys-id-pages-id-questions), [/surveys/{id}/pages/{id}/questions/{id}](#surveys-id-pages-id-questions-id), [/surveys/{id}/responses/{id}](#surveys-id-responses-id), [/collectors/{id}/responses/{id}](#collectors-id-responses-id), [/collectors/{id}/recipients/{id}](#collectors-id-recipients-id)
+
+**Developer Actions Required**: Remove any application dependencies that rely on the existing functionality.
+
+
+####Add Subject to Email Message List
+
+**Description of Changes**: Return 'subject' in collector email message resource list.
+
+**Endpoints Affected**: [/collectors/{id}/messages](#collectors-id-messages)
+
+**Developer Actions Required**: None
