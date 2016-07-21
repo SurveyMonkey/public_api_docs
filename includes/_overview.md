@@ -99,7 +99,7 @@ All Public and Private apps will initially be subject to the following API Rate 
 
 | Max Requests Per Second | Max Requests Per Day
 | ------- | -------
-8 | 5,000
+8 | 10,000
 
 ####Increasing Limits
 
