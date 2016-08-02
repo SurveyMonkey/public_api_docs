@@ -40,6 +40,7 @@ s.post(url, data=payload)
 ```json
 {
   "title": "My Survey",
+  "category":"",
   "language": "en",
   "question_count": 10,
   "page_count": 10,
@@ -154,6 +155,7 @@ s.get(url)
 ```json
 {
   "title": "My Survey",
+  "category": "",
   "language": "en",
   "question_count": 0,
   "page_count": 0,
@@ -387,8 +389,12 @@ s.get(url, params=payload)
   "data": [{
     "category": "community",
     "name": "Template Name",
+    "title": "Template Name"
     "available": true,
-    "id": "49"
+    "id": "49",
+    "num_questions":10,
+    "description":"Template description",
+    "preview_link":"https://www.surveymonkey.com/s.aspx?PREVIEW_MODE=DO_NOT_USE_THIS_LINK_FOR_COLLECTION&sm=ID"
   }],
   "links": {
     "self": "https://api.surveymonkey.net/v3/survey_templates?page=1&per_page=1"
