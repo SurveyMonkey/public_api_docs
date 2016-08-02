@@ -40,7 +40,7 @@ s.post(url, data=payload)
 ```json
 {
   "title": "My Survey",
-  "category":""
+  "category":"",
   "language": "en",
   "question_count": 10,
   "page_count": 10,
@@ -58,7 +58,6 @@ s.post(url, data=payload)
     "name": "label"
   },
   "preview": "https://www.surveymonkey.com/r/Preview/",
-  "href":"https://api.surveymonkey.net/v3/surveys/{id}",
   "edit_url": "https://www.surveymonkey.com/create/",
   "collect_url": "https://www.surveymonkey.com/collect/list",
   "analyze_url": "https://www.surveymonkey.com/analyze/",
@@ -156,7 +155,7 @@ s.get(url)
 ```json
 {
   "title": "My Survey",
-  "category": "Just for Fun".
+  "category": "",
   "language": "en",
   "question_count": 0,
   "page_count": 0,
