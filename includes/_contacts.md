@@ -371,7 +371,19 @@ s.post(url, data=payload)
 ```
 ####Available Methods
 
+ * `GET`: Returns a list of all contacts in the list with all available fields
  * `POST`: Creates multiple contacts and adds them to a list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages) 
+
+####Contacts List Resource
+
+Name | Description | Type
+------ | ------- | -------
+data[\_].id | Contact id | String
+data[\_].first_name | Contact first name | String
+data[\_].last_name | Contact last name | String
+data[\_].email | Contact email address | String
+data[\_].custom_fields | Contact custom fields | Dictionary
+data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
@@ -541,7 +553,19 @@ s.post(url, data=payload)
 ```
 ####Available Methods
 
+ * `GET`: Returns a list of all contacts with all available fields
  * `POST`: Creates multiple contacts, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages) 
+
+####Contacts List Resource
+
+Name | Description | Type
+------ | ------- | -------
+data[\_].id | Contact id | String
+data[\_].first_name | Contact first name | String
+data[\_].last_name | Contact last name | String
+data[\_].email | Contact email address | String
+data[\_].custom_fields | Contact custom fields | Dictionary
+data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
