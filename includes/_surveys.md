@@ -402,6 +402,8 @@ s.get(url, params=payload)
 }
 ```
 
+<aside class="notice"><strong>NOTE for Teams/Groups</strong>: Shared<a href="http://help.surveymonkey.com/articles/en_US/kb/Library/?zip=zip_3">Team templates</a>are not available through the API at this time. This endpoint returns SurveyMonkey's <a href="http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-surveys-from-a-selection-of-survey-templates">template list</a>.</aside>
+
 ####Available Methods
 
  * `HEAD`: Checks if resource is available
