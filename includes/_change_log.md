@@ -314,3 +314,16 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Endpoints Affected**: [/collectors/{id}/messages](#collectors-id-messages)
 
 **Developer Actions Required**: None
+
+
+
+###August 4th, 2016
+
+
+####Add Bulk Contact Fetch
+
+**Description of Changes**: Add GET method to contact bulk endpoints to return complete contact information for large numbers of contacts.
+
+**Endpoints Affected**: [/contact_lists/{id}/contacts/bulk](#contact_lists-id-contacts-bulk), [/contacts/bulk](#contacts-bulk)
+
+**Developer Actions Required**: None
