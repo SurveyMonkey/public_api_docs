@@ -62,10 +62,73 @@ payload = {
 url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s/questions" % (survey_id, page_id, YOUR_API_KEY)
 s.post(url, data=payload)
 
+
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  headings: [
+    {
+      random_assignment: {
+        position: 1,
+        percent: 50
+      },
+      heading: "Multiple Choice with Random Assignment v1"
+    },
+    {
+      random_assignment: {
+        position: 2,
+        percent: 50
+      },
+      heading: "Multiple Choice with Random Assignment v2"
+    }
+  ],
+  family: "single_choice",
+  subtype: "vertical",
+  answers: {
+    choices: [
+      {
+        text: "a",
+        visible: true,
+        position: 1
+      },
+      {
+        text: "b",
+        visible: true,
+        position: 2
+      },
+      {
+        text: "c",
+        visible: true,
+        position: 3
+      }
+    ]
+  },
+  position: 3
+};
+
+SurveyMonkeyClient.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.getPage(2222).then(function(myPage) {
+    myPage.createQuestion(payload).then(function(newQuestion) {
+      // handle success
+    })
+  });
+});
+```
+
 ####Response
 Same as request, but with two additional fields (id, href)
 
-```
 
 ####Available Methods
 
@@ -184,11 +247,33 @@ s = requests.session()
 url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s/questions/%s" % (survey_id, page_id, question_id, YOUR_API_KEY)
 s.get(url)
 
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.getPage(2222).then(function(myPage) {
+    myPage.getQuestion(2321).then(function(myQuestion) {
+      // handle success
+    });
+  });
+});
+```
+
+
 ####Response
 
 Same as `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions)
 
-```
 
 ####Available Methods
 

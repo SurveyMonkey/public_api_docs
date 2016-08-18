@@ -21,6 +21,22 @@ url = "https://api.surveymonkey.net/v3/groups?api_key=%s" % YOUR_API_KEY
 s.get(url)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getGroupPage().then(function(groupList) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -83,6 +99,22 @@ url = "https://api.surveymonkey.net/v3/groups/%s?api_key=%s" % (group_id, YOUR_A
 s.get(url)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getGroup(1234).then(function(myGroup) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -140,6 +172,24 @@ s = requests.Session()
 
 url = "https://api.surveymonkey.net/v3/groups/%s/members?api_key=%s" % (group_id, YOUR_API_KEY)
 s.get(url)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getGroup(1234).then(function(myGroup) {
+  myGroup.getMemberPage().then(function(memberList) {
+    // handle success
+  });
+});
 ```
 
 >Example Response
@@ -203,6 +253,24 @@ s = requests.Session()
 
 url = "https://api.surveymonkey.net/v3/groups/%s/members/%s?api_key=%s" % (group_id, member_id, YOUR_API_KEY)
 s.get(url)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getGroup(1234).then(function(myGroup) {
+  myGroup.getMember(222).then(function(myMember) {
+    // handle success
+  });
+});
 ```
 
 >Example Response
