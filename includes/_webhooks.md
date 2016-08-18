@@ -40,6 +40,32 @@ url = "https://api.surveymonkey.net/v3/webhooks?api_key=%s" % YOUR_API_KEY
 s.post(url, data=payload)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  name: 'My Webhook',
+  event_type: 'response_completed',
+  object_type: 'survey',
+  object_ids: ['1234', '5678'],
+  subscription_url: 'https://surveymonkey.com/webhook_reciever'
+};
+
+SurveyMonkeyClient.createWebhook(payload).then(function(newWebhook) {
+  // handle success
+}, function(error) {
+  // handle error
+});
+```
+
 >Example Response
 
 ```json
@@ -107,6 +133,24 @@ s = requests.session()
 
 url = "https://api.surveymonkey.net/v3/webhooks/%s?api_key=%s" % (webhook_id, YOUR_API_KEY)
 s.get(url)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getWebhook(1234).then(function(webhook) {
+  // handle success
+}, function(error) {
+  // handle error
+});
 ```
 
 >Example Response
