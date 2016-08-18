@@ -194,7 +194,7 @@ POST https://api.surveymonkey.net/v3/collectors/{collector_id}/messages
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/collectors/1234/messages?api_key=YOUR_API_KEY -d '{"subject":"Please help me by taking my survey", "body_text":"Thank you in advance for taking my survey. [SurveyLink], [OptOutLink], [FooterLink]","is_branding_enabled":True}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/collectors/1234/messages?api_key=YOUR_API_KEY -d '{"type":"invite"}'
 ```
 
 ```python
@@ -203,9 +203,6 @@ import requests
 s = requests.session()
 
 payload = {
-  'subject': 'Please help me by taking my survey',
-  'body_text': 'Thank you in advance for taking my survey. [SurveyLink], [OptOutLink], [FooterLink]',
-  'is_branding_enabled': True,
   'type': 'invite'
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages?api_key=%s" % (collector_id, YOUR_API_KEY)
@@ -215,18 +212,21 @@ s.post(url)
 >Example Response
 
 ```json
-{
-    "status": "not_sent",
-    "is_scheduled": false,
-    "subject": "Please help me by taking my survey",
-    "body": "Thank you in advance for taking my survey. [SurveyLink], [OptOutLink], [FooterLink]",
-    "is_branding_enabled": true,
-    "date_created": "2015-10-06T12:56:55+00:00",
-    "type": "invite",
-    "id": "1234",
-    "href": "https://api.surveymonkey.net/v3/collectors/1234/messages/2345"
+{  
+   "status":"not_sent",
+   "body":"\n<html>\n\n<body style=\"margin:0; padding: 0;\">\n    <div align=\"center\">\n        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" width=\"100%\" style=\"font-family: Arial,Helvetica,sans-serif; max-width: 700px;\">\n            <tr bgcolor=\"#A7BC38\">\n                <td colspan=\"5\" height=\"40\">\u00a0<\/td> <\/tr>\n            <tr bgcolor=\"#A7BC38\">\n                <td width=\"20\">\u00a0<\/td>\n                <td width=\"20\">\u00a0<\/td>\n                <td align=\"center\" style=\"font-size: 29px; color:#FFFFFF; font-weight: normal; letter-spacing: 1px; line-height: 1;                           text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2); font-family: Arial,Helvetica,sans-serif;\"> Survey Title <\/td>\n                <td width=\"20\">\u00a0<\/td>\n                <td width=\"20\">\u00a0<\/td> <\/tr>\n            <tr bgcolor=\"#A7BC38\">\n                <td colspan=\"5\" height=\"40\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td height=\"10\" colspan=\"5\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td>\u00a0<\/td>\n                <td colspan=\"3\" align=\"left\" valign=\"top\" style=\"color:#666666; font-size: 13px;\"> {% if FirstQuestion %}\n                    <p>{{EmbeddedBody}}<\/p> {% else %}\n                    <p>We're conducting a survey and your input would be appreciated. Click the button below to start the survey. Thank you for your participation!<\/p> {% endif %} <\/td>\n                <td>\u00a0<\/td> <\/tr> {% if FirstQuestion %}\n            <tr>{{FirstQuestion}}<\/tr> {% else %}\n            <tr>\n                <td colspan=\"5\" height=\"30\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td>\u00a0<\/td>\n                <td colspan=\"3\">\n                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" style=\"background:#A7BC38; border-radius: 4px; border: 1px solid #BBBBBB; color:#FFFFFF; font-size:14px; letter-spacing: 1px; text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8); padding: 10px 18px;\">\n                        <tr>\n                            <td align=\"center\" valign=\"center\"> <a href=\"[SurveyLink]\" target=\"_blank\" style=\"color:#FFFFFF; text-decoration:none;\">Begin Survey<\/a> <\/td> <\/tr> <\/table> <\/td>\n                <td>\u00a0<\/td> <\/tr>\n            <tr>\n                <td colspan=\"5\" height=\"30\">\u00a0<\/td> <\/tr> {% endif %}\n            <tr valign=\"top\" style=\"color: #666666;font-size: 10px;\">\n                <td>\u00a0<\/td>\n                <td valign=\"top\" align=\"center\" colspan=\"3\">\n                    <p>Please do not forward this email as its survey link is unique to you.\n                        <br><a href=\"[OptOutLink]\" target=\"_blank\" style=\"color: #333333; text-decoration: underline;\">Unsubscribe<\/a> from this list<\/p> <\/td>\n                <td>\u00a0<\/td> <\/tr>\n            <tr>\n                <td height=\"20\" colspan=\"5\">\u00a0<\/td> <\/tr>\n            <tr style=\"color: #999999;font-size: 10px;\">\n                <td align=\"center\" colspan=\"5\">[FooterLink]<\/td> <\/tr>\n            <tr>\n                <td height=\"20\" colspan=\"5\">\u00a0<\/td> <\/tr> <\/table><\/div><\/body>\n\n<\/html>\n",
+   "recipient_status":null,
+   "is_branding_enabled":true,
+   "href":"https:\/\/api.surveymonkey.net\/v3\/collectors\/150001976\/messages\/31454399",
+   "is_scheduled":false,
+   "scheduled_date":null,
+   "date_created":"2016-08-17T23:47:37+00:00",
+   "type":"invite",
+   "id":"31454399",
+   "subject":"We want your opinion"
 }
 ```
+<aside class="notice">Email Invitations created with the SurveyMonkey API are subject to our <a href="https://www.surveymonkey.com/mp/policy/anti-spam-policy/">Anti Spam Policy. While you can edit the text surrounding the opt out link to better customize your invitation message, per our Anti-Spam Policy you must clearly explain what the opt out link does, and you should not attempt to hide the link in the message.</a></aside>
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
@@ -255,8 +255,8 @@ Name | Required |Description | Type
 type | Yes | Message type: 'invite', 'reminder', or 'thank_you' | String-ENUM
 recipient_status | No. If type is 'reminder', acceptable values are: 'has_not_responded' or 'partially_responded', with the default being 'has_not_responded'. If type is 'thank_you', acceptable values are :'completed', 'responded', or 'partially_responded', with the default being 'completed' | Set of recipients to send to | String-ENUM  
 subject | No (default="Please help me by taking my survey") | Subject of the email message to be sent to recipients | String
-body_text | No (default="Thank you in advance for taking my survey. [SurveyLink], [OptOutLink], [FooterLink]")| The plain text body of the email message to be sent to recipients. Message must include [SurveyLink], [OptOutLink], and [FooterLink] | String
-body_html | No (default="Thank you in advance for taking my survey. [SurveyLink], [OptOutLink], [FooterLink]")| The html body of the email message to be sent to recipients. This overrides body_text. Message must include [SurveyLink], [OptOutLink], and [FooterLink] | String
+body_text | No | The plain text body of the email message to be sent to recipients. Message must include [SurveyLink], [OptOutLink], and [FooterLink] and the opt out link must be clearly labeled. | String
+body_html | No | The html body of the email message to be sent to recipients. This overrides body_text. Message must include [SurveyLink], [OptOutLink], and [FooterLink] and the opt out link must be clearly labeled.| String
 is_branding_enabled | No (default=True) | Whether the email has SurveyMonkey branding  | Boolean
 
 
