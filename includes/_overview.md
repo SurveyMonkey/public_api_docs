@@ -161,8 +161,9 @@ def oauth_dialog(client_id, redirect_uri, api_key):
 	# Insert code here that redirects user to OAuth Dialog url
 ```
 
+
 ```javascript
-var SurveyMonkeyClient = require('surveymonkey-client);
+var SurveyMonkeyClient = require('surveymonkey-v3');
 var smsdk = new SurveyMonkeyClient({
   apiKey: 'your-api-key',
   secret: 'your-secret',
@@ -196,6 +197,11 @@ def handle_redirect(redirect_uri):
 		return
 
 	return authorization_code[0]
+```
+
+
+```javascript
+// see below
 ```
 
 ####Step 3: Exchanging for a long-lived access token
@@ -238,6 +244,29 @@ def exchange_code_for_token(auth_code, api_key, client_secret, client_id, redire
 	else:
 		print access_json
 		return None
+```
+
+
+```javascript
+var app = express();
+var smsdk = new SurveyMonkeyClient({...});
+
+// simple express handling of redirect
+// exchange the temporary code for long-lived token
+app.get('/redirect, function(req, res) {
+    var code = req.query.code;
+
+    smsdk.getTokenForCode(code, function(err, resp, body) {
+        var token = JSON.parse(body).access_token;
+        if (token) {
+            // authorization successful
+            // use access token with the client
+            smsdk.setAccessToken(token);
+        } else {
+            // authorization failed
+        }
+    });
+});
 ```
 
 ####Keeping the access token safe
