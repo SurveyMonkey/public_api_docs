@@ -226,7 +226,7 @@ s.post(url)
    "subject":"We want your opinion"
 }
 ```
-<aside class="notice">Email Invitations created with the SurveyMonkey API are subject to our <a href="https://www.surveymonkey.com/mp/policy/anti-spam-policy/">Anti Spam Policy. While you can edit the text surrounding the opt out link to better customize your invitation message, per our Anti-Spam Policy you must clearly explain what the opt out link does, and you should not attempt to hide the link in the message.</a></aside>
+<aside class="notice">Email Invitations created with the SurveyMonkey API are subject to our <a href="https://www.surveymonkey.com/mp/policy/anti-spam-policy/">Anti Spam Policy</a>. While you can edit the text surrounding the opt out link to better customize your invitation message, per our Anti-Spam Policy you must clearly explain what the opt out link does, and you should not attempt to hide the link in the message.</aside>
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
