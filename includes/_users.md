@@ -25,6 +25,22 @@ url = "https://api.surveymonkey.net/v3/users/me?api_key=%s" % YOUR_API_KEY
 s.get(url)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getUser().then(function(user) {
+  // handle success
+});
+```
+
 ####Available Methods
 
  * `HEAD`: Checks if resource is available
