@@ -28,6 +28,22 @@ url = "https://api.surveymonkey.net/v3/benchmark_bundles?api_key=%s" % YOUR_API_
 s.get(url)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getBenchmarkBundlePage().then(function(benchmarkList) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -111,6 +127,22 @@ s = requests.session()
 
 url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s?api_key=%s" % (bundle_id, YOUR_API_KEY)
 s.get(url)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getBenchmarkBundle(1234).then(function(benchmarkBundle) {
+  // handle success
+});
 ```
 
 >Example Response
@@ -199,6 +231,30 @@ payload = {
 }
 url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s/analyze?api_key=%s" % (bundle_id, YOUR_API_KEY)
 s.get(url, params=payload)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  question_ids: [123, 456],
+  percentile_start: 1,
+  percentile_end: 100
+};
+
+SurveyMonkeyClient.getBenchmarkBundle(1234).then(function(benchmarkBundle) {
+  benchmarkBundle.analyze().then(function(response) {
+    // handle success
+  });
+});
 ```
 
 >Example Response
@@ -302,6 +358,28 @@ url = "https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/quest
 s.get(url)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.getPage(111).then(function(myPage) {
+    myPage.getQuestion(122).then(function(myQuestion) {
+      myQuestion.getBenchmark().then(function(response) {
+        // handle success
+      });
+    });
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -331,6 +409,8 @@ s.get(url)
   "id": "327620251"
 }
 ```
+
+
 
 ####Available Methods
 

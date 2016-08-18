@@ -38,8 +38,6 @@ var smc = new SurveyMonkeyClient({
 
 SurveyMonkeyClient.getUser().then(function(user) {
   // handle success
-}, function(error) {
-  // handle error
 });
 ```
 

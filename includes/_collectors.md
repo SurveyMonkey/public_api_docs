@@ -28,6 +28,28 @@ url = "https://api.surveymonkey.net/v3/surveys/%s/collectors?api_key=%s" % (surv
 s.post(url, data=payload)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  type: 'weblink'
+};
+
+SurveyMonkeyClient.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.createCollector(payload).then(function(newCollector) {
+    // handle success
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -122,6 +144,26 @@ url = "https://api.surveymonkey.net/v3/collectors/%s?api_key=%s" % (collector_id
 s.get(url)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  type: 'weblink'
+};
+
+SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -212,6 +254,31 @@ url = "https://api.surveymonkey.net/v3/collectors/%s/messages?api_key=%s" % (col
 s.post(url)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  subject: 'Please help me by taking my survey',
+  body_text: 'Thank you in advance for taking my survey. [SurveyLink], [OptOutLink], [FooterLink]',
+  is_branding_enabled: True,
+  type: 'invite'
+};
+
+SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+  myCollector.createMessage(payload).then(function(newMessage) {
+    // handle success
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -286,6 +353,25 @@ s = requests.session()
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s?api_key=%s" % (collector_id, message_id, YOUR_API_KEY)
 s.get(url)
 ```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+  myCollector.getMessage(122).then(function(myMessage) {
+    // handle success
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -351,6 +437,28 @@ payload = {
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/send?api_key=%s" % (collector_id, message_id, YOUR_API_KEY)
 s.post(url, data=payload)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var date = '2015-10-06T12:56:55+00:00';
+
+SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+  myCollector.getMessage(122).then(function(myMessage) {
+    myMessage.send(date).then(function(response) {
+      // handle success
+    });
+  });
+});
 ```
 
 >Example Request
@@ -426,6 +534,30 @@ url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients?api_
 s.post(url, data=payload)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  'contact_id': 1234
+};
+
+SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+  myCollector.getMessage(122).then(function(myMessage) {
+    myMessage.createRecipient(payload).then(function(newRecipient) {
+      // handle success
+    });
+  });
+});
+```
+
 >Example Request (without contact_id)
 
 ```shell
@@ -457,6 +589,45 @@ payload = {
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients?api_key=%s" % (collector_id, message_id, YOUR_API_KEY)
 s.post(url, data=payload)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  email: "test@surveymonkey.com",
+  first_name: "John",
+  last_name: "Doe",
+  custom_fields: {
+    1: "Mr",
+    2: "Company",
+    3: "Address",
+    4: "City",
+    5: "Country",
+    6: "Phone Number"
+  },
+  extra_fields: {
+      favorite_color: "Red",
+      second_favorite_color: "Black",
+      third_favorite_color: "Green"
+  }
+};
+
+SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+  myCollector.getMessage(122).then(function(myMessage) {
+    myMessage.createRecipient(payload).then(function(newRecipient) {
+      // handle success
+    });
+  });
+});
 ```
 
 >Example Response
@@ -573,6 +744,49 @@ payload = {
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients?api_key=%s" % (collector_id, message_id, YOUR_API_KEY)
 s.post(url, data=payload)
 ```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  contact_ids: ["1234", "5678"],
+  contact_list_ids: ["1234567", "4567890"],
+  contacts: [{
+    email: "test@surveymonkey.com",
+    first_name: "John",
+    last_name: "Doe",
+    custom_fields: {
+      1: "Mr",
+      2: "Company",
+      3: "Address",
+      4: "City",
+      5: "Country",
+      6: "Phone Number"
+    },
+    extra_fields: {
+        favorite_color: "Red",
+        second_favorite_color: "Black",
+    }
+  }]
+};
+
+SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+  myCollector.getMessage(122).then(function(myMessage) {
+    myMessage.createRecipientsBulk(payload).then(function(newRecipients) {
+      // handle success
+    });
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -638,6 +852,26 @@ s = requests.session()
 
 url = "https://api.surveymonkey.net/v3/collectors/%s/recipients/%s?api_key=%s" % (collector_id, message_id, recipient_id, YOUR_API_KEY)
 s.get(url)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+  myCollector.getMessage(122).then(function(myMessage) {
+    myMessage.getRecipient(888).then(function(myRecipient) {
+      // handle success
+    });
+  });
+});
 ```
 
 >Example Response

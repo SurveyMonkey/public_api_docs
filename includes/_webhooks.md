@@ -61,8 +61,6 @@ var payload = {
 
 SurveyMonkeyClient.createWebhook(payload).then(function(newWebhook) {
   // handle success
-}, function(error) {
-  // handle error
 });
 ```
 
@@ -148,8 +146,6 @@ var smc = new SurveyMonkeyClient({
 
 SurveyMonkeyClient.getWebhook(1234).then(function(webhook) {
   // handle success
-}, function(error) {
-  // handle error
 });
 ```
 
