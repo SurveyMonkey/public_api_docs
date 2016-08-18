@@ -253,7 +253,7 @@ var smsdk = new SurveyMonkeyClient({...});
 
 // simple express handling of redirect
 // exchange the temporary code for long-lived token
-app.get('/redirect, function(req, res) {
+app.get('/redirect', function(req, res) {
     var code = req.query.code;
 
     smsdk.getTokenForCode(code, function(err, resp, body) {
