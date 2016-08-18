@@ -161,6 +161,18 @@ def oauth_dialog(client_id, redirect_uri, api_key):
 	# Insert code here that redirects user to OAuth Dialog url
 ```
 
+```javascript
+var SurveyMonkeyClient = require('surveymonkey-client);
+var smsdk = new SurveyMonkeyClient({
+  apiKey: 'your-api-key',
+  secret: 'your-secret',
+  clientID: 'your-client-id',
+  redirectURI: 'your-redirect-uri'
+});
+
+console.log('The OAuth dialog url was ' + smsdk.getAuthorizationURI());
+```
+
 ####Step 2: User authorization generates short lived code
 
 Once the user makes their choice whether to authorize access or not, SurveyMonkey will generate a 302 redirect sending their browser to your redirect URI along with a short-lived code included as a query parameter. Your application needs to use that code to make another API request before it expires (5 minutes). In that request, you will send us the code you received along with your client secret, client ID, API key, and redirect URI. We will verify all that information. If it's good, we will return a long-lived access token in exchange.
