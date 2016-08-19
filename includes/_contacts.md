@@ -29,6 +29,22 @@ url = "https://api.surveymonkey.net/v3/contact_lists?api_key=%s" % YOUR_API_KEY
 s.post(url, data=payload)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getContactListPage().then(function(contactLists) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -90,6 +106,23 @@ s = requests.session()
 url = "https://api.surveymonkey.net/v3/contact_lists/%s?api_key=%s" % (contact_list_id, YOUR_API_KEY)
 s.get(url)
 ```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getContactList(1234).then(function(myContactList) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -138,6 +171,25 @@ s = requests.session()
 url = "https://api.surveymonkey.net/v3/contact_lists/%s/copy?api_key=%s" % (contact_list_id, YOUR_API_KEY)
 s.post(url)
 ```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getContactList(1234).then(function(myContactList) {
+  myContactList.copy().then(function(copiedList) {
+    // handle success
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -184,6 +236,24 @@ payload = {
 }
 url = "https://api.surveymonkey.net/v3/contact_lists/%s/merge?api_key=%s" % (contact_list_id, YOUR_API_KEY)
 s.post(url)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getContactList(1234).then(function(myContactList) {
+  myContactList.merge().then(function(mergedList) {
+    // handle success
+  });
+});
 ```
 
 >Example Response
@@ -248,6 +318,38 @@ payload = {
 }
 url = "https://api.surveymonkey.net/v3/contact_lists/%s/contacts?api_key=%s" % (contact_list_id, YOUR_API_KEY)
 s.post(url, data=payload)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  first_name: "John",
+  last_name: "Doe",
+  email: "test@surveymonkey.com",
+  custom_fields: {
+    1: "Mr",
+    2: "Company",
+    3: "Address",
+    4: "City",
+    5: "Country",
+    6: "Phone Number"
+  }
+};
+
+smc.getContactList(1234).then(function(myContactList) {
+  myContactList.createContact(payload).then(function(newContact) {
+    // handle success
+  });
+});
 ```
 
 >Example Response
@@ -345,6 +447,40 @@ url = "https://api.surveymonkey.net/v3/contact_lists/%s/contacts/bulk?api_key=%s
 s.post(url, data=payload)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  contacts: [{
+    first_name: "John",
+    last_name: "Doe",
+    email: "test@surveymonkey.com",
+    custom_fields: {
+      1: "Mr",
+      2: "Company",
+      3: "Address",
+      4: "City",
+      5: "Country",
+      6: "Phone Number"
+    }
+  }]
+}
+
+smc.getContactList(1234).then(function(myContactList) {
+  myContactList.createContactsBulk(payload).then(function(newContacts) {
+    // handle success
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -429,6 +565,36 @@ payload = {
 }
 url = "https://api.surveymonkey.net/v3/contacts?api_key=%s" % YOUR_API_KEY
 s.post(url, data=payload)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  first_name: "John",
+  last_name: "Doe",
+  email: "test@surveymonkey.com",
+  custom_fields: {
+    1: "Mr",
+    2: "Company",
+    3: "Address",
+    4: "City",
+    5: "Country",
+    6: "Phone Number"
+  }
+};
+
+smc.createContact(payload).then(function(newContact) {
+  // handle success
+});
 ```
 
 >Example Response
@@ -527,6 +693,38 @@ url = "https://api.surveymonkey.net/v3/contacts/bulk?api_key=%s" % YOUR_API_KEY
 s.post(url, data=payload)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  contacts: [{
+    first_name: "John",
+    last_name: "Doe",
+    email: "test@surveymonkey.com",
+    custom_fields: {
+      1: "Mr",
+      2: "Company",
+      3: "Address",
+      4: "City",
+      5: "Country",
+      6: "Phone Number"
+    }
+  }]
+}
+
+smc.createContactsBulk(payload).then(function(newContacts) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -599,6 +797,23 @@ s = requests.session()
 url = "https://api.surveymonkey.net/v3/contacts/%s?api_key=%s" % (contact_id, YOUR_API_KEY)
 s.get(url)
 ```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getContact(1234).then(function(myContact) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -661,6 +876,22 @@ url = "https://api.surveymonkey.net/v3/contact_fields?api_key=%s" % YOUR_API_KEY
 s.get(url)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getContactFieldPage().then(function(contactFieldList) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -713,7 +944,7 @@ PATCH https://api.surveymonkey.net/v3/contact_fields/{contact_field_id}
 >Example Request
 
 ```shell
-curl -i -X PATCH -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/contact_fields/1?api_key=YOUR_API_KEY -d "{"label: "5"}"
+curl -i -X PATCH -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/contact_fields/1?api_key=YOUR_API_KEY -d "{"label": "5"}"
 ```
 
 ```python
@@ -727,6 +958,23 @@ payload = {
 url = "https://api.surveymonkey.net/v3/contact_fields/1?api_key=%s" % YOUR_API_KEY
 s.patch(url)
 ```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getContactField(1234).then(function(myContactField) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
