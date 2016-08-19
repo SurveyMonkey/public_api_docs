@@ -248,6 +248,7 @@ def exchange_code_for_token(auth_code, api_key, client_secret, client_id, redire
 
 
 ```javascript
+var express = require('express');
 var app = express();
 var smsdk = new SurveyMonkeyClient({...});
 
