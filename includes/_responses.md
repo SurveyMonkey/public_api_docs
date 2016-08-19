@@ -54,6 +54,45 @@ url = "https://api.surveymonkey.net/v3/surveys/%s/responses?api_key=%s" % (surve
 s.post(url, data=payload)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  custom_variables: {
+    custvar_1: "one",
+    custvar_2: "two"
+  },
+  response_status: "completed",
+  custom_value: "custom identifier for the response",
+  date_created: "2015-10-06T12:56:55+00:00",
+  ip_address: "127.0.0.1",
+  recipient_id: "564728340",
+  pages: [{
+    id: "103332310",
+    questions: [{
+        answers: [{
+          choice_id: "3057839051"
+        }],
+        id: "319352786"
+    }]
+  }]
+};
+
+smc.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.createResponse(payload).then(function(newResponse) {
+    // handle success
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -195,6 +234,44 @@ url = "https://api.surveymonkey.net/v3/surveys/%s/responses/bulk?api_key=%s" % (
 s.get(url, params=payload)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  start_created_at: "2015-10-06T12:56:55+00:00",
+  end_created_at: "2015-10-06T12:56:55+00:00",
+  status: "completed",
+  email: "test@surveymonkey.com",
+  first_name: "Jon",
+  last_name: "Doe",
+  ip_address: "127.0.0.1",
+  custom: "custom value",
+  total_time_max: 10000,
+  total_time_min: 1000,
+  total_time_units: "second",
+  sort_order: "ASC",
+  sort_by: "date_modified"
+};
+
+smc.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.getResponsePage(1, 2, payload).then(function(responseList) {
+    responseList.forEach(function(response) {
+      response.fetch().then(function(expandedResponse) {
+        // this will get the same level of detail as /responses/bulk
+      });
+    })
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -326,6 +403,24 @@ url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s?api_key=%s" % (su
 s.get(url)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.getResponse(222).then(function(myResponse) {
+    // handle success
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -412,6 +507,26 @@ s = requests.session()
 
 url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s/details?api_key=%s" % (survey_id, response_id, YOUR_API_KEY)
 s.get(url)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.getResponse(222).then(function(myResponse) {
+    myResponse.fetch().then(function(expandedResponse) {
+      // handle success
+    });
+  });
+});
 ```
 
 >Example Response

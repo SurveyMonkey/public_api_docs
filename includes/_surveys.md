@@ -35,6 +35,27 @@ payload = {
 url = "https://api.surveymonkey.net/v3/surveys?api_key=%s" % YOUR_API_KEY
 s.post(url, data=payload)
 ```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+var payload = {
+  title: 'My Survey';
+};
+
+smc.createSurvey(payload).then(function(newSurvey) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -150,6 +171,23 @@ s = requests.Session()
 url = "https://api.surveymonkey.net/v3/surveys/%s?api_key=%s" % (survey_id, YOUR_API_KEY)
 s.get(url)
 ```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getSurvey(1234).then(function(mySurvey) {
+  // handle success
+});
+```
+
 >Example Response
 
 ```json
@@ -248,6 +286,28 @@ url = "https://api.surveymonkey.net/v3/surveys/%s/details?api_key=%s" % (survey_
 s.get(url)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.getPagePage().then(function(pageList) {
+    pageList.forEach(function(myPage) {
+      myPage.getQuestionPage().then(function(questionList) {
+        // handle success
+      });
+    })
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -311,6 +371,22 @@ s = requests.Session()
 
 url = "https://api.surveymonkey.net/v3/survey_categories" % YOUR_API_KEY
 s.get(url)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getSurveyCategoryPage().then(function(categoryList) {
+  // handle success
+});
 ```
 
 >Example Response
@@ -377,6 +453,22 @@ payload = {
 }
 url = "https://api.surveymonkey.net/v3/survey_templates" % YOUR_API_KEY
 s.get(url, params=payload)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getSurveyTemplatePage().then(function(templateList) {
+  // handle success
+});
 ```
 
 >Example Response
@@ -457,6 +549,24 @@ url = "https://api.surveymonkey.net/v3/surveys/%s/pages" % (survey_id, YOUR_API_
 s.post(url, data=payload)
 ```
 
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.getPagePage().then(function(pageList) {
+    // handle success
+  });
+});
+```
+
 >Example Response
 
 ```json
@@ -524,6 +634,24 @@ s = requests.Session()
 
 url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s" % (survey_id, page_id, YOUR_API_KEY)
 s.get(url)
+```
+
+```js
+var SurveyMonkeyClient = require('surveymonkey-v3');
+
+var smc = new SurveyMonkeyClient({
+  apiKey: YOUR_API_KEY,
+  secret: YOUR_SECRET,
+  accessToken: YOUR_ACCESS_TOKEN,
+  clientID: YOUR_CLIENT_ID,
+  redirectURI: YOUR_REDIRECT_URI
+});
+
+smc.getSurvey(1234).then(function(mySurvey) {
+  mySurvey.getPage(222).then(function(myPage) {
+    // handle success
+  });
+});
 ```
 
 >Example Response

@@ -59,7 +59,7 @@ var payload = {
   subscription_url: 'https://surveymonkey.com/webhook_reciever'
 };
 
-SurveyMonkeyClient.createWebhook(payload).then(function(newWebhook) {
+smc.createWebhook(payload).then(function(newWebhook) {
   // handle success
 });
 ```
@@ -144,7 +144,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getWebhook(1234).then(function(webhook) {
+smc.getWebhook(1234).then(function(webhook) {
   // handle success
 });
 ```

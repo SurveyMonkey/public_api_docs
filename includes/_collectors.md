@@ -43,7 +43,7 @@ var payload = {
   type: 'weblink'
 };
 
-SurveyMonkeyClient.getSurvey(1234).then(function(mySurvey) {
+smc.getSurvey(1234).then(function(mySurvey) {
   mySurvey.createCollector(payload).then(function(newCollector) {
     // handle success
   });
@@ -159,7 +159,7 @@ var payload = {
   type: 'weblink'
 };
 
-SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+smc.getCollector(111).then(function(myCollector) {
   // handle success
 });
 ```
@@ -272,7 +272,7 @@ var payload = {
   type: 'invite'
 };
 
-SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+smc.getCollector(111).then(function(myCollector) {
   myCollector.createMessage(payload).then(function(newMessage) {
     // handle success
   });
@@ -365,7 +365,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+smc.getCollector(111).then(function(myCollector) {
   myCollector.getMessage(122).then(function(myMessage) {
     // handle success
   });
@@ -452,7 +452,7 @@ var smc = new SurveyMonkeyClient({
 
 var date = '2015-10-06T12:56:55+00:00';
 
-SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+smc.getCollector(111).then(function(myCollector) {
   myCollector.getMessage(122).then(function(myMessage) {
     myMessage.send(date).then(function(response) {
       // handle success
@@ -549,7 +549,7 @@ var payload = {
   'contact_id': 1234
 };
 
-SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+smc.getCollector(111).then(function(myCollector) {
   myCollector.getMessage(122).then(function(myMessage) {
     myMessage.createRecipient(payload).then(function(newRecipient) {
       // handle success
@@ -621,7 +621,7 @@ var payload = {
   }
 };
 
-SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+smc.getCollector(111).then(function(myCollector) {
   myCollector.getMessage(122).then(function(myMessage) {
     myMessage.createRecipient(payload).then(function(newRecipient) {
       // handle success
@@ -778,7 +778,7 @@ var payload = {
   }]
 };
 
-SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+smc.getCollector(111).then(function(myCollector) {
   myCollector.getMessage(122).then(function(myMessage) {
     myMessage.createRecipientsBulk(payload).then(function(newRecipients) {
       // handle success
@@ -865,7 +865,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getCollector(111).then(function(myCollector) {
+smc.getCollector(111).then(function(myCollector) {
   myCollector.getMessage(122).then(function(myMessage) {
     myMessage.getRecipient(888).then(function(myRecipient) {
       // handle success

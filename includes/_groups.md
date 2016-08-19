@@ -32,7 +32,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getGroupPage().then(function(groupList) {
+smc.getGroupPage().then(function(groupList) {
   // handle success
 });
 ```
@@ -110,7 +110,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getGroup(1234).then(function(myGroup) {
+smc.getGroup(1234).then(function(myGroup) {
   // handle success
 });
 ```
@@ -185,7 +185,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getGroup(1234).then(function(myGroup) {
+smc.getGroup(1234).then(function(myGroup) {
   myGroup.getMemberPage().then(function(memberList) {
     // handle success
   });
@@ -266,7 +266,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getGroup(1234).then(function(myGroup) {
+smc.getGroup(1234).then(function(myGroup) {
   myGroup.getMember(222).then(function(myMember) {
     // handle success
   });

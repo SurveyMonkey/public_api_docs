@@ -39,7 +39,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getBenchmarkBundlePage().then(function(benchmarkList) {
+smc.getBenchmarkBundlePage().then(function(benchmarkList) {
   // handle success
 });
 ```
@@ -140,7 +140,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getBenchmarkBundle(1234).then(function(benchmarkBundle) {
+smc.getBenchmarkBundle(1234).then(function(benchmarkBundle) {
   // handle success
 });
 ```
@@ -250,7 +250,7 @@ var payload = {
   percentile_end: 100
 };
 
-SurveyMonkeyClient.getBenchmarkBundle(1234).then(function(benchmarkBundle) {
+smc.getBenchmarkBundle(1234).then(function(benchmarkBundle) {
   benchmarkBundle.analyze().then(function(response) {
     // handle success
   });
@@ -369,7 +369,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getSurvey(1234).then(function(mySurvey) {
+smc.getSurvey(1234).then(function(mySurvey) {
   mySurvey.getPage(111).then(function(myPage) {
     myPage.getQuestion(122).then(function(myQuestion) {
       myQuestion.getBenchmark().then(function(response) {

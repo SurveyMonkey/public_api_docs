@@ -36,7 +36,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getUser().then(function(user) {
+smc.getUser().then(function(user) {
   // handle success
 });
 ```

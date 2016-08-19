@@ -117,7 +117,7 @@ var payload = {
   position: 3
 };
 
-SurveyMonkeyClient.getSurvey(1234).then(function(mySurvey) {
+smc.getSurvey(1234).then(function(mySurvey) {
   mySurvey.getPage(2222).then(function(myPage) {
     myPage.createQuestion(payload).then(function(newQuestion) {
       // handle success
@@ -260,7 +260,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getSurvey(1234).then(function(mySurvey) {
+smc.getSurvey(1234).then(function(mySurvey) {
   mySurvey.getPage(2222).then(function(myPage) {
     myPage.getQuestion(2321).then(function(myQuestion) {
       // handle success

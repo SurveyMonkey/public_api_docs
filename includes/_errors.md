@@ -36,7 +36,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getErrorPage().then(function(errorList) {
+smc.getErrorPage().then(function(errorList) {
   // handle success
 });
 ```
@@ -114,7 +114,7 @@ var smc = new SurveyMonkeyClient({
   redirectURI: YOUR_REDIRECT_URI
 });
 
-SurveyMonkeyClient.getError(1234).then(function(errorObject) {
+smc.getError(1234).then(function(errorObject) {
   // handle success
 });
 ```
