@@ -91,15 +91,11 @@ If you are creating a Public app and using scopes that require SurveyMonkey's ap
 
 ##Request and Response Limits 
 
-You can [upgrade your SurveyMonkey account](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to get higher request limits. When you upgrade to a higher plan, it can take up to an hour for your new request limit to take effect.
-
-####Request Limits 
-
-All Public and Private apps will initially be subject to the following API Rate limits:
+Draft and Private apps will be subject to the following API Rate limits:
 
 | Max Requests Per Second | Max Requests Per Day
 | ------- | -------
-8 | 10,000
+2 | 500
 
 ####Increasing Limits
 
