@@ -101,6 +101,8 @@ All Public and Private apps will initially be subject to the following API Rate 
 | ------- | -------
 8 | 10,000
 
+In addition, requests made to the API to create [contacts](#contacts-and-contact-lists) or send [invite messages](#collectors-and-invite-messages), are subject to our [sending and contact limits](http://help.surveymonkey.com/articles/en_US/kb/Is-there-a-limit-on-the-number-of-emails-I-can-send).
+
 ####Increasing Limits
 
 If you think you may be in danger of exceeding your request-limit threshold, please [fill out this form](https://surveymonkey.wufoo.com/forms/apis-advanced-access-request/) with an estimate of your anticipated API activity. SurveyMonkey will review all requests within 5 business days. Additional fees may apply for increased rate limits.
