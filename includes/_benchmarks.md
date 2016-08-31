@@ -23,6 +23,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/benchmark_bundles?api_key=%s" % YOUR_API_KEY
 s.get(url)
@@ -108,6 +112,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s?api_key=%s" % (bundle_id, YOUR_API_KEY)
 s.get(url)
@@ -191,6 +199,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" 'https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   'question_ids': [123, 456],
@@ -297,6 +309,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark?api_key=%s" % (survey_id, page_id, question_id, YOUR_API_KEY)
 s.get(url)

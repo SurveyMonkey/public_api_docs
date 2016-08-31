@@ -28,6 +28,10 @@ curl -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonke
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   'name': 'My Webhook',
@@ -83,7 +87,7 @@ name | Yes | Webhook name | String
 event_type | Yes | Event type that the webhook listens to: 'response_completed', 'response_disqualified', or 'response_updated' | String-ENUM
 object_type | Yes | Object type to filter events by: 'survey' or 'collector'| String-ENUM
 object_ids | Yes | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event) | Array
-subscription_url | Yes | Subscription url that events are sent to | String
+subscription_url | Yes. Url must accept a HEAD request and return a 200.  | Subscription url that events are sent to | String
 
 
 ###/webhooks/{id}
@@ -104,6 +108,10 @@ curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/webhooks/%s?api_key=%s" % (webhook_id, YOUR_API_KEY)
 s.get(url)

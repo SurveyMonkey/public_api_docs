@@ -20,6 +20,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/errors?api_key=%s" % YOUR_API_KEY
 s.get(url)
@@ -82,6 +86,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/errors/%s?api_key=%s" % (error_id, YOUR_API_KEY)
 s.get(url)

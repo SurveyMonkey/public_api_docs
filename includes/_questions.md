@@ -18,6 +18,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "headings": [
@@ -179,7 +183,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
-#See Requests Guide for Setting Up Requests Session
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s/questions/%s" % (survey_id, page_id, question_id, YOUR_API_KEY)
 s.get(url)
