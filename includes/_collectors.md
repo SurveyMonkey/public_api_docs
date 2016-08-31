@@ -13,13 +13,17 @@ POST https://api.surveymonkey.net/v3/surveys/{survey_id}/collectors
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/survey/1234/collectors?api_key=YOUR_API_KEY -d '{"type":"weblink"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/1234/collectors?api_key=YOUR_API_KEY -d '{"type":"weblink"}'
 ```
 
 ```python
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
  'type': 'weblink'
@@ -117,6 +121,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/collectors/%s?api_key=%s" % (collector_id, YOUR_API_KEY)
 s.get(url)
@@ -201,6 +209,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   'type': 'invite'
@@ -282,6 +294,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s?api_key=%s" % (collector_id, message_id, YOUR_API_KEY)
 s.get(url)
@@ -345,6 +361,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   'scheduled_date': '2015-10-06T12:56:55+00:00'
@@ -418,6 +438,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   'contact_id': 1234
@@ -436,6 +460,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "email": "test@surveymonkey.com",
@@ -548,6 +576,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "contact_ids": ["1234", "5678"],
@@ -634,7 +666,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
-#See Requests Guide for Setting Up Requests Session
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/collectors/%s/recipients/%s?api_key=%s" % (collector_id, message_id, recipient_id, YOUR_API_KEY)
 s.get(url)

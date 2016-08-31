@@ -20,7 +20,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
-#See Requests Guide for Setting Up Requests Session
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "name": "My Contact List"
@@ -86,6 +89,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/contact_lists/%s?api_key=%s" % (contact_list_id, YOUR_API_KEY)
 s.get(url)
@@ -134,6 +141,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/contact_lists/%s/copy?api_key=%s" % (contact_list_id, YOUR_API_KEY)
 s.post(url)
@@ -178,6 +189,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "list_id": "4321"
@@ -232,6 +247,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "first_name": "John",
@@ -325,6 +344,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "contacts": [{
@@ -413,6 +436,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "first_name": "John",
@@ -507,6 +534,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "contacts": [{
@@ -595,6 +626,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/contacts/%s?api_key=%s" % (contact_id, YOUR_API_KEY)
 s.get(url)
@@ -656,6 +691,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/contact_fields?api_key=%s" % YOUR_API_KEY
 s.get(url)
@@ -720,6 +759,10 @@ curl -i -X PATCH -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveym
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "label" = "address"

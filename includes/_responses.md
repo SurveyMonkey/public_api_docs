@@ -29,6 +29,10 @@ curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOU
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "custom_variables": {
@@ -173,6 +177,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "page": 1,
@@ -321,6 +329,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s?api_key=%s" % (survey_id, response_id, YOUR_API_KEY)
 s.get(url)
@@ -409,6 +421,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s/details?api_key=%s" % (survey_id, response_id, YOUR_API_KEY)
 s.get(url)

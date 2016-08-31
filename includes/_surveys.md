@@ -28,6 +28,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.Session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "title": "My Survey"
@@ -146,6 +150,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.Session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/surveys/%s?api_key=%s" % (survey_id, YOUR_API_KEY)
 s.get(url)
@@ -243,6 +251,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.Session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/surveys/%s/details?api_key=%s" % (survey_id, YOUR_API_KEY)
 s.get(url)
@@ -308,6 +320,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.Session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/survey_categories" % YOUR_API_KEY
 s.get(url)
@@ -371,6 +387,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.Session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "category": "community"
@@ -451,6 +471,10 @@ curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymo
 import requests
 
 s = requests.Session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 payload = {
   "title": "Page Title"
@@ -523,6 +547,10 @@ curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymon
 import requests
 
 s = requests.Session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
 
 url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s" % (survey_id, page_id, YOUR_API_KEY)
 s.get(url)
