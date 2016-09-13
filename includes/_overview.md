@@ -246,9 +246,9 @@ To unauthorize an app:
 
 ##Pagination
 
-When requesting list resources, you can set the size of a page by using `per_page=#` and indicate whcih page to return with `page=#`. So a request to `https://api.surveymonkey.net/v3/surveys?api_key=api_key&page=2&per_page=5` will return the second page of five surveys.
+When requesting list resources, you can set the size of a page by using `per_page=#` and indicate which page to return with `page=#`. So a request to `https://api.surveymonkey.net/v3/surveys?api_key=api_key&page=2&per_page=5` will return the second page of five surveys.
 
-Any request to a list resource returns the following pagination fields:
+Any request to a list resource returns the following pagination fields, if available:
 
 |Name|Description|Type|
 |----|-----------|----|
@@ -256,8 +256,10 @@ Any request to a list resource returns the following pagination fields:
 |total|Indicates the number of pages available.|Integer|
 |page|Indicates which page is being returned.|Integer|
 |links.self|Resource URL for the current page.|String|
+|links.prev|Resource URL for the previous page of results.|String|
 |links.next|Resource URL for the subsequent page of results.|String|
-|links.last|Resource URL for the previous page of results.|String|
+|links.first|Resource URL for the first page of results.|String|
+|links.last|Resource URL for the last page of results.|String|
 
 ##Error Codes
 
