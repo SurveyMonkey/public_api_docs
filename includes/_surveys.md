@@ -184,7 +184,8 @@ s.get(url)
   "edit_url": "https://www.surveymonkey.com/create/",
   "collect_url": "https://www.surveymonkey.com/collect/list",
   "analyze_url": "https://www.surveymonkey.com/analyze/",
-  "summary_url": "https://www.surveymonkey.com/summary/"
+  "summary_url": "https://www.surveymonkey.com/summary/",
+  "response_count": 12
 }
 ```
 ####Available Methods
@@ -216,6 +217,7 @@ Name | Description | Type
 id | Survey id | String
 title | Survey title | String
 custom_variables | Dictionary of survey variables | Object
+category| Survey category chosen when creating the survey | String
 language | Survey language | String
 question_count | Number of questions in survey | Integer
 page_count | Number of pages in survey | Integer
@@ -231,6 +233,7 @@ collect_url | Survey collect URL | String
 analyze_url | Survey analyze URL | String 
 summary_url | Survey summary URL | String 
 href | Resource API URL | String
+response_count | Number of responses survey has received | Integer
 
 
 ###/surveys/{id}/details

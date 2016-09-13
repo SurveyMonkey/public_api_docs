@@ -101,7 +101,7 @@ In addition, requests made to the API to create [contacts](#contacts-and-contact
 
 ####Increasing Limits
 
-If you think you may be in danger of exceeding your request-limit threshold, please [fill out this form](https://smenterprise.surveymonkey.com/Contactsales_en?&utm_source=dev_portal&ut_source2=docs) with an estimate of your anticipated API activity. SurveyMonkey will review all requests within 5 business days. Additional fees may apply for increased rate limits.
+If you think you may be in danger of exceeding your request-limit threshold, please [fill out this form](https://smenterprise.surveymonkey.com/Contactsales_en?&utm_source=website&utm_medium=website&utm_content=dev_portal&utm_campaign=dev_portal&family=SME&date=2016-08-31&program=7013A000000NnGKQA0&source=dev_portal&recent=dev_portal ) with an estimate of your anticipated API activity. SurveyMonkey will review all requests within 5 business days. Additional fees may apply for increased rate limits.
 
 ####Response Limits
 
@@ -243,6 +243,23 @@ To unauthorize an app:
 1. Log into the linked SurveyMonkey account 
 2. Select **My Account** from the username dropdown in the upper right
 3. Scroll to **Linked Accounts** and click **Remove** next to the app you want to unauthorize
+
+##Pagination
+
+When requesting list resources, you can set the size of a page by using `per_page=#` and indicate which page to return with `page=#`. So a request to `https://api.surveymonkey.net/v3/surveys?api_key=api_key&page=2&per_page=5` will return the second page of five surveys.
+
+Any request to a list resource returns the following pagination fields, if available:
+
+|Name|Description|Type|
+|----|-----------|----|
+|per_page|Indicates the number of resources per page.|Integer|
+|total|Indicates the number of pages available.|Integer|
+|page|Indicates which page is being returned.|Integer|
+|links.self|Resource URL for the current page.|String|
+|links.prev|Resource URL for the previous page of results.|String|
+|links.next|Resource URL for the subsequent page of results.|String|
+|links.first|Resource URL for the first page of results.|String|
+|links.last|Resource URL for the last page of results.|String|
 
 ##Error Codes
 
