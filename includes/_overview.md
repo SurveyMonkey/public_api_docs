@@ -244,6 +244,22 @@ To unauthorize an app:
 2. Select **My Account** from the username dropdown in the upper right
 3. Scroll to **Linked Accounts** and click **Remove** next to the app you want to unauthorize
 
+##Pagination
+
+When requesting list resources, you can set the size of a page by using `per_page=#` and indicate whcih page to return with `page=#`. So a request to `https://api.surveymonkey.net/v3/surveys?api_key=api_key&page=2&per_page=5` will return the second page of five surveys.
+
+Any request to a list resource returns the following pagination fields:
+
+|Name|Description|Type|
+|----|-----------|----|
+|per_page|Indicates the number of resources per page.|Integer|
+|total|Indicates the number of pages available.|Integer|
+|page|Indicates which page is being returned.|Integer|
+|links.self|Resource URL for the current page.|String|
+|links.next|Resource URL for the subsequent page of results.|String|
+|links.last|Resource URL for the previous page of results.|String|
+
+
 ##Error Codes
 
 >Example Error Response
@@ -280,5 +296,7 @@ To unauthorize an app:
 |1030|413 Request Entity Too Large|The requested entity is too large, it can not be returned.|
 |1050|500 Internal Server Error|Oh bananas! We couldn't process your request.|
 |1051|503 Internal Server Error|Service unreachable. Please try again later.|
+
+
 ​
 ​

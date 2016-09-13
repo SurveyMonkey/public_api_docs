@@ -87,6 +87,7 @@ sort_order | Sort order: 'ASC' or 'DESC' | String-ENUM
 include | Collaboration option to filter survey list: 'shared_with', 'shared_by', or 'owned' | String-ENUM
 start_modified_at | Surveys must be last modified after this date. | Date String
 end_modified_at | Surveys must be last modified before this date. | Date String
+include | Includes specified attributes in returned resources: 'response_count', 'date_created', 'date_modified', 'language', 'question_count', 'analyze_url', 'preview' | Comma Separated Strings
 
 ####Survey List Resource
 

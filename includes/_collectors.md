@@ -75,6 +75,7 @@ sort_order | Sort order e.g. ['ASC', 'DESC'] | String-ENUM
 name | Nickname of collector to search against | String
 start_date | Collectors must be created after this date. | Date String
 end_date | Collectors must be created before this date. | Date String
+include | Includes specified attributes in returned resources: `type`, `status`, `response_count`, `date_created`, `date_modified`, `url` | Comma Separated Strings
 
 ####Collector List Resource
 
