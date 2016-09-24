@@ -47,7 +47,7 @@ Examples of Public apps include:
 
 The [scopes](#scopes) that your app uses determines the [SurveyMonkey plan level](https://www.surveymonkey.com/pricing/?ut_source=dev_portal) users will need to access it.
 
-If a public app is going to use the **Create/Modify Surveys** or **Create/Modify Responses** scopes, your use case must be approved by SurveyMonkey before your app can be deployed. If you are creating a public app that will use these scopes, please contact us at [api-support@surveymonkey.comublish](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
+All public apps will need to be approved by SurveyMonkey to be deployed, please contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
 
 ####Private Apps
 
