@@ -4,7 +4,9 @@
 
 <aside class="notice">SurveyMonkey recently released a v3 of our API! We've made some huge improvements with this version and we encourage you to check it out. If you already use our v2 API, you can find its documentation <a href="https://developer.surveymonkey.com/docs/overview/getting-started/">here</a>.</aside>
 
-The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will [register an app](#registering-an-app) in our developer portal. Before you register, you should determine if your app will eventually be [deployed](#deploying-an-app) as Public or Private and which [scopes](#scopes) you will need. If you are creating a Public app and using certain scopes, SurveyMonkey will need to approve your app before it can be deployed. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) to determine if you should contact us before you begin to develop your app.
+The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will [register an app](#registering-an-app) in our developer portal. Before you register, you should determine if your app will eventually be [deployed](#deploying-an-app) as Public or Private and which [scopes](#scopes) you will need. 
+
+All Public apps need to be approved by SurveyMonkey before they can be deployed, use of certain scopes will also need to approved. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) to determine if you should contact us before you begin to develop your app.
 
 Newly registered apps are given a draft state window in which developers can use all paid scopes for free when querying against the associated SurveyMonkey account for up to 90 days. No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must deploy your app as either Public or Private and upgrade your account as needed.
 
@@ -12,7 +14,7 @@ SurveyMonkey lists code examples on [Github](https://github.com/SurveyMonkey) an
 
 ###Registering an App
 
-When registering your app it is important to know if you will eventually deploy your app as Private or Public and which scopes you plan to use. If you are createing a Public app, the scopes you choose determine which paid plans your users will need and if SurveyMonkey needs to approve your app before it can be deployed. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) before you register an app.
+When registering your app it is important to know if you will eventually deploy as a Private or Public app and, for Public apps, which scopes you plan to use as these determine if users need a pro SurveyMonkey plan to user your app. SurveyMonkey reviews all Public apps before they can be deployed. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) before you register an app.
 
 To register an app:
 
@@ -23,9 +25,7 @@ To register an app:
 
 ###Deploying an App
 
-When you create a new app you are given a 90-day draft window during which you can use all paid [scopes](#scopes) for free when querying against the associated SurveyMonkey account.
-
-No other SurveyMonkey accounts can authenticate a draft app.
+When you create a new app you are given a 90-day draft window during which you can use all paid [scopes](#scopes) for free when querying against the associated SurveyMonkey account. No other SurveyMonkey accounts can authenticate a draft app.
 
 Before the 90-day period ends, you must deploy your app as either Public or Private or your app will be disabled. If your app is disabled, you can deploy it as either Public or Private, or contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to request an extension.
 
@@ -36,6 +36,8 @@ To deploy your app:
 
 ####Public Apps
 
+All public apps will need to be approved by SurveyMonkey to be deployed, please contact us at [api-support@surveymonkey.comublish](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
+
 Deploy as a Public app only if:
 
  * your app will be used by many SurveyMonkey accounts that do not belong to the same group plan.
@@ -45,17 +47,15 @@ Examples of Public apps include:
  * An integration of SurveyMonkey functionality into a pre-existing tool
  * Stand alone applications that extend SurveyMonkey's functionality
 
-The [scopes](#scopes) that your app uses determines the [SurveyMonkey plan level](https://www.surveymonkey.com/pricing/?ut_source=dev_portal) users will need to access it.
-
-All public apps will need to be approved by SurveyMonkey to be deployed, please contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
+The [scopes](#scopes) that your app uses determine the SurveyMonkey plan level users will need to access it. 
 
 ####Private Apps
 
-Deploying as a Private app requires you to [upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to a Platinum or Platinum group plan. Private apps can use all available scopes.
+Deploying as a Private app requires you to [upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to a Platinum or Platinum group plan. Private apps can use all available scopes. Private apps are subject to [request limits](#request-and-response-limits). 
 
 Deploy as a Private app if:
 
- * your app will only be used by one Platinum SurveyMonkey account or many SurveyMonkey accounts that belong to the same [Platinum group plan](http://help.surveymonkey.com/articles/en_US/kb/Groups)/
+ * your app will only be used by one SurveyMonkey account or many SurveyMonkey accounts that belong to the same [Platinum group plan](http://help.surveymonkey.com/articles/en_US/kb/Groups)
 
  Examples of Private apps include:
 
@@ -65,11 +65,11 @@ Deploy as a Private app if:
 
 ###Scopes
 
-Scopes allow your application to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your application to create a survey in a user's account. During the OAuth process the user will approve or disapprove the scopes you have requested access to. Based on your application's needs you can choose to either require scopes, set them as optional, or not require them. All required scopes must be approved by the user for the OAuth process to succeed.
+Scopes allow Public apps to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your app to create a survey in a user's account. During the OAuth process the user will approve or disapprove the scopes you have requested access to. Based on your app's needs you can choose to either require scopes, set them as optional, or not require them. All required scopes must be approved by the user for the OAuth process to succeed.
 
 Some scopes are only available to accounts on SurveyMonkey paid plans. If your Public application uses scopes tied to paid plans, any accounts authenticating with your application need that plan or higher.
 
-If you are creating a Public app and using scopes that require SurveyMonkey's approval to deploy, please contact us at  [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
+Two scopes **Create/Modify Responses** and **Create/Modify Surveys** require SurveyMonkey's approval to use in a Public app. If you've deployed a Public app and want to change your scope requirements to include these, you'll need to contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
 
 
 |Scope Name|Scope Description (text used for OAuth, "you" refers to owner of authenticating account)|Plan Needed|
@@ -299,3 +299,4 @@ Any request to a list resource returns the following pagination fields, if avail
 |1051|503 Internal Server Error|Service unreachable. Please try again later.|
 |1052|404 User Soft Deleted|The user you are making this request for has been soft deleted.|
 |1053|410 User Deleted|The user you are making this request for has been deleted.|
+
