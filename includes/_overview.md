@@ -14,7 +14,7 @@ SurveyMonkey lists code examples on [Github](https://github.com/SurveyMonkey) an
 
 ###Registering an App
 
-When registering your app it is important to know if you will eventually deploy as a Private or Public app and, for Public apps, which scopes you plan to use as these determine if users need a pro SurveyMonkey plan to user your app. SurveyMonkey reviews all Public apps before they can be deployed. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) before you register an app.
+When registering your app it is important to know if you will eventually deploy as a Private or Public app and, for Public apps, which scopes you plan to use as these determine if users need a pro SurveyMonkey plan to use your app. SurveyMonkey reviews all Public apps before they can be deployed. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) before you register an app.
 
 To register an app:
 
