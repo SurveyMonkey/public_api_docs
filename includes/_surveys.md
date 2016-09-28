@@ -84,7 +84,7 @@ page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 sort_by | Field used to sort returned survey list: 'title', 'date_modified', or 'num_responses' | String-ENUM
 sort_order | Sort order: 'ASC' or 'DESC' | String-ENUM
-include | Collaboration option to filter survey list: 'shared_with', 'shared_by', or 'owned' | String-ENUM
+include | Use to filter survey list: 'shared_with', 'shared_by', or 'owned' (useful for teams) or use to specify additional fields to return per survey: 'response_count', 'date_created', 'date_modified', 'language', 'question_count', 'analyze_url', 'preview' | String-ENUM or Comma Separated Strings
 start_modified_at | Surveys must be last modified after this date. | Date String
 end_modified_at | Surveys must be last modified before this date. | Date String
 
