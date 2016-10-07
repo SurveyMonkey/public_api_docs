@@ -1,13 +1,13 @@
 ##Surveys, Pages, and Questions
 
-The following endpoints let you create surveys, survey pages, and add questions to survey pages. 
+The following endpoints let you create surveys, survey pages, and add questions to survey pages.
 
-A POST to /surveys will create an empty survey to which you can add [pages](#surveys-id-pages) and [questions](#surveys-id-pages-id-questions) (See [formatting question types](#formatting-question-types)). This endpoint also accepts a survey or template ID as an arguement to create a pre-populated survey that can be used as is or modified by deleting, updating, or adding pages or questions. 
+A POST to /surveys will create an empty survey to which you can add [pages](#surveys-id-pages) and [questions](#surveys-id-pages-id-questions) (See [formatting question types](#formatting-question-types)). This endpoint also accepts a survey or template ID as an arguement to create a pre-populated survey that can be used as is or modified by deleting, updating, or adding pages or questions.
 
-A survey needs at least one page and question in order to record a survey [response](#surveys-id-responses). 
+A survey needs at least one page and question in order to record a survey [response](#surveys-id-responses).
 
 <aside class="notice"><strong>NOTE for Public Apps</strong>: The View Surveys scope is available on the BASIC (Free) plan and the Create/Modify Surveys scope requires a <a href="https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs">paid plan</a>.</aside>
- 
+
 
 ###/surveys
 
@@ -85,6 +85,7 @@ per_page | Number of resources to return per page | Integer
 sort_by | Field used to sort returned survey list: 'title', 'date_modified', or 'num_responses' | String-ENUM
 sort_order | Sort order: 'ASC' or 'DESC' | String-ENUM
 include | Use to filter survey list: 'shared_with', 'shared_by', or 'owned' (useful for teams) or use to specify additional fields to return per survey: 'response_count', 'date_created', 'date_modified', 'language', 'question_count', 'analyze_url', 'preview' | String-ENUM or Comma Separated Strings
+title | Search survey list by survey title | String
 start_modified_at | Surveys must be last modified after this date. | Date String
 end_modified_at | Surveys must be last modified before this date. | Date String
 
@@ -227,11 +228,11 @@ buttons_text.next_button | Button text | String
 buttons_text.prev_button | Button text | String
 buttons_text.exit_button | Button text | String
 buttons_text.done_button | Button text | String
-preview | Survey preview URL | String 
-edit_url | Survey edit URL | String 
-collect_url | Survey collect URL | String 
-analyze_url | Survey analyze URL | String 
-summary_url | Survey summary URL | String 
+preview | Survey preview URL | String
+edit_url | Survey edit URL | String
+collect_url | Survey collect URL | String
+analyze_url | Survey analyze URL | String
+summary_url | Survey summary URL | String
 href | Resource API URL | String
 response_count | Number of responses survey has received | Integer
 
@@ -425,7 +426,7 @@ s.get(url, params=payload)
 }
 ```
 
-<aside class="notice"><strong>NOTE for Teams/Groups</strong>: Shared<a href="http://help.surveymonkey.com/articles/en_US/kb/Library/?zip=zip_3">Team templates</a>are not available through the API at this time. This endpoint returns SurveyMonkey's <a href="http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-surveys-from-a-selection-of-survey-templates">template list</a>.</aside>
+<aside class="notice"><strong>NOTE for Teams/Groups</strong>: Shared <a href="http://help.surveymonkey.com/articles/en_US/kb/Library/?zip=zip_3">Team templates </a>are not available through the API at this time. This endpoint returns SurveyMonkey's <a href="http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-surveys-from-a-selection-of-survey-templates">template list</a>.</aside>
 
 ####Available Methods
 

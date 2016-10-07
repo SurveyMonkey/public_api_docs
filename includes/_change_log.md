@@ -243,7 +243,7 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 
 ####Default Email Collector Message to HTML
 
-**Description of Changes**: Previously, a plaintext version of the default email message was used if no value was passed for 'body_text' or 'body_html'. This has been updated to default to an HTML version. 
+**Description of Changes**: Previously, a plaintext version of the default email message was used if no value was passed for 'body_text' or 'body_html'. This has been updated to default to an HTML version.
 
 **Endpoints Affected**: [/collectors/{id}/messages](#collectors-id-messages), [/collectors/{id}/messages/{id}](#collectors-id-messages-id)
 
@@ -325,5 +325,31 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Description of Changes**: Add GET method to contact bulk endpoints to return complete contact information for large numbers of contacts.
 
 **Endpoints Affected**: [/contact_lists/{id}/contacts/bulk](#contact_lists-id-contacts-bulk), [/contacts/bulk](#contacts-bulk)
+
+**Developer Actions Required**: None
+
+
+
+###August 18th, 2016
+
+
+####New Benchmark Questions Endpoints
+
+**Description of Changes**: Allow fetching of question specific benchmarks for SurveyMonkey approved questions.
+
+**Endpoints Affected**: [/surveys/{id}/pages/{id}/questions/{id}](#surveys-id-pages-id-questions-id), [/surveys/{id}/pages/{id}/questions/{id}/benchmark](#surveys-id-pages-id-questions-id-benchmark)
+
+**Developer Actions Required**: None
+
+
+
+###October 6th, 2016
+
+
+####Change Custom Variables Plan Requirement
+
+**Description of Changes**: Make survey custom variables accessible to Gold plan and above.
+
+**Endpoints Affected**: [/surveys](#surveys), [/surveys/{id}](#surveys-id), [/surveys/{id}/responses/bulk](#surveys-id-responses-bulk), [/collectors/{id}/responses/bulk](#collectors-id-responses-bulk), [/surveys/{id}/responses/{id}](#surveys-id-responses-id), [/collectors/{id}/responses/{id}](#collectors-id-responses-id), [/surveys/{id}/responses/{id}/details](#surveys-id-responses-id), [/collectors/{id}/responses/{id}/details](#surveys-id-responses-id)
 
 **Developer Actions Required**: None
