@@ -1,6 +1,6 @@
 ##Collectors and Invite Messages
 
-Collectors allow you to collect survey responses with a link to your survey. There are two `types` of collectors available via the API, `weblink` and `email`. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL and email collectors can be used to send survey invites messages that include a survey URL via the /messages endpoints. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)). 
+Collectors allow you to collect survey responses with a link to your survey. There are two `types` of collectors available via the API, `weblink` and `email`. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL and email collectors can be used to send survey invites messages that include a survey URL via the /messages endpoints. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)).
 
 
 ###/surveys/{id}/collectors
@@ -75,7 +75,7 @@ sort_order | Sort order e.g. ['ASC', 'DESC'] | String-ENUM
 name | Nickname of collector to search against | String
 start_date | Collectors must be created after this date. | Date String
 end_date | Collectors must be created before this date. | Date String
-include | Specify additional fields to return per collector: 'type', 'status', 'response_count', 'date_created', 'date_modified', 'url'|Comma Separated Strings 
+include | Specify additional fields to return per collector: 'type', 'status', 'response_count', 'date_created', 'date_modified', 'url'|Comma Separated Strings
 
 ####Collector List Resource
 
@@ -85,7 +85,7 @@ data[\_].id| Collector id | String
 data[\_].name | Collector name | String
 data[\_].href | Resource API URL | String
 
- 
+
 ####Request Body Arguments for POST
 
 Name | Required |Description | Type
@@ -188,7 +188,7 @@ date_modified | Date collector was last modified | Date String
 url | If collector is a Web Collector (type 'weblink') then the url for the collector | String
 date_created | Date collector was created | Date String
 password_enabled | True if the collector is password protected | Boolean
-sender_email | Sender email for email collectors. User's email is used if null | String 
+sender_email | Sender email for email collectors. User's email is used if null | String
 href | Resource API URL | String
 
 
@@ -225,7 +225,7 @@ s.post(url)
 >Example Response
 
 ```json
-{  
+{
    "status":"not_sent",
    "body":"\n<html>\n\n<body style=\"margin:0; padding: 0;\">\n    <div align=\"center\">\n        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" width=\"100%\" style=\"font-family: Arial,Helvetica,sans-serif; max-width: 700px;\">\n            <tr bgcolor=\"#A7BC38\">\n                <td colspan=\"5\" height=\"40\">\u00a0<\/td> <\/tr>\n            <tr bgcolor=\"#A7BC38\">\n                <td width=\"20\">\u00a0<\/td>\n                <td width=\"20\">\u00a0<\/td>\n                <td align=\"center\" style=\"font-size: 29px; color:#FFFFFF; font-weight: normal; letter-spacing: 1px; line-height: 1;                           text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2); font-family: Arial,Helvetica,sans-serif;\"> Survey Title <\/td>\n                <td width=\"20\">\u00a0<\/td>\n                <td width=\"20\">\u00a0<\/td> <\/tr>\n            <tr bgcolor=\"#A7BC38\">\n                <td colspan=\"5\" height=\"40\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td height=\"10\" colspan=\"5\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td>\u00a0<\/td>\n                <td colspan=\"3\" align=\"left\" valign=\"top\" style=\"color:#666666; font-size: 13px;\"> {% if FirstQuestion %}\n                    <p>{{EmbeddedBody}}<\/p> {% else %}\n                    <p>We're conducting a survey and your input would be appreciated. Click the button below to start the survey. Thank you for your participation!<\/p> {% endif %} <\/td>\n                <td>\u00a0<\/td> <\/tr> {% if FirstQuestion %}\n            <tr>{{FirstQuestion}}<\/tr> {% else %}\n            <tr>\n                <td colspan=\"5\" height=\"30\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td>\u00a0<\/td>\n                <td colspan=\"3\">\n                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" style=\"background:#A7BC38; border-radius: 4px; border: 1px solid #BBBBBB; color:#FFFFFF; font-size:14px; letter-spacing: 1px; text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8); padding: 10px 18px;\">\n                        <tr>\n                            <td align=\"center\" valign=\"center\"> <a href=\"[SurveyLink]\" target=\"_blank\" style=\"color:#FFFFFF; text-decoration:none;\">Begin Survey<\/a> <\/td> <\/tr> <\/table> <\/td>\n                <td>\u00a0<\/td> <\/tr>\n            <tr>\n                <td colspan=\"5\" height=\"30\">\u00a0<\/td> <\/tr> {% endif %}\n            <tr valign=\"top\" style=\"color: #666666;font-size: 10px;\">\n                <td>\u00a0<\/td>\n                <td valign=\"top\" align=\"center\" colspan=\"3\">\n                    <p>Please do not forward this email as its survey link is unique to you.\n                        <br><a href=\"[OptOutLink]\" target=\"_blank\" style=\"color: #333333; text-decoration: underline;\">Unsubscribe<\/a> from this list<\/p> <\/td>\n                <td>\u00a0<\/td> <\/tr>\n            <tr>\n                <td height=\"20\" colspan=\"5\">\u00a0<\/td> <\/tr>\n            <tr style=\"color: #999999;font-size: 10px;\">\n                <td align=\"center\" colspan=\"5\">[FooterLink]<\/td> <\/tr>\n            <tr>\n                <td height=\"20\" colspan=\"5\">\u00a0<\/td> <\/tr> <\/table><\/div><\/body>\n\n<\/html>\n",
    "recipient_status":null,
@@ -266,8 +266,8 @@ include_recipients | No | Include recipients attached to existing message | Bool
 Name | Required |Description | Type
 ------ | ------- | ------- | -------
 type | Yes | Message type: 'invite', 'reminder', or 'thank_you' | String-ENUM
-recipient_status | No. If type is 'reminder', acceptable values are: 'has_not_responded' or 'partially_responded', with the default being 'has_not_responded'. If type is 'thank_you', acceptable values are :'completed', 'responded', or 'partially_responded', with the default being 'completed' | Set of recipients to send to | String-ENUM  
-subject | No (default="Please help me by taking my survey") | Subject of the email message to be sent to recipients | String
+recipient_status | No. If type is 'reminder', acceptable values are: 'has_not_responded' or 'partially_responded', with the default being 'has_not_responded'. If type is 'thank_you', acceptable values are :'completed', 'responded', or 'partially_responded', with the default being 'completed' | Set of recipients to send to | String-ENUM
+subject | No (default="We want your opinion") | Subject of the email message to be sent to recipients | String
 body_text | No | The plain text body of the email message to be sent to recipients. Message must include [SurveyLink], [OptOutLink], and [FooterLink] and the opt out link must be clearly labeled. | String
 body_html | No | The html body of the email message to be sent to recipients. This overrides body_text. Message must include [SurveyLink], [OptOutLink], and [FooterLink] and the opt out link must be clearly labeled.| String
 is_branding_enabled | No (default=True) | Whether the email has SurveyMonkey branding  | Boolean
@@ -327,7 +327,7 @@ s.get(url)
  * `GET`: Returns a message
  * `PATCH`: Modifies a message (only subject, body_text, body_html, is_branding, and recipient_status if 'reminder' or 'thank_you', can be modified)
  * `PUT`: Replaces a message (only subject, body_text, body_html, is_branding, and recipient_status if 'reminder' or 'thank_you', can be modified)
- * `DELETE`: Deletes a message 
+ * `DELETE`: Deletes a message
 
 ####Messages Resource
 
@@ -339,7 +339,7 @@ is_branding_enabled | Whether the email has SurveyMonkey branding | Boolean
 date_created | Date message was created | Date String
 scheduled_date | Date message was scheduled to be sent | Date String
 type | Message type: 'invite', 'reminder', or 'thank_you' | String
-recipient_status | Recipient filter: 'reminder' or 'thank_you' | String 
+recipient_status | Recipient filter: 'reminder' or 'thank_you' | String
 id | Message id | String
 
 
@@ -349,7 +349,7 @@ id | Message id | String
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/collectors/{collector_id}/messages/{message_id}/send 
+POST https://api.surveymonkey.net/v3/collectors/{collector_id}/messages/{message_id}/send
 ```
 
 >Example Request
@@ -405,7 +405,7 @@ Name | Required | Description | Type
 ------ | ------- | ------- | -------
 scheduled_date | No | Date when the message should send. If not specified, message sends immediately | Date String
 
-####Message Resource 
+####Message Resource
 
 Name | Description | Type
 ------ | ------- | -------
@@ -415,12 +415,12 @@ body | The plain text body of the email message to be sent to recipients. | Stri
 subject | Subject of the email message to be sent to recipients | String
 recipients | List of recipient ids | Array
 type | Message type: 'invite', 'reminder', or 'thank_you' | String
-recipient_status | Recipient filter: 'reminder' or 'thank_you' | String 
+recipient_status | Recipient filter: 'reminder' or 'thank_you' | String
 
 ###/collectors/{id}/messages/{id}/recipients
 
 <aside class="notice">
-If the contact_id is provided, fetch the contact from the address book. If contact_id is not provided, allow passing of the email, name, and custom_fields. A new contact will only be created if an existing contact with the same email cannot be found. If custom_fields are provided, update the contact with those fields, otherwise keep existing custom_fields. 
+If the contact_id is provided, fetch the contact from the address book. If contact_id is not provided, allow passing of the email, name, and custom_fields. A new contact will only be created if an existing contact with the same email cannot be found. If custom_fields are provided, update the contact with those fields, otherwise keep existing custom_fields.
 </aside>
 
 >Definition
@@ -631,13 +631,13 @@ s.post(url, data=payload)
 
 Name |  Required |Description | Type
 ------ | ------- | ------- | -------
-data[\_].contact_ids | No | Contact ids | Array
-data[\_].contact_list_ids | No | Contact list ids | Array
-data[\_].contacts.email | No | Contact emails | String
-data[\_].contacts.first_name | No | Contact's first name | String
-data[\_].contacts.last_name  | No | Contact's last name | String
-data[\_].contacts.custom_fields | No | Custom fields for contact | Dictionary
-data[\_].contacts.extra_fields | No | Extra fields needed for the message body | Dictionary
+contact_ids | No | Contact ids | Array
+contact_list_ids | No | Contact list ids | Array
+contacts[\_].email | No | Contact emails | String
+contacts[\_].first_name | No | Contact's first name | String
+contacts[\_].last_name  | No | Contact's last name | String
+contacts[\_].custom_fields | No | Custom fields for contact | Dictionary
+contacts[\_].extra_fields | No | Extra fields needed for the message body | Dictionary
 
 ####Bulk Response
 
