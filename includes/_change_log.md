@@ -353,3 +353,25 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Endpoints Affected**: [/surveys](#surveys), [/surveys/{id}](#surveys-id), [/surveys/{id}/responses/bulk](#surveys-id-responses-bulk), [/collectors/{id}/responses/bulk](#collectors-id-responses-bulk), [/surveys/{id}/responses/{id}](#surveys-id-responses-id), [/collectors/{id}/responses/{id}](#collectors-id-responses-id), [/surveys/{id}/responses/{id}/details](#surveys-id-responses-id), [/collectors/{id}/responses/{id}/details](#surveys-id-responses-id)
 
 **Developer Actions Required**: None
+
+
+
+###October 13th, 2016
+
+
+####Allow Copying of Collectors
+
+**Description of Changes**: Copy collectors by passing the collector ID when creating one. Use 'from_collector_id' when POSTing to [/surveys/{id}/collectors](#surveys-id-collectors).
+
+**Endpoints Affected**: [/surveys/{id}/collectors](#surveys-id-collectors)
+
+**Developer Actions Required**: None
+
+
+####New Collector Recipients Endpoint
+
+**Description of Changes**: Fetch all recipients for a given collector using [/collectors/{id}/recipients](#collectors-id-recipients).
+
+**Endpoints Affected**: [/collectors/{id}/recipients](#collectors-id-recipients)
+
+**Developer Actions Required**: None

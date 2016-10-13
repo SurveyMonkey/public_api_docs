@@ -85,6 +85,11 @@ data[\_].id| Collector id | String
 data[\_].name | Collector name | String
 data[\_].href | Resource API URL | String
 
+####Request Body Arguments for POST (if copying from existing collector)
+
+Name | Required |Description | Type
+------ | ------- | ------- | -------
+from_collector_id | Yes | Collector ID to copy message from | String
 
 ####Request Body Arguments for POST
 
@@ -537,6 +542,7 @@ Name | Description | Type
 ------ | ------- | -------
 data[\_].id | Recipient id | String
 data[\_].email | Email of recipient added to collector | String
+data[\_].href | Resource API URL | String
 
 ####Requests Body Arguments for POST (if passing contact_id)
 
@@ -649,6 +655,74 @@ existing | Recipients that have already been added | Array
 bounced | Recipients that have previously bounced | Array
 opted_out | Recipientents that have opted out of recieving emails | Array
 duplicate | Duplicate recipients that were provided | Array
+
+
+###/collectors/{id}/recipients
+
+>Definition
+
+```
+GET https://api.surveymonkey.net/v3/collectors/{collector_id}/recipients
+```
+
+>Example Request
+
+```shell
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/collectors/1234/recipients?api_key=YOUR_API_KEY
+```
+
+```python
+import requests
+
+s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
+
+url = "https://api.surveymonkey.net/v3/collectors/%s/recipients?api_key=%s" % (collector_id, YOUR_API_KEY)
+s.get(url)
+```
+
+>Example Response
+
+```json
+{
+  "per_page": 1,
+  "total": 1,
+  "data": [{
+    "href": "https://api.surveymonkey.net/v3/collectors/1234/recipients/1234",
+    "id": "1234",
+    "email": "test@surveymonkey.com"
+  }],
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/collectors/1234/recipients/1234?page=1&per_page=1"
+  }
+}
+```
+
+####Available Methods
+
+ * `HEAD`: Checks if resource is available
+ * `OPTIONS`: Returns available methods and options
+ * `GET`: Returns a list of recipients
+
+####Optional Query Strings for GET
+
+Name | Description | Type
+------ | ------- | -------
+page | Which page of resources to return. Defaults to 1 | Integer
+per_page | Number of resources to return per page | Integer
+
+####Recipient List Resource
+
+Name | Description | Type
+------ | ------- | -------
+data[\_].id | Recipient id | String
+data[\_].email | Email of recipient added to collector | String
+data[\_].href | Resource API URL | String
+
 
 ###/collectors/{id}/recipients/{id}
 
