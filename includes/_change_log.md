@@ -375,3 +375,16 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Endpoints Affected**: [/collectors/{id}/recipients](#collectors-id-recipients)
 
 **Developer Actions Required**: None
+
+
+
+###October 24th, 2016
+
+
+####Provide Support for Survey Nickname
+
+**Description of Changes**: Allow setting of nickname, and provide nickname when fetching the survey [resource list](#surveys) and [individual resource](#surveys-id).
+
+**Endpoints Affected**: [/surveys](#surveys), [/surveys/{id}](#surveys-id)
+
+**Developer Actions Required**: None

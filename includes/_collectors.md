@@ -89,7 +89,7 @@ data[\_].href | Resource API URL | String
 
 Name | Required |Description | Type
 ------ | ------- | ------- | -------
-from_collector_id | Yes | Collector ID to copy message from | String
+from_collector_id | Yes | Collector ID to copy collector from | String
 
 ####Request Body Arguments for POST
 

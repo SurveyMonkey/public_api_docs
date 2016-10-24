@@ -44,6 +44,7 @@ s.post(url, data=payload)
 ```json
 {
   "title": "My Survey",
+  "nickname": "",
   "category":"",
   "language": "en",
   "question_count": 10,
@@ -95,6 +96,7 @@ Name | Description | Type
 ------ | ------- | -------
 data[\_].id | Survey id | String
 data[\_].title | Survey title | String
+data[\_].nickname | Survey nickname | String
 data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST (if copying from existing survey or template)
@@ -110,6 +112,7 @@ from_survey_id | No (required if from_template_id not provided) | Survey id to c
 Name |Required| Description | Type
 ------ | ----- | ------- | -------
 title | No (default="New Survey")|Survey title | String
+nickname | No (default="")|Survey nickname | String
 language | No (default="en") | Survey language | String
 buttons_text | No | Survey Buttons text container | Object
 buttons_text.next_button | No | Button text | String
@@ -123,6 +126,7 @@ custom_variables | No | Dictionary of survey variables | Object
 Name | Required | Description | Type
 ------ | ----- | ------- | -------
 title | No (default="New Survey")|Survey title | String
+nickname | No (default="")|Survey nickname | String
 language | No (default="en") | Survey language | String
 buttons_text | No | Survey Buttons text container | Objects
 buttons_text.next_button | No | Button text | String
@@ -164,6 +168,7 @@ s.get(url)
 ```json
 {
   "title": "My Survey",
+  "nickname": "",
   "category": "",
   "language": "en",
   "question_count": 0,
@@ -194,7 +199,7 @@ s.get(url)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a survey's details. To get an expanded version showing all pages and questions use [/surveys/{survey_id}/details](#surveys-id-details)
- * `PATCH`: Modifies a survey's title or language
+ * `PATCH`: Modifies a survey's title, nickname or language
  * `PUT`:  Replaces a survey. Request body arguments the same as POST [/surveys](#surveys)
  * `DELETE`: Deletes a survey
 
@@ -203,6 +208,7 @@ s.get(url)
 Name | Required | Description | Type
 ------ | ----- | ------- | -------
 title | No (`PUT` default="New Survey") |Survey title | String
+nickname | No (`PUT` default="") |Survey nickname | String
 language | No (`PUT` default="en") | Survey language | String
 buttons_text | No | Survey Buttons text container | Object
 buttons_text.next_button | No | Button text | String
@@ -217,6 +223,7 @@ Name | Description | Type
 ------ | ------- | -------
 id | Survey id | String
 title | Survey title | String
+nickname | Survey nickname | String
 custom_variables | Dictionary of survey variables | Object
 category| Survey category chosen when creating the survey | String
 language | Survey language | String
@@ -269,6 +276,7 @@ s.get(url)
 ```json
 {
   "title": "My Survey",
+  "nickname": "",
   "custom_variables": {
     "name": "label"
   },
