@@ -231,7 +231,7 @@ def exchange_code_for_token(auth_code, client_secret, client_id, redirect_uri):
 
 ###OLD Authentication 
 
-<aside class="notice">We've updated our authentication flow and are no longer using Mashery.  If you are [register a new app](https://developer.surveymonkey.com/apps/) or refreshing credentials for an existing app you should follow the [new flow](#NEW-authentication). Existing authentication credentials will continue to work as outlined below.</aside>
+<aside class="notice">We've updated our authentication flow and are no longer using Mashery.  If you are [register a new app](https://developer.surveymonkey.com/apps/) or refreshing credentials for an existing app you should follow the [new flow](#NEW-Authentication). Existing authentication credentials will continue to work as outlined below.</aside>
 
 ####Step 1: Direct user to SurveyMonkey's OAuth authorization page
 
