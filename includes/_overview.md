@@ -335,13 +335,13 @@ def exchange_code_for_token(auth_code, api_key, client_secret, client_id, redire
 		return None
 ```
 
-####Token expiration and revocation
+###Token expiration and revocation
 
 Our access tokens do not currently expire but may in the future. We will warn all developers before making changes.
 
 Access tokens can be revoked by the user. If this happens, you will get a JSON-encoded response body including a key `status`with a value of `1` and a key `errmsg` with the value of `Client revoked access grant` when making an API request. If you get this response, you will need to complete OAuth again.
 
-####Unauthorizing an app
+###Unauthorizing an app
 
 To unauthorize an app:
 
