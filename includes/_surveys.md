@@ -21,7 +21,7 @@ POST https://api.surveymonkey.net/v3/surveys
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys?api_key=YOUR_API_KEY -d '{"title":"My Survey"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys -d '{"title":"My Survey"}'
 ```
 
 ```python
@@ -36,7 +36,7 @@ s.headers.update({
 payload = {
   "title": "My Survey"
 }
-url = "https://api.surveymonkey.net/v3/surveys?api_key=%s" % YOUR_API_KEY
+url = "https://api.surveymonkey.net/v3/surveys" 
 s.post(url, data=payload)
 ```
 >Example Response
@@ -74,8 +74,8 @@ s.post(url, data=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of surveys owned or shared with the authenticated user
- * `POST`: Creates a new empty survey or, if a [template](#survey_templates) id or an existing survey id is specified, a survey prepopulated with [pages](#surveys-id-pages) and [questions](#formatting-question-types)
+ * `GET`: Returns a list of surveys owned or shared with the authenticated user. Requires **View Surveys** [scope](#scopes)
+ * `POST`: Creates a new empty survey or, if a [template](#survey_templates) id or an existing survey id is specified, a survey prepopulated with [pages](#surveys-id-pages) and [questions](#formatting-question-types). Requires **Create/Modify Surveys** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -148,7 +148,7 @@ GET https://api.surveymonkey.net/v3/surveys/{survey_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/1234?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234
 ```
 
 ```python
@@ -160,7 +160,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s?api_key=%s" % (survey_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s" % (survey_id)
 s.get(url)
 ```
 >Example Response
@@ -198,10 +198,10 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a survey's details. To get an expanded version showing all pages and questions use [/surveys/{survey_id}/details](#surveys-id-details)
- * `PATCH`: Modifies a survey's title, nickname or language
- * `PUT`:  Replaces a survey. Request body arguments the same as POST [/surveys](#surveys)
- * `DELETE`: Deletes a survey
+ * `GET`: Returns a survey's details. To get an expanded version showing all pages and questions use [/surveys/{survey_id}/details](#surveys-id-details). Requires **View Surveys** [scope](#scopes)
+ * `PATCH`: Modifies a survey's title, nickname or language. Requires **Create/Modify Surveys** [scope](#scopes)
+ * `PUT`:  Replaces a survey. Request body arguments the same as POST [/surveys](#surveys). Requires **Create/Modify Surveys** [scope](#scopes)
+ * `DELETE`: Deletes a survey. Requires **Create/Modify Surveys** [scope](#scopes)
 
 ####Request Body Arguments for PATCH (See POST [/surveys](#surveys) for PUT arguments)
 
@@ -255,7 +255,7 @@ GET https://api.surveymonkey.net/v3/surveys/{survey_id}/details
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/1234/details?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234/details
 ```
 
 ```python
@@ -267,7 +267,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/details?api_key=%s" % (survey_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/details" % (survey_id)
 s.get(url)
 ```
 
@@ -313,7 +313,7 @@ s.get(url)
 
 ####Available Methods
 
- * `GET`: Returns an expanded survey resource with a `pages` element containing a list of all page objects, each containing a list of questions objects
+ * `GET`: Returns an expanded survey resource with a `pages` element containing a list of all page objects, each containing a list of questions objects. Requires **View Surveys** [scope](#scopes)
 
 ###/survey_categories
 
@@ -325,7 +325,7 @@ GET https://api.surveymonkey.net/v3/survey_categories
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/survey_categories?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/survey_categories
 ```
 
 ```python
@@ -337,7 +337,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/survey_categories" % YOUR_API_KEY
+url = "https://api.surveymonkey.net/v3/survey_categories" 
 s.get(url)
 ```
 
@@ -362,7 +362,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of survey categories that can be used to filter survey templates
+ * `GET`: Returns a list of survey categories that can be used to filter survey templates. Requires **View Library Assets** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -392,7 +392,7 @@ GET https://api.surveymonkey.net/v3/survey_templates
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/survey_templates?api_key=YOUR_API_KEY&category=all
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/survey_templates?category=all
 ```
 
 ```python
@@ -407,7 +407,7 @@ s.headers.update({
 payload = {
   "category": "community"
 }
-url = "https://api.surveymonkey.net/v3/survey_templates" % YOUR_API_KEY
+url = "https://api.surveymonkey.net/v3/survey_templates" 
 s.get(url, params=payload)
 ```
 
@@ -440,7 +440,7 @@ s.get(url, params=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of survey templates. Survey template ids can be used as an argument to `POST` a new survey
+ * `GET`: Returns a list of survey templates. Survey template ids can be used as an argument to `POST` a new survey. Requires **View Library Assets** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -476,7 +476,7 @@ POST https://api.surveymonkey.net/v3/surveys/{survey_id}/pages
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/1234/pages?api_key=YOUR_API_KEY -d '{"title":"Page Title"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234/pages -d '{"title":"Page Title"}'
 ```
 
 ```python
@@ -491,7 +491,7 @@ s.headers.update({
 payload = {
   "title": "Page Title"
 }
-url = "https://api.surveymonkey.net/v3/surveys/%s/pages" % (survey_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/pages" % (survey_id)
 s.post(url, data=payload)
 ```
 
@@ -512,8 +512,8 @@ s.post(url, data=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a page's details
- * `POST`: Creates a new, empty page, see [/surveys/{id}/pages/{id}/questions](#surveys-id-pages-id-questions) to add questions to pages
+ * `GET`: Returns a page's details. Requires **View Surveys** [scope](#scopes)
+ * `POST`: Creates a new, empty page, see [/surveys/{id}/pages/{id}/questions](#surveys-id-pages-id-questions) to add questions to pages. Requires **Create/Modify Surveys** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -552,7 +552,7 @@ GET https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/1234/pages/1234?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234/pages/1234
 ```
 
 ```python
@@ -564,7 +564,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s" % (survey_id, page_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s" % (survey_id, page_id)
 s.get(url)
 ```
 
@@ -585,10 +585,10 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a page's details
- * `PATCH`: Modifies a page (updates any fields accepted as arguments to `POST` [/surveys{id}/pages](#surveys-id-pages))
- * `PUT`: Replaces a page (same arguments and requirements as `POST` [/surveys{id}/pages](#surveys-id-pages))
- * `DELETE`: Deletes a page
+ * `GET`: Returns a page's details. Requires **View Surveys** [scope](#scopes)
+ * `PATCH`: Modifies a page (updates any fields accepted as arguments to `POST` [/surveys{id}/pages](#surveys-id-pages)). Requires **Create/Modify Surveys** [scope](#scopes)
+ * `PUT`: Replaces a page (same arguments and requirements as `POST` [/surveys{id}/pages](#surveys-id-pages)). Requires **Create/Modify Surveys** [scope](#scopes)
+ * `DELETE`: Deletes a page. Requires **Create/Modify Surveys** [scope](#scopes)
 
 ####Request Body Arguments for PUT/PATCH
 

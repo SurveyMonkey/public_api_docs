@@ -47,7 +47,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a group if the user account belongs to a [group](http://help.surveymonkey.com/articles/en_US/kb/Groups) (users can only belong to one group)
+ * `GET`: Returns a group if the user account belongs to a [group](http://help.surveymonkey.com/articles/en_US/kb/Groups) (users can only belong to one group). Requires **View Groups** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -107,7 +107,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a group's details including the group's owner and email address
+ * `GET`: Returns a group's details including the group's owner and email address. Requires **View Groups** [scope](#scopes)
 
 ####Group Resource if Account Owner or Admin 
 
@@ -138,7 +138,7 @@ GET https://api.surveymonkey.net/v3/groups/{group_id}/members
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/groups/1234/members?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/groups/1234/members
 ```
 
 ```python
@@ -150,7 +150,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/groups/%s/members?api_key=%s" % (group_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/groups/%s/members" % (group_id)
 s.get(url)
 ```
 
@@ -176,7 +176,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of users who have been added as members of the specified group  
+ * `GET`: Returns a list of users who have been added as members of the specified group. Requires **View Groups** [scope](#scopes) 
 
 ####Optional Query Strings for GET
 
@@ -205,7 +205,7 @@ GET https://api.surveymonkey.net/v3/groups/{group_id}/members/{member_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/groups/1234/members/1234?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/groups/1234/members/1234
 ```
 
 ```python
@@ -217,7 +217,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/groups/%s/members/%s?api_key=%s" % (group_id, member_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/groups/%s/members/%s" % (group_id, member_id)
 s.get(url)
 ```
 
@@ -239,7 +239,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a group member's details including their `role` and `status`
+ * `GET`: Returns a group member's details including their `role` and `status`. Requires **View Groups** [scope](#scopes)
 
 ####Group Member Resource
 

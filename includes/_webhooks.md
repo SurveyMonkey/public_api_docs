@@ -20,7 +20,7 @@ POST https://api.surveymonkey.net/v3/webhooks
 >Example Request
 
 ```shell
-curl -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/webhooks?api_key=YOUR_API_KEY -d \
+curl -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/webhooks -d \
   '{"name":"My Webhook", "event_type":"response completed", "object_type":"survey", "object_ids":["1234","5678"],"subscription_url":"https://surveymonkey.com/webhook_reciever"}'
 ```
 
@@ -40,7 +40,7 @@ payload = {
   'object_ids': ['1234', '5678'],
   'subscription_url': 'https://surveymonkey.com/webhook_reciever'
 }
-url = "https://api.surveymonkey.net/v3/webhooks?api_key=%s" % YOUR_API_KEY
+url = "https://api.surveymonkey.net/v3/webhooks" 
 s.post(url, data=payload)
 ```
 
@@ -61,8 +61,8 @@ s.post(url, data=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of webhooks
- * `POST`: Create a webhook, see below for callback format
+ * `GET`: Returns a list of webhooks. Requires **View Webhooks** [scope](#scopes)
+ * `POST`: Create a webhook, see below for callback format. Requires **Create/Modify Webhooks** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -101,7 +101,7 @@ GET https://api.surveymonkey.net/v3/webhooks/{webhook_id}
 >Example Request
 
 ```shell
-curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/webhooks/1234?api_key=YOUR_API_KEY
+curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/webhooks/1234
 ```
 
 ```python
@@ -113,7 +113,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/webhooks/%s?api_key=%s" % (webhook_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/webhooks/%s" % (webhook_id)
 s.get(url)
 ```
 
@@ -135,10 +135,10 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a webhook
- * `PATCH`: Modifies a webhook (updates any fields accepted as arguments to `POST` [/webhooks](#webhooks))
- * `PUT`: Replaces a webhook (same arguments and requirements as `POST` [/webhooks](#webhooks))
- * `DELETE`: Deletes a webhook 
+ * `GET`: Returns a webhook. Requires **View Webhooks** [scope](#scopes)
+ * `PATCH`: Modifies a webhook (updates any fields accepted as arguments to `POST` [/webhooks](#webhooks)). Requires **Create/Modify Webhooks** [scope](#scopes)
+ * `PUT`: Replaces a webhook (same arguments and requirements as `POST` [/webhooks](#webhooks)). Requires **Create/Modify Webhooks** [scope](#scopes)
+ * `DELETE`: Deletes a webhook. Requires **Create/Modify Webhooks** [scope](#scopes)
 
 ####Webhook Resource
 

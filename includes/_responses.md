@@ -9,7 +9,7 @@ These endpoints let you create responses directly via the API and view responses
 
 ####Available Methods
 
- * `GET`: Returns a list of responses in same format as `GET` to [/collectors/{id}/responses](#collectors-id-responses)
+ * `GET`: Returns a list of responses in same format as `GET` to [/collectors/{id}/responses](#collectors-id-responses). Requires **View Responses** [scope](#scopes)
 
 
 ###/collectors/{id}/responses
@@ -22,7 +22,7 @@ POST https://api.surveymonkey.net/v3/collectors/{collector_id}/responses
 >Example Request
 
 ```shell
-curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses?api_key=YOUR_API_KEY -d '{"custom_variables":{"custvar_1": "one", "custvar_2": "two"},"response_status": "overquota","custom_value": "custom identifier for the response","date_created": "2015-10-06T12:56:55+00:00","ip_address": "127.0.0.1","recipient_id": "564728340","pages": [{"id": "103332310","questions": [{"answers": [{"choice_id": "3057839051"}],"id": "319352786"}]}]}'
+curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses-d '{"custom_variables":{"custvar_1": "one", "custvar_2": "two"},"response_status": "overquota","custom_value": "custom identifier for the response","date_created": "2015-10-06T12:56:55+00:00","ip_address": "127.0.0.1","recipient_id": "564728340","pages": [{"id": "103332310","questions": [{"answers": [{"choice_id": "3057839051"}],"id": "319352786"}]}]}'
 ```
 
 ```python
@@ -54,7 +54,7 @@ payload = {
     }]
   }]
 }
-url = "https://api.surveymonkey.net/v3/surveys/%s/responses?api_key=%s" % (survey_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/responses" % (survey_id)
 s.post(url, data=payload)
 ```
 
@@ -97,8 +97,8 @@ s.post(url, data=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of responses
- * `POST`: Creates a response
+ * `GET`: Returns a list of responses. Requires **View Responses** [scope](#scopes)
+ * `POST`: Creates a response. Requires **Create/Modify Responses** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -170,7 +170,7 @@ GET https://api.surveymonkey.net/v3/collectors/{collector_id}/responses/bulk
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/bulk?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/bulk
 ```
 
 ```python
@@ -199,7 +199,7 @@ payload = {
   "sort_order": "ASC",
   "sort_by": "date_modified"
 }
-url = "https://api.surveymonkey.net/v3/surveys/%s/responses/bulk?api_key=%s" % (survey_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/responses/bulk" % (survey_id)
 s.get(url, params=payload)
 ```
 
@@ -247,7 +247,7 @@ s.get(url, params=payload)
 
 ####Available Methods
 
- * `GET`: Retrieves a list of full expanded responses, including answers to all questions
+ * `GET`: Retrieves a list of full expanded responses, including answers to all questions. Requires **View Response Details** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -322,7 +322,7 @@ GET https://api.surveymonkey.net/v3/collectors/{collector_id}/responses/{respons
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}
 ```
 
 ```python
@@ -334,7 +334,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s?api_key=%s" % (survey_id, response_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s" % (survey_id, response_id)
 s.get(url)
 ```
 
@@ -369,10 +369,10 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a response
- * `PATCH`: Modifies a response (updates any fields accepted as arguments to `POST` [/surveys/{id}/responses](#surveys-id-responses))
- * `PUT`: Replaces a response (same arguments and requirements as `POST` [/surveys/{id}/responses](#surveys-id-responses))
- * `DELETE`: Deletes a response
+ * `GET`: Returns a response. Requires **View Responses** [scope](#scopes)
+ * `PATCH`: Modifies a response (updates any fields accepted as arguments to `POST` [/surveys/{id}/responses](#surveys-id-responses)). Requires **Create/Modify Responses** [scope](#scopes)
+ * `PUT`: Replaces a response (same arguments and requirements as `POST` [/surveys/{id}/responses](#surveys-id-responses)). Requires **Create/Modify Responses** [scope](#scopes)
+ * `DELETE`: Deletes a response, Requires **Create/Modify Responses** [scope](#scopes)
 
 ####Response Resource
 
@@ -414,7 +414,7 @@ GET https://api.surveymonkey.net/v3/collectors/{collector_id}/responses/{respons
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}/details?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}/details
 ```
 
 ```python
@@ -426,7 +426,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s/details?api_key=%s" % (survey_id, response_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s/details" % (survey_id, response_id)
 s.get(url)
 ```
 
@@ -468,7 +468,7 @@ s.get(url)
 
 ####Available Methods
 
- * `GET`: Retrieve a full expanded response, including answers to all questions
+ * `GET`: Retrieve a full expanded response, including answers to all questions. Requires **View Response Details** [scope](#scopes)
 
 ####Response Resource
 

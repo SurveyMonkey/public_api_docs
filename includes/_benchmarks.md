@@ -16,7 +16,7 @@ GET https://api.surveymonkey.net/v3/benchmark_bundles
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/benchmark_bundles?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/benchmark_bundles
 ```
 
 ```python
@@ -28,7 +28,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/benchmark_bundles?api_key=%s" % YOUR_API_KEY
+url = "https://api.surveymonkey.net/v3/benchmark_bundles" 
 s.get(url)
 ```
 
@@ -105,7 +105,7 @@ GET https://api.surveymonkey.net/v3/benchmark_bundles/{bundle_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/benchmark_bundles/test_bundle?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/benchmark_bundles/test_bundle
 ```
 
 ```python
@@ -117,7 +117,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s?api_key=%s" % (bundle_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s" % (bundle_id)
 s.get(url)
 ```
 
@@ -191,7 +191,7 @@ GET https://api.surveymonkey.net/v3/benchmark_bundles/{bundle_id}/analyze
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" 'https://api.surveymonkey.net/v3/benchmark_bundles/test_bundle/analyze?api_key=YOUR_API_KEY&question_ids=25651,25652'
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" 'https://api.surveymonkey.net/v3/benchmark_bundles/test_bundle/analyze?question_ids=25651,25652'
 
 ```
 
@@ -209,7 +209,7 @@ payload = {
   'percentile_start': 1,
   'percentile_end': 100
 }
-url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s/analyze?api_key=%s" % (bundle_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s/analyze" % (bundle_id)
 s.get(url, params=payload)
 ```
 
@@ -302,7 +302,7 @@ GET https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/question
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark
 ```
 
 ```python
@@ -314,7 +314,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark?api_key=%s" % (survey_id, page_id, question_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark" % (survey_id, page_id, question_id)
 s.get(url)
 ```
 

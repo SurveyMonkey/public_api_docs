@@ -13,7 +13,7 @@ GET https://api.surveymonkey.net/v3/errors
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/errors?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/errors
 ```
 
 ```python
@@ -25,7 +25,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/errors?api_key=%s" % YOUR_API_KEY
+url = "https://api.surveymonkey.net/v3/errors" 
 s.get(url)
 ```
 
@@ -79,7 +79,7 @@ GET https://api.surveymonkey.net/v3/errors/{error_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/errors/1234?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/errors/1234
 ```
 
 ```python
@@ -91,7 +91,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/errors/%s?api_key=%s" % (error_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/errors/%s" % (error_id)
 s.get(url)
 ```
 
