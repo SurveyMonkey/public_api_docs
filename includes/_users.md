@@ -13,7 +13,7 @@ GET https://api.surveymonkey.net/v3/users/me
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/users/me?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/users/me
 ```
 
 ```python
@@ -25,7 +25,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/users/me?api_key=%s" % YOUR_API_KEY
+url = "https://api.surveymonkey.net/v3/users/me" 
 s.get(url)
 ```
 
@@ -33,7 +33,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns the current user's account details including their plan
+ * `GET`: Returns the current user's account details including their plan. Requires **View Users** [scope](#scopes)
 
 ####User Resource
 

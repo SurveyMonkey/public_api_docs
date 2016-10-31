@@ -9,7 +9,7 @@ POST https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questio
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions?api_key=YOUR_API_KEY -d '{"headings": [{"heading": "A question about primates.", "random_assignment": {"percent": 50, "position": 1}},{"heading": "A question about primates phrased slightly differently.", "random_assignment": {"percent": 50, "position": 2},}], "family": "open_ended", "subtype": "single", "position": 1, "sorting": {"type": "textasc","ignore_last": True}, "required": {"text": "This question is required!", "type": "at_least", "amount": "1"},"validation": {"type": "integer","text": "Validation has failed!","min": 20,"max": 30}, "forced_ranking": True, "answers": { #SEE ANSWERS SECTION }}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions -d '{"headings": [{"heading": "A question about primates.", "random_assignment": {"percent": 50, "position": 1}},{"heading": "A question about primates phrased slightly differently.", "random_assignment": {"percent": 50, "position": 2},}], "family": "open_ended", "subtype": "single", "position": 1, "sorting": {"type": "textasc","ignore_last": True}, "required": {"text": "This question is required!", "type": "at_least", "amount": "1"},"validation": {"type": "integer","text": "Validation has failed!","min": 20,"max": 30}, "forced_ranking": True, "answers": { #SEE ANSWERS SECTION }}'
 
 ```
 
@@ -63,7 +63,7 @@ payload = {
   },
   "position": 3
 }
-url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s/questions" % (survey_id, page_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s/questions" % (survey_id, page_id)
 s.post(url, data=payload)
 
 ####Response
@@ -75,8 +75,8 @@ Same as request, but with two additional fields (id, href)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of questions on a survey page
- * `POST`: Creates a new question on a survey page, see [formatting question types](#formatting-question-types)
+ * `GET`: Returns a list of questions on a survey page. Requires **View Surveys** [scope](#scopes)
+ * `POST`: Creates a new question on a survey page, see [formatting question types](#formatting-question-types). Requires **Create/Modify Surveys** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -175,7 +175,7 @@ GET https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/question
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}?api_key=YOUR_API_KEY 
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id} 
 
 ```
 
@@ -188,7 +188,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s/questions/%s" % (survey_id, page_id, question_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s/questions/%s" % (survey_id, page_id, question_id)
 s.get(url)
 
 ####Response
@@ -201,10 +201,10 @@ Same as `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a question 
- * `PATCH`: Updates a question (updates any fields accepted as arguments to `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions))
- * `PUT`: Replaces a question (same arguments and requirements as `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions))
- * `DELETE`: Deletes a question
+ * `GET`: Returns a question. Requires **View Surveys** [scope](#scopes)
+ * `PATCH`: Updates a question (updates any fields accepted as arguments to `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions). Requires **Create/Modify Surveys** [scope](#scopes)
+ * `PUT`: Replaces a question (same arguments and requirements as `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions). Requires **Create/Modify Surveys** [scope](#scopes)
+ * `DELETE`: Deletes a question. Requires **Create/Modify Surveys** [scope](#scopes)
 
 ###Formatting Question Types
 
@@ -212,11 +212,13 @@ All questions have a `family` and `subtype` that define their type. See below fo
 
 |Family|Subtype|
 |------|-------|
-|single_choice|'vertical'|
-|matrix| 'single', 'rating', 'ranking', 'menu'|
-|open_ended|'single','multi', 'numerical'|
-|demographic|'international'|
-|datetime|'both'|
+|single_choice|'vertical', 'horiz', 'menu'|
+|matrix| 'single', 'rating', 'ranking', 'menu', 'multi'|
+|open_ended|'single','multi', 'numerical', 'essay'|
+|demographic|'international', 'us'|
+|datetime|'both', 'date_only', 'time_only'|
+|multiple_choice|'vertical'|
+|presentation|'descriptive_text', 'image'|
 
 ####Single Choice
 
