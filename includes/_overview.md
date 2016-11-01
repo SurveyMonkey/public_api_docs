@@ -229,7 +229,11 @@ def exchange_code_for_token(auth_code, client_secret, client_id, redirect_uri):
 
 ###OLD Authentication 
 
-<aside class="notice">We've updated our authentication flow and are no longer using Mashery.  If you are [register a new app](https://developer.surveymonkey.com/apps/) or refreshing credentials for an existing app you should follow the [new flow](#NEW-Authentication). Existing authentication credentials will continue to work as outlined below.</aside>
+<aside class="notice">We've updated our authentication flow and are no longer using Mashery.  If you are [register a new app](https://developer.surveymonkey.com/apps/) or refreshing credentials for an existing app you should follow the [new flow](#NEW-Authentication). Existing authentication credentials will continue to work.</aside>
+
+All code examples in our documentation assume use of our [NEW Authentication](#NEW-Authentication). If you're using our OLD Authentication, you'll need to pass your API key with each call like so:
+
+`curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/users/me?api_key=YOUR_API_KEY`
 
 ####Step 1: Direct user to SurveyMonkey's OAuth authorization page
 
