@@ -114,7 +114,7 @@ Max Survey Size | 1000 questions, surveys over limit will return a 413
 
 ##Authentication 
 
-<aside class="notice">We've updated our authentication flow and are no longer using Mashery. We now generate a unique client id that is not your Mashery username, and have removed the use of API keys. If you are registering a new app or refreshing your credentials you should follow the [NEW Authentication flow](#NEW-Authentication). Existing authentication credentials combining a Mashery username and an API key will continue to work as outlined in the [OLD Authentication](#OLD-Authentication).</aside>
+<aside class="notice">We've updated our authentication and are no longer using Mashery. We now generate a unique client id that is not your Mashery username, and have removed the use of API keys. If you are registering a new app or refreshing your credentials you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. If you created your app before Nov 1st, 2017, your existing credentials will continue to work as outlined in the <a href="https://developer.surveymonkey.com/api/v3/#old-authentication">OLD Authentication</a> as long as you don't refresh them in our developer portal.</aside>
 
 The SurveyMonkey API supports OAuth 2.0.
 
@@ -229,7 +229,7 @@ def exchange_code_for_token(auth_code, client_secret, client_id, redirect_uri):
 
 ###OLD Authentication 
 
-<aside class="notice">We've updated our authentication flow and are no longer using Mashery.  If you are [register a new app](https://developer.surveymonkey.com/apps/) or refreshing credentials for an existing app you should follow the [new flow](#NEW-Authentication). Existing authentication credentials will continue to work.</aside>
+<aside class="notice">We've updated our authentication flow and are no longer using Mashery.  If you are <a href="https://developer.surveymonkey.com/apps/">registering a new app</a> or refreshing credentials for an existing app you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. Existing authentication credentials will continue to work.</aside>
 
 All code examples in our documentation assume use of our [NEW Authentication](#NEW-Authentication). If you're using our OLD Authentication, you'll need to pass your API key with each call like so:
 
