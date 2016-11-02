@@ -398,10 +398,12 @@ Any request to a list resource returns the following pagination fields, if avail
 |1014|403 Permission Error|Permission has not been granted by the user to make this request.|
 |1015|403 Permission Error|The user does not have the required plan to make this request.|
 |1016|403 Permission Error|The user does not have permission to access the resource.|
+|1017|403 Permission Error|The user has hit a quota limit on this resource.|
 |1020|404 Resource Not Found|There was an error retrieving the requested resource.|
 |1025|409 Resource Conflict|Unable to complete the request due to a conflict. Check the settings for the resource.|
 |1026|409 Resource Conflict|The requested resource already exists.|
 |1030|413 Request Entity Too Large|The requested entity is too large, it can not be returned.|
+|1040|429 Rate Limit Reached|Too many requests were made, try again later.|
 |1050|500 Internal Server Error|Oh bananas! We couldn't process your request.|
 |1051|503 Internal Server Error|Service unreachable. Please try again later.|
 |1052|404 User Soft Deleted|The user you are making this request for has been soft deleted.|
