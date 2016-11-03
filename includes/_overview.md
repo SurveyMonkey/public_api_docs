@@ -19,7 +19,6 @@ When registering your app it is important to know if you will eventually deploy 
 To register an app:
 
 1. Click on the **MY APPS** tab in the upper left corner and sign into your SurveyMonkey account.
-1. Enter an existing **Mashery User Name** and **API Secret** or accept our [API Developer terms of service](https://developer.surveymonkey.com/tou/) and sign up for a new Mashery account.
 1. Click **+ Add New App**. Enter your **App Name** and click **Create App**. Under **App Details** you will find an API key and secret you can use for OAuth and an access token for your own SurveMonkey account. New apps are given a 90 day draft state during which you can use paid scopes for free.
 1. Click **Settings** to edit your app's **Redirect URI**, and review and adjust scopes for your app. Scopes allow your application to access particular resources on behalf of a user. For Public apps, the scopes you use determine which paid SurveyMonkey plan your app's users will need and if your application will need to be approved by SurveyMonkey before you can deploy. Click on scopes to toggle their requirements and click **Update Scopes** when finished.
 
@@ -353,7 +352,7 @@ To unauthorize an app:
 
 ##Pagination
 
-When requesting list resources, you can set the size of a page by using `per_page=#` and indicate which page to return with `page=#`. So a request to `https://api.surveymonkey.net/v3/surveys?api_key=api_key&page=2&per_page=5` will return the second page of five surveys.
+When requesting list resources, you can set the size of a page by using `per_page=#` and indicate which page to return with `page=#`. So a request to `https://api.surveymonkey.net/v3/surveys?page=2&per_page=5` will return the second page of five surveys.
 
 Any request to a list resource returns the following pagination fields, if available:
 
