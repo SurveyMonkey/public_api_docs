@@ -499,6 +499,8 @@ cols[\_].choices[\_].text (required) | Choice for user selection | String
 cols[\_].choices[\_].position (required) | Position of choice | Integer
 
 
+
+
 ####Open Ended - Single or Essay
 
 >Open Ended - Single or Essay
@@ -743,3 +745,125 @@ Name | Description | Type
 ----- | ----- | -----
  image (optional)| Image to present|dictionary
  image[\_].image_url (required)| URL of image to present | String |
+
+
+ >File Upload
+
+```json
+{
+    "headings": [
+        {
+            "heading": "Upload your favorite monkey picture."
+        }
+    ],
+    "position": 1,
+    "family": "open_ended",
+    "subtype": "single",
+    "display_options": {
+        "display_type": "file_upload"
+    }
+}
+```
+
+>Slider
+
+```json
+{
+    "headings": [
+        {
+            "heading": "On a scale of 1 to 100, how much do you like monkeys?"
+        }
+    ],
+    "position": 1,
+    "family": "open_ended",
+    "subtype": "single",
+    "display_options": {
+        "display_type": "slider"
+    }
+}
+```
+
+>Slider Complex
+
+```json
+{
+    "headings": [
+        {
+            "heading": "On a scale of 1 to 100, how much do you like monkeys?"
+        }
+    ],
+    "position": 1,
+    "family": "open_ended",
+    "subtype": "single",
+    "display_options": {
+      "right_label": "",
+      "display_type": "slider",
+      "custom_options": {
+        "starting_position": 0,
+        "step_size": 1
+      },
+      "left_label": ""
+    },
+
+    "validation": {
+      "sum_text": "",
+      "min": 45,
+      "text": "Please enter a whole number between {0} and {1}.",
+      "max": 10000,
+      "type": "integer"
+    }
+}
+```
+
+>Emoji
+
+```json
+{
+    "headings": [
+        {
+            "heading": "How many stars on the walk of fame should monkeys have?"
+        }
+    ],
+    "position": 1,
+    "family": "matrix",
+    "subtype": "rating",
+    "display_options": {
+        "display_type": "emoji",
+        "display_subtype": "star"
+    },
+    "forced_ranking": false,
+    "answers":{
+    "rows": [
+      {
+        "visible": true,
+        "text": "",
+        "position": 1
+      }
+    ],
+    "choices": [
+      {
+        "weight": 1,
+        "text": ""
+      },
+      {
+        "weight": 2,
+        "text": ""
+      },
+      {
+        "weight": 3,
+        "text": ""
+      },
+      {
+        "weight": 4,
+        "text": ""
+      },
+      {
+        "weight": 5,
+        "text": ""
+      }
+    ]
+  }
+}
+```
+
+
