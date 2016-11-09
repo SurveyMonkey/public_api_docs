@@ -113,7 +113,7 @@ Max Survey Size | 1000 questions, surveys over limit will return a 413
 
 ##Authentication 
 
-<aside class="notice">We've updated our authentication and are no longer using Mashery. We now generate a unique client id that is not your Mashery username, and have removed the use of API keys. If you are registering a new app or refreshing your credentials you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. If you created your app before Nov 1st, 2017, your existing credentials will continue to work as outlined in the <a href="https://developer.surveymonkey.com/api/v3/#old-authentication">OLD Authentication</a> as long as you don't refresh them in our developer portal.</aside>
+<aside class="notice">We've updated our authentication and are no longer using Mashery. We now generate a unique client id that is not your Mashery username, and have removed the use of API keys. If you are registering a new app or refreshing your credentials you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. If you created your app before Nov 1st, 2016, your existing credentials will continue to work as outlined in the <a href="https://developer.surveymonkey.com/api/v3/#old-authentication">OLD Authentication</a> as long as you don't refresh them in our developer portal.</aside>
 
 The SurveyMonkey API supports OAuth 2.0.
 
