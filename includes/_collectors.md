@@ -29,7 +29,7 @@ payload = {
  'type': 'weblink'
 }
 url = "https://api.surveymonkey.net/v3/surveys/%s/collectors" % (survey_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response
@@ -376,7 +376,7 @@ payload = {
   'scheduled_date': '2015-10-06T12:56:55+00:00'
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/send" % (collector_id, message_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Request
@@ -453,7 +453,7 @@ payload = {
   'contact_id': 1234
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Request (without contact_id)
@@ -490,7 +490,7 @@ payload = {
   }
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response
@@ -610,7 +610,7 @@ payload = {
   }]
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 >Example Response
 

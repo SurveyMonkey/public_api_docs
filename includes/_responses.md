@@ -55,7 +55,7 @@ payload = {
   }]
 }
 url = "https://api.surveymonkey.net/v3/surveys/%s/responses" % (survey_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response
@@ -200,7 +200,7 @@ payload = {
   "sort_by": "date_modified"
 }
 url = "https://api.surveymonkey.net/v3/surveys/%s/responses/bulk" % (survey_id)
-s.get(url, params=payload)
+s.get(url, json=payload)
 ```
 
 >Example Response
