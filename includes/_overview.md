@@ -6,7 +6,7 @@
 
 The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will [register an app](#registering-an-app) in our developer portal. Before you register, you should determine if your app will eventually be [deployed](#deploying-an-app) as Public or Private and which [scopes](#scopes) you will need. 
 
-All Public apps need to be approved by SurveyMonkey before they can be deployed, use of certain scopes will also need to approved. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) to determine if you should contact us before you begin to develop your app.
+All Public apps need to be approved by SurveyMonkey before they can be deployed, use of certain scopes will also need to be approved. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) to determine if you should contact us before you begin to develop your app.
 
 Newly registered apps are given a draft state window in which developers can use all paid scopes for free when querying against the associated SurveyMonkey account for up to 90 days. No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must deploy your app as either Public or Private and upgrade your account as needed.
 
@@ -92,9 +92,9 @@ Two scopes **Create/Modify Responses** and **Create/Modify Surveys** require Sur
 
 Draft and Private apps will be subject to the following API Rate limits:
 
-| Max Requests Per Second | Max Requests Per Day
+| Max Requests Per Minute | Max Requests Per Day
 | ------- | -------
-2 | 500
+120 | 500
 
 In addition, requests made to the API to create [contacts](#contacts-and-contact-lists) or send [invite messages](#collectors-and-invite-messages), are subject to our [sending and contact limits](http://help.surveymonkey.com/articles/en_US/kb/Is-there-a-limit-on-the-number-of-emails-I-can-send).
 

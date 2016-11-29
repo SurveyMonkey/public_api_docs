@@ -41,7 +41,7 @@ payload = {
   'subscription_url': 'https://surveymonkey.com/webhook_reciever'
 }
 url = "https://api.surveymonkey.net/v3/webhooks" 
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response

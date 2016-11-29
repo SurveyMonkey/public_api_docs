@@ -37,7 +37,7 @@ payload = {
   "title": "My Survey"
 }
 url = "https://api.surveymonkey.net/v3/surveys" 
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 >Example Response
 
@@ -408,7 +408,7 @@ payload = {
   "category": "community"
 }
 url = "https://api.surveymonkey.net/v3/survey_templates" 
-s.get(url, params=payload)
+s.get(url, json=payload)
 ```
 
 >Example Response
@@ -492,7 +492,7 @@ payload = {
   "title": "Page Title"
 }
 url = "https://api.surveymonkey.net/v3/surveys/%s/pages" % (survey_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response

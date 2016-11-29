@@ -64,7 +64,7 @@ payload = {
   "position": 3
 }
 url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s/questions" % (survey_id, page_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 
 ####Response
 Same as request, but with two additional fields (id, href)

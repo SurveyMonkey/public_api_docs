@@ -22,7 +22,7 @@ POST https://api.surveymonkey.net/v3/collectors/{collector_id}/responses
 >Example Request
 
 ```shell
-curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses-d '{"custom_variables":{"custvar_1": "one", "custvar_2": "two"},"response_status": "overquota","custom_value": "custom identifier for the response","date_created": "2015-10-06T12:56:55+00:00","ip_address": "127.0.0.1","recipient_id": "564728340","pages": [{"id": "103332310","questions": [{"answers": [{"choice_id": "3057839051"}],"id": "319352786"}]}]}'
+curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses-d '{"custom_variables":{"custvar_1": "one", "custvar_2": "two"},"response_status": "overquota","custom_value": "custom identifier for the response","date_created": "2015-10-06T12:56:55+00:00","ip_address": "127.0.0.1","recipient_id": "564728340", "pages": [{"id": "12345678","questions": [{"answers": [{"choice_id": "12345678"}], "id": "12345678"}, {"answers": [{"row_id": "12345678", "choice_id": "12345678"}], "id": "12345678"}, {"answers": [{"row_id": "12345678", "col_id": "12345678", "choice_id": "12345678"}], "id": "12345678"}, {"answers": [{"text": "Sample Text Response"}], "id": "12345678"}, {"answers": [{"row_id": "12345678", "text": "Sample Text Response"}], "id": "12345678"}]}]}
 ```
 
 ```python
@@ -44,18 +44,48 @@ payload = {
   "date_created": "2015-10-06T12:56:55+00:00",
   "ip_address": "127.0.0.1",
   "recipient_id": "564728340",
+{
   "pages": [{
-    "id": "103332310",
-    "questions": [{
+    "id": "12345678",
+    "questions": [
+    {  ##Single/Multiple Choice
         "answers": [{
-            "choice_id": "3057839051"
+            "choice_id": "12345678"
         }],
-        "id": "319352786"
+        "id": "12345678"
+    },
+    {  ##Matrix Single/Rating/Ranking, Emoji
+        "answers": [{
+            "row_id": "12345678",
+            "choice_id": "12345678"
+        }],
+        "id": "12345678"
+    },
+    { ##Matrix Menu
+        "answers": [{
+            "row_id": "12345678",
+            "col_id": "12345678",
+            "choice_id": "12345678"
+        }],
+        "id": "12345678"
+    },
+    { ##Open Ended Single/Essay, Slider
+        "answers": [{
+            "text": "Sample Text Response"
+        }],
+        "id": "12345678"
+    },
+    { ##Open Ended Multi/Numerical, Demographic, Datetime
+        "answers": [{
+            "row_id": "12345678",
+            "text": "Sample Text Response" ##(format depends on question type, "12/31/2015 11:59 PM" for datetime)
+        }],
+        "id": "12345678"
     }]
   }]
 }
 url = "https://api.surveymonkey.net/v3/surveys/%s/responses" % (survey_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response
@@ -78,13 +108,37 @@ s.post(url, data=payload)
   "analyze_url": "https://www.surveymonkey.com/analyze/browse/",
   "custom_value": "custom identifier for the response",
   "page_path": [],
-  "pages": [{
-    "id": "103332310",
-    "questions": [{
-        "answers": [{
-            "choice_id": "3057839051"
+ "pages": [{
+    "id": "12345678",
+    "questions": [
+    {"answers": [{
+            "choice_id": "12345678"
         }],
-        "id": "319352786"
+        "id": "12345678"
+    },
+    {"answers": [{
+            "row_id": "12345678",
+            "choice_id": "12345678"
+        }],
+        "id": "12345678"
+    },
+    {"answers": [{
+            "row_id": "12345678",
+            "col_id": "12345678",
+            "choice_id": "12345678"
+        }],
+        "id": "12345678"
+    },
+    {"answers": [{
+            "text": "Sample Text Response"
+        }],
+        "id": "12345678"
+    },
+    { "answers": [{
+            "row_id": "12345678",
+            "text": "Sample Text Response" ##(format depends on question type, "12/31/2015 11:59 PM" for datetime)
+        }],
+        "id": "12345678"
     }]
   }],
   "collector_id": "50253690",
@@ -200,7 +254,7 @@ payload = {
   "sort_by": "date_modified"
 }
 url = "https://api.surveymonkey.net/v3/surveys/%s/responses/bulk" % (survey_id)
-s.get(url, params=payload)
+s.get(url, json=payload)
 ```
 
 >Example Response

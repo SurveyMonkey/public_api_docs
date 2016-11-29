@@ -29,7 +29,7 @@ payload = {
   "name": "My Contact List"
 }
 url = "https://api.surveymonkey.net/v3/contact_lists"
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response
@@ -266,7 +266,7 @@ payload = {
   }
 }
 url = "https://api.surveymonkey.net/v3/contact_lists/%s/contacts" % (contact_list_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response
@@ -365,7 +365,7 @@ payload = {
   }]
 }
 url = "https://api.surveymonkey.net/v3/contact_lists/%s/contacts/bulk" % (contact_list_id)
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response
@@ -455,7 +455,7 @@ payload = {
   }
 }
 url = "https://api.surveymonkey.net/v3/contacts" 
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response
@@ -555,7 +555,7 @@ payload = {
   }]
 }
 url = "https://api.surveymonkey.net/v3/contacts/bulk"
-s.post(url, data=payload)
+s.post(url, json=payload)
 ```
 
 >Example Response
