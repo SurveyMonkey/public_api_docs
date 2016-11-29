@@ -80,7 +80,7 @@ Two scopes **Create/Modify Responses** and **Create/Modify Surveys** require Sur
 |View Contacts|View your contacts and contact lists|BASIC (Free)|
 |Create/Modify Contacts|Create or edit contacts in your account|BASIC (Free)|
 |View Responses|View if surveys in your account have responses and their metadata |BASIC (Free)|
-|View Response Details|View answers along with responses|Any Annual Plan|
+|View Response Details|View answers along with responses and answer counts and trends|Any Annual Plan|
 |Create/Modify Responses|Create or edit survey responses in your account|PLATINUM/ENTERPRISE|
 |View Webhooks|View webhooks to receive notifications when there are changes in your account|BASIC (Free)|
 |Create/Modify Webhooks|Create and edit webhooks to receive notifications when there are changes in your account|BASIC (Free)|

@@ -388,3 +388,13 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Endpoints Affected**: [/surveys](#surveys), [/surveys/{id}](#surveys-id)
 
 **Developer Actions Required**: None
+
+###November 17th, 2016
+
+####Added 6 new endpoints that extend analyze features 
+
+**Description of changes**: Allows those with view response details [scope](#scopes) to call endpoints that return response counts per survey, page, or question and over a given time period. 
+
+**Endpoints Affected**: [/surveys/{id}/rollups](#surveys-id-rollups), [/surveys/{id}/pages/{id}/rollups](#surveys-id-pages-id-rollups), [/surveys/{id}/pages/{id}/questions/{id}/rollups](#surveys-id-pages-id-questions-id-rollups), [/surveys/{id}/trends](#surveys-id-trends), [/surveys/{id}/pages/{id}/trends](#surveys-id-pages-id-trends), [/surveys/{id}/pages/{id}/quesions/{id}/trends](#surveys-id-pages-id-quesions-id-trends)
+
+**Developer Actions Required**: None
