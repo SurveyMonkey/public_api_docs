@@ -2,8 +2,6 @@
 
 ##Getting Started
 
-<aside class="notice">SurveyMonkey recently released a v3 of our API! We've made some huge improvements with this version and we encourage you to check it out. If you already use our v2 API, you can find its documentation <a href="https://developer.surveymonkey.com/docs/overview/getting-started/">here</a>.</aside>
-
 The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will [register an app](#registering-an-app) in our developer portal. Before you register, you should determine if your app will eventually be [deployed](#deploying-an-app) as Public or Private and which [scopes](#scopes) you will need. 
 
 All Public apps need to be approved by SurveyMonkey before they can be deployed, use of certain scopes will also need to be approved. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) to determine if you should contact us before you begin to develop your app.
