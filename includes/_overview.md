@@ -17,7 +17,7 @@ When registering your app it is important to know if you will eventually deploy 
 To register an app:
 
 1. Click on the **MY APPS** tab in the upper left corner and sign into your SurveyMonkey account.
-1. Click **+ Add New App**. Enter your **App Name** and click **Create App**. Under **App Details** you will find an API key and secret you can use for OAuth and an access token for your own SurveMonkey account. New apps are given a 90 day draft state during which you can use paid scopes for free.
+1. Click **+ Add New App**. Enter your **App Name** and click **Create App**. Under **App Details** you'll find your client id to use for OAuth, as well as an access token for your own SurveyMonkey account. New apps are given a 90 day draft state during which you can use paid scopes for free.
 1. Click **Settings** to edit your app's **Redirect URI**, and review and adjust scopes for your app. Scopes allow your application to access particular resources on behalf of a user. For Public apps, the scopes you use determine which paid SurveyMonkey plan your app's users will need and if your application will need to be approved by SurveyMonkey before you can deploy. Click on scopes to toggle their requirements and click **Update Scopes** when finished.
 
 ###Deploying an App
@@ -64,7 +64,7 @@ Deploy as a Private app if:
 
 Scopes allow Public apps to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your app to create a survey in a user's account. During the OAuth process the user will approve or disapprove the scopes you have requested access to. Based on your app's needs you can choose to either require scopes, set them as optional, or not require them. All required scopes must be approved by the user for the OAuth process to succeed.
 
-Some scopes are only available to accounts on SurveyMonkey paid plans. If your Public application uses scopes tied to paid plans, any accounts authenticating with your application need that plan or higher.
+Some scopes are only available to accounts on SurveyMonkey paid plans. If your Public application uses scopes tied to paid plans, any accounts authenticating with your application need that plan or higher. We return scopes available to users as well as those a user has granted to your app in our request [headers](#headers).
 
 Two scopes **Create/Modify Responses** and **Create/Modify Surveys** require SurveyMonkey's approval to use in a Public app. If you've deployed a Public app and want to change your scope requirements to include these, you'll need to contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
 
@@ -88,11 +88,13 @@ Two scopes **Create/Modify Responses** and **Create/Modify Surveys** require Sur
 
 ##Request and Response Limits
 
-Draft and Private apps will be subject to the following API Rate limits:
+Draft and Private apps are subject to the following API Rate limits:
 
 | Max Requests Per Minute | Max Requests Per Day
 | ------- | -------
 120 | 500
+
+We return your app's rate limits, requests remaining, and seconds to reset in our request [headers](#header). 
 
 In addition, requests made to the API to create [contacts](#contacts-and-contact-lists) or send [invite messages](#collectors-and-invite-messages), are subject to our [sending and contact limits](http://help.surveymonkey.com/articles/en_US/kb/Is-there-a-limit-on-the-number-of-emails-I-can-send).
 
@@ -364,6 +366,21 @@ Any request to a list resource returns the following pagination fields, if avail
 |links.next|Resource URL for the subsequent page of results.|String|
 |links.first|Resource URL for the first page of results.|String|
 |links.last|Resource URL for the last page of results.|String|
+
+##Headers
+
+Our API returns the following custom headers:
+
+|Header|Description|
+|------------------------|------------------|
+|X-OAuth-Scopes-Available|Which [scopes](#scopes) are available to the user using an app|   
+|X-OAuth-Scopes-Granted|Which [scopes](#scopes) the user has granted permission to, to the app|
+|X-Ratelimit-App-Global-Day-Limit|Per day request limit the app has
+|X-Ratelimit-App-Global-Day-Remaining|Number of remaining requests app has before hitting daily limit
+|X-Ratelimit-App-Global-Day-Reset |Number of seconds until the rate limit remaining resets
+|X-Ratelimit-App-Global-Minute-Limit|Per minute request limit the app has
+|X-Ratelimit-App-Global-Minute-Remaining|Number of remaining requests app has before hitting per minute limit
+|X-Ratelimit-App-Global-Minute-Reset |Number of seconds until the rate limit remaining resets
 
 ##Error Codes
 
