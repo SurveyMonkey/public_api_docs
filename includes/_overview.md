@@ -2,7 +2,7 @@
 
 ##Getting Started
 
-The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will [register an app](#registering-an-app) in our developer portal. Before you register, you should determine if your app will eventually be [deployed](#deploying-an-app) as Public or Private and which [scopes](#scopes) you will need. 
+The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will [register an app](#registering-an-app) in our developer portal. Before you register, you should determine if your app will eventually be [deployed](#deploying-an-app) as Public or Private and which [scopes](#scopes) you will need.
 
 All Public apps need to be approved by SurveyMonkey before they can be deployed, use of certain scopes will also need to be approved. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) to determine if you should contact us before you begin to develop your app.
 
@@ -44,11 +44,11 @@ Examples of Public apps include:
  * An integration of SurveyMonkey functionality into a pre-existing tool
  * Stand alone applications that extend SurveyMonkey's functionality
 
-The [scopes](#scopes) that your app uses determine the SurveyMonkey plan level users will need to access it. 
+The [scopes](#scopes) that your app uses determine the SurveyMonkey plan level users will need to access it.
 
 ####Private Apps
 
-Deploying as a Private app requires you to [upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to a Platinum or Platinum group plan. Private apps can use all available scopes. Private apps are subject to [request limits](#request-and-response-limits). 
+Deploying as a Private app requires you to [upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to a Platinum or Platinum group plan. Private apps can use all available scopes. Private apps are subject to [request limits](#request-and-response-limits).
 
 Deploy as a Private app if:
 
@@ -94,7 +94,7 @@ Draft and Private apps are subject to the following API Rate limits:
 | ------- | -------
 120 | 500
 
-We return your app's rate limits, requests remaining, and seconds to reset in our request [headers](#header). 
+We return your app's rate limits, requests remaining, and seconds to reset in our request [headers](#header).
 
 In addition, requests made to the API to create [contacts](#contacts-and-contact-lists) or send [invite messages](#collectors-and-invite-messages), are subject to our [sending and contact limits](http://help.surveymonkey.com/articles/en_US/kb/Is-there-a-limit-on-the-number-of-emails-I-can-send).
 
@@ -111,7 +111,7 @@ Property | Limit
 Max Page Size | 1000 unless otherwise specified
 Max Survey Size | 1000 questions, surveys over limit will return a 413
 
-##Authentication 
+##Authentication
 
 <aside class="notice">We've updated our authentication and are no longer using Mashery. We now generate a unique client id that is not your Mashery username, and have removed the use of API keys. If you are registering a new app or refreshing your credentials you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. If you created your app before Nov 1st, 2016, your existing credentials will continue to work as outlined in the <a href="https://developer.surveymonkey.com/api/v3/#old-authentication">OLD Authentication</a> as long as you don't refresh them in our developer portal.</aside>
 
@@ -186,7 +186,7 @@ def handle_redirect(redirect_uri):
 
 ####Step 3: Exchanging for a long-lived access token
 
-Create a form-encoded HTTP POST request to `https://api.surveymonkey.net/oauth/token` with the following encoded form fields: `client_secret`, `code`, `redirect_uri` and `grant_type`. The grant type must be set to "authorization_code". The `client_secret` can be found [here](https://developer.surveymonkey.com/apps/).
+Create a form-encoded HTTP POST request to `https://api.surveymonkey.net/oauth/token` with the following encoded form fields: `client_id`, `client_secret`, `code`, `redirect_uri` and `grant_type`. The grant type must be set to "authorization_code". The `client_secret` can be found [here](https://developer.surveymonkey.com/apps/).
 
 If successful, the access token will be returned encoded as JSON in the response body of your POST request. The key will be `access_token` and the value can be passed to our API as an HTTP header in the format `Authorization: bearer YOUR_ACCESS_TOKEN`. The value of the header must be "bearer" followed by a single space and then your access token.
 
@@ -215,7 +215,7 @@ def exchange_code_for_token(auth_code, client_secret, client_id, redirect_uri):
 		"grant_type": "authorization_code"
 	}
 
-	access_token_uri = SM_API_BASE + ACCESS_TOKEN_ENDPOINT 
+	access_token_uri = SM_API_BASE + ACCESS_TOKEN_ENDPOINT
 	access_token_response = requests.post(access_token_uri, data=data)
 	access_json = access_token_response.json()
 
@@ -226,7 +226,7 @@ def exchange_code_for_token(auth_code, client_secret, client_id, redirect_uri):
 		return None
 ```
 
-###OLD Authentication 
+###OLD Authentication
 
 <aside class="notice">We've updated our authentication flow and are no longer using Mashery.  If you are <a href="https://developer.surveymonkey.com/apps/">registering a new app</a> or refreshing credentials for an existing app you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. Existing authentication credentials will continue to work.</aside>
 
@@ -373,7 +373,7 @@ Our API returns the following custom headers:
 
 |Header|Description|
 |------------------------|------------------|
-|X-OAuth-Scopes-Available|Which [scopes](#scopes) are available to the user using an app|   
+|X-OAuth-Scopes-Available|Which [scopes](#scopes) are available to the user using an app|
 |X-OAuth-Scopes-Granted|Which [scopes](#scopes) the user has granted permission to, to the app|
 |X-Ratelimit-App-Global-Day-Limit|Per day request limit the app has
 |X-Ratelimit-App-Global-Day-Remaining|Number of remaining requests app has before hitting daily limit
