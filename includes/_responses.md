@@ -236,23 +236,6 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-payload = {
-  "page": 1,
-  "per_page": 2,
-  "start_created_at": "2015-10-06T12:56:55+00:00",
-  "end_created_at": "2015-10-06T12:56:55+00:00",
-  "status": "completed",
-  "email": "test@surveymonkey.com",
-  "first_name": "Jon",
-  "last_name": "Doe",
-  "ip": "127.0.0.1",
-  "custom": "custom value",
-  "total_time_max": 10000,
-  "total_time_min": 1000,
-  "total_time_units": "second",
-  "sort_order": "ASC",
-  "sort_by": "date_modified"
-}
 url = "https://api.surveymonkey.net/v3/surveys/%s/responses/bulk" % (survey_id)
 s.get(url, json=payload)
 ```

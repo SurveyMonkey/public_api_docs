@@ -242,6 +242,13 @@ All questions have a `family` and `subtype` that define their type. See below fo
             {
                 "text": "Mandrill"
             }
+        ],
+        "other":[
+                {
+                    "text": "Other",
+                    "num_chars": 100,
+                    "num_lines": 3
+                }
         ]
     }
 }
