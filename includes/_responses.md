@@ -7,9 +7,63 @@ These endpoints let you create responses directly via the API and view responses
 
 ###/surveys/{id}/responses
 
+>Definition
+
+```
+GET https://api.surveymonkey.net/v3/surveys/{survey_id}/responses
+
+```
+
+>Example Request
+
+```shell
+curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses
+```
+
+```python
+
+import requests
+
+s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
+
+url = "https://api.surveymonkey.net/v3/surveys/%s/responses/" % (survey_id)
+s.get(url)
+```
+
+>Example Response
+
+```json
+
+{
+  "per_page": 50,
+  "total": 2,
+  "data": [
+    {
+      "href": "https://api.surveymonkey.net/v3/surveys/1234/responses/1234",
+      "id": "1234"
+    },
+    {
+      "href": "https://api.surveymonkey.net/v3/surveys/1234/responses/1234",
+      "id": "1234"
+    }
+  ],
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/surveys/1234/responses?page=1&per_page=50"
+  }
+}
+
+
+```
+
+
 ####Available Methods
 
- * `GET`: Returns a list of responses in same format as `GET` to [/collectors/{id}/responses](#collectors-id-responses). Requires **View Responses** [scope](#scopes)
+ * `GET`: Returns a list of responses. Requires **View Responses** [scope](#scopes)
 
 
 ###/collectors/{id}/responses
@@ -88,11 +142,12 @@ url = "https://api.surveymonkey.net/v3/surveys/%s/responses" % (survey_id)
 s.post(url, json=payload)
 ```
 
->Example Response
+>Example Response to POST request
 
 ```json
 {
   "total_time": 144,
+  "href":"https:\/\/api.surveymonkey.net\/v3\/surveys\/1234\/responses\/1234,
   "ip_address": "192.168.4.16",
   "recipient_id": "",
   "id": "5007154402",
@@ -108,7 +163,7 @@ s.post(url, json=payload)
   "analyze_url": "https://www.surveymonkey.com/analyze/browse/",
   "custom_value": "custom identifier for the response",
   "page_path": [],
- "pages": [{
+  "pages": [{
     "id": "12345678",
     "questions": [
     {"answers": [{
@@ -176,7 +231,7 @@ total_time_units | Unit of time for total_time_min and total_time_max ['second',
 sort_order | Sort order: 'ASC' or 'DESC'] | String-ENUM
 sort_by | Field used to sort returned responses ['date_modified'] | String-ENUM
 
-####Response list resources
+####Response list resources returned from a GET
 
 Name | Description | Type
 ------ | ------- | -------
@@ -236,23 +291,6 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-payload = {
-  "page": 1,
-  "per_page": 2,
-  "start_created_at": "2015-10-06T12:56:55+00:00",
-  "end_created_at": "2015-10-06T12:56:55+00:00",
-  "status": "completed",
-  "email": "test@surveymonkey.com",
-  "first_name": "Jon",
-  "last_name": "Doe",
-  "ip": "127.0.0.1",
-  "custom": "custom value",
-  "total_time_max": 10000,
-  "total_time_min": 1000,
-  "total_time_units": "second",
-  "sort_order": "ASC",
-  "sort_by": "date_modified"
-}
 url = "https://api.surveymonkey.net/v3/surveys/%s/responses/bulk" % (survey_id)
 s.get(url, json=payload)
 ```
