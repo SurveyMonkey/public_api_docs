@@ -79,20 +79,20 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
-sort_by | Field used to sort returned survey list: 'title', 'date_modified', or 'num_responses' | String-ENUM
-sort_order | Sort order: 'ASC' or 'DESC' | String-ENUM
-include | Use to filter survey list: 'shared_with', 'shared_by', or 'owned' (useful for teams) or use to specify additional fields to return per survey: 'response_count', 'date_created', 'date_modified', 'language', 'question_count', 'analyze_url', 'preview' | String-ENUM or Comma Separated Strings
+sort_by | Field used to sort returned survey list: `title`, `date_modified`, or `num_responses` | String-ENUM
+sort_order | Sort order: `ASC` or `DESC` | String-ENUM
+include | Use to filter survey list: `shared_with', `shared_by`, or `owned` (useful for teams) or use to specify additional fields to return per survey: `response_count`, `date_created`, `date_modified`, `language`, `question_count`, `analyze_url`, `preview` |Comma Separated String-ENUM
 title | Search survey list by survey title | String
-start_modified_at | Surveys must be last modified after this date. | Date String
-end_modified_at | Surveys must be last modified before this date. | Date String
+start_modified_at | Surveys must be last modified after this date. | DateString
+end_modified_at | Surveys must be last modified before this date. | DateString
 
 ####Survey List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Survey id | String
 data[\_].title | Survey title | String
@@ -101,7 +101,7 @@ data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST (if copying from existing survey or template)
 
-Name |Required| Description | Type
+Name |Required| Description | Data Type
 ------ | ----- | ------- | -------
 title | No (default="New Survey")|Survey title | String
 from_template_id | No (required if from_survey_id not provided) | Survey template to copy from. See [/survey_templates](#survey_templates) | String
@@ -205,7 +205,7 @@ s.get(url)
 
 ####Request Body Arguments for PATCH (See POST [/surveys](#surveys) for PUT arguments)
 
-Name | Required | Description | Type
+Name | Required | Description | Data Type
 ------ | ----- | ------- | -------
 title | No (`PUT` default="New Survey") |Survey title | String
 nickname | No (`PUT` default="") |Survey nickname | String
@@ -226,11 +226,11 @@ title | Survey title | String
 nickname | Survey nickname | String
 custom_variables | Dictionary of survey variables | Object
 category| Survey category chosen when creating the survey | String
-language | Survey language | String
+language | ISO 639-1 code for survey language | String-ENUM
 question_count | Number of questions in survey | Integer
 page_count | Number of pages in survey | Integer
-date_created | Date and time when survey was created | Date String
-date_modified | Date and time when survey was last modified | Date String
+date_created | Date and time when survey was created | DateString
+date_modified | Date and time when survey was last modified | DateString
 buttons_text.next_button | Button text | String
 buttons_text.prev_button | Button text | String
 buttons_text.exit_button | Button text | String
@@ -366,15 +366,15 @@ s.get(url)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page  | Which page of resources to return. Defaults to 1 | Integer
 per_page  | Number of resources to return per page | Integer
-language  | Category language to filter by (default=en) | String-ENUM
+language  | ISO 639-1 code for language to filter by (default=en) | String-ENUM
 
 ####Survey Categories Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Resource id | String
 data[\_].name | Resource name | String
@@ -444,11 +444,11 @@ s.get(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
-language | Template language to filter by (default=en) | String-ENUM
+language | ISO 639-1 code for template language to filter by (default=en) | String-ENUM
 category | Category to filter by, see [/survey_categories](#survey_categories) for a list of available categories if not specified, all categories are returned | String-ENUM
 
 ####Survey Templates Resource
@@ -517,14 +517,14 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
 ####Page List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Page ID | String
 data[\_].title | Page Title | String
@@ -592,7 +592,7 @@ s.get(url)
 
 ####Request Body Arguments for PUT/PATCH
 
-Name | Required |Description | Type
+Name | Required |Description | Data Type
 ------- | ------- | ------- | -------
 title  | No (`PUT` default="") |Page title | String
 description | No (`PUT` default="") | Page description | String

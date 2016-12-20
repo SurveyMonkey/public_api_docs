@@ -66,14 +66,14 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
 ####Webooks List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Webhook id | String
 data[\_].name | Webhook name | String
@@ -81,11 +81,11 @@ data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
-Name | Required | Description | Type
+Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
 name | Yes | Webhook name | String
-event_type | Yes | Event type that the webhook listens to: 'response_completed', 'response_disqualified', or 'response_updated' | String-ENUM
-object_type | Yes | Object type to filter events by: 'survey' or 'collector'| String-ENUM
+event_type | Yes | Event type that the webhook listens to: `response_completed`, `response_disqualified`, or `response_updated` | String-ENUM
+object_type | Yes | Object type to filter events by: `survey` or `collector`| String-ENUM
 object_ids | Yes | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event) | Array
 subscription_url | Yes. Url must accept a HEAD request and return a 200.  | Subscription url that events are sent to | String
 
@@ -142,12 +142,12 @@ s.get(url)
 
 ####Webhook Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id  | Webhook id | String
 name  | Webhook name | String
-event_type | Event type that the webhook listens to: 'response_completed', 'response_disqualified', or 'response_updated' | String-ENUM
-object_type | Object type to filter events by: 'survey' or 'collector' | String-ENUM
+event_type | Event type that the webhook listens to: `response_completed`, `response_disqualified`, or `response_updated` | String-ENUM
+object_type | Object type to filter events by: `survey` or `collector` | String-ENUM
 object_ids | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event) | Array
 subscription_url | Subscription url that callback events are sent to | String
 href | Resource API URL | String
@@ -167,10 +167,10 @@ href | Resource API URL | String
 }
 ```
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ----- | -----
 name | Webhook name | String
-event_type | Event type that the webhook listens to: 'response_completed', 'response_disqualified', or 'response_updated' | String-ENUM
+event_type | Event type that the webhook listens to: `response_completed`, `response_disqualified`, or `response_updated` | String-ENUM
 event_id | Event id | String
 object_type | Type of object that event occured for | String
 object_id | id of object that event occured for | String

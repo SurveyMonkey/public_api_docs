@@ -54,14 +54,14 @@ s.get(url)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
 ####Errors list Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Error id | String
 data[\_].href  | Resource API URL | String
@@ -115,7 +115,7 @@ s.get(url)
 
 ####Error Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id | Error id | String
 message | Error explanation | String
