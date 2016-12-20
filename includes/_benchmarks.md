@@ -205,9 +205,9 @@ s.headers.update({
 })
 
 payload = {
-  'question_ids': [123, 456],
-  'percentile_start': 1,
-  'percentile_end': 100
+  "question_ids": [123, 456],
+  "percentile_start": 1,
+  "percentile_end": 100
 }
 url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s/analyze" % (bundle_id)
 s.get(url, params=payload)

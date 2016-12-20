@@ -34,11 +34,11 @@ s.headers.update({
 })
 
 payload = {
-  'name': 'My Webhook',
-  'event_type': 'response_completed',
-  'object_type': 'survey',
-  'object_ids': ['1234', '5678'],
-  'subscription_url': 'https://surveymonkey.com/webhook_reciever'
+  "name": "My Webhook",
+  "event_type": "response_completed",
+  "object_type": "survey",
+  "object_ids": ["1234", "5678"],
+  "subscription_url": "https://surveymonkey.com/webhook_reciever"
 }
 url = "https://api.surveymonkey.net/v3/webhooks" 
 s.post(url, json=payload)

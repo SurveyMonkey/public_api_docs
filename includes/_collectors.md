@@ -26,7 +26,7 @@ s.headers.update({
 })
 
 payload = {
- 'type': 'weblink'
+ "type": "weblink"
 }
 url = "https://api.surveymonkey.net/v3/surveys/%s/collectors" % (survey_id)
 s.post(url, json=payload)
@@ -221,7 +221,7 @@ s.headers.update({
 })
 
 payload = {
-  'type': 'invite'
+  "type": "invite"
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages" % (collector_id)
 s.post(url)
@@ -235,7 +235,7 @@ s.post(url)
    "body":"\n<html>\n\n<body style=\"margin:0; padding: 0;\">\n    <div align=\"center\">\n        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" width=\"100%\" style=\"font-family: Arial,Helvetica,sans-serif; max-width: 700px;\">\n            <tr bgcolor=\"#A7BC38\">\n                <td colspan=\"5\" height=\"40\">\u00a0<\/td> <\/tr>\n            <tr bgcolor=\"#A7BC38\">\n                <td width=\"20\">\u00a0<\/td>\n                <td width=\"20\">\u00a0<\/td>\n                <td align=\"center\" style=\"font-size: 29px; color:#FFFFFF; font-weight: normal; letter-spacing: 1px; line-height: 1;                           text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2); font-family: Arial,Helvetica,sans-serif;\"> Survey Title <\/td>\n                <td width=\"20\">\u00a0<\/td>\n                <td width=\"20\">\u00a0<\/td> <\/tr>\n            <tr bgcolor=\"#A7BC38\">\n                <td colspan=\"5\" height=\"40\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td height=\"10\" colspan=\"5\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td>\u00a0<\/td>\n                <td colspan=\"3\" align=\"left\" valign=\"top\" style=\"color:#666666; font-size: 13px;\"> {% if FirstQuestion %}\n                    <p>{{EmbeddedBody}}<\/p> {% else %}\n                    <p>We're conducting a survey and your input would be appreciated. Click the button below to start the survey. Thank you for your participation!<\/p> {% endif %} <\/td>\n                <td>\u00a0<\/td> <\/tr> {% if FirstQuestion %}\n            <tr>{{FirstQuestion}}<\/tr> {% else %}\n            <tr>\n                <td colspan=\"5\" height=\"30\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td>\u00a0<\/td>\n                <td colspan=\"3\">\n                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" style=\"background:#A7BC38; border-radius: 4px; border: 1px solid #BBBBBB; color:#FFFFFF; font-size:14px; letter-spacing: 1px; text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8); padding: 10px 18px;\">\n                        <tr>\n                            <td align=\"center\" valign=\"center\"> <a href=\"[SurveyLink]\" target=\"_blank\" style=\"color:#FFFFFF; text-decoration:none;\">Begin Survey<\/a> <\/td> <\/tr> <\/table> <\/td>\n                <td>\u00a0<\/td> <\/tr>\n            <tr>\n                <td colspan=\"5\" height=\"30\">\u00a0<\/td> <\/tr> {% endif %}\n            <tr valign=\"top\" style=\"color: #666666;font-size: 10px;\">\n                <td>\u00a0<\/td>\n                <td valign=\"top\" align=\"center\" colspan=\"3\">\n                    <p>Please do not forward this email as its survey link is unique to you.\n                        <br><a href=\"[OptOutLink]\" target=\"_blank\" style=\"color: #333333; text-decoration: underline;\">Unsubscribe<\/a> from this list<\/p> <\/td>\n                <td>\u00a0<\/td> <\/tr>\n            <tr>\n                <td height=\"20\" colspan=\"5\">\u00a0<\/td> <\/tr>\n            <tr style=\"color: #999999;font-size: 10px;\">\n                <td align=\"center\" colspan=\"5\">[FooterLink]<\/td> <\/tr>\n            <tr>\n                <td height=\"20\" colspan=\"5\">\u00a0<\/td> <\/tr> <\/table><\/div><\/body>\n\n<\/html>\n",
    "recipient_status":null,
    "is_branding_enabled":true,
-   "href":"https:\/\/api.surveymonkey.net\/v3\/collectors\/150001976\/messages\/31454399",
+   "href":"https:\/\/api.surveymonkey.net\/v3\/collectors\/1234\/messages\/1234",
    "is_scheduled":false,
    "scheduled_date":null,
    "date_created":"2016-08-17T23:47:37+00:00",
@@ -373,7 +373,7 @@ s.headers.update({
 })
 
 payload = {
-  'scheduled_date': '2015-10-06T12:56:55+00:00'
+  "scheduled_date": "2015-10-06T12:56:55+00:00"
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/send" % (collector_id, message_id)
 s.post(url, json=payload)
@@ -395,7 +395,7 @@ s.post(url, json=payload)
   "scheduled_date": "2015-11-04T12:56:55+00:00",
   "body": "<html>...</html>",
   "subject": "We want your opinion",
-  "recipients": ["41930647", "41930648"],
+  "recipients": ["1234", "1234"],
   "recipient_status": null,
   "type": "invite"
 }
@@ -450,7 +450,7 @@ s.headers.update({
 })
 
 payload = {
-  'contact_id': 1234
+  "contact_id": 1234
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
 s.post(url, json=payload)
