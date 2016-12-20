@@ -80,14 +80,14 @@ Same as request, but with two additional fields (id, href)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
 ####Question List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Question id | String
 data[\_].heading | Question heading | String
@@ -96,9 +96,9 @@ data[\_].position | Position of question on page | Integer
 
 ####Request Body Arguments for POST
 
-Name | Required |Description | Type
+Name | Required |Description | Data Type
 ----- | ------ |------ | -----
-headings | Yes |Question heading | List
+headings | Yes |List of question headings objects | Array
 headings[\_].heading | Yes |The title of the question, or empty string if `random_assignment` is defined | String
 headings[\_].description | No | If `random_assignment` is defined, and `family` is `presentation_image` this is the title | String
 headings[\_].image | No |Image data when question `family` is `presentation_image`| Object or null
@@ -109,30 +109,30 @@ headings[\_].random_assignment.position | No |Position of the random_assignment 
 headings[\_].random\_assignment.variable\_name | No |Internal use name for question tracking, can be `""` | String
 position | No (default=last) | Position of question on page | Integer
 visible | No default=True) | Whether the question is visible (corresponds with being deleted in the UI) | Boolean
-family | Yes | Question type, see [formatting question types](#formatting-question-types) | String
-subtype | Yes | Question type's subtype, see [formatting question types](#formatting-question-types)  | String
+family | Yes | Question family determines the type of question, see [formatting question types](#formatting-question-types) | String
+subtype | Yes | Question family's subtype further specifies the type of question, see [formatting question types](#formatting-question-types)  | String
 sorting | No | Sorting details of answers | Object
-sorting.type | Yes | Sort answer choices by: "default", "textasc", "textdesc", "resp_count_asc", "resp_count_desc", "random", "flip"| String
-sorting.ignore_last| No | Do not sort the last answer option (useful for "none of the above", etc) | Boolean
+sorting.type | Yes | Sort answer choices by: `default`, `textasc`, `textdesc`, `resp_count_asc`, `resp_count_desc`, `random`, `flip`| String-ENUM
+sorting.ignore_last| No | If true, does not sort the last answer option (useful for "none of the above", etc) | Boolean
 required | No | Whether an answer is required for this question | Object
-required.text | Yes | String to display if a required question is not answered | String
-required.type | Yes if question is matrix_single, matrix_ranking, and matrix menu | Required type: "all" , "at_least", "at_most", "exactly", or "range" | String
+required.text | Yes | Text to display if a required question is not answered | String
+required.type | Yes if question is matrix_single, matrix_ranking, and matrix menu | Specifies how much of the question must be answered: `all` , `at_least`, `at_most`, `exactly`, or `range` | String-ENUM
 required.amount | Yes if type is defined | The amount of answers required to be answered. If the required type is range then this is two numbers separated by a comma, as a string (e.g. "1,3" to represent the range of 1 to 3). | String
 validation | No | Whether the answer must pass certain validation parameters | Object
-validation.type | Yes | Type of validation to use: "any", "integer", "decimal", "date_us", "date_intl", "regex", "email", or "text_length" | String
+validation.type | Yes | Type of validation to use: `any`, `integer`, `decimal`, `date_us`, `date_intl`, `regex`, `email`, or `text_length` | String-ENUM
 validation.text | Yes | Text to display if validation fails | String
-validation.min | Yes | Minimum value an answer can be to pass validation | Date String, int, or null depending on validation.type
-validation.max | Yes| Maximum value an answer can be to pass validation | Date String, int, or null depending on validation.type
+validation.min | Yes | Minimum value an answer can be to pass validation | DateString, int, or null depending on validation.type
+validation.max | Yes| Maximum value an answer can be to pass validation | DateString, int, or null depending on validation.type
 validation.sum | No | Only accepted is family=open_ended and subtype=numerical, the exact integer textboxes must sum to in order to pass validation | Integer
 validation.sum_text | No | Only accepted is family=open_ended and subtype=numerical, the message to display if textboxes do not sum to validation.sum | String
 forced_ranking | No | Required if type is matrix and subtype is rating or single, whether or not to force ranking | Boolean
-answers |Yes  for all question types except open_ended_single| Answers object, refer to [Formatting Question Types](#formatting-question-types) | Object
+answers |Yes for all question types except open_ended_single| Answers object, refer to [Formatting Question Types](#formatting-question-types) | Object
 
 ####Response Resource
 
 Name  |Description | Type
 ----- |------ | -----
-headings  |Question heading | List
+headings  |Question heading | Array
 headings[\_].heading  |The title of the question, or empty string if `random_assignment` is defined | String
 headings[\_].description  | If `random_assignment` is defined, and `family` is `presentation_image` this is the title | String
 headings[\_].image  |Image data when question `family` is `presentation_image`| Object or null
@@ -144,23 +144,23 @@ headings[\_].random\_assignment.variable\_name  |Internal use name for question 
 headings[\_].random\_assignment.id  |Internal use id for question tracking | String
 position  | Position of question on page | Integer
 visible  | Whether the question is visible (corresponds with being deleted in the UI) | Boolean
-family  | Question type, see [formatting question types](#formatting-question-types) | String
-subtype  | Question type's subtype, see [formatting question types](#formatting-question-types)  | String
+family  | Question family, see [formatting question types](#formatting-question-types) | String
+subtype  | Question family's subtype, see [formatting question types](#formatting-question-types)  | String
 sorting  | Sorting details of answers | Object
-sorting.type  | Sort answer choices by: "default", "textasc", "textdesc", "resp_count_asc", "resp_count_desc", "random", "flip"| String
-sorting.ignore_last | Do not sort the last answer option (useful for "none of the above", etc) | Boolean
+sorting.type  | Sort answer choices by: `default`, `textasc`, `textdesc`, `resp_count_asc`, `resp_count_desc`, `random`, `flip`| String-ENUM
+sorting.ignore_last | If true, does not sort the last answer option (useful for "none of the above", etc) | Boolean
 required  | Whether an answer is required for this question | Object
 required.text  | String to display if a required question is not answered | String
-required.type  | Required type: "all" , "at_least", "at_most", "exactly", or "range" | String
+required.type  | Required type for matrix questions: `all` , `at_least`, `at_most`, `exactly`, or `range` | String-ENUM
 required.amount  | The amount of answers required to be answered. If the required type is range then this is two numbers separated by a comma, as a string (e.g. "1,3" to represent the range of 1 to 3). | String
 validation  | Whether the answer must pass certain validation parameters | Object
-validation.type  | Type of validation to use: "any", "integer", "decimal", "date_us", "date_intl", "regex", "email", or "text_length" | String
+validation.type  | Type of validation to use: `any`, `integer`, `decimal`, `date_us`, `date_intl`, `regex`, `email`, or `text_length` | String-ENUM
 validation.text  | Text to display if validation fails | String
-validation.min  | Minimum value an answer can be to pass validation | Date String, int, or null depending on validation.type
-validation.max | Maximum value an answer can be to pass validation | Date String, int, or null depending on validation.type
+validation.min  | Minimum value an answer can be to pass validation | DateString, int, or null depending on validation.type
+validation.max | Maximum value an answer can be to pass validation | DateString, int, or null depending on validation.type
 validation.sum  | Only accepted is family=open_ended and subtype=numerical, the exact integer textboxes must sum to in order to pass validation | Integer
 validation.sum_text  | Only accepted is family=open_ended and subtype=numerical, the message to display if textboxes do not sum to validation.sum | String
-forced_ranking  | Required if type is matrix and subtype is rating or single, whether or not to force ranking | Boolean
+forced_ranking  | If type is matrix and subtype is rating or single, whether or not to force ranking | Boolean
 answers | Answers object, refer to [Formatting Question Types](#formatting-question-types) | Object
 id | Question id | String
 
@@ -255,11 +255,15 @@ All questions have a `family` and `subtype` that define their type. See below fo
 ```
 ![Single Choice](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/single-choice.png)
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ------ | -----
-choices (required) | List of available choices for the user | List
+choices (required) | List of available choices for the user | Array
 choices[\_].text (required) | Choice for user selection | String
 choices[\_].position (optional) | Position of the current choice | Integer
+other (optional) | List of other answer options | Array
+other[\_].text | Text to display next to other option | String
+other[\_].num_chars | Set a character limit to the option | Integer
+other[\_].num_lines | Set a line limit to the option | Integer
 
 ####Multiple Choice
 
@@ -289,11 +293,15 @@ choices[\_].position (optional) | Position of the current choice | Integer
 ```
 ![Multiple Choice](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/multiple-choice.png)
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ------ | -----
-choices (required) | List of available choices for the user | List
+choices (required) | List of available choices for the user | Array
 choices[\_].text (required) | Choice for user selection | String
 choices[\_].position (optional) | Position of the current choice | Integer
+other (optional) | List of other answer options | Array
+other[\_].text | Text to display next to other option | String
+other[\_].num_chars | Set a character limit to the option | Integer
+other[\_].num_lines | Set a line limit to the option | Integer
 
 ####Matrix - Single
 
@@ -335,14 +343,18 @@ choices[\_].position (optional) | Position of the current choice | Integer
 ```
 ![Matrix Single](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/matrix-single.png)
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ------ | -----
-rows (required) | List of rows in the matrix | List
+rows (required) | List of rows in the matrix | Array
 rows[\_].text (required) | Text label for the row | String
 rows[\_].position (optional) | Position of the row | Integer
-choices (required) | List of available choices for the user | List
+choices (required) | List of available choices for the user | Array
 choices[\_].text (required) | Choice for user selection | String
 choices[\_].position (optional) | Position of the current choice | Integer
+other (optional) | List of other answer options | Array
+other[\_].text | Text to display next to other option | String
+other[\_].num_chars | Set a character limit to the option | Integer
+other[\_].num_lines | Set a line limit to the option | Integer
 
 ####Matrix - Rating
 
@@ -387,15 +399,19 @@ choices[\_].position (optional) | Position of the current choice | Integer
 ```
 ![Matrix Rating](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/matrix-rating.png)
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ------ | -----
-rows (required) | List of rows in the matrix | List
+rows (required) | List of rows in the matrix | Array
 rows[\_].text (required) | Text label for the row | String
 rows[\_].position (optional) | Position of the row | Integer
 choices (required) | List of available choices for the user | List
 choices[\_].text (required) | Choice for user selection | String
 choices[\_].weight (required) | Weight value of the choice | Integer
 choices[\_].position (optional) | Position of the row | Integer
+other (optional) | List of other answer options | Array
+other[\_].text | Text to display next to other option | String
+other[\_].num_chars | Set a character limit to the option | Integer
+other[\_].num_lines | Set a line limit to the option | Integer
 
 ####Matrix - Ranking
 
@@ -428,9 +444,9 @@ choices[\_].position (optional) | Position of the row | Integer
 ```
 ![Matrix Ranking](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/matrix-ranking.png)
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ------ | -----
-rows (required) | List of rows in the matrix | List
+rows (required) | List of rows in the matrix | Array
 rows[\_].text (required) | Text label for the row | String
 rows[\_].position (optional) | Position of the row | Integer
 
@@ -494,16 +510,20 @@ rows[\_].position (optional) | Position of the row | Integer
 ```
 ![Matrix Menu](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/matrix-menu.png)
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ------ | -----
-rows (required) | List of rows in the matrix | List
+rows (required) | List of rows in the matrix | Array
 rows[\_].text (required) | Text label for the row | String
 rows[\_].position (optional) | Position of the row | Integer
-cols (required) | List of columns in the matrix | List
+cols (required) | List of columns in the matrix | Array
 cols[\_].text (required) | Text label for column | String
-cols[\_].choices (required) | List of available choices for the user in dropdown menu | List
+cols[\_].choices (required) | List of available choices for the user in dropdown menu | Array
 cols[\_].choices[\_].text (required) | Choice for user selection | String
 cols[\_].choices[\_].position (required) | Position of choice | Integer
+other (optional) | List of other answer options | Array
+other[\_].text | Text to display next to other option | String
+other[\_].num_chars | Set a character limit to the option | Integer
+other[\_].num_lines | Set a line limit to the option | Integer
 
 
 
@@ -556,9 +576,9 @@ Only requires a `heading`.
 ```
 ![Open Ended Multi](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/open-ended-multi.png)
 
-Name | Description | Type
+Name | Description | data Type
 ----- | ------ | -----
-rows (required) | List of textboxes | List
+rows (required) | List of textboxes | Array
 rows[\_].text (required) | Text label for textbox | String
 rows[\_].position (optional) | Position of the current row | Integer
 
@@ -599,9 +619,9 @@ rows[\_].position (optional) | Position of the current row | Integer
 ```
 ![Open Ended Numerical](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/open-ended-numerical.png)
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ------ | -----
-rows (required) | List of textboxes | List
+rows (required) | List of textboxes | Array
 rows[\_].text (required) | Text label for textbox | String
 rows[\_].position (optional) | Position of the current row | Integer
 
@@ -684,9 +704,9 @@ This corresponds to the **Contact Information** question type in the SurveyMonke
 
 Each `type` represented in the example object must be included, to disable one, specify `visible` as `False`
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ------ | -----
-rows | List of available demographic data | Object
+rows | List of available demographic data | Array
 rows[\_].visible (required) | Visibility of demographic data type | Boolean
 rows[\_].required (required) | Whether demographic data type is required | Boolean
 rows[\_].type (required) | Type of demographic data | String
@@ -720,7 +740,7 @@ rows[\_].text (optional) | Optional label of demographic data, will default to t
 ```
 ![DateTime](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/datetime.png)
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ------ | -----
 rows[\_].text (required) | Label for date/time input box | String
 rows[\_].position (optional) | Position of date/time input box | Integer
@@ -748,9 +768,9 @@ rows[\_].position (optional) | Position of date/time input box | Integer
 
 If `image` is included, this corresponds to the **Image** question type in the SurveyMonkey UI. If not included, it corresponds to the **Text** question type. 
 
-Name | Description | Type
+Name | Description | Data Type
 ----- | ----- | -----
- image (optional)| Image to present|dictionary
+ image (optional)| Image to present| Object
  image[\_].image_url (required)| URL of image to present | String |
 
 

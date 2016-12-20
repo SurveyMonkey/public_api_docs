@@ -211,15 +211,15 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
-start_created_at | Responses started after this date | Date String
-end_created_at | Responses started before this date | Date String
-start_modified_at | Responses modified after this date | Date String
-end_modified_at | Responses modified before this date | Date String
-status | Status of the response ['completed', 'partial', 'overquota', 'disqualified'] | String-ENUM
+start_created_at | Responses started after this date | DateString
+end_created_at | Responses started before this date | DateString
+start_modified_at | Responses modified after this date | DateString
+end_modified_at | Responses modified before this date | DateString
+status | Status of the response: `completed`, `partial`, `overquota`, `disqualified` | String-ENUM
 email | Email of the recipient | String
 first_name | First Name of the recipient | String
 last_name | Last Name of the recipient | String
@@ -227,13 +227,13 @@ ip | The IP the response was taken from | String
 custom | The custom value associated with the response | String
 total_time_max | The maximum amount of time spent on the response | Integer
 total_time_min | The minimum amount of time spent on the response | Integer
-total_time_units | Unit of time for total_time_min and total_time_max ['second', 'minute', 'hour'] | String-ENUM
-sort_order | Sort order: 'ASC' or 'DESC'] | String-ENUM
-sort_by | Field used to sort returned responses ['date_modified'] | String-ENUM
+total_time_units | Unit of time for total_time_min and total_time_max: `second`, `minute`, `hour` | String-ENUM
+sort_order | Sort order: `ASC` or `DESC`] | String-ENUM
+sort_by | Field used to sort returned responses: `date_modified` | String-ENUM
 
 ####Response list resources returned from a GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Response id | String
 data[\_].href | URL for the response resource | String
@@ -241,12 +241,12 @@ data[\_].href | URL for the response resource | String
 
 ####Request Body Arguments for POST
 
-Name | Required | Description | Type
+Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
 custom_variables | No| Values to any available custom variables in the survey | Object
 custom_value | No| A custom value to attach to the response for a [weblink collector](#collectors-id) | String
-date_created | No | Date the response was created | Date String
-response_status | No | Status of the response ['completed', 'partial', 'overquota', 'disqualified'] | String-ENUM
+date_created | No | Date the response was created | DateString
+response_status | No | Status of the response: `completed`, `partial`, `overquota`, `disqualified` | String-ENUM
 ip_address | No | IP Address the response was taken from | String
 recipient_id | No | The recipient ID from an email collector. See [collector recipient](#collectors-id-recipients-id) | Integer
 pages | Yes | Pages from the survey and their associated responses | Array
@@ -254,7 +254,7 @@ pages[\_].id | Yes | The ID of the page with responses | Integer
 pages[\_].questions | Yes | The questions on that page with responses | Array
 pages[\_].questions[\_].id | Yes  | ID of the question with responses | Integer
 pages[\_].questions[\_].variable_id | No | ID of the random assignment variable for the question | Integer
-pages[\_].questions[\_].answers | Yes | The answers for the question with responses. See [formatting question types](#formatting-question-types) | List
+pages[\_].questions[\_].answers | Yes | The answers for the question with responses. See [formatting question types](#formatting-question-types) | Object
 pages[\_].questions[\_].answers[\_].choice_id | No | The choice selected | Integer
 pages[\_].questions[\_].answers[\_].row_id | No | The row selected | Integer
 pages[\_].questions[\_].answers[\_].col_id | No | The column selected | Integer
@@ -343,16 +343,16 @@ s.get(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page. Max of 100 allowed per page. | Integer
-collector_ids | Only include responses for this list of collector IDs | Comma Separated List
-start_created_at | Responses started after this date | Date String
-end_created_at | Responses started before this date | Date String
-start_modified_at | Responses modified after this date | Date String
-end_modified_at | Responses modified before this date | Date String
-status | Status of the response ['completed', 'partial', 'overquota', 'disqualified'] | String-ENUM
+collector_ids | Only include responses for this list of collector IDs | Comma Separated Strings
+start_created_at | Responses started after this date | DateString
+end_created_at | Responses started before this date | DateString
+start_modified_at | Responses modified after this date | DateString
+end_modified_at | Responses modified before this date | DateString
+status | Status of the response: `completed`, `partial`, `overquota`, `disqualified`| String-ENUM
 email | Email of the recipient | String
 first_name | First Name of the recipient | String
 last_name | Last Name of the recipient | String
@@ -360,9 +360,9 @@ ip | The IP the response was taken from | String
 custom | The custom value associated with the response | String
 total_time_max | The maximum amount of time spent on the response | Integer
 total_time_min | The minimum amount of time spent on the response | Integer
-total_time_units | Unit of time for total_time_min and total_time_max: 'second', 'minute', or 'hour' | String-ENUM
-sort_order | Sort order: 'ASC' or 'DESC'] | String-ENUM
-sort_by | Field used to sort returned responses ['date_modified'] | String-ENUM
+total_time_units | Unit of time for total_time_min and total_time_max: `second`, `minute`, or `hour` | String-ENUM
+sort_order | Sort order: `ASC` or `DESC` | String-ENUM
+sort_by | Field used to sort returned responses: `date_modified` | String-ENUM
 
 ####Responses List Resource
 
@@ -379,9 +379,9 @@ data[\_].edit_url | Weblink to the survey taking page to edit the response | Str
 data[\_].analyze_url | Weblink to the analyze page to view the response | String
 data[\_].ip_address | IP Address the response was taken from | String
 data[\_].custom_variables | Values to any available custom variables in the survey | Object
-data[\_].response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
-data[\_].collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit" | String-ENUM
-data[\_].date_created | Date the response was created | Date String
+data[\_].response_status | Status of the response: `completed`, `partial`, `overquota`, or `disqualified` | String-ENUM
+data[\_].collection_mode | The collection mode of the response: `default`, `preview`, `data_entry`, `survey_preview`, or `edit` | String-ENUM
+data[\_].date_created | Date the response was created | DateString
 data[\_].date_modified | Date the response was last modified  | Object
 data[\_].pages | Pages from the survey and their associated responses | Array
 data[\_].pages[\_].id | The ID of the page with responses | Integer
@@ -481,11 +481,11 @@ ip_address | IP Address the response was taken from | String
 custom_variables | Values to any available custom variables in the survey | Object
 logic_path | Logic path taken during the survey | Object
 metadata | Other associated metadata or custom values | Object
-response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
+response_status | Status of the response: `completed`, `partial`, `overquota`, or `disqualified` | String-ENUM
 page_path | The order in which the pages were responded to. | Array
-collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit" | String-ENUM
-date_created | Date the response was created | Date String
-date_modified | Date the response was last modified  | Object
+collection_mode | The collection mode of the response: `default`, `preview`, `data_entry`, `survey_preview`, or `edit` | String-ENUM
+date_created | Date the response was created | DateString
+date_modified | Date the response was last modified  | DateString
 
 
 
@@ -577,12 +577,12 @@ ip_address | IP Address the response was taken from | String
 custom_variables | Values to any available custom variables in the survey | Object
 logic_path | Logic path taken during the survey | Object
 metadata | Other associated metadata or custom values | Object
-response_status | Status of the response: "completed", "partial", "overquota", or "disqualified" | String
+response_status | Status of the response: `completed`, `partial`, `overquota`, or `disqualified` | String-ENUM
 current_page_id |  ID of the page the respondent is currently on, "0" if completed | String
 page_path | The order in which the pages were responded to. | Array
-collection_mode | The collection mode of the response: "default", "preview", "data_entry", "survey_preview", or "edit"| String-ENUM
-date_created | Date the response was created | Date String
-date_modified | Date the response was last modified  | Object
+collection_mode | The collection mode of the response: `default`, `preview"`, `data_entry`, `survey_preview`, or `edit`| String-ENUM
+date_created | Date the response was created | DateString
+date_modified | Date the response was last modified  | DateString
 pages | Pages from the survey and their associated responses | Array
 pages[\_].id | The ID of the page with responses | Integer
 pages[\_].questions | The questions on that page with responses | Array

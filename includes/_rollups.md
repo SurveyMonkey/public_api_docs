@@ -99,37 +99,37 @@ s.get(url)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
-collector_ids|Limits responses to those from specified collectors|Comma separated collector ids
-start_created_at|Limits responses to those created after date specified|Date String
-end_created_at|Limits responses to those created before date specified|Date String
-start_modified_at|Limits responses to those last modified after date specified|Date String
-end_modified_at|Limits responses to those last modified before date specified|Date String
-status|Limits responses to those of a certain status. Accepts: 'completed', 'partial', 'overquota', 'disqualified'|Comma separated strings
+collector_ids|Limits responses to those from specified collector ids|Comma separated strings 
+start_created_at|Limits responses to those created after date specified|DateString
+end_created_at|Limits responses to those created before date specified|DateString
+start_modified_at|Limits responses to those last modified after date specified|DateString
+end_modified_at|Limits responses to those last modified before date specified|DateString
+status|Limits responses to those of a certain status. Accepts: `completed`, `partial`, `overquota`, `disqualified`|Comma separated string-ENUM
 email|Limits responses to those associated with specified email address. NOTE: Responses must come from an email collector.|String
 first_name|Limits responses to those associated with specified first name. NOTE: Responses must come from an email collector.|String
 last_name|Limits responses to those associated with specified last name. NOTE: Responses must come from an email collector.|String
-ip|Limits responses to those associated with specified IP address|IP String
+ip|Limits responses to those associated with specified IP address|String
 custom|Limits responses to those associated with specified value for [custom field 1](https://help.surveymonkey.com/articles/en_US/kb/Custom-Data). NOTE: Responses must come from an email collector.|String
 total_time_max|Limits responses to those that took respondents less time to complete than specified time|String
 total_time_min|Limits responses to those that took respondents more time to complete than specified time|String
-total_time_units|Determines which unit of time total_time_max and total_time_min use. Accepts: 'second', 'minute', 'hour'|String
+total_time_units|Determines which unit of time total_time_max and total_time_min use. Accepts: `second`, `minute`, `hour`|String-ENUM
 
 
 ####Rollups Resource
 
 Name | Description | Type
 ------ | ------- | -------
-data[\_].subtype|Question subtype. See [question types](#formatting-question-types) |String
+data[\_].subtype|Question subtype. See [question types](#formatting-question-types) |String-ENUM
 data[\_].href|Resource URL for a question's rollup|String
 data[\_].id|Question identifier |String
-data[\_].family|Question family. See [question types](#formatting-question-types)|String
+data[\_].family|Question family. See [question types](#formatting-question-types)|String-ENUM
 data[\_].summary.answered|Returns the count of respondents who answered the question|Integer
 data[\_].summary.skipped|Returns the count of respondents who skipped the question|Integer
 data[\_].summary.stats| Returns [basic statistics](https://help.surveymonkey.com/articles/en_US/kb/Basic-Statistics) for close ended questions |Object
 data[\_].summary.other_answered|Returns the count of responses who answered the other choice, if available|Integer
-data[\_].summary.choices|Returns question's choices with the id and count for each choice|Object|
+data[\_].summary.choices|Returns question's choices with the id and count for each choice|Object
 
 
 ###/surveys/{id}/pages/{id}/rollups
@@ -238,17 +238,12 @@ s.get(url)
 
 ####Optional Query Strings for GET (Accepts same as [/rollups](#rollups) and the following additions)
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
-first_respondent|Limits responses to those completed after the specified respondent|Respondent id
-last_respondnet|Limits responses to those completed before the specified respondent|Respondent id
-trend_by|Sets the period of time trends are broken into. Accepts: 'year', 'quarter', 'month', 'week', 'day', 'hour'|String
+first_respondent|Limits responses to those completed after the specified respondent id|String
+last_respondnet|Limits responses to those completed before the specified respondent id|String
+trend_by|Sets the period of time trends are broken into. Accepts: `year`, `quarter`, `month`, `week`, `day`, `hour`|String-ENUM
 
-
-####Trends Resource
-
-Name | Description | Type
------- | ------- | -------
 
 ###/surveys/{id}/pages/{id}/trends
 

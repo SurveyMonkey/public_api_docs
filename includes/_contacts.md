@@ -51,14 +51,14 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
 ####Contact List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id  | Contact list id | String
 data[\_].name | Contact list name | String
@@ -66,7 +66,7 @@ data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
-Name | Required  |Description | Type
+Name | Required  |Description | Data Type
 ------ | ------- | ------- | -------
 name  | No (default="New List") | Contact list name | String
 
@@ -117,7 +117,7 @@ s.get(url)
 
 ####Contact List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id | Contact list id | String
 name | Contact list name | String
@@ -164,7 +164,7 @@ s.post(url)
 
 ####Contact List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id | Contact list id | String
 name | Contact list name | String
@@ -216,13 +216,13 @@ s.post(url)
 
 ####Request Body Arguments for POST
 
-Name | Required |Description | Type
+Name | Required |Description | Data Type
 ------ | ------- | ------- | -------
 list_id | Yes | List id to be merged over | String
 
 ####Contact List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id | Contact list id | String
 name | Contact list name | String
@@ -297,19 +297,19 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
-status | Filter by status (default=active) e.g. ['active', 'optout','bounced'] | String-ENUM
-sort_by | Field used to sort returned contact list (default=email) e.g. ['email', 'first_name', 'last_name', '1', ..., '6'] | String-ENUM
+status | Filter by status (default=active): `active`, `optout`, `bounced` | String-ENUM
+sort_by | Field used to sort returned contact list (default=email): `email`, `first_name`, `last_name`, `1`, ..., `6` | String-ENUM
 sort_order | Sort order e.g. ['ASC', 'DESC'] | String-ENUM
-search_by | Field used to search returned contact list e.g. ['email', 'first_name', 'last_name', '1', ..., '6'] | String-ENUM
+search_by | Field used to search returned contact list: : `email`, `first_name`, `last_name`, `1`, ..., `6`  | String-ENUM
 search | Query used to search | String
 
 ####Contacts List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Contact id | String
 data[\_].first_name | Contact first name | String
@@ -319,12 +319,12 @@ data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
-Name | Required |Description | Type
+Name | Required |Description | Data Type
 ------ | ------- | ------- | -------
 first_name | Yes | Contact first name | String
 last_name | Yes | Contact last name | String
 email | Yes |Contact email address | String
-custom_fields | No | Contact custom fields | Dictionary
+custom_fields | No | Contact custom fields | Object 
 
 ###/contact_lists/{id}/contacts/bulk
 
@@ -399,23 +399,23 @@ s.post(url, json=payload)
 
 ####Contacts List Resource
 
-Name | Description | Type
+Name | Description |  Data Type
 ------ | ------- | -------
 data[\_].id | Contact id | String
 data[\_].first_name | Contact first name | String
 data[\_].last_name | Contact last name | String
 data[\_].email | Contact email address | String
-data[\_].custom_fields | Contact custom fields | Dictionary
+data[\_].custom_fields | Contact custom fields | Object
 data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
-Name | Required | Description | Type
+Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
 data[\_].first_name | Yes | Contact first name | String
 data[\_].last_name | Yes | Contact last name | String
 data[\_].email | Yes | Contact email | String
-data[\_].custom_fields | No | Custom contact fields | Dictionary
+data[\_].custom_fields | No | Custom contact fields | Object
 
 
 ###/contacts
@@ -487,19 +487,19 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Page number. Defaults to 1 | Integer
 per_page | Number of contacts to return per page | Integer
-status | Filter by status (default=active): 'active', 'optout', or 'bounced'] | String-ENUM
-sort_by | Field used to sort returned contact list (default=email) e.g. ['email', 'first_name', 'last_name', '1', ..., '6'] | String-ENUM
-sort_order | Sort order: 'ASC' or 'DESC' | String-ENUM
-search_by | Field used to search returned contact list e.g. ['email', 'first_name', 'last_name', '1', ..., '6'] | String-ENUM
+status | Filter by status (default=active): '`active`, `optout`, or `bounced` | String-ENUM
+sort_by | Field used to sort returned contact list (default=email): `email`, `first_name`, `last_name`, `1`, ..., `6`  | String-ENUM
+sort_order | Sort order: `ASC` or `DESC` | String-ENUM
+search_by | Field used to search returned contact list: `email`, `first_name`, `last_name`, `1`, ..., `6` | String-ENUM
 search | Query used to search | String
 
 ####Contacts List Resource
 
-Name |Description | Type
+Name |Description | Data Type
 ------ | ------- | -------
 data[\_].id | Contact id | String
 data[\_].first_name | Contact first name | String
@@ -509,12 +509,12 @@ data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
-Name | Required | Description | Type
+Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
 first_name | Yes | Contact first name | String
 last_name | Yes | Contact last name | String
 email | Yes | Contact email address | String
-custom_fields | No | Contact custom field | Dictionary
+custom_fields | No | Contact custom field | Object
 
 ###/contacts/bulk
 
@@ -589,23 +589,23 @@ s.post(url, json=payload)
 
 ####Contacts List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Contact id | String
 data[\_].first_name | Contact first name | String
 data[\_].last_name | Contact last name | String
 data[\_].email | Contact email address | String
-data[\_].custom_fields | Contact custom fields | Dictionary
+data[\_].custom_fields | Contact custom fields | Object
 data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
 
-Name | Required | Description | Type
+Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
 data[\_].first_name | Yes | Contact first name | String
 data[\_].last_name | Yes | Contact last name | String
 data[\_].email | Yes | Contact email | String
-data[\_].custom_fields | No | Custom contact fields | Dictionary
+data[\_].custom_fields | No | Custom contact fields | Object
 
 
 ###/contacts/{id}
@@ -664,13 +664,13 @@ s.get(url)
 
 ####Contact Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id | Contact id | String
 first_name | Contact first name | String
 last_name | Contact last name | String
 email | Contact email address | String
-custom_fields | Contact custom fields | Dictionary
+custom_fields | Contact custom fields | Object
 
 
 ###/contact_fields
@@ -727,14 +727,14 @@ s.get(url)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Page number. Defaults to 1 | Integer
 per_page | Number of contacts to return per page | Integer
 
 ####Contacts List Resource
 
-Name |Description | Type
+Name |Description | Data Type
 ------ | ------- | -------
 data[\_].id | Contact id | String
 data[\_].label | Contact Field Label | String
@@ -788,15 +788,15 @@ s.patch(url)
 
 ####Request Body Arguments for PATCH
 
-Name | Required | Description | Type
+Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
-label | Yes | Label assigned to the custom contact feild | String
+label | Yes | Label assigned to the custom contact field | String
 
 
 ####Contact Field Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
-id | Contact Field id | String
-label | Contact Field Label | String
+id | Contact field id | String
+label | Contact field Label | String
 

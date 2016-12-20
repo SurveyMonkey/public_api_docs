@@ -80,7 +80,7 @@ s.get(url)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
@@ -88,7 +88,7 @@ country | Country to get the bundles for. Defaults to US | String
 
 ####Bundle List
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Benchmark Bundle id | String
 data[\_].title | Benchmark Bundle name | String
@@ -171,12 +171,12 @@ s.get(url)
 
 ####Bundle Details
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id | Benchmark Bundle id | String
 title | Benchmark Bundle name | String
 details | Benchmark Bundle description | String
-questions | The questions associated with the bundle | List
+questions | List of questions associated with the bundle | Array
 href | Resource API URL | String
 
 
@@ -205,9 +205,9 @@ s.headers.update({
 })
 
 payload = {
-  'question_ids': [123, 456],
-  'percentile_start': 1,
-  'percentile_end': 100
+  "question_ids": [123, 456],
+  "percentile_start": 1,
+  "percentile_end": 100
 }
 url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s/analyze" % (bundle_id)
 s.get(url, params=payload)
@@ -275,20 +275,20 @@ s.get(url, params=payload)
 
 ####Query String for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
-question_ids (required) | List of question to recieve analytics for. | Comma Separated List
+question_ids (required) | List of question to recieve analytics for. | Comma Separated Strings
 percentile_start (optional)  | Starting percentile to filter by (default=0). | Integer
 percentile_end (optional) | Ending percentile to filter by (default=100). | Integer
 
 ####Bundle Benchmark
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id  | Benchmark Bundle id | String
 date_start | Start date for included responses in the benchmark | String
 date_end  | End date for included responses in the benchmark | String
-benchmarks | List of benchmark results for each question in the bundle, with the question details | List
+benchmarks | List of benchmark results for each question in the bundle, with the question details | Array
 
 
 ###/surveys/{id}/pages/{id}/questions/{id}/benchmark
@@ -356,7 +356,7 @@ s.get(url)
 
 ####Query String for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 percentile_start (optional)  | Starting percentile to filter by (default=0). | Integer
 percentile_end (optional) | Ending percentile to filter by (default=100). | Integer
