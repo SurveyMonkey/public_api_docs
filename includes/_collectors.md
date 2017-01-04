@@ -73,8 +73,8 @@ per_page | Number of resources to return per page | Integer
 sort_by | Field used to sort returned collector list e.g. ['id', 'date_modified', 'type', 'status', 'name'] | String-ENUM
 sort_order | Sort order e.g. ['ASC', 'DESC'] | String-ENUM
 name | Nickname of collector to search against | String
-start_date | Collectors must be created after this date. | DateString
-end_date | Collectors must be created before this date. | DateString
+start_date | Collectors must be created after this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
+end_date | Collectors must be created before this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
 include | Specify additional fields to return per collector: 'type', 'status', 'response_count', 'date_created', 'date_modified', 'url'|Comma separated string-ENUMs
 
 ####Collector List Resource
@@ -99,7 +99,7 @@ type | Yes | Collector type: 'weblink' or 'email'| String-ENUM
 name | No | Collector name | String
 thank_you_message | No (default="Thank you for completing our survey!"")| Message for [thank you page](http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-a-Thank-You-page)  | String
 disqualification_message | No (default="Thank you for completing our survey!)| Message for disqualification page  | String
-close_date | No | Close date of collector | DateString
+close_date | No | Close date of collector | Date string
 closed_page_message | No (default="Thank you for completing our survey!") | Message shown when a survey is closed| String
 redirect_url | No | Redirect to this url upon survey completion | String
 display_survey_results | No (default=False) | Shows respondents survey [instant results](http://help.surveymonkey.com/articles/en_US/kb/What-are-Instant-Results) when they complete the survey | Boolean
@@ -182,16 +182,16 @@ type | Collector type: 'weblink' or 'email' | String-ENUM
 name | Name of the collector | String
 thank_you_message | Message for thank you page | String
 disqualification_message | Message for disqualification page | String
-close_date  | Close date of collector | Date String
+close_date  | Close date of collector | Date string
 closed_page_message | Message shown when someone visits a closed survey | String
 redirect_url | Redirects respondent to this url upon survey completion | String
 display_survey_results | Shows respondents survey [instant results](http://help.surveymonkey.com/articles/en_US/kb/What-are-Instant-Results) when they complete the survey | Boolean
 edit_response_type | When respondents can edit their response: 'until_complete', 'never', or 'always' | String-ENUM
 anonymous_type | Turns off IP tracking. For email collectors, also removes respondent email address and name from response: 'not_anonymous', 'partially_anonymous', 'fully_anonymous' | String-ENUM
 allow_multiple_responses| Allows respondents to take a survey more than once from the same browser on the same computer | Boolean
-date_modified | Date collector was last modified | DateString
+date_modified | Date collector was last modified | Date string
 url | If collector is a Web Collector (type 'weblink') then the url for the collector | String
-date_created | Date collector was created | DateString
+date_created | Date collector was created | Date string
 password_enabled | True if the collector is password protected | Boolean
 sender_email | Sender email for email collectors. User's email is used if null | String
 href | Resource API URL | String
@@ -341,8 +341,8 @@ Name | Description | Data Type
 status | Whether the message is: 'sent', 'not_sent', or 'processing'| String-ENUM
 is_scheduled | If a message has been secheduled to send. See [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send) | Boolean
 is_branding_enabled | Whether the email has SurveyMonkey branding | Boolean
-date_created | Date message was created | DateString
-scheduled_date | Date message was scheduled to be sent | Date String
+date_created | Date message was created | Date string
+scheduled_date | Date message is scheduled to be sent. If Null, message has not been scheduled to send.| Date string or Null
 type | Message type: 'invite', 'reminder', or 'thank_you' | String-ENUM
 recipient_status | Recipient filter: 'reminder' or 'thank_you' | String-ENUM
 id | Message id | String
@@ -408,14 +408,14 @@ s.post(url, json=payload)
 
 Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
-scheduled_date | No | Date when the message should send. If not specified, message sends immediately | DateString
+scheduled_date | No | Date when the message should send. If not specified, message sends immediately | Date string
 
 ####Message Resource
 
 Name | Description | Data Type
 ------ | ------- | -------
 is_scheduled | If a message has been secheduled to send | Boolean
-scheduled_date | Date message was scheduled to be sent | DateString
+scheduled_date | Date message was scheduled to be sent | Date string
 body | The plain text body of the email message to be sent to recipients. | String
 subject | Subject of the email message to be sent to recipients | String
 recipients | List of recipient ids | Array

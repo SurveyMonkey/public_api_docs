@@ -117,7 +117,7 @@ id | Group id | String
 name | Group name | String
 member_count | Number of members in the group | Integer
 max_invites | Maximum number of members that can be in the group | Integer
-date_created | Date and time when group was created | DateString
+date_created | Date and time when group was created | Date string
 
 ####Group Resource if Member
 

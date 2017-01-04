@@ -49,8 +49,8 @@ s.post(url, json=payload)
   "language": "en",
   "question_count": 10,
   "page_count": 10,
-  "date_created": "2015-10-06T12:56:55+00:00",
-  "date_modified": "2015-10-06T12:56:55+00:00",
+  "date_created": "2015-10-06T12:56:55",
+  "date_modified": "2015-10-06T12:56:55",
   "id": "1234",
   "href": "https://api.surveymonkey.com/v3/surveys/1234",
   "buttons_text": {
@@ -87,8 +87,8 @@ sort_by | Field used to sort returned survey list: `title`, `date_modified`, or 
 sort_order | Sort order: `ASC` or `DESC` | String-ENUM
 include | Use to filter survey list: `shared_with', `shared_by`, or `owned` (useful for teams) or use to specify additional fields to return per survey: `response_count`, `date_created`, `date_modified`, `language`, `question_count`, `analyze_url`, `preview` |Comma Separated String-ENUM
 title | Search survey list by survey title | String
-start_modified_at | Surveys must be last modified after this date. | DateString
-end_modified_at | Surveys must be last modified before this date. | DateString
+start_modified_at | Surveys must be last modified after this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
+end_modified_at | Surveys must be last modified before this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
 
 ####Survey List Resource
 
@@ -173,8 +173,8 @@ s.get(url)
   "language": "en",
   "question_count": 0,
   "page_count": 0,
-  "date_created": "2015-10-06T12:56:55+00:00",
-  "date_modified": "2015-10-06T12:56:55+00:00",
+  "date_created": "2015-10-06T12:56:55",
+  "date_modified": "2015-10-06T12:56:55",
   "id": "1234",
   "href": "http://api.surveymonkey.com/v3/surveys/1234",
   "buttons_text": {
@@ -229,8 +229,8 @@ category| Survey category chosen when creating the survey | String
 language | ISO 639-1 code for survey language | String-ENUM
 question_count | Number of questions in survey | Integer
 page_count | Number of pages in survey | Integer
-date_created | Date and time when survey was created | DateString
-date_modified | Date and time when survey was last modified | DateString
+date_created | Date and time when survey was created | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
+date_modified | Date and time when survey was last modified | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
 buttons_text.next_button | Button text | String
 buttons_text.prev_button | Button text | String
 buttons_text.exit_button | Button text | String

@@ -102,10 +102,10 @@ s.get(url)
 Name | Description | Data Type
 ------ | ------- | -------
 collector_ids|Limits responses to those from specified collector ids|Comma separated strings 
-start_created_at|Limits responses to those created after date specified|DateString
-end_created_at|Limits responses to those created before date specified|DateString
-start_modified_at|Limits responses to those last modified after date specified|DateString
-end_modified_at|Limits responses to those last modified before date specified|DateString
+start_created_at|Limits responses to those created after date specified|Date string
+end_created_at|Limits responses to those created before date specified|Date string
+start_modified_at|Limits responses to those last modified after date specified|Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
+end_modified_at|Limits responses to those last modified before date specified|Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
 status|Limits responses to those of a certain status. Accepts: `completed`, `partial`, `overquota`, `disqualified`|Comma separated string-ENUM
 email|Limits responses to those associated with specified email address. NOTE: Responses must come from an email collector.|String
 first_name|Limits responses to those associated with specified first name. NOTE: Responses must come from an email collector.|String

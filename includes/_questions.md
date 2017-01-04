@@ -121,8 +121,8 @@ required.amount | Yes if type is defined | The amount of answers required to be 
 validation | No | Whether the answer must pass certain validation parameters | Object
 validation.type | Yes | Type of validation to use: `any`, `integer`, `decimal`, `date_us`, `date_intl`, `regex`, `email`, or `text_length` | String-ENUM
 validation.text | Yes | Text to display if validation fails | String
-validation.min | Yes | Minimum value an answer can be to pass validation | DateString, int, or null depending on validation.type
-validation.max | Yes| Maximum value an answer can be to pass validation | DateString, int, or null depending on validation.type
+validation.min | Yes | Minimum value an answer can be to pass validation | Date string, integer, or null depending on validation.type
+validation.max | Yes| Maximum value an answer can be to pass validation | Date string, integer, or null depending on validation.type
 validation.sum | No | Only accepted is family=open_ended and subtype=numerical, the exact integer textboxes must sum to in order to pass validation | Integer
 validation.sum_text | No | Only accepted is family=open_ended and subtype=numerical, the message to display if textboxes do not sum to validation.sum | String
 forced_ranking | No | Required if type is matrix and subtype is rating or single, whether or not to force ranking | Boolean
@@ -156,8 +156,8 @@ required.amount  | The amount of answers required to be answered. If the require
 validation  | Whether the answer must pass certain validation parameters | Object
 validation.type  | Type of validation to use: `any`, `integer`, `decimal`, `date_us`, `date_intl`, `regex`, `email`, or `text_length` | String-ENUM
 validation.text  | Text to display if validation fails | String
-validation.min  | Minimum value an answer can be to pass validation | DateString, int, or null depending on validation.type
-validation.max | Maximum value an answer can be to pass validation | DateString, int, or null depending on validation.type
+validation.min  | Minimum value an answer can be to pass validation | Date string, integer, or null depending on validation.type
+validation.max | Maximum value an answer can be to pass validation | Date string, integer, or null depending on validation.type
 validation.sum  | Only accepted is family=open_ended and subtype=numerical, the exact integer textboxes must sum to in order to pass validation | Integer
 validation.sum_text  | Only accepted is family=open_ended and subtype=numerical, the message to display if textboxes do not sum to validation.sum | String
 forced_ranking  | If type is matrix and subtype is rating or single, whether or not to force ranking | Boolean
