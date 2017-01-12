@@ -535,6 +535,7 @@ Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
+include | Specify additional fields to return per recipient: `survey_response_status`, `mail_status`, `custom_fields`, `remove_link`, `extra_fields`, `survey_link` | Comma seperated string-ENUM
 
 ####Recipient List Resource
 
@@ -543,6 +544,12 @@ Name | Description | Data Type
 data[\_].id | Recipient id | String
 data[\_].email | Email of recipient added to collector | String
 data[\_].href | Resource API URL | String
+data[\_].survey_response_status | If the recipient has completed the survey: 'not_responded’, 'partially_responded’, 'completely_responded’. Only returned if requested | String-ENUM
+data[\_].mail_status | If an invite message to the recipient has been: 'sent’, 'not_sent’, or is 'processing’. Only returned if requested | String-ENUM
+data[\_].custom_fields | Custom fields included for the recipient contact. Only returned if requested | Object
+data[\_].remove_link | Unsubscribe link. Only returned if requested | String
+data[\_].extra_fields | Extra fields included for the message body. Only returned if requested | Object
+data[\_].survey_link | Link to the survey in the invite. Only returned if requested | String
 
 ####Requests Body Arguments for POST (if passing contact_id)
 
@@ -717,6 +724,7 @@ Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
+include | Specify additional fields to return per recipient: `survey_response_status`, `mail_status`, `custom_fields`, `remove_link`, `extra_fields`, `survey_link` | Comma seperated string-ENUM
 
 ####Recipient List Resource
 
@@ -725,6 +733,12 @@ Name | Description | Data Type
 data[\_].id | Recipient id | String
 data[\_].email | Email of recipient added to collector | String
 data[\_].href | Resource API URL | String
+data[\_].survey_response_status | If the recipient has completed the survey: 'not_responded’, 'partially_responded’, 'completely_responded’. Only returned if requested | String-ENUM
+data[\_].mail_status | If an invite message to the recipient has been: 'sent’, 'not_sent’, or is 'processing’. Only returned if requested | String-ENUM
+data[\_].custom_fields | Custom fields included for the recipient contact. Only returned if requested | Object
+data[\_].remove_link | Unsubscribe link. Only returned if requested | String
+data[\_].extra_fields | Extra fields included for the message body. Only returned if requested | Object
+data[\_].survey_link | Link to the survey in the invite. Only returned if requested | String
 
 
 ###/collectors/{id}/recipients/{id}

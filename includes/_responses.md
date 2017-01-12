@@ -363,6 +363,8 @@ total_time_min | The minimum amount of time spent on the response | Integer
 total_time_units | Unit of time for total_time_min and total_time_max: `second`, `minute`, or `hour` | String-ENUM
 sort_order | Sort order: `ASC` or `DESC` | String-ENUM
 sort_by | Field used to sort returned responses: `date_modified` | String-ENUM
+page_ids | List of survey pages to filter on. Returns all pages if not provided | Commas Seperated Strings
+question_ids | List of survey questions to filter on. Returns all questions if not provided | Commas Seperated Strings
 
 ####Responses List Resource
 
@@ -561,6 +563,14 @@ s.get(url)
 ####Available Methods
 
  * `GET`: Retrieve a full expanded response, including answers to all questions. Requires **View Response Details** [scope](#scopes)
+
+####Optional Query Strings for GET
+
+Name | Description | Data Type
+------ | ------- | -------
+page_ids | List of survey pages to filter on. Returns all pages if not provided | Commas Seperated Strings
+question_ids | List of survey questions to filter on. Returns all questions if not provided | Commas Seperated Strings
+
 
 ####Response Resource
 
