@@ -5,15 +5,15 @@ Create webhooks that subscribe to various events in SurveyMonkey. You can create
 
  * A survey response is completed ('response_completed')
  * A survey response is [disqualified](http://help.surveymonkey.com/articles/en_US/kb/Disqualifying-Respondents) ('response_disqualified')
- * A survey response is updated ('response_updated') 
- * A respondent begins a survey ('response_created') 
+ * A survey response is updated ('response_updated')
+ * A respondent begins a survey ('response_created')
  * A response is deleted ('response_deleted')
  * A response is over a [survey's quota](https://help.surveymonkey.com/articles/en_US/kb/What-are-Quotas) ('response_overquota')
- * A collector is created ('collector_created') 
+ * A collector is created ('collector_created')
  * A collector is updated ('collector_updated')
- * A collector is deleted ('collector_deleted') 
+ * A collector is deleted ('collector_deleted')
 
-You can specify one or more survey ids to be included. 
+You can specify one or more survey ids to be included.
 
 ###/webhooks
 
@@ -46,7 +46,7 @@ payload = {
   "object_ids": ["1234", "5678"],
   "subscription_url": "https://surveymonkey.com/webhook_reciever"
 }
-url = "https://api.surveymonkey.net/v3/webhooks" 
+url = "https://api.surveymonkey.net/v3/webhooks"
 s.post(url, json=payload)
 ```
 
@@ -192,7 +192,7 @@ href | Resource API URL | String
   "object_type": "response",
   "object_id": "123456",
   "event_datetime": "2016-01-01T21:56:31.182613+00:00",
-  "resources" {
+  "resources": {
     "respondent_id": "123456789",
     "recipient_id": "123456789",
     "collector_id": "123456789",

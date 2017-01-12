@@ -390,9 +390,9 @@ Our API uses the following data types.
 |------------------------|------------------|
 |Integer| An integer number with a maximum value of 2147483647. Negatives are disallowed unless otherwise specified.
 |String| A string of text.
-|String-ENUM|Predifined string values. Values are defined per field throughout our documnentation. 
+|String-ENUM|Predifined string values. Values are defined per field throughout our documnentation.
 |Boolean| A boolean value: true or false. In JSON it will be represented using the native boolean type.
-|Date string| Dates are usually in the format YYYY-MM-DDTHH:MM:SS+HH:MM. Any deviations from this are shown in the documenation. All date strings are implicitly in UTC. 
+|Date string| Dates are usually in the format YYYY-MM-DDTHH:MM:SS+HH:MM. Any deviations from this are shown in the documenation. All date strings are implicitly in UTC.
 |Array| A simple list of values. In JSON this will be an array.
 |Object|A collection of name/value pairs. In JSON this will be an object.
 |Null|A null value. In JSON this is represented as the native null type.
@@ -430,7 +430,7 @@ Our API uses the following data types.
 |1017|403 Permission Error|The user has hit a quota limit on this resource.|
 |1020|404 Resource Not Found|There was an error retrieving the requested resource.|
 |1025|409 Resource Conflict|Unable to complete the request due to a conflict. Check the settings for the resource.|
-|Comma separated string-ENUMs1026|409 Resource Conflict|The requested resource already exists.|
+|1026|409 Resource Conflict|The requested resource already exists.|
 |1030|413 Request Entity Too Large|The requested entity is too large, it can not be returned.|
 |1040|429 Rate Limit Reached|Too many requests were made, try again later.|
 |1050|500 Internal Server Error|Oh bananas! We couldn't process your request.|

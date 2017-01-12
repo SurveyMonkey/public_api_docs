@@ -36,7 +36,7 @@ s.headers.update({
 payload = {
   "title": "My Survey"
 }
-url = "https://api.surveymonkey.net/v3/surveys" 
+url = "https://api.surveymonkey.net/v3/surveys"
 s.post(url, json=payload)
 ```
 >Example Response
@@ -121,7 +121,7 @@ buttons_text.prev_button | No | Button text | String
 buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey | String
 buttons_text.done_button | No | Button text | String
 custom_variables | No | Dictionary of survey variables | Object
-footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean 
+footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
 
 ####Request Body Arguments for Bulk POST
 
@@ -137,7 +137,7 @@ buttons_text.exit_button | No | Button text. If set to an empty string, button w
 buttons_text.done_button | No | Button text | String
 pages | Yes | Pages to be created | List of Page Objects
 pages[\_].questions | Yes | Questions to be created | List of Question Objects
-footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean 
+footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
 
 
 ###/surveys/{id}
@@ -189,7 +189,7 @@ s.get(url)
   "custom_variables": {
     "name": "label"
   },
-  "footer", true,
+  "footer": true,
   "preview": "https://www.surveymonkey.com/r/Preview/",
   "edit_url": "https://www.surveymonkey.com/create/",
   "collect_url": "https://www.surveymonkey.com/collect/list",
@@ -220,7 +220,7 @@ buttons_text.prev_button | No | Button text | String
 buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey | String
 buttons_text.done_button | No | Button text | String
 custom_variables | No | Dictionary of survey variables | Object
-footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean 
+footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
 
 ####Survey Resource
 
@@ -247,7 +247,7 @@ analyze_url | Survey analyze URL | String
 summary_url | Survey summary URL | String
 href | Resource API URL | String
 response_count | Number of responses survey has received | Integer
-footer | Whether or not SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean 
+footer | Whether or not SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
 
 
 ###/surveys/{id}/details
@@ -344,7 +344,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/survey_categories" 
+url = "https://api.surveymonkey.net/v3/survey_categories"
 s.get(url)
 ```
 
@@ -414,7 +414,7 @@ s.headers.update({
 payload = {
   "category": "community"
 }
-url = "https://api.surveymonkey.net/v3/survey_templates" 
+url = "https://api.surveymonkey.net/v3/survey_templates"
 s.get(url, json=payload)
 ```
 
