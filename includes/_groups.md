@@ -51,14 +51,14 @@ s.get(url)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
 ####Groups List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Group id | String
 data[\_].name | Group name | String
@@ -111,17 +111,17 @@ s.get(url)
 
 ####Group Resource if Account Owner or Admin 
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id | Group id | String
 name | Group name | String
-member_count | Number of members in the group | String
-max_invites | Maximum number of members that can be in the group | String
-date_created | Date and time when group was created | String
+member_count | Number of members in the group | Integer
+max_invites | Maximum number of members that can be in the group | Integer
+date_created | Date and time when group was created | Date string
 
 ####Group Resource if Member
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id | Group id | String
 name | Name of the group | String
@@ -180,14 +180,14 @@ s.get(url)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
 ####Group Members List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Member id | String
 data[\_].username | Member username | String
@@ -243,12 +243,12 @@ s.get(url)
 
 ####Group Member Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id | Member id | String
 username | Member username | String
 email| User's email address | String
-type | Which type of [role](http://help.surveymonkey.com/articles/en_US/kb/Managing-Users#roles) the member has: 'regular', 'account_owner', or 'admin' | String
-status | A members [status](help.surveymonkey.com/articles/en_US/kb/Managing-Users#statuses) (if they have accepted an invitation into the group):'active', 'pending' | String
+type | Which type of [role](http://help.surveymonkey.com/articles/en_US/kb/Managing-Users#roles) the member has: `regular`,  `account_owner`, or `admin` | String-ENUM
+status | A members [status](help.surveymonkey.com/articles/en_US/kb/Managing-Users#statuses) (if they have accepted an invitation into the group): `active`, `pending` | String-ENUM
 user_id | User ID of the group member | String
-date_created | Date and time when member was created | String
+date_created | Date and time when member was created | DateString

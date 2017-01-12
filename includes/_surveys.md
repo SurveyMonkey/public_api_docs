@@ -36,7 +36,7 @@ s.headers.update({
 payload = {
   "title": "My Survey"
 }
-url = "https://api.surveymonkey.net/v3/surveys" 
+url = "https://api.surveymonkey.net/v3/surveys"
 s.post(url, json=payload)
 ```
 >Example Response
@@ -49,8 +49,8 @@ s.post(url, json=payload)
   "language": "en",
   "question_count": 10,
   "page_count": 10,
-  "date_created": "2015-10-06T12:56:55+00:00",
-  "date_modified": "2015-10-06T12:56:55+00:00",
+  "date_created": "2015-10-06T12:56:55",
+  "date_modified": "2015-10-06T12:56:55",
   "id": "1234",
   "href": "https://api.surveymonkey.com/v3/surveys/1234",
   "buttons_text": {
@@ -62,6 +62,7 @@ s.post(url, json=payload)
   "custom_variables": {
     "name": "label"
   },
+  "footer": true,
   "preview": "https://www.surveymonkey.com/r/Preview/",
   "edit_url": "https://www.surveymonkey.com/create/",
   "collect_url": "https://www.surveymonkey.com/collect/list",
@@ -79,20 +80,20 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
-sort_by | Field used to sort returned survey list: 'title', 'date_modified', or 'num_responses' | String-ENUM
-sort_order | Sort order: 'ASC' or 'DESC' | String-ENUM
-include | Use to filter survey list: 'shared_with', 'shared_by', or 'owned' (useful for teams) or use to specify additional fields to return per survey: 'response_count', 'date_created', 'date_modified', 'language', 'question_count', 'analyze_url', 'preview' | String-ENUM or Comma Separated Strings
+sort_by | Field used to sort returned survey list: `title`, `date_modified`, or `num_responses` | String-ENUM
+sort_order | Sort order: `ASC` or `DESC` | String-ENUM
+include | Use to filter survey list: `shared_with', `shared_by`, or `owned` (useful for teams) or use to specify additional fields to return per survey: `response_count`, `date_created`, `date_modified`, `language`, `question_count`, `analyze_url`, `preview` |Comma Separated String-ENUM
 title | Search survey list by survey title | String
-start_modified_at | Surveys must be last modified after this date. | Date String
-end_modified_at | Surveys must be last modified before this date. | Date String
+start_modified_at | Surveys must be last modified after this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
+end_modified_at | Surveys must be last modified before this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
 
 ####Survey List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Survey id | String
 data[\_].title | Survey title | String
@@ -101,7 +102,7 @@ data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST (if copying from existing survey or template)
 
-Name |Required| Description | Type
+Name |Required| Description | Data Type
 ------ | ----- | ------- | -------
 title | No (default="New Survey")|Survey title | String
 from_template_id | No (required if from_survey_id not provided) | Survey template to copy from. See [/survey_templates](#survey_templates) | String
@@ -120,6 +121,7 @@ buttons_text.prev_button | No | Button text | String
 buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey | String
 buttons_text.done_button | No | Button text | String
 custom_variables | No | Dictionary of survey variables | Object
+footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
 
 ####Request Body Arguments for Bulk POST
 
@@ -135,6 +137,7 @@ buttons_text.exit_button | No | Button text. If set to an empty string, button w
 buttons_text.done_button | No | Button text | String
 pages | Yes | Pages to be created | List of Page Objects
 pages[\_].questions | Yes | Questions to be created | List of Question Objects
+footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
 
 
 ###/surveys/{id}
@@ -173,8 +176,8 @@ s.get(url)
   "language": "en",
   "question_count": 0,
   "page_count": 0,
-  "date_created": "2015-10-06T12:56:55+00:00",
-  "date_modified": "2015-10-06T12:56:55+00:00",
+  "date_created": "2015-10-06T12:56:55",
+  "date_modified": "2015-10-06T12:56:55",
   "id": "1234",
   "href": "http://api.surveymonkey.com/v3/surveys/1234",
   "buttons_text": {
@@ -186,6 +189,7 @@ s.get(url)
   "custom_variables": {
     "name": "label"
   },
+  "footer": true,
   "preview": "https://www.surveymonkey.com/r/Preview/",
   "edit_url": "https://www.surveymonkey.com/create/",
   "collect_url": "https://www.surveymonkey.com/collect/list",
@@ -205,7 +209,7 @@ s.get(url)
 
 ####Request Body Arguments for PATCH (See POST [/surveys](#surveys) for PUT arguments)
 
-Name | Required | Description | Type
+Name | Required | Description | Data Type
 ------ | ----- | ------- | -------
 title | No (`PUT` default="New Survey") |Survey title | String
 nickname | No (`PUT` default="") |Survey nickname | String
@@ -216,6 +220,7 @@ buttons_text.prev_button | No | Button text | String
 buttons_text.exit_button | No | Button text. If set to an empty string, button will be ommitted from survey | String
 buttons_text.done_button | No | Button text | String
 custom_variables | No | Dictionary of survey variables | Object
+footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
 
 ####Survey Resource
 
@@ -226,11 +231,11 @@ title | Survey title | String
 nickname | Survey nickname | String
 custom_variables | Dictionary of survey variables | Object
 category| Survey category chosen when creating the survey | String
-language | Survey language | String
+language | ISO 639-1 code for survey language | String-ENUM
 question_count | Number of questions in survey | Integer
 page_count | Number of pages in survey | Integer
-date_created | Date and time when survey was created | Date String
-date_modified | Date and time when survey was last modified | Date String
+date_created | Date and time when survey was created | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
+date_modified | Date and time when survey was last modified | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
 buttons_text.next_button | Button text | String
 buttons_text.prev_button | Button text | String
 buttons_text.exit_button | Button text | String
@@ -242,6 +247,7 @@ analyze_url | Survey analyze URL | String
 summary_url | Survey summary URL | String
 href | Resource API URL | String
 response_count | Number of responses survey has received | Integer
+footer | Whether or not SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
 
 
 ###/surveys/{id}/details
@@ -302,6 +308,7 @@ s.get(url)
     "exit_button": "Exit",
     "next_button": "Next"
   },
+  "footer": true,
   "preview": "https://www.surveymonkey.com/r/Preview/",
   "edit_url": "https://www.surveymonkey.com/create/",
   "collect_url": "https://www.surveymonkey.com/collect/list",
@@ -337,7 +344,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/survey_categories" 
+url = "https://api.surveymonkey.net/v3/survey_categories"
 s.get(url)
 ```
 
@@ -366,15 +373,15 @@ s.get(url)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page  | Which page of resources to return. Defaults to 1 | Integer
 per_page  | Number of resources to return per page | Integer
-language  | Category language to filter by (default=en) | String-ENUM
+language  | ISO 639-1 code for language to filter by (default=en) | String-ENUM
 
 ####Survey Categories Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Resource id | String
 data[\_].name | Resource name | String
@@ -407,7 +414,7 @@ s.headers.update({
 payload = {
   "category": "community"
 }
-url = "https://api.surveymonkey.net/v3/survey_templates" 
+url = "https://api.surveymonkey.net/v3/survey_templates"
 s.get(url, json=payload)
 ```
 
@@ -444,11 +451,11 @@ s.get(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
-language | Template language to filter by (default=en) | String-ENUM
+language | ISO 639-1 code for template language to filter by (default=en) | String-ENUM
 category | Category to filter by, see [/survey_categories](#survey_categories) for a list of available categories if not specified, all categories are returned | String-ENUM
 
 ####Survey Templates Resource
@@ -517,14 +524,14 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
 ####Page List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Page ID | String
 data[\_].title | Page Title | String
@@ -592,7 +599,7 @@ s.get(url)
 
 ####Request Body Arguments for PUT/PATCH
 
-Name | Required |Description | Type
+Name | Required |Description | Data Type
 ------- | ------- | ------- | -------
 title  | No (`PUT` default="") |Page title | String
 description | No (`PUT` default="") | Page description | String

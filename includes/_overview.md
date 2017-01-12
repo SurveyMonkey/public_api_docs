@@ -148,12 +148,12 @@ AUTH_CODE_ENDPOINT = "/oauth/authorize"
 
 def oauth_dialog(client_id, redirect_uri):
 	url_params = urllib.urlencode({
-		'redirect_uri': redirect_uri,
-		'client_id': client_id,
-		'response_type': 'code'
+		"redirect_uri": redirect_uri,
+		"client_id": client_id,
+		"response_type": "code"
 	})
 
-	auth_dialog_uri = SM_API_BASE + AUTH_CODE_ENDPOINT + '?' + url_params
+	auth_dialog_uri = SM_API_BASE + AUTH_CODE_ENDPOINT + "?" + url_params
 	print "\nThe OAuth dialog url was " + auth_dialog_uri + "\n"
 
 	# Insert code here that redirects user to OAuth Dialog url
@@ -175,7 +175,7 @@ Once the user makes their choice whether to authorize access or not, SurveyMonke
 def handle_redirect(redirect_uri):
 	# Parse authorization code out of url
 	query_string = urlparse.urlsplit(redirect_uri).query
-	authorization_code = urlparse.parse_qs(query_string).get('code', [])
+	authorization_code = urlparse.parse_qs(query_string).get("code", [])
 
 	# parse_qs returns a list for every query param, just get the first one
 	if not authorization_code:
@@ -219,8 +219,8 @@ def exchange_code_for_token(auth_code, client_secret, client_id, redirect_uri):
 	access_token_response = requests.post(access_token_uri, data=data)
 	access_json = access_token_response.json()
 
-	if 'access_token' in access_json:
-		return access_json['access_token']
+	if "access_token" in access_json:
+		return access_json["access_token"]
 	else:
 		print access_json
 		return None
@@ -257,13 +257,13 @@ AUTH_CODE_ENDPOINT = "/oauth/authorize"
 
 def oauth_dialog(client_id, redirect_uri, api_key):
 	url_params = urllib.urlencode({
-		'redirect_uri': redirect_uri,
-		'client_id': client_id,
-		'response_type': 'code',
-		'api_key': api_key
+		"redirect_uri": redirect_uri,
+		"client_id": client_id,
+		"response_type": "code",
+		"api_key": api_key
 	})
 
-	auth_dialog_uri = SM_API_BASE + AUTH_CODE_ENDPOINT + '?' + url_params
+	auth_dialog_uri = SM_API_BASE + AUTH_CODE_ENDPOINT + "?"" + url_params
 	print "\nThe OAuth dialog url was " + auth_dialog_uri + "\n"
 
 	# Insert code here that redirects user to OAuth Dialog url
@@ -285,7 +285,7 @@ Once the user makes their choice whether to authorize access or not, SurveyMonke
 def handle_redirect(redirect_uri):
 	# Parse authorization code out of url
 	query_string = urlparse.urlsplit(redirect_uri).query
-	authorization_code = urlparse.parse_qs(query_string).get('code', [])
+	authorization_code = urlparse.parse_qs(query_string).get("code", [])
 
 	# parse_qs returns a list for every query param, just get the first one
 	if not authorization_code:
@@ -325,12 +325,12 @@ def exchange_code_for_token(auth_code, api_key, client_secret, client_id, redire
 		"grant_type": "authorization_code"
 	}
 
-	access_token_uri = SM_API_BASE + ACCESS_TOKEN_ENDPOINT + '?api_key=' + api_key
+	access_token_uri = SM_API_BASE + ACCESS_TOKEN_ENDPOINT + "?api_key=" + api_key
 	access_token_response = requests.post(access_token_uri, data=data)
 	access_json = access_token_response.json()
 
-	if 'access_token' in access_json:
-		return access_json['access_token']
+	if "access_token" in access_json:
+		return access_json["access_token"]
 	else:
 		print access_json
 		return None
@@ -381,6 +381,21 @@ Our API returns the following custom headers:
 |X-Ratelimit-App-Global-Minute-Limit|Per minute request limit the app has
 |X-Ratelimit-App-Global-Minute-Remaining|Number of remaining requests app has before hitting per minute limit
 |X-Ratelimit-App-Global-Minute-Reset |Number of seconds until the rate limit remaining resets
+
+##Data Types
+
+Our API uses the following data types.
+
+|Data Type|Description|
+|------------------------|------------------|
+|Integer| An integer number with a maximum value of 2147483647. Negatives are disallowed unless otherwise specified.
+|String| A string of text.
+|String-ENUM|Predifined string values. Values are defined per field throughout our documnentation.
+|Boolean| A boolean value: true or false. In JSON it will be represented using the native boolean type.
+|Date string| Dates are usually in the format YYYY-MM-DDTHH:MM:SS+HH:MM. Any deviations from this are shown in the documenation. All date strings are implicitly in UTC.
+|Array| A simple list of values. In JSON this will be an array.
+|Object|A collection of name/value pairs. In JSON this will be an object.
+|Null|A null value. In JSON this is represented as the native null type.
 
 ##Error Codes
 

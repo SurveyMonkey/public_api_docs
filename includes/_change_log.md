@@ -2,7 +2,6 @@
 
 All noteworthy changes and additions made to the V3 API are listed below. For changes that are not backwards compatible, developers will be informed via email well in advance, and an adequate transition period will be put in place to insure zero downtime. If you have any questions regarding a change, please contact [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com).
 
-
 ###March 30th, 2016
 
 
@@ -396,5 +395,53 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Description of changes**: Allows those with view response details [scope](#scopes) to call endpoints that return response counts per survey, page, or question and over a given time period. 
 
 **Endpoints Affected**: [/surveys/{id}/rollups](#surveys-id-rollups), [/surveys/{id}/pages/{id}/rollups](#surveys-id-pages-id-rollups), [/surveys/{id}/pages/{id}/questions/{id}/rollups](#surveys-id-pages-id-questions-id-rollups), [/surveys/{id}/trends](#surveys-id-trends), [/surveys/{id}/pages/{id}/trends](#surveys-id-pages-id-trends), [/surveys/{id}/pages/{id}/quesions/{id}/trends](#surveys-id-pages-id-quesions-id-trends)
+
+**Developer Actions Required**: None
+
+###January 12th, 2017
+
+####Include Resource IDs in Webhook Callback
+
+**Description of Changes**: Webhook callback events now include the ids of resources involved in the event.
+
+**Developer Actions Required**: None
+
+####Allow Removal of SurveyMonkey Footer from Surveys
+
+**Description of Changes**: Footer field was added to survey resource. It can be set to be false to remove the SurveyMonkey footer in a POST, PUT, or PATCH to surveys
+
+**Endpoints Affected**: [/surveys](#surveys), [/surveys/{id}](#surveys-id)
+
+**Developer Actions Required**: None
+
+####Filter Responses by Pages or Questions
+
+**Description of Changes**: You can now request certain Pages or Questions to be included when calling Survey Responses endpoints, both in bulk and for individual responses.
+
+**Endpoints Affected**: [/surveys/{id}/response/{id}/details](#surveys-id-responses-id-details), [/collectors/{id}/response{id}/details](#collectors-id-responses-id-details), [/surveys/{id}/responses/bulk](#surveys-id-responses-bulk), [/collectors/{id}/respones/bulk](#collectors-id-responses-bulk)
+
+**Developer Actions Required**: None
+
+####Request Additional Fields when Calling Recipient Lists
+
+**Description of Changes**: When requesting recipient lists you can now include a variety of additional fields per recipient. 
+
+**Endpoints Affected**: [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients), [/collectors/{id}/recipients](#collectors-id-recipients)
+
+**Developer Actions Required**: None
+
+####Set Response Limit for Collectors
+
+**Description of Changes**: You can now set or edit a `response_limit` for a collector. The collector will close after the limit is reached. 
+
+**Endpoints Affected**: [/surveys/{id}/collectors](#surveys-id-collectors), [/collectors/{id}](#collectors-id)
+
+**Developer Actions Required**: None
+
+####Set Survey End Page Behavior 
+
+**Description of Changes**: You can now set a collector `redirect_type` to set the [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior to either close or run in a loop (weblink only).
+
+**Endpoints Affected**: [/surveys/{id}/collectors](#surveys-id-collectors), [/collectors/{id}](#collectors-id)
 
 **Developer Actions Required**: None

@@ -49,18 +49,18 @@ s.get(url)
   "email": "test@surveymonkey.com",
   "account_type": "enterprise_platinum",
   "date_created": "2015-10-06T12:56:55+00:00",
-  "date_last_login": "2015-10-06T12:56:55+00:00"
+  "date_last_login": "2015-10-06T12:560000:55+00:00"
 }
 ```
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 id | User id | String
 username | Username | String
 first_name | User's first name | String
 last_name | User's last name | String
-language | Language set for the user's account | String
+language | ISO 639-1 code for the language set for the user's account | String-ENUM
 email | Email address for user's account | String
-account_type | [SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) the user has | String
+account_type | [SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) the user has:    `basic`, `pro`, `unlimited`, `select_monthly`, `gold`, `platinum`, `select_yearly`, `temp_pro`, `pro_comp`, `zoom_pro`, `zoom_premium`, `enterprise_gold`, `enterprise_platinum` | String-ENUM
 date_created | Date user's account was created | Date String
-date_last_login | Date user last logged in | Date String
+date_last_login | Date user last logged in | Date String in format YYYY-MM-DDTHH:MM:SS0000+HH:MM

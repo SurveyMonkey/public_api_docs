@@ -26,7 +26,7 @@ s.headers.update({
 })
 
 payload = {
- 'type': 'weblink'
+ "type": "weblink"
 }
 url = "https://api.surveymonkey.net/v3/surveys/%s/collectors" % (survey_id)
 s.post(url, json=payload)
@@ -55,6 +55,8 @@ s.post(url, json=payload)
   "date_created": "2015-10-06T12:56:55+00:00",
   "password_enabled": false,
   "sender_email": null,
+  "response_limit": null,
+  "redirect_type": "url",
   "href": "https://api.surveymonkey.net/v3/collectors/1234"
 }
 ```
@@ -66,48 +68,50 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 sort_by | Field used to sort returned collector list e.g. ['id', 'date_modified', 'type', 'status', 'name'] | String-ENUM
 sort_order | Sort order e.g. ['ASC', 'DESC'] | String-ENUM
 name | Nickname of collector to search against | String
-start_date | Collectors must be created after this date. | Date String
-end_date | Collectors must be created before this date. | Date String
-include | Specify additional fields to return per collector: 'type', 'status', 'response_count', 'date_created', 'date_modified', 'url'|Comma Separated Strings
+start_date | Collectors must be created after this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
+end_date | Collectors must be created before this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
+include | Specify additional fields to return per collector: 'type', 'status', 'response_count', 'date_created', 'date_modified', 'url'|Comma separated string-ENUMs
 
 ####Collector List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id| Collector id | String
 data[\_].name | Collector name | String
-data[\_].href | Resource API URL | String
+data[\_].href | Resource URL | String
 
 ####Request Body Arguments for POST (if copying from existing collector)
 
-Name | Required |Description | Type
+Name | Required |Description | Data Type
 ------ | ------- | ------- | -------
 from_collector_id | Yes | Collector ID to copy collector from | String
 
 ####Request Body Arguments for POST
 
-Name | Required |Description | Type
+Name | Required |Description | Data Type
 ------ | ------- | ------- | -------
 type | Yes | Collector type: 'weblink' or 'email'| String-ENUM
 name | No | Collector name | String
-thank_you_message | No (default="Thank you for completing our survey!"")| Message for [thank you page](http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-a-Thank-You-page)  | String-ENUM
-disqualification_message | No (default="Thank you for completing our survey!)| Message for disqualification page  | String-ENUM
-close_date | No | Close date of collector | Date String
-closed_page_message | No (default="Thank you for completing our survey!") | Message shown when a survey is closed| String-ENUM
+thank_you_message | No (default="Thank you for completing our survey!"")| Message for [thank you page](http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-a-Thank-You-page)  | String
+disqualification_message | No (default="Thank you for completing our survey!)| Message for disqualification page  | String
+close_date | No | Close date of collector | Date string
+closed_page_message | No (default="Thank you for completing our survey!") | Message shown when a survey is closed| String
 redirect_url | No | Redirect to this url upon survey completion | String
 display_survey_results | No (default=False) | Shows respondents survey [instant results](http://help.surveymonkey.com/articles/en_US/kb/What-are-Instant-Results) when they complete the survey | Boolean
-edit_response_type | No (default='until_complete') | When respondents can edit their response:'until_complete', 'never', or 'always' | String-ENUM
+edit_response_type | No (default='until_complete') | When respondents can edit their response: 'until_complete', 'never', or 'always' | String-ENUM
 anonymous_type | No (default='not_anonymous') | Turns off IP tracking. For email collectors, also removes respondent email address and name from response: 'not_anonymous', 'partially_anonymous', 'fully_anonymous' | String-ENUM
 allow_multiple_responses |  No (default=False) | Allows respondents to take a survey more than once from the same browser on the same computer | Boolean
 password | No | Set a password to restrict access to your survey | String
 sender_email | No | Sender email for email collectors | String
+response_limit | No | Sets the collector to close after specified number of responses are collected | Integer 
+redirect_type | No | Determines [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior: `url` (redirects to URL set in `redirect_url` or if none is set, shows standard SurveyMonkey thank you page), `close` (closes the survey window or tab), or `loop` (loops the survey back to the beginning, only available for `weblink` collectors with `allow_multiple_responses`:true)| String-ENUM
 
 ###/collectors/{id}
 
@@ -158,6 +162,8 @@ s.get(url)
   "date_created": "2015-10-06T12:56:55+00:00",
   "sender_email": null,
   "password_enabled": false,
+  "response_limit": 100,
+  "redirect_type": "url",
   "href": "https://api.surveymonkey.net/v3/collectors/1234"
 }
 ```
@@ -176,24 +182,25 @@ s.get(url)
 
 Name | Description | Type
 ------ | ------- | -------
-status | Collector status: 'open' or 'closed'| String
+status | Collector status: 'open' or 'closed'| String-ENUM
 id | Collector id | String
-type | Collector type: 'weblink' or 'email' | String
+type | Collector type: 'weblink' or 'email' | String-ENUM
 name | Name of the collector | String
 thank_you_message | Message for thank you page | String
 disqualification_message | Message for disqualification page | String
-close_date  | Close date of collector | Date String
-closed_page_message | Message for close page | String
-redirect_url | Redirect to this url upon survey completion. | String
+close_date  | Close date of collector | Date string
+closed_page_message | Message shown when someone visits a closed survey | String
+redirect_url | Redirects respondent to this url upon survey completion | String
 display_survey_results | Shows respondents survey [instant results](http://help.surveymonkey.com/articles/en_US/kb/What-are-Instant-Results) when they complete the survey | Boolean
-edit_response_type | When respondents can edit their response: 'until_complete', 'never', or 'always' | String
-anonymous_type | Turns off IP tracking. For email collectors, also removes respondent email address and name from response: 'not_anonymous', 'partially_anonymous', 'fully_anonymous' | String
-allow_multiple_responses| Allows respondents to take a survey more than once from the same browser on the same computer | Boolean
-date_modified | Date collector was last modified | Date String
+edit_response_type | When respondents can edit their response: 'until_complete', 'never', or 'always' | String-ENUM
+anonymous_type | Turns off IP tracking. For email collectors, also removes respondent email address and name from response: 'not_anonymous', 'partially_anonymous', 'fully_anonymous' | String-ENUM
+allow_multiple_responses| Allows respondents to take a survey more than once from the same browser on the same computer. Only available for `weblink` collectors. | Boolean
+date_modified | Date collector was last modified | Date string
 url | If collector is a Web Collector (type 'weblink') then the url for the collector | String
-date_created | Date collector was created | Date String
+date_created | Date collector was created | Date string
 password_enabled | True if the collector is password protected | Boolean
 sender_email | Sender email for email collectors. User's email is used if null | String
+redirect_type | No | Determines [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior: `url` (redirects to URL set in `redirect_url` or if none is set, shows standard SurveyMonkey thank you page), `close` (closes the survey window or tab), or `loop` (loops the survey back to the beginning, only available for `weblink` collectors with `allow_multiple_responses`:true)| String-ENUM
 href | Resource API URL | String
 
 
@@ -221,7 +228,7 @@ s.headers.update({
 })
 
 payload = {
-  'type': 'invite'
+  "type": "invite"
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages" % (collector_id)
 s.post(url)
@@ -235,7 +242,7 @@ s.post(url)
    "body":"\n<html>\n\n<body style=\"margin:0; padding: 0;\">\n    <div align=\"center\">\n        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" width=\"100%\" style=\"font-family: Arial,Helvetica,sans-serif; max-width: 700px;\">\n            <tr bgcolor=\"#A7BC38\">\n                <td colspan=\"5\" height=\"40\">\u00a0<\/td> <\/tr>\n            <tr bgcolor=\"#A7BC38\">\n                <td width=\"20\">\u00a0<\/td>\n                <td width=\"20\">\u00a0<\/td>\n                <td align=\"center\" style=\"font-size: 29px; color:#FFFFFF; font-weight: normal; letter-spacing: 1px; line-height: 1;                           text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2); font-family: Arial,Helvetica,sans-serif;\"> Survey Title <\/td>\n                <td width=\"20\">\u00a0<\/td>\n                <td width=\"20\">\u00a0<\/td> <\/tr>\n            <tr bgcolor=\"#A7BC38\">\n                <td colspan=\"5\" height=\"40\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td height=\"10\" colspan=\"5\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td>\u00a0<\/td>\n                <td colspan=\"3\" align=\"left\" valign=\"top\" style=\"color:#666666; font-size: 13px;\"> {% if FirstQuestion %}\n                    <p>{{EmbeddedBody}}<\/p> {% else %}\n                    <p>We're conducting a survey and your input would be appreciated. Click the button below to start the survey. Thank you for your participation!<\/p> {% endif %} <\/td>\n                <td>\u00a0<\/td> <\/tr> {% if FirstQuestion %}\n            <tr>{{FirstQuestion}}<\/tr> {% else %}\n            <tr>\n                <td colspan=\"5\" height=\"30\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td>\u00a0<\/td>\n                <td colspan=\"3\">\n                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" style=\"background:#A7BC38; border-radius: 4px; border: 1px solid #BBBBBB; color:#FFFFFF; font-size:14px; letter-spacing: 1px; text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8); padding: 10px 18px;\">\n                        <tr>\n                            <td align=\"center\" valign=\"center\"> <a href=\"[SurveyLink]\" target=\"_blank\" style=\"color:#FFFFFF; text-decoration:none;\">Begin Survey<\/a> <\/td> <\/tr> <\/table> <\/td>\n                <td>\u00a0<\/td> <\/tr>\n            <tr>\n                <td colspan=\"5\" height=\"30\">\u00a0<\/td> <\/tr> {% endif %}\n            <tr valign=\"top\" style=\"color: #666666;font-size: 10px;\">\n                <td>\u00a0<\/td>\n                <td valign=\"top\" align=\"center\" colspan=\"3\">\n                    <p>Please do not forward this email as its survey link is unique to you.\n                        <br><a href=\"[OptOutLink]\" target=\"_blank\" style=\"color: #333333; text-decoration: underline;\">Unsubscribe<\/a> from this list<\/p> <\/td>\n                <td>\u00a0<\/td> <\/tr>\n            <tr>\n                <td height=\"20\" colspan=\"5\">\u00a0<\/td> <\/tr>\n            <tr style=\"color: #999999;font-size: 10px;\">\n                <td align=\"center\" colspan=\"5\">[FooterLink]<\/td> <\/tr>\n            <tr>\n                <td height=\"20\" colspan=\"5\">\u00a0<\/td> <\/tr> <\/table><\/div><\/body>\n\n<\/html>\n",
    "recipient_status":null,
    "is_branding_enabled":true,
-   "href":"https:\/\/api.surveymonkey.net\/v3\/collectors\/150001976\/messages\/31454399",
+   "href":"https:\/\/api.surveymonkey.net\/v3\/collectors\/1234\/messages\/1234",
    "is_scheduled":false,
    "scheduled_date":null,
    "date_created":"2016-08-17T23:47:37+00:00",
@@ -253,14 +260,14 @@ s.post(url)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
 
 ####Request Body Arguments for POST (if copying from existing message)
 
-Name | Required |Description | Type
+Name | Required |Description | Data Type
 ------ | ------- | ------- | -------
 from_collector_id | Yes | Collector ID to copy message from | String
 from_message_id | Yes | Message ID to copy from | String
@@ -268,7 +275,7 @@ include_recipients | No | Include recipients attached to existing message | Bool
 
 ####Request Body Arguments for POST (if not copying from existing message)
 
-Name | Required |Description | Type
+Name | Required |Description | Data Type
 ------ | ------- | ------- | -------
 type | Yes | Message type: 'invite', 'reminder', or 'thank_you' | String-ENUM
 recipient_status | No. If type is 'reminder', acceptable values are: 'has_not_responded' or 'partially_responded', with the default being 'has_not_responded'. If type is 'thank_you', acceptable values are :'completed', 'responded', or 'partially_responded', with the default being 'completed' | Set of recipients to send to | String-ENUM
@@ -336,15 +343,15 @@ s.get(url)
 
 ####Messages Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
-status | Whether the message is: 'sent', 'not_sent', or 'processing'| String
+status | Whether the message is: 'sent', 'not_sent', or 'processing'| String-ENUM
 is_scheduled | If a message has been secheduled to send. See [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send) | Boolean
 is_branding_enabled | Whether the email has SurveyMonkey branding | Boolean
-date_created | Date message was created | Date String
-scheduled_date | Date message was scheduled to be sent | Date String
-type | Message type: 'invite', 'reminder', or 'thank_you' | String
-recipient_status | Recipient filter: 'reminder' or 'thank_you' | String
+date_created | Date message was created | Date string
+scheduled_date | Date message is scheduled to be sent. If Null, message has not been scheduled to send.| Date string or Null
+type | Message type: 'invite', 'reminder', or 'thank_you' | String-ENUM
+recipient_status | Recipient filter: 'reminder' or 'thank_you' | String-ENUM
 id | Message id | String
 
 
@@ -373,7 +380,7 @@ s.headers.update({
 })
 
 payload = {
-  'scheduled_date': '2015-10-06T12:56:55+00:00'
+  "scheduled_date": "2015-10-06T12:56:55+00:00"
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/send" % (collector_id, message_id)
 s.post(url, json=payload)
@@ -395,7 +402,7 @@ s.post(url, json=payload)
   "scheduled_date": "2015-11-04T12:56:55+00:00",
   "body": "<html>...</html>",
   "subject": "We want your opinion",
-  "recipients": ["41930647", "41930648"],
+  "recipients": ["1234", "1234"],
   "recipient_status": null,
   "type": "invite"
 }
@@ -406,16 +413,16 @@ s.post(url, json=payload)
 
 ####Request Body Arguments for POST
 
-Name | Required | Description | Type
+Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
-scheduled_date | No | Date when the message should send. If not specified, message sends immediately | Date String
+scheduled_date | No | Date when the message should send. If not specified, message sends immediately | Date string
 
 ####Message Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 is_scheduled | If a message has been secheduled to send | Boolean
-scheduled_date | Date message was scheduled to be sent | Date String
+scheduled_date | Date message was scheduled to be sent | Date string
 body | The plain text body of the email message to be sent to recipients. | String
 subject | Subject of the email message to be sent to recipients | String
 recipients | List of recipient ids | Array
@@ -450,7 +457,7 @@ s.headers.update({
 })
 
 payload = {
-  'contact_id': 1234
+  "contact_id": 1234
 }
 url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
 s.post(url, json=payload)
@@ -531,34 +538,41 @@ s.post(url, json=payload)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
+include | Specify additional fields to return per recipient: `survey_response_status`, `mail_status`, `custom_fields`, `remove_link`, `extra_fields`, `survey_link` | Comma seperated string-ENUM
 
 ####Recipient List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Recipient id | String
 data[\_].email | Email of recipient added to collector | String
 data[\_].href | Resource API URL | String
+data[\_].survey_response_status | If the recipient has completed the survey: 'not_responded’, 'partially_responded’, 'completely_responded’. Only returned if requested | String-ENUM
+data[\_].mail_status | If an invite message to the recipient has been: 'sent’, 'not_sent’, or is 'processing’. Only returned if requested | String-ENUM
+data[\_].custom_fields | Custom fields included for the recipient contact. Only returned if requested | Object
+data[\_].remove_link | Unsubscribe link. Only returned if requested | String
+data[\_].extra_fields | Extra fields included for the message body. Only returned if requested | Object
+data[\_].survey_link | Link to the survey in the invite. Only returned if requested | String
 
 ####Requests Body Arguments for POST (if passing contact_id)
 
-Name |  Required |Description | Type
+Name |  Required |Description | Data Type
 ------ | ------- | ------- | -------
 contact_id | Yes | Contact id | String
 
 ####Requests Body Arguments for POST (if not passing contact_id)
 
-Name |  Required |Description | Type
+Name |  Required |Description | Data Type
 ------ | ------- | ------- | -------
 email | Yes  | Email of the recipient | String
 first_name | No | First name of the recipient | String
 last_name | No | Last name the recipient | String
-custom_fields | No | Custom fields for the recipient contact | Dictionary
-extra_fields | No | Extra fields needed for the message body | Dictionary
+custom_fields | No | Custom fields for the recipient contact | Object
+extra_fields | No | Extra fields needed for the message body | Object
 
 
 ###/collectors/{id}/messages/{id}/recipients/bulk
@@ -639,22 +653,25 @@ Name |  Required |Description | Type
 ------ | ------- | ------- | -------
 contact_ids | No | Contact ids | Array
 contact_list_ids | No | Contact list ids | Array
-contacts[\_].email | No | Contact emails | String
+contacts[\_].email | No | Contact's email address | String
 contacts[\_].first_name | No | Contact's first name | String
 contacts[\_].last_name  | No | Contact's last name | String
-contacts[\_].custom_fields | No | Custom fields for contact | Dictionary
-contacts[\_].extra_fields | No | Extra fields needed for the message body | Dictionary
+contacts[\_].custom_fields | No | Custom fields for contact | Object
+contacts[\_].extra_fields | No | Extra fields needed for the message body | Object
 
 ####Bulk Response
 
 Name |Description | Type
 ------ | ------- | -------
-succeeded | Successfully added recipients | Array
-invalids | Invalid recipients that were provided | Array
-existing | Recipients that have already been added | Array
-bounced | Recipients that have previously bounced | Array
-opted_out | Recipientents that have opted out of recieving emails | Array
-duplicate | Duplicate recipients that were provided | Array
+succeeded | List of successfully added recipient objects | Array
+succeeded.id | Contact id for the recipient | String
+succeeded.email | Email address for the recipient | String
+succeeded.href | API resource URL for the recipient | String 
+invalids | List of invalid recipient email addresses that were provided | Array
+existing | List of recipients email addresses that have already been added | Array
+bounced | List of recipients email addresses that have previously bounced | Array
+opted_out | List of recipients email addresses that have opted out of receiving emails | Array
+duplicate | List of recipients email addresses recipients that were provided | Array
 
 
 ###/collectors/{id}/recipients
@@ -710,18 +727,25 @@ s.get(url)
 
 ####Optional Query Strings for GET
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 page | Which page of resources to return. Defaults to 1 | Integer
 per_page | Number of resources to return per page | Integer
+include | Specify additional fields to return per recipient: `survey_response_status`, `mail_status`, `custom_fields`, `remove_link`, `extra_fields`, `survey_link` | Comma seperated string-ENUM
 
 ####Recipient List Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Recipient id | String
 data[\_].email | Email of recipient added to collector | String
 data[\_].href | Resource API URL | String
+data[\_].survey_response_status | If the recipient has completed the survey: 'not_responded’, 'partially_responded’, 'completely_responded’. Only returned if requested | String-ENUM
+data[\_].mail_status | If an invite message to the recipient has been: 'sent’, 'not_sent’, or is 'processing’. Only returned if requested | String-ENUM
+data[\_].custom_fields | Custom fields included for the recipient contact. Only returned if requested | Object
+data[\_].remove_link | Unsubscribe link. Only returned if requested | String
+data[\_].extra_fields | Extra fields included for the message body. Only returned if requested | Object
+data[\_].survey_link | Link to the survey in the invite. Only returned if requested | String
 
 
 ###/collectors/{id}/recipients/{id}
@@ -786,14 +810,14 @@ s.get(url)
 
 ####Recipient Resource
 
-Name | Description | Type
+Name | Description | Data Type
 ------ | ------- | -------
-survey_response_status | If the recipient has completed the survey: 'not_responded', 'partially_responded', 'completely_responded'| String
-mail_status | If an invite message to the recipient has been: 'sent', 'not_sent', or is 'processing' | String
-custom_fields | Contact details for recipient | Dictionary
+survey_response_status | If the recipient has completed the survey: `not_responded`, `partially_responded`, `completely_responded`| String-ENUM
+mail_status | If an invite message to the recipient has been: `sent`, `not_sent`, or is `processing` | String-ENUM
+custom_fields | Contact details for recipient | Object
 id | Recipient's id | String
 remove_link | Unsubscribe link | String
-extra_fields | Extra fields | Dictionary
+extra_fields | Extra fields | Object
 survey_link | Link to the survey | String
 
 
