@@ -415,7 +415,7 @@ payload = {
   "category": "community"
 }
 url = "https://api.surveymonkey.net/v3/survey_templates"
-s.get(url, json=payload)
+s.get(url, params=payload)
 ```
 
 >Example Response

@@ -292,7 +292,7 @@ s.headers.update({
 })
 
 url = "https://api.surveymonkey.net/v3/surveys/%s/responses/bulk" % (survey_id)
-s.get(url, json=payload)
+s.get(url, params=payload)
 ```
 
 >Example Response
