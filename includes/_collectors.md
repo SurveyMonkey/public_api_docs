@@ -55,6 +55,8 @@ s.post(url, json=payload)
   "date_created": "2015-10-06T12:56:55+00:00",
   "password_enabled": false,
   "sender_email": null,
+  "response_limit": null,
+  "redirect_type": "url",
   "href": "https://api.surveymonkey.net/v3/collectors/1234"
 }
 ```
@@ -108,6 +110,8 @@ anonymous_type | No (default='not_anonymous') | Turns off IP tracking. For email
 allow_multiple_responses |  No (default=False) | Allows respondents to take a survey more than once from the same browser on the same computer | Boolean
 password | No | Set a password to restrict access to your survey | String
 sender_email | No | Sender email for email collectors | String
+response_limit | No | Sets the collector to close after specified number of responses are collected | Integer 
+redirect_type | No | Determines [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior: `url` (redirects to URL set in `redirect_url` or if none is set, shows standard SurveyMonkey thank you page), `close` (closes the survey window or tab), or `loop` (loops the survey back to the beginning, only available for `weblink` collectors with `allow_multiple_responses`:true)| String-ENUM
 
 ###/collectors/{id}
 
@@ -158,6 +162,8 @@ s.get(url)
   "date_created": "2015-10-06T12:56:55+00:00",
   "sender_email": null,
   "password_enabled": false,
+  "response_limit": 100,
+  "redirect_type": "url",
   "href": "https://api.surveymonkey.net/v3/collectors/1234"
 }
 ```
@@ -188,12 +194,13 @@ redirect_url | Redirects respondent to this url upon survey completion | String
 display_survey_results | Shows respondents survey [instant results](http://help.surveymonkey.com/articles/en_US/kb/What-are-Instant-Results) when they complete the survey | Boolean
 edit_response_type | When respondents can edit their response: 'until_complete', 'never', or 'always' | String-ENUM
 anonymous_type | Turns off IP tracking. For email collectors, also removes respondent email address and name from response: 'not_anonymous', 'partially_anonymous', 'fully_anonymous' | String-ENUM
-allow_multiple_responses| Allows respondents to take a survey more than once from the same browser on the same computer | Boolean
+allow_multiple_responses| Allows respondents to take a survey more than once from the same browser on the same computer. Only available for `weblink` collectors. | Boolean
 date_modified | Date collector was last modified | Date string
 url | If collector is a Web Collector (type 'weblink') then the url for the collector | String
 date_created | Date collector was created | Date string
 password_enabled | True if the collector is password protected | Boolean
 sender_email | Sender email for email collectors. User's email is used if null | String
+redirect_type | No | Determines [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior: `url` (redirects to URL set in `redirect_url` or if none is set, shows standard SurveyMonkey thank you page), `close` (closes the survey window or tab), or `loop` (loops the survey back to the beginning, only available for `weblink` collectors with `allow_multiple_responses`:true)| String-ENUM
 href | Resource API URL | String
 
 

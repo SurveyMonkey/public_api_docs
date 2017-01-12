@@ -429,3 +429,19 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Endpoints Affected**: [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients), [/collectors/{id}/recipients](#collectors-id-recipients)
 
 **Developer Actions Required**: None
+
+####Set Response Limit for Collectors
+
+**Description of Changes**: You can now set or edit a `response_limit` for a collector. The collector will close after the limit is reached. 
+
+**Endpoints Affected**: [/surveys/{id}/collectors](#surveys-id-collectors), [/collectors/{id}](#collectors-id)
+
+**Developer Actions Required**: None
+
+####Set Survey End Page Behavior 
+
+**Description of Changes**: You can now set a collector `redirect_type` to set the [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior to either close or run in a loop (weblink only).
+
+**Endpoints Affected**: [/surveys/{id}/collectors](#surveys-id-collectors), [/collectors/{id}](#collectors-id)
+
+**Developer Actions Required**: None
