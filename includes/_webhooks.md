@@ -172,7 +172,7 @@ href | Resource API URL | String
   "object_type": "response",
   "object_id": "123456",
   "event_datetime": "2016-01-01T21:56:31.182613+00:00",
-  "resources" {
+  "resources": {
     "collector_id": "123456789",
     "survey_id": "123456789",
     "user_id": "123456789"
