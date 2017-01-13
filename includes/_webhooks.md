@@ -160,7 +160,6 @@ href | Resource API URL | String
 
 ###Webhook Event Data
 
-```
 >Example Collector Event Data
 
 ```json
@@ -185,7 +184,7 @@ href | Resource API URL | String
 ```json
 {
   "name": "My Webhook",
-  "filter_type": "collector", (or survey, it's based on how they configure the webhook)
+  "filter_type": "collector",
   "filter_id": "123456789",
   "event_type": "response_completed",
   "event_id": "123456789",
@@ -201,8 +200,6 @@ href | Resource API URL | String
   }
 }
 ```
-
->Example Collector Event Data
 
 Name | Description | Data Type
 ----- | ----- | -----
