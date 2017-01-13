@@ -69,22 +69,22 @@ Some scopes are only available to accounts on SurveyMonkey paid plans. If your P
 Two scopes **Create/Modify Responses** and **Create/Modify Surveys** require SurveyMonkey's approval to use in a Public app. If you've deployed a Public app and want to change your scope requirements to include these, you'll need to contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
 
 
-|Scope Name|Scope Description (text used for OAuth, "you" refers to owner of authenticating account)|Plan Needed|
-|----------|---------------------------------------|-----------|
-|View Surveys|View your surveys and those shared with you|BASIC (Free)|
-|Create/Modify Surveys|Create or edit surveys in your account|Any Paid Plan|
-|View Collectors|View collectors for your surveys and those shared with you|BASIC (Free)|
-|Create/Modify Collectors|Create or edit collectors for surveys in your account|BASIC (Free)|
-|View Contacts|View your contacts and contact lists|BASIC (Free)|
-|Create/Modify Contacts|Create or edit contacts in your account|BASIC (Free)|
-|View Responses|View if surveys in your account have responses and their metadata |BASIC (Free)|
-|View Response Details|View answers along with responses and answer counts and trends|Any Annual Plan|
-|Create/Modify Responses|Create or edit survey responses in your account|PLATINUM/ENTERPRISE|
-|View Webhooks|View webhooks to receive notifications when there are changes in your account|BASIC (Free)|
-|Create/Modify Webhooks|Create and edit webhooks to receive notifications when there are changes in your account|BASIC (Free)|
-|View Users|View your user information|BASIC (Free)|
-|View Groups|View groups you belong to|GOLD|
-|View Library Assets|View your library of survey themes and templates|BASIC (Free)|
+|Scope Label|Scope Description (text used for OAuth, "you" refers to owner of authenticating account)|Plan Needed|Scope Name|
+|----------|---------------------------------------|-----------|------------|
+|View Surveys|View your surveys and those shared with you|BASIC (Free)|surveys_read|
+|Create/Modify Surveys|Create or edit surveys in your account|Any Paid Plan|surveys_write|
+|View Collectors|View collectors for your surveys and those shared with you|BASIC (Free)|collectors_read|
+|Create/Modify Collectors|Create or edit collectors for surveys in your account|BASIC (Free)|collectors_write|
+|View Contacts|View your contacts and contact lists|BASIC (Free)|contacts_read|
+|Create/Modify Contacts|Create or edit contacts in your account|BASIC (Free)|contacts_write|
+|View Responses|View if surveys in your account have responses and their metadata |BASIC (Free)|responses_read|
+|View Response Details|View answers along with responses and answer counts and trends|Any Annual Plan|responses_read_detail|
+|Create/Modify Responses|Create or edit survey responses in your account|PLATINUM/ENTERPRISE|responses_write|
+|View Webhooks|View webhooks to receive notifications when there are changes in your account|BASIC (Free)|webhooks_read|
+|Create/Modify Webhooks|Create and edit webhooks to receive notifications when there are changes in your account|BASIC (Free)|webhooks_write|
+|View Users|View your user information|BASIC (Free)|users_read|
+|View Groups|View groups you belong to|GOLD|groups_read|
+|View Library Assets|View your library of survey themes and templates|BASIC (Free)|library_read|
 
 ##Request and Response Limits
 
