@@ -147,7 +147,7 @@ s.post(url, json=payload)
 ```json
 {
   "total_time": 144,
-  "href":"https:\/\/api.surveymonkey.net\/v3\/surveys\/1234\/responses\/1234,
+  "href":"https:\/\/api.surveymonkey.net\/v3\/surveys\/1234\/responses\/1234",
   "ip_address": "192.168.4.16",
   "recipient_id": "",
   "id": "5007154402",
