@@ -107,7 +107,7 @@ redirect_url | No | Redirect to this url upon survey completion | String
 display_survey_results | No (default=False) | Shows respondents survey [instant results](http://help.surveymonkey.com/articles/en_US/kb/What-are-Instant-Results) when they complete the survey | Boolean
 edit_response_type | No (default='until_complete') | When respondents can edit their response: 'until_complete', 'never', or 'always' | String-ENUM
 anonymous_type | No (default='not_anonymous') | Turns off IP tracking. For email collectors, also removes respondent email address and name from response: 'not_anonymous', 'partially_anonymous', 'fully_anonymous' | String-ENUM
-allow_multiple_responses |  No (default=False) | Allows respondents to take a survey more than once from the same browser on the same computer | Boolean
+allow_multiple_responses |  No (default=False) | Allows respondents to take a survey more than once from the same browser on the same computer. Not available for `email` collectors| Boolean
 password | No | Set a password to restrict access to your survey | String
 sender_email | No | Sender email for email collectors | String
 response_limit | No | Sets the collector to close after specified number of responses are collected | Integer 
