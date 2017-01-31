@@ -127,6 +127,7 @@ validation.sum | No | Only accepted is family=open_ended and subtype=numerical, 
 validation.sum_text | No | Only accepted is family=open_ended and subtype=numerical, the message to display if textboxes do not sum to validation.sum | String
 forced_ranking | No | Required if type is matrix and subtype is rating or single, whether or not to force ranking | Boolean
 answers |Yes for all question types except open_ended_single| Answers object, refer to [Formatting Question Types](#formatting-question-types) | Object
+display_options | Yes for File Upload, Slider, & Emoji/Star Rating [question types](#formatting-question-types)| Display option object, refer to [Formatting Question Types](#formatting-question-types) | Object
 
 ####Response Resource
 
@@ -208,17 +209,17 @@ Same as `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions)
 
 ###Formatting Question Types
 
-All questions have a `family` and `subtype` that define their type. See below for example formatting of the answers object for different questions types. Read more about SurveyMonkey's question types in our [help center](http://help.surveymonkey.com/articles/en_US/kb/Available-question-types-and-formatting-options). 
+All questions have a`family` and `subtype` that define their type and some questions have a `display_type` and `display_subtype` that further define their type. See below for example formatting of the answers object  and display_options object for different question types. Read more about SurveyMonkey's question types in our [help center](http://help.surveymonkey.com/articles/en_US/kb/Available-question-types-and-formatting-options). 
 
-|Family|Subtype|
-|------|-------|
-|single_choice|'vertical', 'horiz', 'menu'|
-|matrix| 'single', 'rating', 'ranking', 'menu', 'multi'|
-|open_ended|'single','multi', 'numerical', 'essay'|
-|demographic|'international', 'us'|
-|datetime|'both', 'date_only', 'time_only'|
-|multiple_choice|'vertical'|
-|presentation|'descriptive_text', 'image'|
+|Family|Subtype|Display_Type|Display_Subtype
+|------|-------|--------------|
+|single_choice|'vertical', 'horiz', 'menu'|NA|NA|
+|matrix| 'single', 'rating', 'ranking', 'menu', 'multi'|'emoji' (with 'ranking')|'star'|
+|open_ended|'single','multi', 'numerical', 'essay'|'slider', 'file_upload' (with 'single')|NA|
+|demographic|'international', 'us'|NA|NA|
+|datetime|'both', 'date_only', 'time_only'|NA|NA|
+|multiple_choice|'vertical'|NA|NA|
+|presentation|'descriptive_text', 'image'|NA|NA|
 
 ####Single Choice
 
@@ -764,7 +765,7 @@ rows[\_].position (optional) | Position of date/time input box | Integer
     "subtype": "descriptive_text"
 }
 ```
-![DateTime](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/datetime.png)
+![Presentation](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/presentation.png)
 
 If `image` is included, this corresponds to the **Image** question type in the SurveyMonkey UI. If not included, it corresponds to the **Text** question type. 
 
@@ -773,8 +774,9 @@ Name | Description | Data Type
  image (optional)| Image to present| Object
  image[\_].image_url (required)| URL of image to present | String |
 
+####File Upload 
 
- >File Upload
+>File Upload
 
 ```json
 {
@@ -791,6 +793,17 @@ Name | Description | Data Type
     }
 }
 ```
+
+![File Upload](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/file-upload.png)
+
+A open ended single answer with the `display_options` object can become a [File Upload](https://help.surveymonkey.com/articles/en_US/kb/File-Upload-Question)
+question. 
+
+Name | Description | Data Type
+----- | ----- | -----
+ display_options[\_].display_type (required)| Turns an open ended, single answer question into a file upload question. Always `file_upload` | String-ENUM |
+
+####Slider
 
 >Slider
 
@@ -841,8 +854,22 @@ Name | Description | Data Type
     }
 }
 ```
+![Slider](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/slider.png)
 
->Emoji
+A open ended single answer with the `display_options` object can become a [slider](https://help.surveymonkey.com/articles/en_US/kb/Slider)
+question.
+
+Name | Description | Data Type
+----- | ----- | -----
+display_options[\_].display_type (required)| Turns an open ended single answer question into a slider question. Always `slider` | String-ENUM |
+display_options[\_].right_label (optional)|Label to place at the right end of the slider|String|
+display_options[\_].left_label (optional)|Label to place at the left end of the slider|String|
+display_options[\_].custom_options[\_].starting_position (optional)|Where the slider marker is positioned by default|Integer
+display_options[\_].custom_options[\_].step_size (optional)|Step size the slider increments when moved|Integer
+
+###Emoji (Star Rating)
+
+>Emoji (Star Rating)
 
 ```json
 {
@@ -892,5 +919,12 @@ Name | Description | Data Type
   }
 }
 ```
+![emoji (star rating)](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/star-rating.png)
 
+A rating question with the `display_options` object can become an emoji or [Star Rating](https://help.surveymonkey.com/articles/en_US/kb/Star-Rating) question. 
+
+Name | Description | Data Type
+----- | ----- | -----
+ display_options[\_].display_type (required)| Turns and open ended single answer question into an emoji question. Always `emoji`|String-ENUM|
+ display_options[\_].display_subtype (required)| Which emoji is displayed: `star`, `smiley`, `heart`, or `thumb`|String-ENUM|
 
