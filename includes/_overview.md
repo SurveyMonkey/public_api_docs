@@ -356,27 +356,28 @@ To unauthorize an app:
 
 <aside class="notice"><strong>NOTE for Public Apps</strong>: This use case requires the View Response Details <a href="#scopes">scope</a>, which requires authenticating users to have an annual <a href="https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs">paid plan</a>.</aside>
 
-While a call to [/surveys/{id}/responses/bulk](#surveys-id-responses-bulk), returns responses with ids for all answers chosen, your use case likely involves associating this with the values chosen. The following example takes you through exporting the results of a survey and associating responses with the corresponding answer values. 
+While a call to [/surveys/{id}/responses/bulk](#surveys-id-responses-bulk), returns responses with ids for all answers chosen, your use case likely involves associating this with the values chosen. The following example takes you through exporting the results of a survey and associating responses with the corresponding answer values.
 
  1. Fetch the first 1,000 surveys in a SurveyMonkey account with a GET [/surveys](#surveys). This call returns a list resource containing survey ids.
- 2. Using a survey id from the previous call, make a GET to [/surveys/{id}/details](#surveys-id-details). This call returns the survey's design with all question ids and answer option ids as well as the values associated with them. Cache these values on your end to limit future calls and economize your [request and response limits](#request-and-response-limits). 
+ 2. Using a survey id from the previous call, make a GET to [/surveys/{id}/details](#surveys-id-details). This call returns the survey's design with all question ids and answer option ids as well as the values associated with them. Cache these values on your end to limit future calls and economize your [request and response limits](#request-and-response-limits).
  3. Using the same survey id, fetch the first 100 responses to your survey with a GET to [/surveys/{id}/respones/bulk](#surveys-id-collectors). This endpoint returns question ids and the id of the selected answer or choice for each response. You can use these to associate the selected answer id to those returned from your GET to [/surveys/{id}/details](#surveys-id-details) and match question values to the answers selected.
- 4. Fetch the next page of 100 responses using the resource url returned in the `links.next` field. 
- 
+ 4. Fetch the next page of 100 responses using the resource url returned in the `links.next` field.
+
 To export the results of all surveys in an account, iterate through all surveys ids returned in step 1, completing steps 2 through 4.
 
-To export the results of a single collector, a GET to /surveys/{id}/collectors returns a list collector ids associated with a given survey. A GET to [/surveys/{id}/details](#surveys-id-details) returns responses from a single collector. 
+To export the results of a single collector, a GET to /surveys/{id}/collectors returns a list collector ids associated with a given survey. A GET to [/surveys/{id}/details](#surveys-id-details) returns responses from a single collector.
 
 ###Send an Email Invitation Message
 
 <aside class="notice"><strong>NOTE for Public Apps</strong>: Special restrictions apply for users on the Basic Plan including the <a href="http://help.surveymonkey.com/articles/en_US/kb/Sender-Email-Address">requirement to verify the Sender Email Address for a Collector</a> and <a href="http://help.surveymonkey.com/articles/en_US/kb/Is-there-a-limit-on-the-number-of-emails-I-can-send">Message Sending Limits</a></aside>
 
-The following example takes you through creating an email invitation collector and sending it to a list of recipients. 
+The following example takes you through creating an email invitation collector and sending it to a list of recipients.
 
- 1. Create a collector of type `email` by making a POST to [/surveys/{id}/collectors](#surveys-id-collectors).
- 2. Create and format an email message with a POST to [/collectors/{id}/messages](#collectors-id-messages).
- 3. Upload recipients to recieve the message with a POST to [/collectors/{id}/messages/{id}/recipients/bulk](#collectors-id-messages-id-recipients-bulk). 
- 4. Send your message with a POST to [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send).
+ 1. Fetch the first 1,000 surveys in a SurveyMonkey account with a GET [/surveys](#surveys). This call returns a list resource containing survey ids.
+ 2. Using a survey id from the previous call, create a collector of type `email` by making a POST to [/surveys/{id}/collectors](#surveys-id-collectors).
+ 3. Create and format an email message with a POST to [/collectors/{id}/messages](#collectors-id-messages).
+ 4. Upload recipients to recieve the message with a POST to [/collectors/{id}/messages/{id}/recipients/bulk](#collectors-id-messages-id-recipients-bulk).
+ 5. Send your message with a POST to [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send).
 
 ##Pagination
 

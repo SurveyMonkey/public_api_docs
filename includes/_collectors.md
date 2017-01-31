@@ -110,7 +110,7 @@ anonymous_type | No (default='not_anonymous') | Turns off IP tracking. For email
 allow_multiple_responses |  No (default=False) | Allows respondents to take a survey more than once from the same browser on the same computer. Not available for `email` collectors| Boolean
 password | No | Set a password to restrict access to your survey | String
 sender_email | No | Sender email for email collectors | String
-response_limit | No | Sets the collector to close after specified number of responses are collected | Integer 
+response_limit | No | Sets the collector to close after specified number of responses are collected | Integer
 redirect_type | No | Determines [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior: `url` (redirects to URL set in `redirect_url` or if none is set, shows standard SurveyMonkey thank you page), `close` (closes the survey window or tab), or `loop` (loops the survey back to the beginning, only available for `weblink` collectors with `allow_multiple_responses`:true)| String-ENUM
 
 ###/collectors/{id}
@@ -666,7 +666,7 @@ Name |Description | Type
 succeeded | List of successfully added recipient objects | Array
 succeeded.id | Contact id for the recipient | String
 succeeded.email | Email address for the recipient | String
-succeeded.href | API resource URL for the recipient | String 
+succeeded.href | API resource URL for the recipient | String
 invalids | List of invalid recipient email addresses that were provided | Array
 existing | List of recipients email addresses that have already been added | Array
 bounced | List of recipients email addresses that have previously bounced | Array
@@ -822,7 +822,7 @@ survey_link | Link to the survey | String
 
 ##/collectors/{id}/stats
 
-Same as [/collectors/{id}/messages/{id}/stats](#collectors-id-messages-id-stats) but returns stats for all messages sent from the collector. 
+Same as [/collectors/{id}/messages/{id}/stats](#collectors-id-messages-id-stats) but returns stats for all messages sent from the collector.
 
 ##/collectors/{id}/messages/{id}/stats
 
@@ -855,13 +855,13 @@ s.get(url)
 
 ```json
 
-{  
-   "survey_response_status":{  
+{
+   "survey_response_status":{
       "completely_responded":0,
       "not_responded":0,
       "partially_responded":0
    },
-   "mail_status":{  
+   "mail_status":{
       "opened":0,
       "opted_out":0,
       "not_sent":1,
@@ -877,7 +877,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a stats for a collector's message 
+ * `GET`: Returns a stats for a collector's message
 
 ####Stats Resource
 
@@ -887,9 +887,9 @@ survey_response_status[_].completely_responded|Count of recipients who have comp
 survey_response_status[_].not_responded|Count of recipients who have not started the survey|Integer
 survey_response_status[_].partially_responded|Count of recipients who have begun the survey but not completed it|Integer
 mail_status[_].opened|Count of recipients that have opened the message|Integer
-mail_status[_].opted_out|Count of recipient that've clicked on the opt out link|Integer
+mail_status[_].opted_out|Count of recipients that've clicked on the opt out link|Integer
 mail_status[_].not_sent|Count of recipients that've been added but their message has not been delivered|Integer
 mail_status[_].sent|Count of recipients that messages have been sent to|Integer
 mail_status[_].bounced|Count of recipients with messages that bounced|Integer
 mail_status[_].link_clicked|Count of messages where the included survey link was clicked on|Integer
-recipients|Count of recipients included in the stats|Integer 
+recipients|Count of recipients included in the stats|Integer
