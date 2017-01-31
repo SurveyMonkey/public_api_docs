@@ -820,8 +820,76 @@ remove_link | Unsubscribe link | String
 extra_fields | Extra fields | Object
 survey_link | Link to the survey | String
 
+##/collectors/{id}/stats
+
+Same as [/collectors/{id}/messages/{id}/stats](#collectors-id-messages-id-stats) but returns stats for all messages sent from the collector. 
+
+##/collectors/{id}/messages/{id}/stats
 
 
+>Definition
 
+```
+GET https://api.surveymonkey.net/v3/collectors/{id}/messages/{id}/stats
+```
+>Example Request
 
+```shell
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/{1234/stats
+```
 
+```python
+import requests
+
+s = requests.session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
+
+url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/stats" % (collector_id, message_id)
+s.get(url)
+```
+
+>Example Response
+
+```json
+
+{  
+   "survey_response_status":{  
+      "completely_responded":0,
+      "not_responded":0,
+      "partially_responded":0
+   },
+   "mail_status":{  
+      "opened":0,
+      "opted_out":0,
+      "not_sent":1,
+      "sent":0,
+      "bounced":0,
+      "link_clicked":0
+   },
+   "recipients":1
+}
+
+```
+####Available Methods
+
+ * `HEAD`: Checks if resource is available
+ * `OPTIONS`: Returns available methods and options
+ * `GET`: Returns a stats for a collector's message 
+
+####Stats Resource
+
+Name | Description | Data Type
+------ | ------- | -------
+survey_response_status[_].completely_responded|Count of recipients who have completed a survey response|Integer
+survey_response_status[_].not_responded|Count of recipients who have not started the survey|Integer
+survey_response_status[_].partially_responded|Count of recipients who have begun the survey but not completed it|Integer
+mail_status[_].opened|Count of recipients that have opened the message|Integer
+mail_status[_].opted_out|Count of recipient that've clicked on the opt out link|Integer
+mail_status[_].not_sent|Count of recipients that've been added but their message has not been delivered|Integer
+mail_status[_].sent|Count of recipients that messages have been sent to|Integer
+mail_status[_].bounced|Count of recipients with messages that bounced|Integer
+mail_status[_].link_clicked|Count of messages where the included survey link was clicked on|Integer
+recipients|Count of recipients included in the stats|Integer 

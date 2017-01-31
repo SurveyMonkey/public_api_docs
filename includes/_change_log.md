@@ -445,3 +445,13 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Endpoints Affected**: [/surveys/{id}/collectors](#surveys-id-collectors), [/collectors/{id}](#collectors-id)
 
 **Developer Actions Required**: None
+
+###January 31st, 2017
+
+####Add 2 new endpoints that provide email invitation collector stats
+
+**Description of changes**: Allows developers to call endpoints that return mail status and response stats for an email invitation collector or message 
+
+**Endpoints Affected**: [/collectors/{id}/messages/{id}/stats](#collectors-id-messages-id-stats), [/collectors/{id}/stats](#collectors-id-stats)
+
+**Developer Actions Required**: None
