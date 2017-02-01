@@ -176,7 +176,7 @@ GET https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/question
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id} 
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}
 
 ```
 
@@ -209,7 +209,7 @@ Same as `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions)
 
 ###Formatting Question Types
 
-All questions have a`family` and `subtype` that define their type and some questions have a `display_type` and `display_subtype` that further define their type. See below for example formatting of the answers object  and display_options object for different question types. Read more about SurveyMonkey's question types in our [help center](http://help.surveymonkey.com/articles/en_US/kb/Available-question-types-and-formatting-options). 
+All questions have a`family` and `subtype` that define their type and some questions have a `display_type` and `display_subtype` that further define their type. See below for example formatting of the answers object  and display_options object for different question types. Read more about SurveyMonkey's question types in our [help center](http://help.surveymonkey.com/articles/en_US/kb/Available-question-types-and-formatting-options).
 
 |Family|Subtype|Display_Type|Display_Subtype
 |------|-------|--------------|
@@ -242,7 +242,7 @@ All questions have a`family` and `subtype` that define their type and some quest
             },
             {
                 "text": "Mandrill"
-            }, 
+            },
         ],
         "other":[
                 {
@@ -767,14 +767,14 @@ rows[\_].position (optional) | Position of date/time input box | Integer
 ```
 ![Presentation](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/presentation.png)
 
-If `image` is included, this corresponds to the **Image** question type in the SurveyMonkey UI. If not included, it corresponds to the **Text** question type. 
+If `image` is included, this corresponds to the **Image** question type in the SurveyMonkey UI. If not included, it corresponds to the **Text** question type.
 
 Name | Description | Data Type
 ----- | ----- | -----
  image (optional)| Image to present| Object
  image[\_].image_url (required)| URL of image to present | String |
 
-####File Upload 
+####File Upload
 
 >File Upload
 
@@ -797,7 +797,7 @@ Name | Description | Data Type
 ![File Upload](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/file-upload.png)
 
 A open ended single answer with the `display_options` object can become a [File Upload](https://help.surveymonkey.com/articles/en_US/kb/File-Upload-Question)
-question. 
+question.
 
 Name | Description | Data Type
 ----- | ----- | -----
@@ -867,7 +867,7 @@ display_options[\_].left_label (optional)|Label to place at the left end of the 
 display_options[\_].custom_options[\_].starting_position (optional)|Where the slider marker is positioned by default|Integer
 display_options[\_].custom_options[\_].step_size (optional)|Step size the slider increments when moved|Integer
 
-###Emoji (Star Rating)
+####Emoji (Star Rating)
 
 >Emoji (Star Rating)
 
@@ -921,7 +921,7 @@ display_options[\_].custom_options[\_].step_size (optional)|Step size the slider
 ```
 ![emoji (star rating)](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/star-rating.png)
 
-A rating question with the `display_options` object can become an emoji or [Star Rating](https://help.surveymonkey.com/articles/en_US/kb/Star-Rating) question. 
+A rating question with the `display_options` object can become an emoji or [Star Rating](https://help.surveymonkey.com/articles/en_US/kb/Star-Rating) question.
 
 Name | Description | Data Type
 ----- | ----- | -----
