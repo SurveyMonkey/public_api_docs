@@ -820,11 +820,11 @@ remove_link | Unsubscribe link | String
 extra_fields | Extra fields | Object
 survey_link | Link to the survey | String
 
-##/collectors/{id}/stats
+###/collectors/{id}/stats
 
 Same as [/collectors/{id}/messages/{id}/stats](#collectors-id-messages-id-stats) but returns stats for all messages sent from the collector.
 
-##/collectors/{id}/messages/{id}/stats
+###/collectors/{id}/messages/{id}/stats
 
 
 >Definition
@@ -883,13 +883,13 @@ s.get(url)
 
 Name | Description | Data Type
 ------ | ------- | -------
-survey_response_status[_].completely_responded|Count of recipients who have completed a survey response|Integer
-survey_response_status[_].not_responded|Count of recipients who have not started the survey|Integer
-survey_response_status[_].partially_responded|Count of recipients who have begun the survey but not completed it|Integer
-mail_status[_].opened|Count of recipients that have opened the message|Integer
-mail_status[_].opted_out|Count of recipients that've clicked on the opt out link|Integer
-mail_status[_].not_sent|Count of recipients that've been added but their message has not been delivered|Integer
-mail_status[_].sent|Count of recipients that messages have been sent to|Integer
-mail_status[_].bounced|Count of recipients with messages that bounced|Integer
-mail_status[_].link_clicked|Count of messages where the included survey link was clicked on|Integer
+survey_response_status[\_].completely_responded|Count of recipients who have completed a survey response|Integer
+survey_response_status[\_].not_responded|Count of recipients who have not started the survey|Integer
+survey_response_status[\_].partially_responded|Count of recipients who have begun the survey but not completed it|Integer
+mail_status[\_].opened|Count of recipients that have opened the message|Integer
+mail_status[\_].opted_out|Count of recipients that've clicked on the opt out link|Integer
+mail_status[\_].not_sent|Count of recipients that've been added but their message has not been delivered|Integer
+mail_status[\_].sent|Count of recipients that messages have been sent to|Integer
+mail_status[\_].bounced|Count of recipients with messages that bounced|Integer
+mail_status[\_].link_clicked|Count of messages where the included survey link was clicked on|Integer
 recipients|Count of recipients included in the stats|Integer
