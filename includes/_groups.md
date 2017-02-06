@@ -9,7 +9,7 @@ GET https://api.surveymonkey.net/v3/groups
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/groups?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/groups
 ```
 
 ```python
@@ -21,7 +21,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/groups?api_key=%s" % YOUR_API_KEY
+url = "https://api.surveymonkey.net/v3/groups
 s.get(url)
 ```
 
@@ -75,7 +75,7 @@ GET https://api.surveymonkey.net/v3/groups/{group_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/groups/1234?api_key=YOUR_API_KEY
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/groups/1234
 ```
 
 ```python
@@ -87,7 +87,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/groups/%s?api_key=%s" % (group_id, YOUR_API_KEY)
+url = "https://api.surveymonkey.net/v3/groups/%s" % (group_id)
 s.get(url)
 ```
 
