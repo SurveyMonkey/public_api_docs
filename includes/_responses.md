@@ -250,15 +250,15 @@ response_status | No | Status of the response: `completed`, `partial`, `overquot
 ip_address | No | IP Address the response was taken from | String
 recipient_id | No | The recipient ID from an email collector. See [collector recipient](#collectors-id-recipients-id) | Integer
 pages | Yes | Pages from the survey and their associated responses | Array
-pages[\_].id | Yes | The ID of the page with responses | Integer
+pages[\_].id | Yes | The ID of the page with responses | String
 pages[\_].questions | Yes | The questions on that page with responses | Array
-pages[\_].questions[\_].id | Yes  | ID of the question with responses | Integer
-pages[\_].questions[\_].variable_id | No | ID of the random assignment variable for the question | Integer
+pages[\_].questions[\_].id | Yes  | ID of the question with responses | String
+pages[\_].questions[\_].variable_id | No | ID of the random assignment variable for the question | String
 pages[\_].questions[\_].answers | Yes | The answers for the question with responses. See [formatting question types](#formatting-question-types) | Object
-pages[\_].questions[\_].answers[\_].choice_id | No | The choice selected | Integer
-pages[\_].questions[\_].answers[\_].row_id | No | The row selected | Integer
-pages[\_].questions[\_].answers[\_].col_id | No | The column selected | Integer
-pages[\_].questions[\_].answers[\_].other_id | No | The other text choice selected | Integer
+pages[\_].questions[\_].answers[\_].choice_id | No | The choice selected | String
+pages[\_].questions[\_].answers[\_].row_id | No | The row selected | String
+pages[\_].questions[\_].answers[\_].col_id | No | The column selected | String
+pages[\_].questions[\_].answers[\_].other_id | No | The other text choice selected | String
 pages[\_].questions[\_].answers[\_].text | No| Any open ended text | String
 
 
@@ -594,13 +594,13 @@ collection_mode | The collection mode of the response: `default`, `preview"`, `d
 date_created | Date the response was created | DateString
 date_modified | Date the response was last modified  | DateString
 pages | Pages from the survey and their associated responses | Array
-pages[\_].id | The ID of the page with responses | Integer
+pages[\_].id | The ID of the page with responses | String
 pages[\_].questions | The questions on that page with responses | Array
-pages[\_].questions[\_].id | ID of the question with responses | Integer
-pages[\_].questions[\_].variable_id | ID of the random assignment variable for the question | Integer
+pages[\_].questions[\_].id | ID of the question with responses | String
+pages[\_].questions[\_].variable_id | ID of the random assignment variable for the question | String
 pages[\_].questions[\_].answers | The answers for the question with responses | List
-pages[\_].questions[\_].answers[\_].choice_id | The choice selected | Integer
-pages[\_].questions[\_].answers[\_].row_id | The row selected | Integer
-pages[\_].questions[\_].answers[\_].col_id | The column selected | Integer
-pages[\_].questions[\_].answers[\_].other_id | The other text choice selected | Integer
+pages[\_].questions[\_].answers[\_].choice_id | The choice selected | String
+pages[\_].questions[\_].answers[\_].row_id | The row selected | String
+pages[\_].questions[\_].answers[\_].col_id | The column selected | String
+pages[\_].questions[\_].answers[\_].other_id | The other text choice selected | String
 pages[\_].questions[\_].answers[\_].text | Any open ended text | String
