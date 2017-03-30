@@ -1,6 +1,6 @@
 ##Collectors and Invite Messages
 
-Collectors allow you to collect survey responses with a link to your survey. There are two `types` of collectors available via the API, `weblink` and `email`. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL and email collectors can be used to send survey invites messages that include a survey URL via the /messages endpoints. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)).
+Collectors allow you to collect survey responses with a link to your survey. Two `types` of collectors are available through the API: `weblink` and `email`. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL and [email invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) send survey invite messages with a survey URL via the /messages endpoints. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)).
 
 
 ###/surveys/{id}/collectors
@@ -63,8 +63,8 @@ s.post(url, json=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of collectors for a given survey. Requires **View Collectors** [scope](#scopes)
- * `POST`: Creates a [weblink](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) or [email collector](http://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) for a given survey. Requires **Create/Modify Collectors** [scope](#scopes)
+ * `GET`: Returns a list of collectors for a given survey. Public App users need access to the **View Collectors** [scope](#scopes)
+ * `POST`: Creates a [weblink](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) or [email collector](http://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) for a given survey. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -173,9 +173,9 @@ s.get(url)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a collector
- * `PATCH`: Modifies a collector (updates any fields accepted as arguments to `POST` [/surveys/{survey_id}/collectors](#surveys-id-collectors), with the addition of `status` and the removal of `type`). Requires **Create/Modify Collectors** [scope](#scopes)
- * `PUT`: Replaces a collector (same arguments and requirements as `POST`[/surveys/{survey_id}/collectors](#surveys-id-collectors), with the addition of `status` and the removal of `type`). Requires **Create/Modify Collectors** [scope](#scopes)
- * `DELETE`: Deletes a collector. Requires **Create/Modify Collectors** [scope](#scopes)
+ * `PATCH`: Modifies a collector (updates any fields accepted as arguments to `POST` [/surveys/{survey_id}/collectors](#surveys-id-collectors), with the addition of `status` and the removal of `type`). Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
+ * `PUT`: Replaces a collector (same arguments and requirements as `POST`[/surveys/{survey_id}/collectors](#surveys-id-collectors), with the addition of `status` and the removal of `type`). Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
+ * `DELETE`: Deletes a collector. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 
 ####Collector Resource
@@ -255,8 +255,8 @@ s.post(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a message. Requires **View Collectors** [scope](#scopes)
- * `POST`: Creates a message. See [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients) to add recipients and [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send) to send or schedule. Requires **Create/Modify Collectors** [scope](#scopes)
+ * `GET`: Returns a message. Public App users need access to the **View Collectors** [scope](#scopes)
+ * `POST`: Creates a message. See [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients) to add recipients and [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send) to send or schedule. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -336,10 +336,10 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a message. Requires **View Collectors** [scope](#scopes)
- * `PATCH`: Modifies a message (only subject, body_text, body_html, is_branding, and recipient_status if 'reminder' or 'thank_you', can be modified). Requires **Create/Modify Collectors** [scope](#scopes)
- * `PUT`: Replaces a message (only subject, body_text, body_html, is_branding, and recipient_status if 'reminder' or 'thank_you', can be modified). Requires **Create/Modify Collectors** [scope](#scopes)
- * `DELETE`: Deletes a message. Requires **Create/Modify Collectors** [scope](#scopes)
+ * `GET`: Returns a message. Public App users need access to the **View Collectors** [scope](#scopes)
+ * `PATCH`: Modifies a message (only subject, body_text, body_html, is_branding, and recipient_status if 'reminder' or 'thank_you', can be modified). Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
+ * `PUT`: Replaces a message (only subject, body_text, body_html, is_branding, and recipient_status if 'reminder' or 'thank_you', can be modified). Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
+ * `DELETE`: Deletes a message. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Messages Resource
 
@@ -409,7 +409,7 @@ s.post(url, json=payload)
 ```
 ####Available Methods
 
- * `POST`: Send or schedule to send an existing message to all message recipients. Targeted message must have a `status` of `not_sent`. See [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients) to add recipients to a message and [/collectors/{id}/messages](#collectores-id-messages) to create messages. Requires **Create/Modify Collectors** [scope](#scopes)
+ * `POST`: Send or schedule to send an existing message to all message recipients. Targeted message must have a `status` of `not_sent`. See [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients) to add recipients to a message and [/collectors/{id}/messages](#collectores-id-messages) to create messages. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Request Body Arguments for POST
 
@@ -533,8 +533,8 @@ s.post(url, json=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of recipients. Requires **View Collectors** [scope](#scopes)
- * `POST`: Creates a new recipient for the specified message. See [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send) for sending. This method only available to messages of type `invite` if they have not already been sent. Requires **Create/Modify Collectors** [scope](#scopes)
+ * `GET`: Returns a list of recipients. Public App users need access to the **View Collectors** [scope](#scopes)
+ * `POST`: Creates a new recipient for the specified message. See [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send) for sending. This method only available to messages of type `invite` if they have not already been sent. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -645,7 +645,7 @@ s.post(url, json=payload)
 
 ####Available Methods
 
- * `POST`: Creates multiple recipients. Requires **Create/Modify Collectors** [scope](#scopes)
+ * `POST`: Creates multiple recipients. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Request Body Arguments for POST
 
@@ -723,7 +723,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of recipients. Requires **View Collectors** [scope](#scopes)
+ * `GET`: Returns a list of recipients. Public App users need access to the **View Collectors** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -805,8 +805,8 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a recipient. Requires **View Collectors** [scope](#scopes)
- * `DELETE`: Deletes a recipient. Requires **Create/Modify Collectors** [scope](#scopes)
+ * `GET`: Returns a recipient. Public App users need access to the **View Collectors** [scope](#scopes)
+ * `DELETE`: Deletes a recipient. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Recipient Resource
 

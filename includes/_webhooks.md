@@ -67,8 +67,8 @@ s.post(url, json=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of webhooks. Requires **View Webhooks** [scope](#scopes)
- * `POST`: Create a webhook, see below for callback format. Requires **Create/Modify Webhooks** [scope](#scopes)
+ * `GET`: Returns a list of webhooks. Public App users need access to the **View Webhooks** [scope](#scopes)
+ * `POST`: Create a webhook, see below for callback format. Public App users need access to the **Create/Modify Webhooks** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -141,10 +141,10 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a webhook. Requires **View Webhooks** [scope](#scopes)
- * `PATCH`: Modifies a webhook (updates any fields accepted as arguments to `POST` [/webhooks](#webhooks)). Requires **Create/Modify Webhooks** [scope](#scopes)
- * `PUT`: Replaces a webhook (same arguments and requirements as `POST` [/webhooks](#webhooks)). Requires **Create/Modify Webhooks** [scope](#scopes)
- * `DELETE`: Deletes a webhook. Requires **Create/Modify Webhooks** [scope](#scopes)
+ * `GET`: Returns a webhook. Public App users need access to the **View Webhooks** [scope](#scopes)
+ * `PATCH`: Modifies a webhook (updates any fields accepted as arguments to `POST` [/webhooks](#webhooks)). Public App users need access to the **Create/Modify Webhooks** [scope](#scopes)
+ * `PUT`: Replaces a webhook (same arguments and requirements as `POST` [/webhooks](#webhooks)). Public App users need access to the **Create/Modify Webhooks** [scope](#scopes)
+ * `DELETE`: Deletes a webhook. Public App users need access to the **Create/Modify Webhooks** [scope](#scopes)
 
 ####Webhook Resource
 

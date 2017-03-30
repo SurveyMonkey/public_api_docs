@@ -2,8 +2,6 @@
 
 These endpoints let you create responses directly via the API and view responses you have collected through any [collector type](http://help.surveymonkey.com/articles/en_US/kb/How-to-collect-responses).
 
-<aside class="notice"><strong>NOTE for Public Apps</strong>: The View Response Details scope requires An annual paid plan and the Create/Modify Responses scope requires a PLATINUM plan. The View Response Details scope is required for bulk and details endpoints.</aside>
-
 
 ###/surveys/{id}/responses
 
@@ -63,7 +61,7 @@ s.get(url)
 
 ####Available Methods
 
- * `GET`: Returns a list of responses. Requires **View Responses** [scope](#scopes)
+ * `GET`: Returns a list of responses. Public App users need access to the **View Responses** [scope](#scopes)
 
 
 ###/collectors/{id}/responses
@@ -206,8 +204,8 @@ s.post(url, json=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of responses. Requires **View Responses** [scope](#scopes)
- * `POST`: Creates a response. Requires **Create/Modify Responses** [scope](#scopes)
+ * `GET`: Returns a list of responses. Public App users need access to the **View Responses** [scope](#scopes)
+ * `POST`: Creates a response. Public App users need access to the **Create/Modify Responses** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -339,7 +337,7 @@ s.get(url, params=payload)
 
 ####Available Methods
 
- * `GET`: Retrieves a list of full expanded responses, including answers to all questions. Requires **View Response Details** [scope](#scopes)
+ * `GET`: Retrieves a list of full expanded responses, including answers to all questions. Public App users need access to the **View Response Details** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -463,10 +461,10 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a response. Requires **View Responses** [scope](#scopes)
- * `PATCH`: Modifies a response (updates any fields accepted as arguments to `POST` [/surveys/{id}/responses](#surveys-id-responses)). Requires **Create/Modify Responses** [scope](#scopes)
- * `PUT`: Replaces a response (same arguments and requirements as `POST` [/surveys/{id}/responses](#surveys-id-responses)). Requires **Create/Modify Responses** [scope](#scopes)
- * `DELETE`: Deletes a response, Requires **Create/Modify Responses** [scope](#scopes)
+ * `GET`: Returns a response. Public App users need access to the **View Responses** [scope](#scopes)
+ * `PATCH`: Modifies a response (updates any fields accepted as arguments to `POST` [/surveys/{id}/responses](#surveys-id-responses)). Public App users need access to the **Create/Modify Responses** [scope](#scopes)
+ * `PUT`: Replaces a response (same arguments and requirements as `POST` [/surveys/{id}/responses](#surveys-id-responses)). Public App users need access to the **Create/Modify Responses** [scope](#scopes)
+ * `DELETE`: Deletes a response. Public App users need access to the **Create/Modify Responses** [scope](#scopes)
 
 ####Response Resource
 
@@ -562,7 +560,7 @@ s.get(url)
 
 ####Available Methods
 
- * `GET`: Retrieve a full expanded response, including answers to all questions. Requires **View Response Details** [scope](#scopes)
+ * `GET`: Retrieve a full expanded response, including answers to all questions. Public App users need access to the **View Response Details** [scope](#scopes)
 
 ####Optional Query Strings for GET
 

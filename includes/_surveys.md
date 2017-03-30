@@ -6,8 +6,6 @@ A POST to /surveys will create an empty survey to which you can add [pages](#sur
 
 A survey needs at least one page and question in order to record a survey [response](#surveys-id-responses).
 
-<aside class="notice"><strong>NOTE for Public Apps</strong>: The View Surveys scope is available on the BASIC (Free) plan and the Create/Modify Surveys scope requires a <a href="https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs">paid plan</a>.</aside>
-
 
 ###/surveys
 
@@ -75,8 +73,8 @@ s.post(url, json=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of surveys owned or shared with the authenticated user. Requires **View Surveys** [scope](#scopes)
- * `POST`: Creates a new empty survey or, if a [template](#survey_templates) id or an existing survey id is specified, a survey prepopulated with [pages](#surveys-id-pages) and [questions](#formatting-question-types). Requires **Create/Modify Surveys** [scope](#scopes)
+ * `GET`: Returns a list of surveys owned or shared with the authenticated user. Public App users need access to the **View Surveys** [scope](#scopes)
+ * `POST`: Creates a new empty survey or, if a [template](#survey_templates) id or an existing survey id is specified, a survey prepopulated with [pages](#surveys-id-pages) and [questions](#formatting-question-types). Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -203,9 +201,9 @@ s.get(url)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a survey's details. To get an expanded version showing all pages and questions use [/surveys/{survey_id}/details](#surveys-id-details). Requires **View Surveys** [scope](#scopes)
- * `PATCH`: Modifies a survey's title, nickname or language. Requires **Create/Modify Surveys** [scope](#scopes)
- * `PUT`:  Replaces a survey. Request body arguments the same as POST [/surveys](#surveys). Requires **Create/Modify Surveys** [scope](#scopes)
- * `DELETE`: Deletes a survey. Requires **Create/Modify Surveys** [scope](#scopes)
+ * `PATCH`: Modifies a survey's title, nickname or language. Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
+ * `PUT`:  Replaces a survey. Request body arguments the same as POST [/surveys](#surveys). Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
+ * `DELETE`: Deletes a survey. Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
 
 ####Request Body Arguments for PATCH (See POST [/surveys](#surveys) for PUT arguments)
 
@@ -320,7 +318,7 @@ s.get(url)
 
 ####Available Methods
 
- * `GET`: Returns an expanded survey resource with a `pages` element containing a list of all page objects, each containing a list of questions objects. Requires **View Surveys** [scope](#scopes)
+ * `GET`: Returns an expanded survey resource with a `pages` element containing a list of all page objects, each containing a list of questions objects. Public App users need access to the **View Surveys** [scope](#scopes)
 
 ###/survey_categories
 
@@ -369,7 +367,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of survey categories that can be used to filter survey templates. Requires **View Library Assets** [scope](#scopes)
+ * `GET`: Returns a list of survey categories that can be used to filter survey templates. Public App users need access to the **View Library Assets** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -441,13 +439,13 @@ s.get(url, params=payload)
 }
 ```
 
-<aside class="notice"><strong>NOTE for Teams/Groups</strong>: Shared <a href="http://help.surveymonkey.com/articles/en_US/kb/Library/?zip=zip_3">Team templates </a>are not available through the API at this time. This endpoint returns SurveyMonkey's <a href="http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-surveys-from-a-selection-of-survey-templates">template list</a>.</aside>
+<aside class="notice"><strong>NOTE for Teams</strong>: Shared <a href="http://help.surveymonkey.com/articles/en_US/kb/Library/?zip=zip_3">Team templates </a>are not available through the API at this time. This endpoint returns SurveyMonkey's <a href="http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-surveys-from-a-selection-of-survey-templates">template list</a>.</aside>
 
 ####Available Methods
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of survey templates. Survey template ids can be used as an argument to `POST` a new survey. Requires **View Library Assets** [scope](#scopes)
+ * `GET`: Returns a list of survey templates. Survey template ids can be used as an argument to `POST` a new survey. Public App users need access to the **View Library Assets** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -519,8 +517,8 @@ s.post(url, json=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a page's details. Requires **View Surveys** [scope](#scopes)
- * `POST`: Creates a new, empty page, see [/surveys/{id}/pages/{id}/questions](#surveys-id-pages-id-questions) to add questions to pages. Requires **Create/Modify Surveys** [scope](#scopes)
+ * `GET`: Returns a page's details. Public App users need access to the **View Surveys** [scope](#scopes)
+ * `POST`: Creates a new, empty page, see [/surveys/{id}/pages/{id}/questions](#surveys-id-pages-id-questions) to add questions to pages. Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -592,10 +590,10 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a page's details. Requires **View Surveys** [scope](#scopes)
- * `PATCH`: Modifies a page (updates any fields accepted as arguments to `POST` [/surveys{id}/pages](#surveys-id-pages)). Requires **Create/Modify Surveys** [scope](#scopes)
- * `PUT`: Replaces a page (same arguments and requirements as `POST` [/surveys{id}/pages](#surveys-id-pages)). Requires **Create/Modify Surveys** [scope](#scopes)
- * `DELETE`: Deletes a page. Requires **Create/Modify Surveys** [scope](#scopes)
+ * `GET`: Returns a page's details. Public App users need access to the **View Surveys** [scope](#scopes)
+ * `PATCH`: Modifies a page (updates any fields accepted as arguments to `POST` [/surveys{id}/pages](#surveys-id-pages)). Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
+ * `PUT`: Replaces a page (same arguments and requirements as `POST` [/surveys{id}/pages](#surveys-id-pages)). Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
+ * `DELETE`: Deletes a page. Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
 
 ####Request Body Arguments for PUT/PATCH
 

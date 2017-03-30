@@ -2,89 +2,70 @@
 
 ##Getting Started
 
-The SurveyMonkey API is REST-based, uses OAuth2 for authentication, and returns responses in JSON. To get started you will [register an app](#registering-an-app) in our developer portal. Before you register, you should determine if your app will eventually be [deployed](#deploying-an-app) as Public or Private and which [scopes](#scopes) you will need.
+The SurveyMonkey API is REST-based, employs [OAuth 2.0](https://oauth.net/2/), and returns responses in [JSON](http://www.json.org/). Our documentation is organized by endpoint, has code examples in Python and cURL, and provides a Postman collection with calls for each available method.We also have a [quick start guide](#quick-start-guide-two-common-use-cases) outlining flows for some common use cases. 
 
-All Public apps need to be approved by SurveyMonkey before they can be deployed, use of certain scopes will also need to be approved. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) to determine if you should contact us before you begin to develop your app.
+To use our API, you'll need to [register a draft app](#registering-an-app) to your SurveyMonkey account. You have a 90-day window to develop in a draft app, after which you'll need to [deploy](#deploying-an-app) publicly or privately. Public apps are available to anyone with a SurveyMonkey account and published in our [App Directory](https://www.surveymonkey.com/integrations/). If you're building an app for yourself or your organization, you can deploy a Private app. 
 
-Newly registered apps are given a draft state window in which developers can use all paid scopes for free when querying against the associated SurveyMonkey account for up to 90 days. No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must deploy your app as either Public or Private and upgrade your account as needed.
+###Public Apps
 
-SurveyMonkey lists code examples on [Github](https://github.com/SurveyMonkey) and monitors questions tagged as `surveymonkey` on [StackOverflow](http://stackoverflow.com/search?q=surveymonkey). If you have an SDK or example you would like added, let us know. We also offer email support at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com).
+Public apps extend features to SurveyMonkey users. All apps must be reviewed and approved by SurveyMonkey and adhere to our [terms of use](https://developer.surveymonkey.com/tou/) before they can be published in our [App Directory](https://www.surveymonkey.com/integrations/).
+
+Public apps use [scopes](#scopes) to request permissions from app users during OAuth. Some [scopes](#scopes) require your app's users to have a paid SurveyMonkey plan. 
+
+Public apps published in our [App Directory](https://www.surveymonkey.com/integrations/) can make unlimited requests to our API. When a Public app is in draft (during development), it's subject to [draft request limits](##request-and-response-limits).
+
+###Private Apps
+
+Private apps don't need to be reviewed by SurveyMonkey. Only logged-in users of the SurveyMonkey team the app is registered to can see the app in the [App Directory](https://www.surveymonkey.com/integrations/). Private apps are subject to our [terms of use](https://developer.surveymonkey.com/tou/). Private apps have [API request limits](#request-and-response-limits) and [higher limits are available for purchase](#increasing-limits). 
+
+All users of a Private app must belong to the same [SurveyMonkey team](https://help.surveymonkey.com/articles/en_US/kb/Groups) and have a [paid SurveyMonkey plan that offers direct API access](https://www.surveymonkey.com/pricing/details/?ut_source=dev_portal&amp;ut_source2=docs).
 
 ###Registering an App
 
-When registering your app it is important to know if you will eventually deploy as a Private or Public app and, for Public apps, which scopes you plan to use as these determine if users need a pro SurveyMonkey plan to use your app. SurveyMonkey reviews all Public apps before they can be deployed. Read more about [scopes](#scopes) and [deploying your app](#deploying-your-app) before you register an app.
+Anyone with a SurveyMonkey account can register an app. Registering creates a draft app with an access token you can use to query against your account for 90 days.  No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must deploy your app as either Public or Private and upgrade your account as needed.
 
 To register an app:
 
-1. Click on the **MY APPS** tab in the upper left corner and sign into your SurveyMonkey account.
-1. Click **+ Add New App**. Enter your **App Name** and click **Create App**. Under **App Details** you'll find your client id to use for OAuth, as well as an access token for your own SurveyMonkey account. New apps are given a 90 day draft state during which you can use paid scopes for free.
-1. Click **Settings** to edit your app's **Redirect URI**, and review and adjust scopes for your app. Scopes allow your application to access particular resources on behalf of a user. For Public apps, the scopes you use determine which paid SurveyMonkey plan your app's users will need and if your application will need to be approved by SurveyMonkey before you can deploy. Click on scopes to toggle their requirements and click **Update Scopes** when finished.
-
-###Deploying an App
-
-When you create a new app you are given a 90-day draft window during which you can use all paid [scopes](#scopes) for free when querying against the associated SurveyMonkey account. No other SurveyMonkey accounts can authenticate a draft app.
-
-Before the 90-day period ends, you must deploy your app as either Public or Private or your app will be disabled. If your app is disabled, you can deploy it as either Public or Private, or contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to request an extension.
-
-To deploy your app:
-
- 1. Visit your app's settings in the [developer portal](https://developer.surveymonkey.com/apps/) and select either **Public** or **Private**. See below for details on these options.
- 2. If necessary, [upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) your account to the required plan. This will be Platinum for any Private apps and will vary for Public ones based on the scopes you use.
-
-####Public Apps
-
-All public apps will need to be approved by SurveyMonkey to be deployed, please contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
-
-Deploy as a Public app only if:
-
- * your app will be used by many SurveyMonkey accounts that do not belong to the same group plan.
-
-Examples of Public apps include:
-
- * An integration of SurveyMonkey functionality into a pre-existing tool
- * Stand alone applications that extend SurveyMonkey's functionality
-
-The [scopes](#scopes) that your app uses determine the SurveyMonkey plan level users will need to access it.
-
-####Private Apps
-
-Deploying as a Private app requires you to [upgrade](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to a Platinum or Platinum group plan. Private apps can use all available scopes. Private apps are subject to [request limits](#request-and-response-limits).
-
-Deploy as a Private app if:
-
- * your app will only be used by one SurveyMonkey account or many SurveyMonkey accounts that belong to the same [Platinum group plan](http://help.surveymonkey.com/articles/en_US/kb/Groups)
-
- Examples of Private apps include:
-
- * A developer uses the API to send surveys or import survey results data from their own account
- * A developer purchases SurveyMonkey seats on behalf of employees or customers and builds an application for multiple users
-
+1. Go to [**MY APPS**](https://developer.surveymonkey.com/apps/) and sign into your SurveyMonkey account.
+1. Click **+ Add New App**. Enter your **App Name** and click **Create App**. Under **App Details** you'll find your client id to use for OAuth, as well as an access token for your own SurveyMonkey account. New apps are given a 90-day draft state during which you can use paid scopes for free.
+1. Click **Settings** to edit your app's **Redirect URI**. If you're developing a public app, review and adjust [scopes](#scopes). Click on a scope to toggle its requirements. Click **Update Scopes** when finished.
 
 ###Scopes
 
-Scopes allow Public apps to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your app to create a survey in a user's account. During the OAuth process the user will approve or disapprove the scopes you have requested access to. Based on your app's needs you can choose to either require scopes, set them as optional, or not require them. All required scopes must be approved by the user for the OAuth process to succeed.
+Scopes allow Public apps to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your app to create a survey in a user's account. During the OAuth process, a user is asked to grant permission to scopes your app is requesting access to. 
 
-Some scopes are only available to accounts on SurveyMonkey paid plans. If your Public application uses scopes tied to paid plans, any accounts authenticating with your application need that plan or higher. We return scopes available to users as well as those a user has granted to your app in our request [headers](#headers).
+Some scopes require your app's users to have SurveyMonkey paid plans. If your Public app uses scopes tied to paid plans, any accounts attempting to authenticate without the necessary plan will be asked to upgrade to proceed. Our request [headers](#headers) include the scopes available to users' plan, as well as those they've granted your app permission to.
 
-Two scopes **Create/Modify Responses** and **Create/Modify Surveys** require SurveyMonkey's approval to use in a Public app. If you've deployed a Public app and want to change your scope requirements to include these, you'll need to contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
+You can set scopes to be required, optional, or not required in your [app's settings](https://developer.surveymonkey.com/apps/). All required scopes must be approved by and available to the user for the OAuth process to succeed.
+
+Two scopes, **Create/Modify Responses** and **Create/Modify Surveys**, require SurveyMonkey's approval to use in a Public app. If you've deployed a Public app and want to change your scope requirements to include these, you'll need to contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to tell us more about your app and use case.
 
 
-|Scope Label|Scope Description (text used for OAuth, "you" refers to owner of authenticating account)|Plan Needed|Scope Name|
-|----------|---------------------------------------|-----------|------------|
-|View Surveys|View your surveys and those shared with you|BASIC (Free)|surveys_read|
-|Create/Modify Surveys|Create or edit surveys in your account|Any Paid Plan|surveys_write|
-|View Collectors|View collectors for your surveys and those shared with you|BASIC (Free)|collectors_read|
-|Create/Modify Collectors|Create or edit collectors for surveys in your account|BASIC (Free)|collectors_write|
-|View Contacts|View your contacts and contact lists|BASIC (Free)|contacts_read|
-|Create/Modify Contacts|Create or edit contacts in your account|BASIC (Free)|contacts_write|
-|View Responses|View if surveys in your account have responses and their metadata |BASIC (Free)|responses_read|
-|View Response Details|View answers along with responses and answer counts and trends|Any Annual Plan|responses_read_detail|
-|Create/Modify Responses|Create or edit survey responses in your account|PLATINUM/ENTERPRISE|responses_write|
-|View Webhooks|View webhooks to receive notifications when there are changes in your account|BASIC (Free)|webhooks_read|
-|Create/Modify Webhooks|Create and edit webhooks to receive notifications when there are changes in your account|BASIC (Free)|webhooks_write|
-|View Users|View your user information|BASIC (Free)|users_read|
-|View Groups|View groups you belong to|GOLD|groups_read|
-|View Library Assets|View your library of survey themes and templates|BASIC (Free)|library_read|
+|Scope Label|Scope Description (text shown during OAuth, "you" refers to owner of authenticating account)|Scope Name|Requires Paid SurveyMonkey Account?|
+|----------|---------------------------------------|------------|---|
+|View Surveys|View your surveys and those shared with you|surveys_read|No|
+|Create/Modify Surveys|Create or edit surveys in your account|surveys_write|Yes|
+|View Collectors|View collectors for your surveys and those shared with you|collectors_read|No|
+|Create/Modify Collectors|Create or edit collectors for surveys in your account|collectors_write|No|
+|View Contacts|View your contacts and contact lists|contacts_read|No|
+|Create/Modify Contacts|Create or edit contacts in your account|contacts_write|No|
+|View Responses|View if surveys in your account have responses and their metadata |responses_read|No|
+|View Response Details|View answers along with responses and answer counts and trends|responses_read_detail|Yes|
+|Create/Modify Responses|Create or edit survey responses in your account|responses_write|Yes|
+|View Webhooks|View webhooks to receive notifications when there are changes in your account|webhooks_read|No|
+|Create/Modify Webhooks|Create and edit webhooks to receive notifications when there are changes in your account|webhooks_write|No|
+|View Users|View your user information|users_read|No|
+|View Groups|View teams you belong to|groups_read|Yes|
+|View Library Assets|View your library of survey themes and templates|library_read|No|
+
+###Deploying an App
+
+Before the 90-day draft period ends, you must deploy your app or it'll be disabled. If your app is disabled, you must deploy it or contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to request an extension.
+
+To deploy your app:
+
+ 1. Visit your app's settings in the [developer portal](https://developer.surveymonkey.com/apps/) and select either **Public** or **Private**. 
+ 2. If necessary, [upgrade your SurveyMonkey account](https://www.surveymonkey.com/pricing/details/?ut_source=dev_portal&amp;ut_source2=docs) to a plan offering direct API access.
 
 ##Request and Response Limits
 
@@ -96,7 +77,7 @@ Draft and Private apps are subject to the following API Rate limits:
 
 We return your app's rate limits, requests remaining, and seconds to reset in our request [headers](#header).
 
-In addition, requests made to the API to create [contacts](#contacts-and-contact-lists) or send [invite messages](#collectors-and-invite-messages), are subject to our [sending and contact limits](http://help.surveymonkey.com/articles/en_US/kb/Is-there-a-limit-on-the-number-of-emails-I-can-send).
+In addition, requests made to the API to create [contacts](#contacts-and-contact-lists) or send [invite messages](#collectors-and-invite-messages) are subject to our [sending and contact limits](http://help.surveymonkey.com/articles/en_US/kb/Is-there-a-limit-on-the-number-of-emails-I-can-send).
 
 ####Increasing Limits
 
@@ -108,32 +89,30 @@ We also have global response limits for database utilization fair use.
 
 Property | Limit
 ------- | -------
-Max Page Size | 1000 unless otherwise specified
+Max Page Size | 1000, unless otherwise specified
 Max Survey Size | 1000 questions, surveys over limit will return a 413
 
 ##Authentication
 
-<aside class="notice">We've updated our authentication and are no longer using Mashery. We now generate a unique client id that is not your Mashery username, and have removed the use of API keys. If you are registering a new app or refreshing your credentials you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. If you created your app before Nov 1st, 2016, your existing credentials will continue to work as outlined in the <a href="https://developer.surveymonkey.com/api/v3/#old-authentication">OLD Authentication</a> as long as you don't refresh them in our developer portal.</aside>
+<aside class="notice">We've updated our authentication and are no longer using Mashery. We now generate a unique client id that is not your Mashery username, and we've removed the use of API keys. If you're registering a new app or refreshing your credentials, you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. If you created your app before Nov 1st, 2016, your existing credentials will continue to work as outlined in <a href="https://developer.surveymonkey.com/api/v3/#old-authentication">OLD Authentication</a>, as long as you don't refresh them in our developer portal.</aside>
 
-The SurveyMonkey API supports OAuth 2.0.
+If you have a [Private app](#deploying-your-app) and will only access your own SurveyMonkey account, you can use the access token, generated when you registered your app, as part of your app's configuration. Obtain this token in the **Settings** of your app in the [**MY APPS**](https://developer.surveymonkey.com/apps/) tab.
 
-If you have a [Private application](#deploying-your-app) and will only access your own SurveyMonkey account, you can use the access token, generated when you registered your app, as part of your application's configuration. Obtain this token in the **Settings** of your app in the [**MY APPS**](https://developer.surveymonkey.com/apps/) tab.
+If your app will access many SurveyMonkey accounts, implement the OAuth 2.0 three-step flow outlined below to allow users to authorize your app to access their accounts. This flow generates a long-lived access token your app can use with every API call to the associated SurveyMonkey account. It's important to note the access token only grants access when used in combination with your API credentials (client ID) and only to the SurveyMonkey account which was authorized. Your app will need to obtain additional access tokens for each SurveyMonkey account you wish to access.
 
-If your application will access many SurveyMonkey accounts, implement the OAuth 2.0 three-step flow outlined below to allow users to authorize your app to access their accounts. This flow generates a long-lived access token your application can use with every API call to the associated SurveyMonkey account. It's important to note that the access token only grants access when used in combination with your API credentials (client ID) and only to the SurveyMonkey account which was authorized. Your application will need to obtain additional access tokens for each SurveyMonkey account you wish to access.
-
-If your [Public application](#deploying-your-app) has required [scopes](#scopes), users may need a [paid SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to successfully Oauth into your application.
+If your app has required [scopes](#scopes), users will need to approve all of them and may need a [paid SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to successfully Oauth into your app.
 
 ###NEW Authentication
 
 ####Step 1: Direct user to SurveyMonkey's OAuth authorization page
 
-Your applications should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.net. The page presented to the user there will identify the application name you configured when you registered your application. Users will either be asked to enter their SurveyMonkey user name and password, or, if they are already logged into SurveyMonkey, just an "Authorize" button.
+Your app should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.net. The page presented to the user will identify your app, ask them to log into SurveyMonkey if they aren't already, and ask them to authorize any required [scopes](#scope). 
 
 The OAuth link should be `https://api.surveymonkey.net/oauth/authorize` with urlencoded parameters: `redirect_uri`, `client_id`, and `response_type`.
 
 * `response_type` will always be set to the value `code`
 * `client_id` the unique SurveyMonkey client id you got when registering your app
-* `redirect_uri` URL encoded OAuth redirect URI you registered for your application (can be found and edited [here](https://developer.surveymonkey.com/apps/))
+* `redirect_uri` URL encoded OAuth redirect URI you registered for your app (can be found and edited [here](https://developer.surveymonkey.com/apps/))
 
 >Example OAuth Link
 
@@ -159,9 +138,9 @@ def oauth_dialog(client_id, redirect_uri):
 	# Insert code here that redirects user to OAuth Dialog url
 ```
 
-####Step 2: User authorization generates short lived code
+####Step 2: User authorization generates short-lived code
 
-Once the user makes their choice whether to authorize access or not, SurveyMonkey will generate a 302 redirect sending their browser to your redirect URI along with a short-lived code included as a query parameter. Your application needs to use that code to make another API request before it expires (5 minutes). In that request, you will send us the code you received along with your client secret, client ID, and redirect URI. We will verify all that information. If it's good, we will return a long-lived access token in exchange.
+Once the user makes their choice whether to authorize access or not, SurveyMonkey will generate a 302 redirect sending their browser to your redirect URI along with a short-lived code included as a query parameter. Your app needs to use that code to make another API request before it expires (5 minutes). In that request, you'll send us the code you received, along with your client secret, client ID, and redirect URI. We'll verify all that information. If it's good, we'll return a long-lived access token in exchange.
 
 >Generate Short Code or Deny Access
 
@@ -228,7 +207,7 @@ def exchange_code_for_token(auth_code, client_secret, client_id, redirect_uri):
 
 ###OLD Authentication
 
-<aside class="notice">We've updated our authentication flow and are no longer using Mashery.  If you are <a href="https://developer.surveymonkey.com/apps/">registering a new app</a> or refreshing credentials for an existing app you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. Existing authentication credentials will continue to work.</aside>
+<aside class="notice">We've updated our authentication flow and are no longer using Mashery.  If you're <a href="https://developer.surveymonkey.com/apps/">registering a new app</a> or refreshing credentials for an existing app, you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. Existing authentication credentials will continue to work.</aside>
 
 All code examples in our documentation assume use of our [NEW Authentication](#NEW-Authentication). If you're using our OLD Authentication, you'll need to pass your API key with each call like so:
 
@@ -236,13 +215,13 @@ All code examples in our documentation assume use of our [NEW Authentication](#N
 
 ####Step 1: Direct user to SurveyMonkey's OAuth authorization page
 
-You applications should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.net. The page presented to the user there will identify the application name you configured when you registered your application. Users will either be asked to enter their SurveyMonkey user name and password, or, if they are already logged into SurveyMonkey, just an "Authorize" button.
+You app should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.net. The page presented to the user will identify the app name you configured when you registered. Users will either be asked to enter their SurveyMonkey user name and password, or, if they're already logged into SurveyMonkey, just an "Authorize" button.
 
 The OAuth link should be `https://api.surveymonkey.net/oauth/authorize` with urlencoded parameters: `redirect_uri`, `client_id`, `response_type`, and `api_key`.
 
 * `response_type` will always be set to the value `code`
 * `client_id` your Mashery user name
-* `redirect_uri` URL encoded OAuth redirect URI you registered for your application (can be found and edited [here](https://developer.surveymonkey.com/apps/))
+* `redirect_uri` URL encoded OAuth redirect URI you registered for your app (can be found and edited [here](https://developer.surveymonkey.com/apps/))
 
 >Example OAuth Link
 
@@ -269,9 +248,9 @@ def oauth_dialog(client_id, redirect_uri, api_key):
 	# Insert code here that redirects user to OAuth Dialog url
 ```
 
-####Step 2: User authorization generates short lived code
+####Step 2: User authorization generates short-lived code
 
-Once the user makes their choice whether to authorize access or not, SurveyMonkey will generate a 302 redirect sending their browser to your redirect URI along with a short-lived code included as a query parameter. Your application needs to use that code to make another API request before it expires (5 minutes). In that request, you will send us the code you received along with your client secret, client ID, API key, and redirect URI. We will verify all that information. If it's good, we will return a long-lived access token in exchange.
+Once the user makes their choice whether to authorize access or not, SurveyMonkey will generate a 302 redirect sending their browser to your redirect URI along with a short-lived code included as a query parameter. Your app needs to use that code to make another API request before it expires (5 minutes). In that request, you'll send us the code you received along with your client secret, client ID, API key, and redirect URI. We'll verify all that information. If it's good, we'll return a long-lived access token in exchange.
 
 >Generate Short Code or Deny Access
 
@@ -336,11 +315,12 @@ def exchange_code_for_token(auth_code, api_key, client_secret, client_id, redire
 		return None
 ```
 
+
 ###Token expiration and revocation
 
-Our access tokens do not currently expire but may in the future. We will warn all developers before making changes.
+Our access tokens don't currently expire but may in the future. We'll warn all developers before making changes.
 
-Access tokens can be revoked by the user. If this happens, you will get a JSON-encoded response body including a key `status`with a value of `1` and a key `errmsg` with the value of `Client revoked access grant` when making an API request. If you get this response, you will need to complete OAuth again.
+Access tokens can be revoked by the user. If this happens, you'll get a JSON-encoded response body including a key `status`with a value of `1` and a key `errmsg` with the value of `Client revoked access grant` when making an API request. If you get this response, you'll need to complete OAuth again.
 
 ###Unauthorizing an app
 
@@ -354,12 +334,10 @@ To unauthorize an app:
 
 ###Export the Results of a Survey
 
-<aside class="notice"><strong>NOTE for Public Apps</strong>: This use case requires the View Response Details <a href="#scopes">scope</a>, which requires authenticating users to have an annual <a href="https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs">paid plan</a>.</aside>
-
-While a call to [/surveys/{id}/responses/bulk](#surveys-id-responses-bulk), returns responses with ids for all answers chosen, your use case likely involves associating this with the values chosen. The following example takes you through exporting the results of a survey and associating responses with the corresponding answer values.
+While a call to [/surveys/{id}/responses/bulk](#surveys-id-responses-bulk) returns responses with ids for all answers chosen, your use case likely involves associating this with the values chosen. The following example takes you through exporting the results of a survey and associating responses with the corresponding answer values.
 
  1. Fetch the first 1,000 surveys in a SurveyMonkey account with a GET [/surveys](#surveys). This call returns a list resource containing survey ids.
- 2. Using a survey id from the previous call, make a GET to [/surveys/{id}/details](#surveys-id-details). This call returns the survey's design with all question ids and answer option ids as well as the values associated with them. Cache these values on your end to limit future calls and economize your [request and response limits](#request-and-response-limits).
+ 2. Using a survey id from the previous call, make a GET to [/surveys/{id}/details](#surveys-id-details). This call returns the survey's design with all question ids and answer option ids, as well as the values associated with them. Cache these values on your end to limit future calls and economize your [request and response limits](#request-and-response-limits).
  3. Using the same survey id, fetch the first 100 responses to your survey with a GET to [/surveys/{id}/respones/bulk](#surveys-id-collectors). This endpoint returns question ids and the id of the selected answer or choice for each response. You can use these to associate the selected answer id to those returned from your GET to [/surveys/{id}/details](#surveys-id-details) and match question values to the answers selected.
  4. Fetch the next page of 100 responses using the resource url returned in the `links.next` field.
 
@@ -369,14 +347,12 @@ To export the results of a single collector, a GET to /surveys/{id}/collectors r
 
 ###Send an Email Invitation Message
 
-<aside class="notice"><strong>NOTE for Public Apps</strong>: Special restrictions apply for users on the Basic Plan including the <a href="http://help.surveymonkey.com/articles/en_US/kb/Sender-Email-Address">requirement to verify the Sender Email Address for a Collector</a> and <a href="http://help.surveymonkey.com/articles/en_US/kb/Is-there-a-limit-on-the-number-of-emails-I-can-send">Message Sending Limits</a></aside>
-
-The following example takes you through creating an email invitation collector and sending it to a list of recipients.
+The following example takes you through creating an Email Invitation Collector and sending it to a list of recipients.
 
  1. Fetch the first 1,000 surveys in a SurveyMonkey account with a GET [/surveys](#surveys). This call returns a list resource containing survey ids.
  2. Using a survey id from the previous call, create a collector of type `email` by making a POST to [/surveys/{id}/collectors](#surveys-id-collectors).
  3. Create and format an email message with a POST to [/collectors/{id}/messages](#collectors-id-messages).
- 4. Upload recipients to recieve the message with a POST to [/collectors/{id}/messages/{id}/recipients/bulk](#collectors-id-messages-id-recipients-bulk).
+ 4. Upload recipients to receive the message with a POST to [/collectors/{id}/messages/{id}/recipients/bulk](#collectors-id-messages-id-recipients-bulk).
  5. Send your message with a POST to [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send).
 
 ##Pagination
@@ -387,14 +363,14 @@ Any request to a list resource returns the following pagination fields, if avail
 
 |Name|Description|Type|
 |----|-----------|----|
-|per_page|Indicates the number of resources per page.|Integer|
-|total|Indicates the number of pages available.|Integer|
-|page|Indicates which page is being returned.|Integer|
-|links.self|Resource URL for the current page.|String|
-|links.prev|Resource URL for the previous page of results.|String|
-|links.next|Resource URL for the subsequent page of results.|String|
-|links.first|Resource URL for the first page of results.|String|
-|links.last|Resource URL for the last page of results.|String|
+|per_page|Number of resources per page|Integer|
+|total|Number of pages available|Integer|
+|page|Indicates which page is being returned|Integer|
+|links.self|Resource URL for the current page|String|
+|links.prev|Resource URL for the previous page of results|String|
+|links.next|Resource URL for the subsequent page of results|String|
+|links.first|Resource URL for the first page of results|String|
+|links.last|Resource URL for the last page of results|String|
 
 ##Headers
 
@@ -413,15 +389,15 @@ Our API returns the following custom headers:
 
 ##Data Types
 
-Our API uses the following data types.
+Our API uses the following data types:
 
 |Data Type|Description|
 |------------------------|------------------|
 |Integer| An integer number with a maximum value of 2147483647. Negatives are disallowed unless otherwise specified.
 |String| A string of text.
-|String-ENUM|Predifined string values. Values are defined per field throughout our documnentation.
+|String-ENUM|Predefined string values. Values are defined per field throughout our documentation.
 |Boolean| A boolean value: true or false. In JSON it will be represented using the native boolean type.
-|Date string| Dates are usually in the format YYYY-MM-DDTHH:MM:SS+HH:MM. Any deviations from this are shown in the documenation. All date strings are implicitly in UTC.
+|Date string| Dates are usually in the format YYYY-MM-DDTHH:MM:SS+HH:MM. Any deviations from this are shown in the documentation. All date strings are implicitly in UTC.
 |Array| A simple list of values. In JSON this will be an array.
 |Object|A collection of name/value pairs. In JSON this will be an object.
 |Null|A null value. In JSON this is represented as the native null type.
@@ -466,4 +442,8 @@ Our API uses the following data types.
 |1051|503 Internal Server Error|Service unreachable. Please try again later.|
 |1052|404 User Soft Deleted|The user you are making this request for has been soft deleted.|
 |1053|410 User Deleted|The user you are making this request for has been deleted.|
+
+##Help and Resources
+
+SurveyMonkey lists code examples on [Github](https://github.com/SurveyMonkey) and monitors questions tagged as `surveymonkey` on [StackOverflow](http://stackoverflow.com/search?q=surveymonkey). If you have an SDK or example you would like added, let us know. We also offer email support at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com).
 

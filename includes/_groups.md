@@ -34,7 +34,7 @@ s.get(url)
   "total": 1,
   "data": [{
     "id": "1234",
-    "name": "Test Group",
+    "name": "Test Team",
     "href": "http://api.surveymonkey.com/v3/groups/1234"
   }],
   "links": {
@@ -47,7 +47,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a group if the user account belongs to a [group](http://help.surveymonkey.com/articles/en_US/kb/Groups) (users can only belong to one group). Requires **View Groups** [scope](#scopes)
+ * `GET`: Returns a team if the user account belongs to a [team](http://help.surveymonkey.com/articles/en_US/kb/Groups) (users can only belong to one team). Public App users need access to the **View Teams** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -107,7 +107,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a group's details including the group's owner and email address. Requires **View Groups** [scope](#scopes)
+ * `GET`: Returns a teams's details including the teams's owner and email address. Public App users need access to the **View Teams** [scope](#scopes)
 
 ####Group Resource if Account Owner or Admin 
 
@@ -176,7 +176,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of users who have been added as members of the specified group. Requires **View Groups** [scope](#scopes) 
+ * `GET`: Returns a list of users who have been added as members of the specified group. Public App users need access to the **View Teams** [scope](#scopes) 
 
 ####Optional Query Strings for GET
 
@@ -239,7 +239,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a group member's details including their `role` and `status`. Requires **View Groups** [scope](#scopes)
+ * `GET`: Returns a group member's details including their `role` and `status`. Public App users need access to the **View Teams** [scope](#scopes)
 
 ####Group Member Resource
 

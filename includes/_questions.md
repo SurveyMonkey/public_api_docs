@@ -75,8 +75,8 @@ Same as request, but with two additional fields (id, href)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of questions on a survey page. Requires **View Surveys** [scope](#scopes)
- * `POST`: Creates a new question on a survey page, see [formatting question types](#formatting-question-types). Requires **Create/Modify Surveys** [scope](#scopes)
+ * `GET`: Returns a list of questions on a survey page. Public App users need access to the **View Surveys** [scope](#scopes)
+ * `POST`: Creates a new question on a survey page, see [formatting question types](#formatting-question-types). Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -203,9 +203,9 @@ Same as `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a question. Requires **View Surveys** [scope](#scopes)
- * `PATCH`: Updates a question (updates any fields accepted as arguments to `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions). Requires **Create/Modify Surveys** [scope](#scopes)
- * `PUT`: Replaces a question (same arguments and requirements as `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions). Requires **Create/Modify Surveys** [scope](#scopes)
- * `DELETE`: Deletes a question. Requires **Create/Modify Surveys** [scope](#scopes)
+ * `PATCH`: Updates a question (updates any fields accepted as arguments to `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions). Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
+ * `PUT`: Replaces a question (same arguments and requirements as `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions). Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
+ * `DELETE`: Deletes a question. Public App users need access to the **Create/Modify Surveys** [scope](#scopes)
 
 ###Formatting Question Types
 
