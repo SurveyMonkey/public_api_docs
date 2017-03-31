@@ -212,7 +212,7 @@ Same as `POST` [/surveys/{id}/pages/questions](#surveys-id-pages-id-questions)
 All questions have a`family` and `subtype` that define their type and some questions have a `display_type` and `display_subtype` that further define their type. See below for example formatting of the answers object  and display_options object for different question types. Read more about SurveyMonkey's question types in our [help center](http://help.surveymonkey.com/articles/en_US/kb/Available-question-types-and-formatting-options).
 
 |Family|Subtype|Display_Type|Display_Subtype
-|------|-------|--------------|
+|------|-------|--------------|------------|
 |single_choice|'vertical', 'horiz', 'menu'|NA|NA|
 |matrix| 'single', 'rating', 'ranking', 'menu', 'multi'|'emoji' (with 'ranking')|'star'|
 |open_ended|'single','multi', 'numerical', 'essay'|'slider', 'file_upload' (with 'single')|NA|
