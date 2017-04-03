@@ -2,6 +2,7 @@
 
 Collectors allow you to collect survey responses with a link to your survey. Two `types` of collectors are available through the API: `weblink` and `email`. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL and [email invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) send survey invite messages with a survey URL via the /messages endpoints. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)).
 
+<aside class="notice">Your email address needs to be <a href="https://help.surveymonkey.com/articles/en_US/kb/Sender-Email-Address">verified</a> in order to successfully send messages through our email invitation collector. You can <a href="">verify your address</a> in your SurveyMonkey account.</aside>
 
 ###/surveys/{id}/collectors
 
