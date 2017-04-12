@@ -2,8 +2,6 @@
 
 The following endpoints let you view how many respondents answered a question a particular way and trends in how many respondents answered a question a particular way in a given time period, for example a week.
 
-<aside class="notice"><strong>NOTE for Public Apps</strong>: The View Response Details scope requires a SurveyMonkey annual <a href="https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs">paid plan</a>.</aside>
-
 <aside class="notice">Trends are not available for file_upload, slider, presentation, demographic, matrix_menu, or datetime question types and trends object will return empty for these questions.</aside>
 
 ###/surveys/{id}/rollups
@@ -95,7 +93,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns rollups for all questions in a survey. Requires **View Response Details** [scope](#scopes)
+ * `GET`: Returns rollups for all questions in a survey. Public App users need access to the **View Response Details** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -234,7 +232,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns answer counts for a particular time periods. Requires **View Response Details** [scope](#scopes)
+ * `GET`: Returns answer counts for a particular time periods. Public App users need access to the **View Response Details** [scope](#scopes)
 
 ####Optional Query Strings for GET (Accepts same as [/rollups](#rollups) and the following additions)
 

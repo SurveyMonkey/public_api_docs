@@ -46,8 +46,8 @@ s.post(url, json=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns all contact lists. Requires **View Contacts** [scope](#scopes)
- * `POST`: Creates a contact list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Requires **Create/Modify Contacts** [scope](#scopes) 
+ * `GET`: Returns all contact lists. Public App users need access to the **View Contacts** [scope](#scopes)
+ * `POST`: Creates a contact list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes) 
 
 ####Optional Query Strings for GET
 
@@ -110,10 +110,10 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a contact list. Requires **View Contacts** [scope](#scopes) 
- * `PATCH`: Modifies a contact list (updates any fields accepted as arguments to `POST` [/contact_lists](#contact_lists)). Requires **Create/Modify Contacts** [scope](#scopes)
- * `PUT`: Replaces a contact list `POST` (same arguments and requirements as `POST`[/contact_lists](#contact_lists)). Requires **Create/Modify Contacts** [scope](#scopes)
- * `DELETE`: Deletes a contact list. Requires **Create/Modify Contacts** [scope](#scopes)
+ * `GET`: Returns a contact list. Public App users need access to the **View Contacts** [scope](#scopes) 
+ * `PATCH`: Modifies a contact list (updates any fields accepted as arguments to `POST` [/contact_lists](#contact_lists)). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
+ * `PUT`: Replaces a contact list `POST` (same arguments and requirements as `POST`[/contact_lists](#contact_lists)). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
+ * `DELETE`: Deletes a contact list. Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Contact List Resource
 
@@ -212,7 +212,7 @@ s.post(url)
 ```
 ####Available Methods
 
- * `POST`: Copies contacts in the list specified in the request body and adds to the list specified in the resource URL. Requires **Create/Modify Contacts** [scope](#scopes)
+ * `POST`: Copies contacts in the list specified in the request body and adds to the list specified in the resource URL. Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Request Body Arguments for POST
 
@@ -292,8 +292,8 @@ s.post(url, json=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns all contacts in a contact list. Requires **View Contacts** [scope](#scopes)
- * `POST`: Creates a new contact and adds them to a contact list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Requires **Create/Modify Contacts** [scope](#scopes) 
+ * `GET`: Returns all contacts in a contact list. Public App users need access to the **View Contacts** [scope](#scopes)
+ * `POST`: Creates a new contact and adds them to a contact list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes) 
 
 ####Optional Query Strings for GET
 
@@ -394,8 +394,8 @@ s.post(url, json=payload)
 ```
 ####Available Methods
 
- * `GET`: Returns a list of all contacts in the list with all available fields. Requires **View Contacts** [scope](#scopes)
- * `POST`: Creates multiple contacts and adds them to a list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Requires **Create/Modify Contacts** [scope](#scopes)
+ * `GET`: Returns a list of all contacts in the list with all available fields. Public App users need access to the **View Contacts** [scope](#scopes)
+ * `POST`: Creates multiple contacts and adds them to a list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Contacts List Resource
 
@@ -482,8 +482,8 @@ s.post(url, json=payload)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of all contacts. Requires **View Contacts** [scope](#scopes)
- * `POST`: Creates a new contact, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Requires **Create/Modify Contacts** [scope](#scopes) 
+ * `GET`: Returns a list of all contacts. Public App users need access to the **View Contacts** [scope](#scopes)
+ * `POST`: Creates a new contact, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes) 
 
 ####Optional Query Strings for GET
 
@@ -584,8 +584,8 @@ s.post(url, json=payload)
 ```
 ####Available Methods
 
- * `GET`: Returns a list of all contacts with all available fields. Requires **View Contacts** [scope](#scopes)
- * `POST`: Creates multiple contacts, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Requires **Create/Modify Contacts** [scope](#scopes)
+ * `GET`: Returns a list of all contacts with all available fields. Public App users need access to the **View Contacts** [scope](#scopes)
+ * `POST`: Creates multiple contacts, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Contacts List Resource
 
@@ -656,10 +656,10 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a contact. Requires **View Contacts** [scope](#scopes)
- * `PATCH`: Modifies a contact (updates any fields accepted as arguments to `POST` [/contacts](#contacts). Requires **Create/Modify Contacts** [scope](#scopes)
- * `PUT`: Replaces a contact (same arguments and requirements as `POST`[/contacts](#contacts)). Requires **Create/Modify Contacts** [scope](#scopes)
- * `DELETE`: Deletes a contact. Requires **Create/Modify Contacts** [scope](#scopes)
+ * `GET`: Returns a contact. Public App users need access to the **View Contacts** [scope](#scopes)
+ * `PATCH`: Modifies a contact (updates any fields accepted as arguments to `POST` [/contacts](#contacts). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
+ * `PUT`: Replaces a contact (same arguments and requirements as `POST`[/contacts](#contacts)). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
+ * `DELETE`: Deletes a contact. Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 
 ####Contact Resource
@@ -723,7 +723,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of all [custom contacts fields](http://help.surveymonkey.com/articles/en_US/kb/Custom-Data). Requires **View Contacts** [scope](#scopes)
+ * `GET`: Returns a list of all [custom contacts fields](http://help.surveymonkey.com/articles/en_US/kb/Custom-Data). Public App users need access to the **View Contacts** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -783,8 +783,8 @@ s.patch(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns the specified [custom contact field](http://help.surveymonkey.com/articles/en_US/kb/Custom-Data). Requires **View Contacts** [scope](#scopes)
- * `PATCH`: Modifies a [custom contact field's](http://help.surveymonkey.com/articles/en_US/kb/Custom-Data) label. Requires **Create/Modify Contacts** [scope](#scopes)
+ * `GET`: Returns the specified [custom contact field](http://help.surveymonkey.com/articles/en_US/kb/Custom-Data). Public App users need access to the **View Contacts** [scope](#scopes)
+ * `PATCH`: Modifies a [custom contact field's](http://help.surveymonkey.com/articles/en_US/kb/Custom-Data) label. Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Request Body Arguments for PATCH
 

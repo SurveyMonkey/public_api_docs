@@ -1,6 +1,8 @@
-##Users and Groups
+##Users and Teams
 
-Use these endpoints to get user's account information, any [groups](http://help.surveymonkey.com/articles/en_US/kb/Groups) a user belongs to, and the account information for the group's owner and other members including their roles and whether or not they have accepted an invite into the group (are `active`). 
+Use these endpoints to get user's account information, any [teams](http://help.surveymonkey.com/articles/en_US/kb/Groups) a user belongs to, the account information for the team's owner, and other members including their roles and whether or not they have accepted an invite into the team (are `active`). 
+
+<aside class="notice">While our API uses the term group, SurveyMonkey's UI uses teams. These two terms refer to the same concept. Learn more about [teams in our Help Center](http://help.surveymonkey.com/articles/en_US/kb/Groups).</aside>
 
 ###/users/me
 
@@ -33,7 +35,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns the current user's account details including their plan. Requires **View Users** [scope](#scopes)
+ * `GET`: Returns the current user's account details including their plan. Public App users need access to the **View Users** [scope](#scopes)
 
 ####User Resource
 
