@@ -69,11 +69,13 @@ To deploy your app:
 
 ##Request and Response Limits
 
-Draft and Private apps are subject to the following API Rate limits:
+Draft and Private apps are subject rate limits:
 
 | Max Requests Per Minute | Max Requests Per Day
 | ------- | -------
 120 | 500
+
+We permit three violations of up to 150% within a 30-day window. We begin to enforce limits at 100% once your app exceeds its limits three times within 30 days.
 
 We return your app's rate limits, requests remaining, and seconds to reset in our request [headers](#header).
 
@@ -81,7 +83,7 @@ In addition, requests made to the API to create [contacts](#contacts-and-contact
 
 ####Increasing Limits
 
-If you think you may be in danger of exceeding your request-limit threshold, please [fill out this form](https://smenterprise.surveymonkey.com/Contactsales_en?&utm_source=website&utm_medium=website&utm_content=dev_portal&utm_campaign=dev_portal&family=SME&date=2016-08-31&program=7013A000000NnGKQA0&source=dev_portal&recent=dev_portal ) with an estimate of your anticipated API activity. SurveyMonkey will review all requests within 5 business days. Additional fees may apply for increased rate limits.
+If you think you may be in danger of frequently exceeding your request-limit threshold, please [fill out this form](https://smenterprise.surveymonkey.com/Contactsales_en?&utm_source=website&utm_medium=website&utm_content=dev_portal&utm_campaign=dev_portal&family=SME&date=2016-08-31&program=7013A000000NnGKQA0&source=dev_portal&recent=dev_portal ) with an estimate of your anticipated API activity. Additional fees may apply for increased rate limits.
 
 ####Response Limits
 
