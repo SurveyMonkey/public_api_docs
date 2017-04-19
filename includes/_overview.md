@@ -2,21 +2,21 @@
 
 ##Getting Started
 
-The SurveyMonkey API is REST-based, employs [OAuth 2.0](https://oauth.net/2/), and returns responses in [JSON](http://www.json.org/). Our documentation is organized by endpoint, has code examples in Python and cURL, and provides a Postman collection with calls for each available method.We also have a [quick start guide](#quick-start-guide-two-common-use-cases) outlining flows for some common use cases. 
+The SurveyMonkey API is REST-based, employs [OAuth 2.0](https://oauth.net/2/), and returns responses in [JSON](http://www.json.org/). Our documentation is organized by endpoint, has code examples in Python and cURL, and provides a Postman collection with calls for each available method.We also have a [quick start guide](#quick-start-guide-two-common-use-cases) outlining flows for some common use cases.
 
-To use our API, you'll need to [register a draft app](#registering-an-app) to your SurveyMonkey account. You have a 90-day window to develop in a draft app, after which you'll need to [deploy](#deploying-an-app) publicly or privately. Public apps are available to anyone with a SurveyMonkey account and published in our [App Directory](https://www.surveymonkey.com/integrations/). If you're building an app for yourself or your organization, you can deploy a Private app. 
+To use our API, you'll need to [register a draft app](#registering-an-app) to your SurveyMonkey account. You have a 90-day window to develop in a draft app, after which you'll need to [deploy](#deploying-an-app) publicly or privately. Public apps are available to anyone with a SurveyMonkey account and published in our [App Directory](https://www.surveymonkey.com/integrations/). If you're building an app for yourself or your organization, you can deploy a Private app.
 
 ###Public Apps
 
 Public apps extend features to SurveyMonkey users. All apps must be reviewed and approved by SurveyMonkey and adhere to our [terms of use](https://developer.surveymonkey.com/tou/) before they can be published in our [App Directory](https://www.surveymonkey.com/integrations/).
 
-Public apps use [scopes](#scopes) to request permissions from app users during OAuth. Some [scopes](#scopes) require your app's users to have a paid SurveyMonkey plan. 
+Public apps use [scopes](#scopes) to request permissions from app users during OAuth. Some [scopes](#scopes) require your app's users to have a paid SurveyMonkey plan.
 
 Public apps published in our [App Directory](https://www.surveymonkey.com/integrations/) can make unlimited requests to our API. When a Public app is in draft (during development), it's subject to [draft request limits](##request-and-response-limits).
 
 ###Private Apps
 
-Private apps don't need to be reviewed by SurveyMonkey. Only logged-in users of the SurveyMonkey team the app is registered to can see the app in the [App Directory](https://www.surveymonkey.com/integrations/). Private apps are subject to our [terms of use](https://developer.surveymonkey.com/tou/). Private apps have [API request limits](#request-and-response-limits) and [higher limits are available for purchase](#increasing-limits). 
+Private apps don't need to be reviewed by SurveyMonkey. Only logged-in users of the SurveyMonkey team the app is registered to can see the app in the [App Directory](https://www.surveymonkey.com/integrations/). Private apps are subject to our [terms of use](https://developer.surveymonkey.com/tou/). Private apps have [API request limits](#request-and-response-limits) and [higher limits are available for purchase](#increasing-limits).
 
 All users of a Private app must belong to the same [SurveyMonkey team](https://help.surveymonkey.com/articles/en_US/kb/Groups) and have a [paid SurveyMonkey plan that offers direct API access](https://www.surveymonkey.com/pricing/details/?ut_source=dev_portal&amp;ut_source2=docs).
 
@@ -32,7 +32,7 @@ To register an app:
 
 ###Scopes
 
-Scopes allow Public apps to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your app to create a survey in a user's account. During the OAuth process, a user is asked to grant permission to scopes your app is requesting access to. 
+Scopes allow Public apps to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your app to create a survey in a user's account. During the OAuth process, a user is asked to grant permission to scopes your app is requesting access to.
 
 Some scopes require your app's users to have SurveyMonkey paid plans. If your Public app uses scopes tied to paid plans, any accounts attempting to authenticate without the necessary plan will be asked to upgrade to proceed. Our request [headers](#headers) include the scopes available to users' plan, as well as those they've granted your app permission to.
 
@@ -55,7 +55,7 @@ Two scopes, **Create/Modify Responses** and **Create/Modify Surveys**, require S
 |View Webhooks|View webhooks to receive notifications when there are changes in your account|webhooks_read|No|
 |Create/Modify Webhooks|Create and edit webhooks to receive notifications when there are changes in your account|webhooks_write|No|
 |View Users|View your user information|users_read|No|
-|View Groups|View teams you belong to|groups_read|Yes|
+|View Teams|View teams you belong to|groups_read|Yes|
 |View Library Assets|View your library of survey themes and templates|library_read|No|
 
 ###Deploying an App
@@ -64,7 +64,7 @@ Before the 90-day draft period ends, you must deploy your app or it'll be disabl
 
 To deploy your app:
 
- 1. Visit your app's settings in the [developer portal](https://developer.surveymonkey.com/apps/) and select either **Public** or **Private**. 
+ 1. Visit your app's settings in the [developer portal](https://developer.surveymonkey.com/apps/) and select either **Public** or **Private**.
  2. If necessary, [upgrade your SurveyMonkey account](https://www.surveymonkey.com/pricing/details/?ut_source=dev_portal&amp;ut_source2=docs) to a plan offering direct API access.
 
 ##Request and Response Limits
@@ -106,7 +106,7 @@ If your app has required [scopes](#scopes), users will need to approve all of th
 
 ####Step 1: Direct user to SurveyMonkey's OAuth authorization page
 
-Your app should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.net. The page presented to the user will identify your app, ask them to log into SurveyMonkey if they aren't already, and ask them to authorize any required [scopes](#scope). 
+Your app should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.net. The page presented to the user will identify your app, ask them to log into SurveyMonkey if they aren't already, and ask them to authorize any required [scopes](#scope).
 
 The OAuth link should be `https://api.surveymonkey.net/oauth/authorize` with urlencoded parameters: `redirect_uri`, `client_id`, and `response_type`.
 
