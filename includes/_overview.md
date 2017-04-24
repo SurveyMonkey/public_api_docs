@@ -69,7 +69,7 @@ To deploy your app:
 
 ##Request and Response Limits
 
-Draft and Private apps are subject rate limits:
+Draft and Private apps are subject to rate limits:
 
 | Max Requests Per Minute | Max Requests Per Day
 | ------- | -------
