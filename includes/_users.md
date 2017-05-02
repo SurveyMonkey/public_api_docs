@@ -43,15 +43,42 @@ s.get(url)
 
 ```json
 {
-  "id": "123",
-  "username": "test-user",
-  "first_name": "John",
-  "last_name": "Doe",
-  "language": "en",
-  "email": "test@surveymonkey.com",
+  "username": "testuser",
+  "scopes": {
+    "available": [
+      "users_read",
+      "surveys_read",
+      "collectors_read",
+      "collectors_write",
+      "contacts_read",
+      "contacts_write",
+      "surveys_write",
+      "responses_read",
+      "responses_read_detail",
+      "responses_write",
+      "groups_read",
+      "webhooks_read",
+      "webhooks_write",
+      "library_read"
+    ],
+    "granted": [
+      "collectors_read",
+      "contacts_write",
+      "contacts_read",
+      "surveys_read",
+      "collectors_write",
+      "users_read"
+    ]
+  },
+  "first_name": "Test",
+  "last_name": "User",
   "account_type": "enterprise_platinum",
-  "date_created": "2015-10-06T12:56:55+00:00",
-  "date_last_login": "2015-10-06T12:560000:55+00:00"
+  "language": "en",
+  "email": "user@surveymonkey.com",
+  "href": "https://api.surveymonkey.net/v3/users/me",
+  "date_last_login": "2017-04-28T03:49:24.333000+00:00",
+  "date_created": "2015-12-03T01:23:00+00:00",
+  "id": "1234"
 }
 ```
 
@@ -66,3 +93,4 @@ email | Email address for user's account | String
 account_type | [SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) the user has:    `basic`, `pro`, `unlimited`, `select_monthly`, `gold`, `platinum`, `select_yearly`, `temp_pro`, `pro_comp`, `zoom_pro`, `zoom_premium`, `enterprise_gold`, `enterprise_platinum` | String-ENUM
 date_created | Date user's account was created | Date String
 date_last_login | Date user last logged in | Date String in format YYYY-MM-DDTHH:MM:SS0000+HH:MM
+scopes| Contains two arrays: `scopes`, listing the [scopes](#scopes) available to the user and `granted`, listing the [scopes](#scopes) the user has approved during Oauth | Object

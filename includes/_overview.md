@@ -89,7 +89,7 @@ We also have global response limits for database utilization fair use.
 
 Property | Limit
 ------- | -------
-Max Page Size | 1000, unless otherwise specified
+Max Page Size | 1000 resources, unless otherwise specified
 Max Survey Size | 1000 questions, surveys over limit will return a 413
 
 ##Authentication
