@@ -93,4 +93,4 @@ email | Email address for user's account | String
 account_type | [SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) the user has:    `basic`, `pro`, `unlimited`, `select_monthly`, `gold`, `platinum`, `select_yearly`, `temp_pro`, `pro_comp`, `zoom_pro`, `zoom_premium`, `enterprise_gold`, `enterprise_platinum` | String-ENUM
 date_created | Date user's account was created | Date String
 date_last_login | Date user last logged in | Date String in format YYYY-MM-DDTHH:MM:SS0000+HH:MM
-scopes| Contains two arrays: `scopes`, listing the [scopes](#scopes) available to the user and `granted`, listing the [scopes](#scopes) the user has approved during Oauth | Object
+scopes | Contains two arrays: `available`, listing the [scopes](#scopes) available to the user and `granted`, listing the [scopes](#scopes) the user has approved during Oauth | Object
