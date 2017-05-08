@@ -26,7 +26,7 @@ Anyone with a SurveyMonkey account can register an app. Registering creates a dr
 
 ###Scopes
 
-Scopes allow Public apps to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your app to create a survey in a user's account. During the OAuth process, a user is asked to grant permission to scopes your app is requesting access to.
+Scopes allow apps to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your app to create a survey in a user's account. During the OAuth process, a user is asked to grant permission to scopes your app is requesting access to.
 
 Some scopes require your app's users to have SurveyMonkey paid plans. If your Public app uses scopes tied to paid plans, any accounts attempting to authenticate without the necessary plan will be asked to upgrade to proceed. Our request [headers](#headers) include the scopes available to users' plan, as well as those they've granted your app permission to.
 
