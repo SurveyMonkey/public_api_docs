@@ -24,12 +24,6 @@ All users of a Private app must belong to the same [SurveyMonkey team](https://h
 
 Anyone with a SurveyMonkey account can register an app. Registering creates a draft app with an access token you can use to query against your account for 90 days.  No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must deploy your app as either Public or Private and upgrade your account as needed.
 
-To register an app:
-
-1. Go to [**MY APPS**](https://developer.surveymonkey.com/apps/) and sign into your SurveyMonkey account.
-1. Click **+ Add New App**. Enter your **App Name** and click **Create App**. Under **App Details** you'll find your client id to use for OAuth, as well as an access token for your own SurveyMonkey account. New apps are given a 90-day draft state during which you can use paid scopes for free.
-1. Click **Settings** to edit your app's **Redirect URI**. If you're developing a public app, review and adjust [scopes](#scopes). Click on a scope to toggle its requirements. Click **Update Scopes** when finished.
-
 ###Scopes
 
 Scopes allow Public apps to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your app to create a survey in a user's account. During the OAuth process, a user is asked to grant permission to scopes your app is requesting access to.
@@ -61,11 +55,6 @@ Two scopes, **Create/Modify Responses** and **Create/Modify Surveys**, require S
 ###Deploying an App
 
 Before the 90-day draft period ends, you must deploy your app or it'll be disabled. If your app is disabled, you must deploy it or contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to request an extension.
-
-To deploy your app:
-
- 1. Visit your app's settings in the [developer portal](https://developer.surveymonkey.com/apps/) and select either **Public** or **Private**.
- 2. If necessary, [upgrade your SurveyMonkey account](https://www.surveymonkey.com/pricing/details/?ut_source=dev_portal&amp;ut_source2=docs) to a plan offering direct API access.
 
 ##Request and Response Limits
 
