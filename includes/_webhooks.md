@@ -197,9 +197,12 @@ digestmod=hashlib.sha1)
 signature_digest = signature.digest()
  
 return base64.b64encode(signature_digest)
- 
+
 # Compare the signature generated from the request body against the one in the request headers
+# Where "request" is the HTTP request received for the event, attributes to access body/headers may vary by framework
 hmac.compare_digest(generate_signature(request.body, api_key, api_secret), request.headers['Sm-Signature'])
+
+
 ```
 
 >Example Collector Event Data
