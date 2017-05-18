@@ -38,7 +38,7 @@ Two scopes, **Create/Modify Responses** and **Create/Modify Surveys**, require S
 |Scope Label|Scope Description (text shown during OAuth, "you" refers to owner of authenticating account)|Scope Name|Requires Paid SurveyMonkey Account?|
 |----------|---------------------------------------|------------|---|
 |View Surveys|View your surveys and those shared with you|surveys_read|No|
-|Create/Modify Surveys|Create or edit surveys in your account|surveys_write|Yes|
+|Create/Modify Surveys|Create or edit surveys in your account|surveys_write|No|
 |View Collectors|View collectors for your surveys and those shared with you|collectors_read|No|
 |Create/Modify Collectors|Create or edit collectors for surveys in your account|collectors_write|No|
 |View Contacts|View your contacts and contact lists|contacts_read|No|
