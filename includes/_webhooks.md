@@ -158,7 +158,52 @@ object_ids | Object ids to filter events by (for example, survey ids to listen f
 subscription_url | Subscription url that callback events are sent to | String
 href | Resource API URL | String
 
-###Webhook Event Data
+###Webhook Callbacks
+
+Our webhook callbacks include the following request headers that can be used to verify the request is coming from SurveyMonkey:
+
+ * Sm-Apikey: Your Client ID or API key (if you're using [OLD Authentication](#old-authentication))
+ * Sm-Signature: # HMAC digest hashed with sha1 
+
+>Verifying the request
+
+```python 
+
+import hashlib
+import hmac
+import base64
+ 
+def generate_signature(payload, api_key, api_secret):
+
+"""
+:type payload: str The response body from the webhook exactly as you received it
+:type api_key: str Your API Key for you app (if you have one) otherwise your Client ID
+:type api_secret: str Your API Secret for your app
+:return: str
+"""
+ 
+# ensure all strings passed in are ascii strings,
+# as hmac does not work on unicode
+
+api_key = api_key.encode("ascii")
+api_secret = api_secret.encode("ascii")
+payload = payload.encode("ascii")
+ 
+signature = hmac.new(
+key='%s&%s' % (api_key, api_secret),
+msg=payload,
+digestmod=hashlib.sha1)
+ 
+signature_digest = signature.digest()
+ 
+return base64.b64encode(signature_digest)
+
+# Compare the signature generated from the request body against the one in the request headers
+# Where "request" is the HTTP request received for the event, attributes to access body/headers may vary by framework
+hmac.compare_digest(generate_signature(request.body, api_key, api_secret), request.headers['Sm-Signature'])
+
+
+```
 
 >Example Collector Event Data
 
@@ -201,6 +246,8 @@ href | Resource API URL | String
 }
 ```
 
+####Callback Event
+
 Name | Description | Data Type
 ----- | ----- | -----
 name | Webhook name | String
@@ -212,3 +259,8 @@ object_type | Type of object that event occured for | String
 object_id | id of object that event occured for | String
 event_datetime | ISO 8601 string of date/time that the event occured | String
 resources |Ids associated with th event. Depending on the webhook configuration can include: `respondent_id`, `recipient_id`, `collector_id`, `survey_id`, and `user_id`|Object
+
+
+
+ 
+
