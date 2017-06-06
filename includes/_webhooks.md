@@ -94,6 +94,7 @@ event_type | Yes | Event type that the webhook listens to: `response_completed`,
 object_type | Yes | Object type to filter events by: `survey` or `collector`. NOTE: Setting `object_type` to `collector` and `event_type` to `collector_created` will result in a 400 error.| String-ENUM
 object_ids | Yes | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event) | Array
 subscription_url | Yes. Url must accept a HEAD request and return a 200.  | Subscription url that events are sent to | String
+authorization | No | Authorization header to pass when events are sent | String
 
 
 ###/webhooks/{id}
@@ -156,6 +157,7 @@ event_type | Event type that the webhook listens to: `response_completed`, `resp
 object_type | Object type to filter events by: `survey` or `collector` | String-ENUM
 object_ids | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event) | Array
 subscription_url | Subscription url that callback events are sent to | String
+authorization | Authorization header to pass when events are sent | String
 href | Resource API URL | String
 
 ###Webhook Callbacks
@@ -163,16 +165,16 @@ href | Resource API URL | String
 Our webhook callbacks include the following request headers that can be used to verify the request is coming from SurveyMonkey:
 
  * Sm-Apikey: Your Client ID or API key (if you're using [OLD Authentication](#old-authentication))
- * Sm-Signature: # HMAC digest hashed with sha1 
+ * Sm-Signature: # HMAC digest hashed with sha1
 
 >Verifying the request
 
-```python 
+```python
 
 import hashlib
 import hmac
 import base64
- 
+
 def generate_signature(payload, api_key, api_secret):
 
 """
@@ -181,21 +183,21 @@ def generate_signature(payload, api_key, api_secret):
 :type api_secret: str Your API Secret for your app
 :return: str
 """
- 
+
 # ensure all strings passed in are ascii strings,
 # as hmac does not work on unicode
 
 api_key = api_key.encode("ascii")
 api_secret = api_secret.encode("ascii")
 payload = payload.encode("ascii")
- 
+
 signature = hmac.new(
 key='%s&%s' % (api_key, api_secret),
 msg=payload,
 digestmod=hashlib.sha1)
- 
+
 signature_digest = signature.digest()
- 
+
 return base64.b64encode(signature_digest)
 
 # Compare the signature generated from the request body against the one in the request headers
@@ -262,5 +264,5 @@ resources |Ids associated with th event. Depending on the webhook configuration 
 
 
 
- 
+
 
