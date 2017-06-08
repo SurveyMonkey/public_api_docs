@@ -1,6 +1,6 @@
 ##Webhooks
 
-Create webhooks that subscribe to various events in SurveyMonkey. You can create a webhook to callback when:
+Create webhooks that subscribe to various events in SurveyMonkey. You can create a webhook to POST a callback when:
 
 
  * A survey response is completed ('response_completed')
@@ -162,7 +162,7 @@ href | Resource API URL | String
 
 ###Webhook Callbacks
 
-Our webhook callbacks include the following request headers that can be used to verify the request is coming from SurveyMonkey:
+Our webhook callbacks are sent as POST requests and include the following request headers that can be used to verify the request is coming from SurveyMonkey:
 
  * Sm-Apikey: Your Client ID or API key (if you're using [OLD Authentication](#old-authentication))
  * Sm-Signature: # HMAC digest hashed with sha1
