@@ -108,7 +108,6 @@ headings[\_].random_assignment.percent | Yes |Percent chance of this random assi
 headings[\_].random_assignment.position | No |Position of the random_assignment in survey creation page | Integer
 headings[\_].random\_assignment.variable\_name | No |Internal use name for question tracking, can be `""` | String
 position | No (default=last) | Position of question on page | Integer
-visible | No default=True) | Whether the question is visible (corresponds with being deleted in the UI) | Boolean
 family | Yes | Question family determines the type of question, see [formatting question types](#formatting-question-types) | String
 subtype | Yes | Question family's subtype further specifies the type of question, see [formatting question types](#formatting-question-types)  | String
 sorting | No | Sorting details of answers | Object
