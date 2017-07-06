@@ -431,7 +431,7 @@ s.get(url, params=payload)
     "id": "49",
     "num_questions":10,
     "description":"Template description",
-    "preview_link":"https://www.surveymonkey.com/s.aspx?PREVIEW_MODE=DO_NOT_USE_THIS_LINK_FOR_COLLECTION&sm=ID"
+    "preview_link":"https://www.surveymonkey.com/r/Preview/?sm=ID"
   }],
   "links": {
     "self": "https://api.surveymonkey.net/v3/survey_templates?page=1&per_page=1"

@@ -519,7 +519,7 @@ s.post(url, json=payload)
       "6": "Phone Number"
     },
     "id": "1234",
-    "remove_link": "https://www.surveymonkey.com/optout.aspx?sm=1234",
+    "remove_link": "https://www.surveymonkey.com/optout?sm=1234",
     "extra_fields": {
         "favorite_color": "Red",
         "second_favorite_color": "Black",
@@ -793,7 +793,7 @@ s.get(url)
       "6": "Phone Number"
     },
     "id": "1234",
-    "remove_link": "https://www.surveymonkey.com/optout.aspx?sm=1234",
+    "remove_link": "https://www.surveymonkey.com/optout?sm=1234",
     "extra_fields": {
         "favorite_color": "Red",
         "second_favorite_color": "Black",
