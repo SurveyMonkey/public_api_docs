@@ -745,7 +745,7 @@ Name | Description | Data Type
 rows[\_].text (required) | Label for date/time input box | String
 rows[\_].position (optional) | Position of date/time input box | Integer
 
-####Presentation
+####Presentation 
 
 >Presentation
 
@@ -761,7 +761,7 @@ rows[\_].position (optional) | Position of date/time input box | Integer
     ],
     "position": 1,
     "family": "presentation",
-    "subtype": "descriptive_text"
+    "subtype": "image"
 }
 ```
 ![Presentation](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/presentation.png)
