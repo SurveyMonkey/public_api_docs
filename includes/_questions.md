@@ -755,7 +755,7 @@ rows[\_].position (optional) | Position of date/time input box | Integer
         {
             "heading": "This is a monkey",
             "image": {
-                "image_url": "http://surveymonkey.com/monkey.jpg"
+                "url": "http://surveymonkey.com/monkey.jpg"
             }
         }
     ],
