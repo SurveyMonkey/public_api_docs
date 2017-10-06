@@ -836,7 +836,7 @@ GET https://api.surveymonkey.net/v3/collectors/{id}/messages/{id}/stats
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/{1234/stats
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/1234/stats
 ```
 
 ```python
