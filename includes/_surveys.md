@@ -89,7 +89,7 @@ include | Use to filter survey list: `shared_with`, `shared_by`, or `owned` (use
 title | Search survey list by survey title | String
 start_modified_at | Surveys must be last modified after this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
 end_modified_at | Surveys must be last modified before this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
-folder_id| Specify the id of a folder to only return surveys in it. | String 
+folder_id| Specify the id of a folder to only return surveys in it. | String
 
 ####Survey List Resource
 
@@ -122,7 +122,7 @@ buttons_text.exit_button | No | Button text. If set to an empty string, button w
 buttons_text.done_button | No | Button text | String
 custom_variables | No | Dictionary of survey variables | Object
 footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
-folder_id| No | If specified, adds the survey to the folder with that id. | String 
+folder_id| No | If specified, adds the survey to the folder with that id. | String
 
 ####Request Body Arguments for Bulk POST
 
@@ -223,7 +223,7 @@ buttons_text.exit_button | No | Button text. If set to an empty string, button w
 buttons_text.done_button | No | Button text | String
 custom_variables | No | Dictionary of survey variables | Object
 footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
-folder_id| No |If specified, adds the survey to the folder with that id.|String 
+folder_id| No |If specified, adds the survey to the folder with that id.|String
 
 ####Survey Resource
 
@@ -475,6 +475,72 @@ data[\_].category | Template category | String
 data[\_].available | Template is available to user | Boolean
 data[\_].num_questions | Number of questions in the template | Integer
 data[\_].preview_link | Template preview URL | String
+
+
+###/survey_languages
+
+>Definition
+
+```
+GET https://api.surveymonkey.net/v3/survey_languages
+```
+>Example Request
+
+```shell
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/survey_languages
+```
+
+```python
+import requests
+
+s = requests.Session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
+
+url = "https://api.surveymonkey.net/v3/survey_languages"
+s.get(url)
+```
+
+>Example Response
+
+```json
+{
+  "page": 1,
+  "per_page": 1,
+  "total": 1,
+  "data": [{
+    "name": "English",
+    "native_name": "English",
+    "id": "en"
+  }],
+  "links": {
+    "self": "https://api.surveymonkey.net/v3/survey_languages?page=1&per_page=1"
+  }
+}
+```
+
+####Available Methods
+
+ * `HEAD`: Checks if resource is available
+ * `OPTIONS`: Returns available methods and options
+ * `GET`: Returns a list of survey languages that can be used to generate [translations for multilingual surveys](#translations-for-multilingual-surveys)
+
+####Optional Query Strings for GET
+
+Name | Description | Data Type
+------ | ------- | -------
+page  | Which page of resources to return. Defaults to 1 | Integer
+per_page  | Number of resources to return per page | Integer
+
+####Survey Languages Resource
+
+Name | Description | Data Type
+------ | ------- | -------
+data[\_].id | Language code | String
+data[\_].name | Name of language | String
+data[\_].native_name | Name of language in native language | String
 
 
 ###/surveys/{id}/pages
