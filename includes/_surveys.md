@@ -61,6 +61,7 @@ s.post(url, json=payload)
     "name": "label"
   },
   "footer": true,
+  "folder_id":"1234",
   "preview": "https://www.surveymonkey.com/r/Preview/",
   "edit_url": "https://www.surveymonkey.com/create/",
   "collect_url": "https://www.surveymonkey.com/collect/list",
@@ -88,6 +89,7 @@ include | Use to filter survey list: `shared_with`, `shared_by`, or `owned` (use
 title | Search survey list by survey title | String
 start_modified_at | Surveys must be last modified after this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
 end_modified_at | Surveys must be last modified before this date. | Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
+folder_id| Specify the id of a folder to only return surveys in it. | String 
 
 ####Survey List Resource
 
@@ -120,6 +122,7 @@ buttons_text.exit_button | No | Button text. If set to an empty string, button w
 buttons_text.done_button | No | Button text | String
 custom_variables | No | Dictionary of survey variables | Object
 footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
+folder_id| No | If specified, adds the survey to the folder with that id. | String 
 
 ####Request Body Arguments for Bulk POST
 
@@ -188,6 +191,7 @@ s.get(url)
     "name": "label"
   },
   "footer": true,
+  "folder_id": "1234",
   "preview": "https://www.surveymonkey.com/r/Preview/",
   "edit_url": "https://www.surveymonkey.com/create/",
   "collect_url": "https://www.surveymonkey.com/collect/list",
@@ -219,6 +223,7 @@ buttons_text.exit_button | No | Button text. If set to an empty string, button w
 buttons_text.done_button | No | Button text | String
 custom_variables | No | Dictionary of survey variables | Object
 footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
+folder_id| No |If specified, adds the survey to the folder with that id.|String 
 
 ####Survey Resource
 
@@ -228,7 +233,7 @@ id | Survey id | String
 title | Survey title | String
 nickname | Survey nickname | String
 custom_variables | Dictionary of survey variables | Object
-category| Survey category chosen when creating the survey | String
+category | Survey category chosen when creating the survey | String
 language | ISO 639-1 code for survey language | String-ENUM
 question_count | Number of questions in survey | Integer
 page_count | Number of pages in survey | Integer
@@ -239,6 +244,7 @@ buttons_text.prev_button | Button text | String
 buttons_text.exit_button | Button text | String
 buttons_text.done_button | Button text | String
 preview | Survey preview URL | String
+folder_id | If applicable, the id of the folder the survey is in | String
 edit_url | Survey edit URL | String
 collect_url | Survey collect URL | String
 analyze_url | Survey analyze URL | String
@@ -290,6 +296,7 @@ s.get(url)
   "date_created": "2015-10-06T12:56:55+00:00",
   "date_modified": "2015-10-06T12:56:55+00:00",
   "id": "1234",
+  "folder_id":"1234",
   "pages":[
     {
       //Page Object

@@ -455,3 +455,23 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Endpoints Affected**: [/collectors/{id}/messages/{id}/stats](#collectors-id-messages-id-stats), [/collectors/{id}/stats](#collectors-id-stats)
 
 **Developer Actions Required**: None
+
+###August 11th, 2017
+
+####Support folders in API 
+
+**Description of changes**: Added two new endpoints [/survey_folders](#survey_folders) and [/survey_folders/{id}](#survey_folders-id) and added `folder_id` to the [/surveys](#surveys) resource. 
+
+**Endpoints Affected**: [/survey_folders](#survey_folders), [/survey_folders/{id}](#survey_folders-id), [/surveys](#surveys), [/surveys/{id}](#surveys-id), and [/surveys/{id}/details](#surveys-id-details). 
+
+**Developer Actions Required**: None
+
+###September 6th, 2017
+
+####Support Multilingual Surveys in API
+
+**Description of changes**: Added three new endpoints to support [multilingual surveys](https://help.surveymonkey.com/articles/en_US/kb/Multilingual-Surveys): [/survey_languages](#survey_languages), [/surveys/{survey_id}/languages](#surveys-survey_id-languages), and [/surveys/{survey_id}/languages/{language_code}](#surveys-survey_id-languages-language_code). 
+
+**Endpoints Affected**: [/survey_languages](#survey_languages), [/surveys/{survey_id}/languages](#surveys-survey_id-languages), and [/surveys/{survey_id}/languages/{language_code}](#surveys-survey_id-languages-language_code).
+
+**Developer Actions Required**: None
