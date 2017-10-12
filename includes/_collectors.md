@@ -467,7 +467,7 @@ s.post(url, json=payload)
 >Example Request (without contact_id)
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/1234/recipients-d '{"email":"test@surveymonkey.com"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/1234/recipients -d '{"email":"test@surveymonkey.com"}'
 ```
 
 ```python
