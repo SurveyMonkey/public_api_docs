@@ -201,7 +201,7 @@ url | If collector is a Web Collector (type 'weblink') then the url for the coll
 date_created | Date collector was created | Date string
 password_enabled | True if the collector is password protected | Boolean
 sender_email | Sender email for email collectors. User's email is used if null | String
-redirect_type | No | Determines [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior: `url` (redirects to URL set in `redirect_url` or if none is set, shows standard SurveyMonkey thank you page), `close` (closes the survey window or tab), or `loop` (loops the survey back to the beginning, only available for `weblink` collectors with `allow_multiple_responses`:true)| String-ENUM
+redirect_type | Determines [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior: `url` (redirects to URL set in `redirect_url` or if none is set, shows standard SurveyMonkey thank you page), `close` (closes the survey window or tab), or `loop` (loops the survey back to the beginning, only available for `weblink` collectors with `allow_multiple_responses`:true)| String-ENUM
 href | Resource API URL | String
 
 
