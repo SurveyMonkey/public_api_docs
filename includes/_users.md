@@ -1,6 +1,6 @@
 ##Users and Teams
 
-Use these endpoints to get user's account information, any [teams](http://help.surveymonkey.com/articles/en_US/kb/Groups) a user belongs to, the account information for the team's owner, and other members including their roles and whether or not they have accepted an invite into the team (are `active`). 
+Use these endpoints to get user's account information, any [teams](http://help.surveymonkey.com/articles/en_US/kb/Groups) a user belongs to, the account information for the team's owner, and other members including their roles and whether or not they have accepted an invite into the team (are `active`).
 
 <aside class="notice">While our API uses the term group, SurveyMonkey's UI uses teams. These two terms refer to the same concept. Learn more about [teams in our Help Center](http://help.surveymonkey.com/articles/en_US/kb/Groups).</aside>
 
@@ -9,13 +9,13 @@ Use these endpoints to get user's account information, any [teams](http://help.s
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/users/me
+GET https://api.surveymonkey.com/v3/users/me
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/users/me
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/users/me
 ```
 
 ```python
@@ -27,7 +27,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/users/me" 
+url = "https://api.surveymonkey.com/v3/users/me"
 s.get(url)
 ```
 
@@ -75,7 +75,7 @@ s.get(url)
   "account_type": "enterprise_platinum",
   "language": "en",
   "email": "user@surveymonkey.com",
-  "href": "https://api.surveymonkey.net/v3/users/me",
+  "href": "https://api.surveymonkey.com/v3/users/me",
   "date_last_login": "2017-04-28T03:49:24.333000+00:00",
   "date_created": "2015-12-03T01:23:00+00:00",
   "id": "1234"
@@ -90,7 +90,7 @@ first_name | User's first name | String
 last_name | User's last name | String
 language | ISO 639-1 code for the language set for the user's account | String-ENUM
 email | Email address for user's account | String
-account_type | [SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) the user has:    `basic`, `pro`, `unlimited`, `select_monthly`, `gold`, `platinum`, `select_yearly`, `temp_pro`, `pro_comp`, `zoom_pro`, `zoom_premium`, `enterprise_gold`, `enterprise_platinum` | String-ENUM
+account_type | [SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) the user has | String-ENUM
 date_created | Date user's account was created | Date String
 date_last_login | Date user last logged in | Date String in format YYYY-MM-DDTHH:MM:SS0000+HH:MM
 scopes | Contains two arrays: `available`, listing the [scopes](#scopes) available to the user and `granted`, listing the [scopes](#scopes) the user has approved during Oauth | Object

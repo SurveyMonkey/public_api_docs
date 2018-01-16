@@ -12,14 +12,14 @@ A survey needs at least one page and question in order to record a survey [respo
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/surveys
+POST https://api.surveymonkey.com/v3/surveys
 ```
 
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys -d '{"title":"My Survey"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys -d '{"title":"My Survey"}'
 ```
 
 ```python
@@ -34,7 +34,7 @@ s.headers.update({
 payload = {
   "title": "My Survey"
 }
-url = "https://api.surveymonkey.net/v3/surveys"
+url = "https://api.surveymonkey.com/v3/surveys"
 s.post(url, json=payload)
 ```
 >Example Response
@@ -146,13 +146,13 @@ footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.survey
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/surveys/{survey_id}
+GET https://api.surveymonkey.com/v3/surveys/{survey_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234
 ```
 
 ```python
@@ -164,7 +164,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s" % (survey_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s" % (survey_id)
 s.get(url)
 ```
 >Example Response
@@ -259,13 +259,13 @@ footer | Whether or not SurveyMonkey's [footer](https://help.surveymonkey.com/ar
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/surveys/{survey_id}/details
+GET https://api.surveymonkey.com/v3/surveys/{survey_id}/details
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234/details
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/details
 ```
 
 ```python
@@ -277,7 +277,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/details" % (survey_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/details" % (survey_id)
 s.get(url)
 ```
 
@@ -332,12 +332,12 @@ s.get(url)
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/survey_categories
+GET https://api.surveymonkey.com/v3/survey_categories
 ```
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/survey_categories
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/survey_categories
 ```
 
 ```python
@@ -349,7 +349,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/survey_categories"
+url = "https://api.surveymonkey.com/v3/survey_categories"
 s.get(url)
 ```
 
@@ -365,7 +365,7 @@ s.get(url)
     "id": "community"
   }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/survey_categories?page=1&per_page=1"
+    "self": "https://api.surveymonkey.com/v3/survey_categories?page=1&per_page=1"
   }
 }
 ```
@@ -398,13 +398,13 @@ data[\_].name | Resource name | String
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/survey_templates
+GET https://api.surveymonkey.com/v3/survey_templates
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/survey_templates?category=all
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/survey_templates?category=all
 ```
 
 ```python
@@ -419,7 +419,7 @@ s.headers.update({
 payload = {
   "category": "community"
 }
-url = "https://api.surveymonkey.net/v3/survey_templates"
+url = "https://api.surveymonkey.com/v3/survey_templates"
 s.get(url, params=payload)
 ```
 
@@ -441,7 +441,7 @@ s.get(url, params=payload)
     "preview_link":"https://www.surveymonkey.com/r/Preview/?sm=ID"
   }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/survey_templates?page=1&per_page=1"
+    "self": "https://api.surveymonkey.com/v3/survey_templates?page=1&per_page=1"
   }
 }
 ```
@@ -482,12 +482,12 @@ data[\_].preview_link | Template preview URL | String
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/survey_languages
+GET https://api.surveymonkey.com/v3/survey_languages
 ```
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/survey_languages
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/survey_languages
 ```
 
 ```python
@@ -499,7 +499,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/survey_languages"
+url = "https://api.surveymonkey.com/v3/survey_languages"
 s.get(url)
 ```
 
@@ -516,7 +516,7 @@ s.get(url)
     "id": "en"
   }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/survey_languages?page=1&per_page=1"
+    "self": "https://api.surveymonkey.com/v3/survey_languages?page=1&per_page=1"
   }
 }
 ```
@@ -548,13 +548,13 @@ data[\_].native_name | Name of language in native language | String
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/surveys/{survey_id}/pages
+POST https://api.surveymonkey.com/v3/surveys/{survey_id}/pages
 ```
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234/pages -d '{"title":"Page Title"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/pages -d '{"title":"Page Title"}'
 ```
 
 ```python
@@ -569,7 +569,7 @@ s.headers.update({
 payload = {
   "title": "Page Title"
 }
-url = "https://api.surveymonkey.net/v3/surveys/%s/pages" % (survey_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/pages" % (survey_id)
 s.post(url, json=payload)
 ```
 
@@ -624,13 +624,13 @@ position | No (default=end) | Position of page in survey | Integer
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}
+GET https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234/pages/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/pages/1234
 ```
 
 ```python
@@ -642,7 +642,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/pages/%s" % (survey_id, page_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/pages/%s" % (survey_id, page_id)
 s.get(url)
 ```
 

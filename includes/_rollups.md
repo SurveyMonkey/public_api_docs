@@ -9,13 +9,13 @@ The following endpoints let you view how many respondents answered a question a 
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/surveys/{id}/rollups
+GET https://api.surveymonkey.com/v3/surveys/{id}/rollups
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234/rollups
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/rollups
 ```
 
 ```python
@@ -27,7 +27,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/rollups" % (survey_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/rollups" % (survey_id)
 s.get(url)
 ```
 >Example Response
@@ -40,7 +40,7 @@ s.get(url)
    "data":[
       {
          "subtype":"essay",
-         "href":"https://api.surveymonkey.net/v3/surveys/1234/pages/1234/questions/1234/rollups",
+         "href":"https://api.surveymonkey.com/v3/surveys/1234/pages/1234/questions/1234/rollups",
          "id":"1234",
          "family":"essay",
          "summary":[
@@ -54,7 +54,7 @@ s.get(url)
       },
       {
          "subtype":"vertical",
-         "href":"https://api.surveymonkey.net/v3/surveys/1234/pages/1234/questions/1234/rollups",
+         "href":"https://api.surveymonkey.com/v3/surveys/1234/pages/1234/questions/1234/rollups",
          "id":"1234",
          "family":"single_choice",
          "summary":[
@@ -81,7 +81,7 @@ s.get(url)
    ],
    "page":1,
    "links":{
-      "self":"https:\/\/api.surveymonkey.net/v3/surveys/1234/rollups?page=1&per_page=50"
+      "self":"https:\/\/api.surveymonkey.com/v3/surveys/1234/rollups?page=1&per_page=50"
    }
 }
 
@@ -99,7 +99,7 @@ s.get(url)
 
 Name | Description | Data Type
 ------ | ------- | -------
-collector_ids|Limits responses to those from specified collector ids|Comma separated strings 
+collector_ids|Limits responses to those from specified collector ids|Comma separated strings
 start_created_at|Limits responses to those created after date specified|Date string
 end_created_at|Limits responses to those created before date specified|Date string
 start_modified_at|Limits responses to those last modified after date specified|Date string in format YYYY-MM-DDTHH:MM:SS (no offset)
@@ -145,13 +145,13 @@ Same as [/surveys/{id}/rollups](#surveys-id-rollups) but returns rollups for onl
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/surveys/{id}/trends
+GET https://api.surveymonkey.com/v3/surveys/{id}/trends
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234/trends
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/trends
 ```
 
 ```python
@@ -163,7 +163,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/trends" % (survey_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/trends" % (survey_id)
 s.get(url)
 ```
 

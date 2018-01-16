@@ -97,9 +97,9 @@ If your app has required [scopes](#scopes), users will need to approve all of th
 
 ####Step 1: Direct user to SurveyMonkey's OAuth authorization page
 
-Your app should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.net. The page presented to the user will identify your app, ask them to log into SurveyMonkey if they aren't already, and ask them to authorize any required [scopes](#scope).
+Your app should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.com. The page presented to the user will identify your app, ask them to log into SurveyMonkey if they aren't already, and ask them to authorize any required [scopes](#scope).
 
-The OAuth link should be `https://api.surveymonkey.net/oauth/authorize` with urlencoded parameters: `redirect_uri`, `client_id`, and `response_type`.
+The OAuth link should be `https://api.surveymonkey.com/oauth/authorize` with urlencoded parameters: `redirect_uri`, `client_id`, and `response_type`.
 
 * `response_type` will always be set to the value `code`
 * `client_id` the unique SurveyMonkey client id you got when registering your app
@@ -108,12 +108,12 @@ The OAuth link should be `https://api.surveymonkey.net/oauth/authorize` with url
 >Example OAuth Link
 
 ```shell
-https://api.surveymonkey.net/oauth/authorize?response_type=code&redirect_uri=https%3A%2F%2Fapi.surveymonkey.com%2Fapi_console%2Foauth2callback&client_id=SurveyMonkeyApiConsole
+https://api.surveymonkey.com/oauth/authorize?response_type=code&redirect_uri=https%3A%2F%2Fapi.surveymonkey.com%2Fapi_console%2Foauth2callback&client_id=SurveyMonkeyApiConsole
 ```
 
 
 ```python
-SM_API_BASE = "https://api.surveymonkey.net"
+SM_API_BASE = "https://api.surveymonkey.com"
 AUTH_CODE_ENDPOINT = "/oauth/authorize"
 
 def oauth_dialog(client_id, redirect_uri):
@@ -156,7 +156,7 @@ def handle_redirect(redirect_uri):
 
 ####Step 3: Exchanging for a long-lived access token
 
-Create a form-encoded HTTP POST request to `https://api.surveymonkey.net/oauth/token` with the following encoded form fields: `client_id`, `client_secret`, `code`, `redirect_uri` and `grant_type`. The grant type must be set to "authorization_code". The `client_secret` can be found [here](https://developer.surveymonkey.com/apps/).
+Create a form-encoded HTTP POST request to `https://api.surveymonkey.com/oauth/token` with the following encoded form fields: `client_id`, `client_secret`, `code`, `redirect_uri` and `grant_type`. The grant type must be set to "authorization_code". The `client_secret` can be found [here](https://developer.surveymonkey.com/apps/).
 
 If successful, the access token will be returned encoded as JSON in the response body of your POST request. The key will be `access_token` and the value can be passed to our API as an HTTP header in the format `Authorization: bearer YOUR_ACCESS_TOKEN`. The value of the header must be "bearer" followed by a single space and then your access token.
 
@@ -164,7 +164,7 @@ If successful, the access token will be returned encoded as JSON in the response
 >Exchange for long-lived token
 
 ```shell
-curl -i -X POST https://api.surveymonkey.net/oauth/token -d \
+curl -i -X POST https://api.surveymonkey.com/oauth/token -d \
 	"client_secret=YOUR_CLIENT_SECRET \
 	&code=AUTH_CODE \
 	&redirect_uri=YOUR_REDIRECT_URI \
@@ -173,7 +173,7 @@ curl -i -X POST https://api.surveymonkey.net/oauth/token -d \
 ```
 
 ```python
-SM_API_BASE = "https://api.surveymonkey.net"
+SM_API_BASE = "https://api.surveymonkey.com"
 ACCESS_TOKEN_ENDPOINT = "/oauth/token"
 
 def exchange_code_for_token(auth_code, client_secret, client_id, redirect_uri):
@@ -202,13 +202,13 @@ def exchange_code_for_token(auth_code, client_secret, client_id, redirect_uri):
 
 All code examples in our documentation assume use of our [NEW Authentication](#NEW-Authentication). If you're using our OLD Authentication, you'll need to pass your API key with each call like so:
 
-`curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/users/me?api_key=YOUR_API_KEY`
+`curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/users/me?api_key=YOUR_API_KEY`
 
 ####Step 1: Direct user to SurveyMonkey's OAuth authorization page
 
-You app should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.net. The page presented to the user will identify the app name you configured when you registered. Users will either be asked to enter their SurveyMonkey user name and password, or, if they're already logged into SurveyMonkey, just an "Authorize" button.
+You app should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.com. The page presented to the user will identify the app name you configured when you registered. Users will either be asked to enter their SurveyMonkey user name and password, or, if they're already logged into SurveyMonkey, just an "Authorize" button.
 
-The OAuth link should be `https://api.surveymonkey.net/oauth/authorize` with urlencoded parameters: `redirect_uri`, `client_id`, `response_type`, and `api_key`.
+The OAuth link should be `https://api.surveymonkey.com/oauth/authorize` with urlencoded parameters: `redirect_uri`, `client_id`, `response_type`, and `api_key`.
 
 * `response_type` will always be set to the value `code`
 * `client_id` your Mashery user name
@@ -217,12 +217,12 @@ The OAuth link should be `https://api.surveymonkey.net/oauth/authorize` with url
 >Example OAuth Link
 
 ```shell
-https://api.surveymonkey.net/oauth/authorize?response_type=code&redirect_uri=https%3A%2F%2Fapi.surveymonkey.com%2Fapi_console%2Foauth2callback&client_id=SurveyMonkeyApiConsole&api_key=u366xz3zv6s9jje5mm3495fk
+https://api.surveymonkey.com/oauth/authorize?response_type=code&redirect_uri=https%3A%2F%2Fapi.surveymonkey.com%2Fapi_console%2Foauth2callback&client_id=SurveyMonkeyApiConsole&api_key=u366xz3zv6s9jje5mm3495fk
 ```
 
 
 ```python
-SM_API_BASE = "https://api.surveymonkey.net"
+SM_API_BASE = "https://api.surveymonkey.com"
 AUTH_CODE_ENDPOINT = "/oauth/authorize"
 
 def oauth_dialog(client_id, redirect_uri, api_key):
@@ -266,7 +266,7 @@ def handle_redirect(redirect_uri):
 
 ####Step 3: Exchanging for a long-lived access token
 
-Create a form-encoded HTTP POST request to `https://api.surveymonkey.net/oauth/token?api_key=YOUR_API_KEY` with the following encoded form fields: `client_secret`, `code`, `redirect_uri` and `grant_type`. The grant type must be set to "authorization_code". The `client_secret` and `api_key` can be found [here](https://developer.surveymonkey.com/apps/).
+Create a form-encoded HTTP POST request to `https://api.surveymonkey.com/oauth/token?api_key=YOUR_API_KEY` with the following encoded form fields: `client_secret`, `code`, `redirect_uri` and `grant_type`. The grant type must be set to "authorization_code". The `client_secret` and `api_key` can be found [here](https://developer.surveymonkey.com/apps/).
 
 If successful, the access token will be returned encoded as JSON in the response body of your POST request. The key will be `access_token` and the value can be passed to our API as an HTTP header in the format `Authorization: bearer YOUR_ACCESS_TOKEN`. The value of the header must be "bearer" followed by a single space and then your access token.
 
@@ -274,7 +274,7 @@ If successful, the access token will be returned encoded as JSON in the response
 >Exchange for long-lived token
 
 ```shell
-curl -i -X POST https://api.surveymonkey.net/oauth/token?api_key=YOUR_API_KEY -d \
+curl -i -X POST https://api.surveymonkey.com/oauth/token?api_key=YOUR_API_KEY -d \
 	"client_secret=YOUR_CLIENT_SECRET \
 	&code=AUTH_CODE \
 	&redirect_uri=YOUR_REDIRECT_URI \
@@ -283,7 +283,7 @@ curl -i -X POST https://api.surveymonkey.net/oauth/token?api_key=YOUR_API_KEY -d
 ```
 
 ```python
-SM_API_BASE = "https://api.surveymonkey.net"
+SM_API_BASE = "https://api.surveymonkey.com"
 ACCESS_TOKEN_ENDPOINT = "/oauth/token"
 
 def exchange_code_for_token(auth_code, api_key, client_secret, client_id, redirect_uri):
@@ -348,7 +348,7 @@ The following example takes you through creating an Email Invitation Collector a
 
 ##Pagination
 
-When requesting list resources, you can set the size of a page by using `per_page=#` and indicate which page to return with `page=#`. So a request to `https://api.surveymonkey.net/v3/surveys?page=2&per_page=5` will return the second page of five surveys.
+When requesting list resources, you can set the size of a page by using `per_page=#` and indicate which page to return with `page=#`. So a request to `https://api.surveymonkey.com/v3/surveys?page=2&per_page=5` will return the second page of five surveys.
 
 Any request to a list resource returns the following pagination fields, if available:
 

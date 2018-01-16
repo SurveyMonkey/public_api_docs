@@ -7,7 +7,7 @@ Folders are used to organize surveys. The following endpoints let you retreive a
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/survey_folders
+POST https://api.surveymonkey.com/v3/survey_folders
 
 ```
 
@@ -15,7 +15,7 @@ POST https://api.surveymonkey.net/v3/survey_folders
 
 ```shell
 
-curl -i -X POST -H "Authorization: bearer YOUR_ACCESS_TOKEN" -H "content-Type":"application/json" https://api.surveymonkey.net/v3/survey_folders -d "{"title":"My Team Folder"}"
+curl -i -X POST -H "Authorization: bearer YOUR_ACCESS_TOKEN" -H "content-Type":"application/json" https://api.surveymonkey.com/v3/survey_folders -d "{"title":"My Team Folder"}"
 
 ```
 
@@ -33,7 +33,7 @@ s.headers.update({
 payload = {
   "title":"My Team's Folder"
 }
-url = "https://api.surveymonkey.net/v3/survey_folders"
+url = "https://api.surveymonkey.com/v3/survey_folders"
 s.post(url, json=payload)
 ```
 
@@ -42,7 +42,7 @@ s.post(url, json=payload)
 ```python
 {
    "title":"My Team Folder",
-   "href":"https:\\api.surveymonkey.net/v3/survey_folders/1605642",
+   "href":"https:\\api.surveymonkey.com/v3/survey_folders/1605642",
    "id":"1605642",
    "num_surveys":0
 }

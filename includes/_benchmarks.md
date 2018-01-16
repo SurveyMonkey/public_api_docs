@@ -10,13 +10,13 @@ Benchmark data comes from SurveyMonkey customers who used [Question Bank](http:/
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/benchmark_bundles
+GET https://api.surveymonkey.com/v3/benchmark_bundles
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/benchmark_bundles
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/benchmark_bundles
 ```
 
 ```python
@@ -28,7 +28,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/benchmark_bundles" 
+url = "https://api.surveymonkey.com/v3/benchmark_bundles"
 s.get(url)
 ```
 
@@ -40,34 +40,34 @@ s.get(url)
   "total": 5,
   "data": [
     {
-      "href": "https://api.surveymonkey.net/v3/benchmark_bundles/nps_education",
+      "href": "https://api.surveymonkey.com/v3/benchmark_bundles/nps_education",
       "id": "nps_education",
       "title": "All Education"
     },
     {
-      "href": "https://api.surveymonkey.net/v3/benchmark_bundles/nps_higher_education",
+      "href": "https://api.surveymonkey.com/v3/benchmark_bundles/nps_higher_education",
       "id": "nps_higher_education",
       "title": "Higher Education"
     },
     {
-      "href": "https://api.surveymonkey.net/v3/benchmark_bundles/nps_schools",
+      "href": "https://api.surveymonkey.com/v3/benchmark_bundles/nps_schools",
       "id": "nps_schools",
       "title": "K-12 Schools"
     },
     {
-      "href": "https://api.surveymonkey.net/v3/benchmark_bundles/nps_sports_instruction",
+      "href": "https://api.surveymonkey.com/v3/benchmark_bundles/nps_sports_instruction",
       "id": "nps_sports_instruction",
       "title": "Sports Instruction"
     },
     {
-      "href": "https://api.surveymonkey.net/v3/benchmark_bundles/nps_health_human_services",
+      "href": "https://api.surveymonkey.com/v3/benchmark_bundles/nps_health_human_services",
       "id": "nps_health_human_services",
       "title": "Health and Human Services"
     }
   ],
   "page": 1,
   "links": {
-    "self": "https://api.surveymonkey.net/v3/benchmark_bundles?page=1&per_page=5"
+    "self": "https://api.surveymonkey.com/v3/benchmark_bundles?page=1&per_page=5"
   }
 }
 ```
@@ -99,13 +99,13 @@ data[\_].href |  Benchmark Bundle resource link| String
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/benchmark_bundles/{bundle_id}
+GET https://api.surveymonkey.com/v3/benchmark_bundles/{bundle_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/benchmark_bundles/test_bundle
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/benchmark_bundles/test_bundle
 ```
 
 ```python
@@ -117,7 +117,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s" % (bundle_id)
+url = "https://api.surveymonkey.com/v3/benchmark_bundles/%s" % (bundle_id)
 s.get(url)
 ```
 
@@ -185,13 +185,13 @@ href | Resource API URL | String
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/benchmark_bundles/{bundle_id}/analyze
+GET https://api.surveymonkey.com/v3/benchmark_bundles/{bundle_id}/analyze
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" 'https://api.surveymonkey.net/v3/benchmark_bundles/test_bundle/analyze?question_ids=25651,25652'
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" 'https://api.surveymonkey.com/v3/benchmark_bundles/test_bundle/analyze?question_ids=25651,25652'
 
 ```
 
@@ -209,7 +209,7 @@ payload = {
   "percentile_start": 1,
   "percentile_end": 100
 }
-url = "https://api.surveymonkey.net/v3/benchmark_bundles/%s/analyze" % (bundle_id)
+url = "https://api.surveymonkey.com/v3/benchmark_bundles/%s/analyze" % (bundle_id)
 s.get(url, params=payload)
 ```
 
@@ -296,13 +296,13 @@ benchmarks | List of benchmark results for each question in the bundle, with the
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark
+GET https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark
 ```
 
 ```python
@@ -314,7 +314,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark" % (survey_id, page_id, question_id)
+url = "https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark" % (survey_id, page_id, question_id)
 s.get(url)
 ```
 

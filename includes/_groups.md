@@ -3,13 +3,13 @@
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/groups
+GET https://api.surveymonkey.com/v3/groups
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/groups
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/groups
 ```
 
 ```python
@@ -21,7 +21,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/groups
+url = "https://api.surveymonkey.com/v3/groups
 s.get(url)
 ```
 
@@ -38,7 +38,7 @@ s.get(url)
     "href": "http://api.surveymonkey.com/v3/groups/1234"
   }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/groups?page=1&per_page=1"
+    "self": "https://api.surveymonkey.com/v3/groups?page=1&per_page=1"
   }
 }
 ```
@@ -69,13 +69,13 @@ data[\_].href | Resource API URL | String
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/groups/{group_id}
+GET https://api.surveymonkey.com/v3/groups/{group_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/groups/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/groups/1234
 ```
 
 ```python
@@ -87,7 +87,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/groups/%s" % (group_id)
+url = "https://api.surveymonkey.com/v3/groups/%s" % (group_id)
 s.get(url)
 ```
 
@@ -109,7 +109,7 @@ s.get(url)
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a teams's details including the teams's owner and email address. Public App users need access to the **View Teams** [scope](#scopes)
 
-####Group Resource if Account Owner or Admin 
+####Group Resource if Account Owner or Admin
 
 Name | Description | Data Type
 ------ | ------- | -------
@@ -132,13 +132,13 @@ owner_email | Group owner's email address | String
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/groups/{group_id}/members
+GET https://api.surveymonkey.com/v3/groups/{group_id}/members
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/groups/1234/members
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/groups/1234/members
 ```
 
 ```python
@@ -150,7 +150,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/groups/%s/members" % (group_id)
+url = "https://api.surveymonkey.com/v3/groups/%s/members" % (group_id)
 s.get(url)
 ```
 
@@ -167,7 +167,7 @@ s.get(url)
     "href": "http://api.surveymonkey.com/v3/members/1234"
   }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/groups/12345/members?page=1&per_page=1"
+    "self": "https://api.surveymonkey.com/v3/groups/12345/members?page=1&per_page=1"
   }
 }
 ```
@@ -176,7 +176,7 @@ s.get(url)
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a list of users who have been added as members of the specified group. Public App users need access to the **View Teams** [scope](#scopes) 
+ * `GET`: Returns a list of users who have been added as members of the specified group. Public App users need access to the **View Teams** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -199,13 +199,13 @@ data[\_].href | Resource API URL | String
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/groups/{group_id}/members/{member_id}
+GET https://api.surveymonkey.com/v3/groups/{group_id}/members/{member_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/groups/1234/members/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/groups/1234/members/1234
 ```
 
 ```python
@@ -217,7 +217,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/groups/%s/members/%s" % (group_id, member_id)
+url = "https://api.surveymonkey.com/v3/groups/%s/members/%s" % (group_id, member_id)
 s.get(url)
 ```
 

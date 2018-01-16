@@ -390,9 +390,9 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 
 ###November 17th, 2016
 
-####Added 6 new endpoints that extend analyze features 
+####Added 6 new endpoints that extend analyze features
 
-**Description of changes**: Allows those with view response details [scope](#scopes) to call endpoints that return response counts per survey, page, or question and over a given time period. 
+**Description of changes**: Allows those with view response details [scope](#scopes) to call endpoints that return response counts per survey, page, or question and over a given time period.
 
 **Endpoints Affected**: [/surveys/{id}/rollups](#surveys-id-rollups), [/surveys/{id}/pages/{id}/rollups](#surveys-id-pages-id-rollups), [/surveys/{id}/pages/{id}/questions/{id}/rollups](#surveys-id-pages-id-questions-id-rollups), [/surveys/{id}/trends](#surveys-id-trends), [/surveys/{id}/pages/{id}/trends](#surveys-id-pages-id-trends), [/surveys/{id}/pages/{id}/quesions/{id}/trends](#surveys-id-pages-id-quesions-id-trends)
 
@@ -424,7 +424,7 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 
 ####Request Additional Fields when Calling Recipient Lists
 
-**Description of Changes**: When requesting recipient lists you can now include a variety of additional fields per recipient. 
+**Description of Changes**: When requesting recipient lists you can now include a variety of additional fields per recipient.
 
 **Endpoints Affected**: [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients), [/collectors/{id}/recipients](#collectors-id-recipients)
 
@@ -432,13 +432,13 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 
 ####Set Response Limit for Collectors
 
-**Description of Changes**: You can now set or edit a `response_limit` for a collector. The collector will close after the limit is reached. 
+**Description of Changes**: You can now set or edit a `response_limit` for a collector. The collector will close after the limit is reached.
 
 **Endpoints Affected**: [/surveys/{id}/collectors](#surveys-id-collectors), [/collectors/{id}](#collectors-id)
 
 **Developer Actions Required**: None
 
-####Set Survey End Page Behavior 
+####Set Survey End Page Behavior
 
 **Description of Changes**: You can now set a collector `redirect_type` to set the [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior to either close or run in a loop (weblink only).
 
@@ -450,7 +450,7 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 
 ####Add 2 new endpoints that provide email invitation collector stats
 
-**Description of changes**: Allows developers to call endpoints that return mail status and response stats for an email invitation collector or message 
+**Description of changes**: Allows developers to call endpoints that return mail status and response stats for an email invitation collector or message
 
 **Endpoints Affected**: [/collectors/{id}/messages/{id}/stats](#collectors-id-messages-id-stats), [/collectors/{id}/stats](#collectors-id-stats)
 
@@ -458,11 +458,11 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 
 ###August 11th, 2017
 
-####Support folders in API 
+####Support folders in API
 
-**Description of changes**: Added two new endpoints [/survey_folders](#survey_folders) and [/survey_folders/{id}](#survey_folders-id) and added `folder_id` to the [/surveys](#surveys) resource. 
+**Description of changes**: Added two new endpoints [/survey_folders](#survey_folders) and [/survey_folders/{id}](#survey_folders-id) and added `folder_id` to the [/surveys](#surveys) resource.
 
-**Endpoints Affected**: [/survey_folders](#survey_folders), [/survey_folders/{id}](#survey_folders-id), [/surveys](#surveys), [/surveys/{id}](#surveys-id), and [/surveys/{id}/details](#surveys-id-details). 
+**Endpoints Affected**: [/survey_folders](#survey_folders), [/survey_folders/{id}](#survey_folders-id), [/surveys](#surveys), [/surveys/{id}](#surveys-id), and [/surveys/{id}/details](#surveys-id-details).
 
 **Developer Actions Required**: None
 
@@ -470,7 +470,7 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 
 ####Support Multilingual Surveys in API
 
-**Description of changes**: Added three new endpoints to support [multilingual surveys](https://help.surveymonkey.com/articles/en_US/kb/Multilingual-Surveys): [/survey_languages](#survey_languages), [/surveys/{survey_id}/languages](#surveys-survey_id-languages), and [/surveys/{survey_id}/languages/{language_code}](#surveys-survey_id-languages-language_code). 
+**Description of changes**: Added three new endpoints to support [multilingual surveys](https://help.surveymonkey.com/articles/en_US/kb/Multilingual-Surveys): [/survey_languages](#survey_languages), [/surveys/{survey_id}/languages](#surveys-survey_id-languages), and [/surveys/{survey_id}/languages/{language_code}](#surveys-survey_id-languages-language_code).
 
 **Endpoints Affected**: [/survey_languages](#survey_languages), [/surveys/{survey_id}/languages](#surveys-survey_id-languages), and [/surveys/{survey_id}/languages/{language_code}](#surveys-survey_id-languages-language_code).
 

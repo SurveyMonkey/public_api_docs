@@ -9,12 +9,12 @@ Collectors allow you to collect survey responses with a link to your survey. Two
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/surveys/{survey_id}/collectors
+POST https://api.surveymonkey.com/v3/surveys/{survey_id}/collectors
 ```
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/1234/collectors -d '{"type":"weblink"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/collectors -d '{"type":"weblink"}'
 ```
 
 ```python
@@ -29,7 +29,7 @@ s.headers.update({
 payload = {
  "type": "weblink"
 }
-url = "https://api.surveymonkey.net/v3/surveys/%s/collectors" % (survey_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/collectors" % (survey_id)
 s.post(url, json=payload)
 ```
 
@@ -58,7 +58,7 @@ s.post(url, json=payload)
   "sender_email": null,
   "response_limit": null,
   "redirect_type": "url",
-  "href": "https://api.surveymonkey.net/v3/collectors/1234"
+  "href": "https://api.surveymonkey.com/v3/collectors/1234"
 }
 ```
 
@@ -119,13 +119,13 @@ redirect_type | No | Determines [survey end page](https://help.surveymonkey.com/
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/collectors/{collector_id}
+GET https://api.surveymonkey.com/v3/collectors/{collector_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234
 ```
 
 ```python
@@ -137,7 +137,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/collectors/%s" % (collector_id)
+url = "https://api.surveymonkey.com/v3/collectors/%s" % (collector_id)
 s.get(url)
 ```
 
@@ -165,7 +165,7 @@ s.get(url)
   "password_enabled": false,
   "response_limit": 100,
   "redirect_type": "url",
-  "href": "https://api.surveymonkey.net/v3/collectors/1234"
+  "href": "https://api.surveymonkey.com/v3/collectors/1234"
 }
 ```
 
@@ -210,13 +210,13 @@ href | Resource API URL | String
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/collectors/{collector_id}/messages
+POST https://api.surveymonkey.com/v3/collectors/{collector_id}/messages
 ```
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages -d '{"type":"invite"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages -d '{"type":"invite"}'
 ```
 
 ```python
@@ -231,7 +231,7 @@ s.headers.update({
 payload = {
   "type": "invite"
 }
-url = "https://api.surveymonkey.net/v3/collectors/%s/messages" % (collector_id)
+url = "https://api.surveymonkey.com/v3/collectors/%s/messages" % (collector_id)
 s.post(url)
 ```
 
@@ -243,7 +243,7 @@ s.post(url)
    "body":"\n<html>\n\n<body style=\"margin:0; padding: 0;\">\n    <div align=\"center\">\n        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" width=\"100%\" style=\"font-family: Arial,Helvetica,sans-serif; max-width: 700px;\">\n            <tr bgcolor=\"#A7BC38\">\n                <td colspan=\"5\" height=\"40\">\u00a0<\/td> <\/tr>\n            <tr bgcolor=\"#A7BC38\">\n                <td width=\"20\">\u00a0<\/td>\n                <td width=\"20\">\u00a0<\/td>\n                <td align=\"center\" style=\"font-size: 29px; color:#FFFFFF; font-weight: normal; letter-spacing: 1px; line-height: 1;                           text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2); font-family: Arial,Helvetica,sans-serif;\"> Survey Title <\/td>\n                <td width=\"20\">\u00a0<\/td>\n                <td width=\"20\">\u00a0<\/td> <\/tr>\n            <tr bgcolor=\"#A7BC38\">\n                <td colspan=\"5\" height=\"40\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td height=\"10\" colspan=\"5\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td>\u00a0<\/td>\n                <td colspan=\"3\" align=\"left\" valign=\"top\" style=\"color:#666666; font-size: 13px;\"> {% if FirstQuestion %}\n                    <p>{{EmbeddedBody}}<\/p> {% else %}\n                    <p>We're conducting a survey and your input would be appreciated. Click the button below to start the survey. Thank you for your participation!<\/p> {% endif %} <\/td>\n                <td>\u00a0<\/td> <\/tr> {% if FirstQuestion %}\n            <tr>{{FirstQuestion}}<\/tr> {% else %}\n            <tr>\n                <td colspan=\"5\" height=\"30\">\u00a0<\/td> <\/tr>\n            <tr>\n                <td>\u00a0<\/td>\n                <td colspan=\"3\">\n                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" style=\"background:#A7BC38; border-radius: 4px; border: 1px solid #BBBBBB; color:#FFFFFF; font-size:14px; letter-spacing: 1px; text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8); padding: 10px 18px;\">\n                        <tr>\n                            <td align=\"center\" valign=\"center\"> <a href=\"[SurveyLink]\" target=\"_blank\" style=\"color:#FFFFFF; text-decoration:none;\">Begin Survey<\/a> <\/td> <\/tr> <\/table> <\/td>\n                <td>\u00a0<\/td> <\/tr>\n            <tr>\n                <td colspan=\"5\" height=\"30\">\u00a0<\/td> <\/tr> {% endif %}\n            <tr valign=\"top\" style=\"color: #666666;font-size: 10px;\">\n                <td>\u00a0<\/td>\n                <td valign=\"top\" align=\"center\" colspan=\"3\">\n                    <p>Please do not forward this email as its survey link is unique to you.\n                        <br><a href=\"[OptOutLink]\" target=\"_blank\" style=\"color: #333333; text-decoration: underline;\">Unsubscribe<\/a> from this list<\/p> <\/td>\n                <td>\u00a0<\/td> <\/tr>\n            <tr>\n                <td height=\"20\" colspan=\"5\">\u00a0<\/td> <\/tr>\n            <tr style=\"color: #999999;font-size: 10px;\">\n                <td align=\"center\" colspan=\"5\">[FooterLink]<\/td> <\/tr>\n            <tr>\n                <td height=\"20\" colspan=\"5\">\u00a0<\/td> <\/tr> <\/table><\/div><\/body>\n\n<\/html>\n",
    "recipient_status":null,
    "is_branding_enabled":true,
-   "href":"https:\/\/api.surveymonkey.net\/v3\/collectors\/1234\/messages\/1234",
+   "href":"https:\/\/api.surveymonkey.com\/v3\/collectors\/1234\/messages\/1234",
    "is_scheduled":false,
    "scheduled_date":null,
    "date_created":"2016-08-17T23:47:37+00:00",
@@ -295,13 +295,13 @@ Only subject, body_text, body_html, is_branding, and recipient_status if 'remind
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/collectors/{collector_id}/messages/{message_id}
+GET https://api.surveymonkey.com/v3/collectors/{collector_id}/messages/{message_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234
 ```
 
 ```python
@@ -313,7 +313,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s" % (collector_id, message_id)
+url = "https://api.surveymonkey.com/v3/collectors/%s/messages/%s" % (collector_id, message_id)
 s.get(url)
 ```
 >Example Response
@@ -330,7 +330,7 @@ s.get(url)
     "type": "invite",
     "recipient_status": null,
     "id": "1234",
-    "href": "https://api.surveymonkey.net/v3/collectors/1234/messages/1234"
+    "href": "https://api.surveymonkey.com/v3/collectors/1234/messages/1234"
 }
 ```
 ####Available Methods
@@ -362,13 +362,13 @@ id | Message id | String
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/collectors/{collector_id}/messages/{message_id}/send
+POST https://api.surveymonkey.com/v3/collectors/{collector_id}/messages/{message_id}/send
 ```
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/1234/send -d '{"scheduled_date":"2015-10-06T12:56:55+00:00"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/send -d '{"scheduled_date":"2015-10-06T12:56:55+00:00"}'
 ```
 
 ```python
@@ -383,7 +383,7 @@ s.headers.update({
 payload = {
   "scheduled_date": "2015-10-06T12:56:55+00:00"
 }
-url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/send" % (collector_id, message_id)
+url = "https://api.surveymonkey.com/v3/collectors/%s/messages/%s/send" % (collector_id, message_id)
 s.post(url, json=payload)
 ```
 
@@ -439,13 +439,13 @@ If the contact_id is provided, fetch the contact from the address book. If conta
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/collectors/{collector_id}/messages/{message_id}/recipients
+POST https://api.surveymonkey.com/v3/collectors/{collector_id}/messages/{message_id}/recipients
 ```
 
 >Example Request (with contact_id)
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/1234/recipients -d '{"contact_id:"1234"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/recipients -d '{"contact_id:"1234"}'
 ```
 
 ```python
@@ -460,14 +460,14 @@ s.headers.update({
 payload = {
   "contact_id": 1234
 }
-url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
+url = "https://api.surveymonkey.com/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
 s.post(url, json=payload)
 ```
 
 >Example Request (without contact_id)
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/1234/recipients-d '{"email":"test@surveymonkey.com"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/recipients-d '{"email":"test@surveymonkey.com"}'
 ```
 
 ```python
@@ -497,7 +497,7 @@ payload = {
       "third_favorite_color": "Green"
   }
 }
-url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
+url = "https://api.surveymonkey.com/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
 s.post(url, json=payload)
 ```
 
@@ -526,7 +526,7 @@ s.post(url, json=payload)
         "third_favorite_color": "Green"
     },
     "survey_link": "https://www.surveymonkey.com/r/?sm=1234",
-    "href": "https://api.surveymonkey.net/v3/collectors/1234/recipients/1234"
+    "href": "https://api.surveymonkey.com/v3/collectors/1234/recipients/1234"
 }
 ```
 
@@ -581,7 +581,7 @@ extra_fields | No | Extra fields needed for the message body | Object
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/collectors/{collector_id}/messages/{message_id}/recipients/bulk
+POST https://api.surveymonkey.com/v3/collectors/{collector_id}/messages/{message_id}/recipients/bulk
 ```
 
 <aside class="notice">
@@ -591,7 +591,7 @@ If custom_fields are provided for any one contact, all contacts will have their 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/1234/recipients/bulk -d '{"contact_ids":["1234", "5678"]}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/recipients/bulk -d '{"contact_ids":["1234", "5678"]}'
 ```
 
 ```python
@@ -624,7 +624,7 @@ payload = {
       }
   }]
 }
-url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
+url = "https://api.surveymonkey.com/v3/collectors/%s/messages/%s/recipients" % (collector_id, message_id)
 s.post(url, json=payload)
 ```
 >Example Response
@@ -634,7 +634,7 @@ s.post(url, json=payload)
   "succeeded": [{
     "id": "1234",
     "email": "test@surveymonkey.com",
-    "href": "https://api.surveymonkey.net/v3/collectors/1234/recipients/1234"
+    "href": "https://api.surveymonkey.com/v3/collectors/1234/recipients/1234"
   }],
   "invalids": [],
   "existing": [],
@@ -680,13 +680,13 @@ duplicate | List of recipients email addresses recipients that were provided | A
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/collectors/{collector_id}/recipients
+GET https://api.surveymonkey.com/v3/collectors/{collector_id}/recipients
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/recipients
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/recipients
 ```
 
 ```python
@@ -698,7 +698,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/collectors/%s/recipients" % (collector_id)
+url = "https://api.surveymonkey.com/v3/collectors/%s/recipients" % (collector_id)
 s.get(url)
 ```
 
@@ -709,13 +709,13 @@ s.get(url)
   "per_page": 1,
   "total": 1,
   "data": [{
-    "href": "https://api.surveymonkey.net/v3/collectors/1234/recipients/1234",
+    "href": "https://api.surveymonkey.com/v3/collectors/1234/recipients/1234",
     "id": "1234",
     "email": "test@surveymonkey.com"
   }],
   "page": 1,
   "links": {
-    "self": "https://api.surveymonkey.net/v3/collectors/1234/recipients/1234?page=1&per_page=1"
+    "self": "https://api.surveymonkey.com/v3/collectors/1234/recipients/1234?page=1&per_page=1"
   }
 }
 ```
@@ -754,12 +754,12 @@ data[\_].survey_link | Link to the survey in the invite. Only returned if reques
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/collectors/{collector_id}/recipients/{recipient_id}
+GET https://api.surveymonkey.com/v3/collectors/{collector_id}/recipients/{recipient_id}
 ```
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/recipients/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/recipients/1234
 ```
 
 ```python
@@ -771,7 +771,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/collectors/%s/recipients/%s" % (collector_id, message_id, recipient_id)
+url = "https://api.surveymonkey.com/v3/collectors/%s/recipients/%s" % (collector_id, message_id, recipient_id)
 s.get(url)
 ```
 
@@ -831,12 +831,12 @@ Same as [/collectors/{id}/messages/{id}/stats](#collectors-id-messages-id-stats)
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/collectors/{id}/messages/{id}/stats
+GET https://api.surveymonkey.com/v3/collectors/{id}/messages/{id}/stats
 ```
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/collectors/1234/messages/1234/stats
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/stats
 ```
 
 ```python
@@ -848,7 +848,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/collectors/%s/messages/%s/stats" % (collector_id, message_id)
+url = "https://api.surveymonkey.com/v3/collectors/%s/messages/%s/stats" % (collector_id, message_id)
 s.get(url)
 ```
 

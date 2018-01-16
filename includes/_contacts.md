@@ -7,13 +7,13 @@ If your application is using [email collectors](http://help.surveymonkey.com/art
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/contact_lists
+POST https://api.surveymonkey.com/v3/contact_lists
 ```
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contact_lists -d '{"name": "My Contact List"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists -d '{"name": "My Contact List"}'
 ```
 
 ```python
@@ -28,7 +28,7 @@ s.headers.update({
 payload = {
   "name": "My Contact List"
 }
-url = "https://api.surveymonkey.net/v3/contact_lists"
+url = "https://api.surveymonkey.com/v3/contact_lists"
 s.post(url, json=payload)
 ```
 
@@ -38,7 +38,7 @@ s.post(url, json=payload)
 {
   "name": "My Contact List",
   "id": "1234",
-  "href":"https://api.surveymonkey.net/v3/contact_lists/1234"
+  "href":"https://api.surveymonkey.com/v3/contact_lists/1234"
 }
 ```
 
@@ -47,7 +47,7 @@ s.post(url, json=payload)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns all contact lists. Public App users need access to the **View Contacts** [scope](#scopes)
- * `POST`: Creates a contact list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes) 
+ * `POST`: Creates a contact list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -76,13 +76,13 @@ name  | No (default="New List") | Contact list name | String
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/contact_lists/{contact_list_id}
+GET https://api.surveymonkey.com/v3/contact_lists/{contact_list_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contact_lists/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists/1234
 ```
 
 ```python
@@ -94,7 +94,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/contact_lists/%s" % (contact_list_id)
+url = "https://api.surveymonkey.com/v3/contact_lists/%s" % (contact_list_id)
 s.get(url)
 ```
 >Example Response
@@ -103,14 +103,14 @@ s.get(url)
 {
   "name": "My Contact List",
   "id": "1234",
-  "href": "https://api.surveymonkey.net/v3/contact_lists/1234"
+  "href": "https://api.surveymonkey.com/v3/contact_lists/1234"
 }
 ```
 ####Available Methods
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
- * `GET`: Returns a contact list. Public App users need access to the **View Contacts** [scope](#scopes) 
+ * `GET`: Returns a contact list. Public App users need access to the **View Contacts** [scope](#scopes)
  * `PATCH`: Modifies a contact list (updates any fields accepted as arguments to `POST` [/contact_lists](#contact_lists)). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
  * `PUT`: Replaces a contact list `POST` (same arguments and requirements as `POST`[/contact_lists](#contact_lists)). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
  * `DELETE`: Deletes a contact list. Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
@@ -128,13 +128,13 @@ name | Contact list name | String
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/contact_lists/{contact_list_id}/copy
+POST https://api.surveymonkey.com/v3/contact_lists/{contact_list_id}/copy
 ```
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contact_lists/1234/copy
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists/1234/copy
 ```
 
 ```python
@@ -146,7 +146,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/contact_lists/%s/copy" % (contact_list_id)
+url = "https://api.surveymonkey.com/v3/contact_lists/%s/copy" % (contact_list_id)
 s.post(url)
 ```
 >Example Response
@@ -155,7 +155,7 @@ s.post(url)
 {
   "name": "Copy of My Contact List",
   "id": "1234",
-  "href":"https://api.surveymonkey.net/v3/contact_lists/1234"
+  "href":"https://api.surveymonkey.com/v3/contact_lists/1234"
 }
 ```
 ####Available Methods
@@ -176,13 +176,13 @@ href | Resource API URL | String
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/contact_lists/{contact_list_id}/merge
+POST https://api.surveymonkey.com/v3/contact_lists/{contact_list_id}/merge
 ```
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contact_lists/1234/merge -d '{ "list_id": "4321" }'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists/1234/merge -d '{ "list_id": "4321" }'
 ```
 
 ```python
@@ -197,7 +197,7 @@ s.headers.update({
 payload = {
   "list_id": "4321"
 }
-url = "https://api.surveymonkey.net/v3/contact_lists/%s/merge" % (contact_list_id)
+url = "https://api.surveymonkey.com/v3/contact_lists/%s/merge" % (contact_list_id)
 s.post(url)
 ```
 
@@ -207,7 +207,7 @@ s.post(url)
 {
   "name": "My Contact List",
   "id": "1234",
-  "href":"https://api.surveymonkey.net/v3/contact_lists/1234"
+  "href":"https://api.surveymonkey.com/v3/contact_lists/1234"
 }
 ```
 ####Available Methods
@@ -235,12 +235,12 @@ href | Resource API URL | String
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/contact_lists/{contact_list_id}/contacts
+POST https://api.surveymonkey.com/v3/contact_lists/{contact_list_id}/contacts
 ```
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contact_lists/1234/contacts -d '{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists/1234/contacts -d '{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com"}'
 ```
 
 ```python
@@ -265,7 +265,7 @@ payload = {
     "6": "Phone Number"
   }
 }
-url = "https://api.surveymonkey.net/v3/contact_lists/%s/contacts" % (contact_list_id)
+url = "https://api.surveymonkey.com/v3/contact_lists/%s/contacts" % (contact_list_id)
 s.post(url, json=payload)
 ```
 
@@ -285,7 +285,7 @@ s.post(url, json=payload)
     "5": "Country",
     "6": "Phone Number"
   },
-  "href": "https://api.surveymonkey.net/v3/contacts/1234"
+  "href": "https://api.surveymonkey.com/v3/contacts/1234"
 }
 ```
 ####Available Methods
@@ -293,7 +293,7 @@ s.post(url, json=payload)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns all contacts in a contact list. Public App users need access to the **View Contacts** [scope](#scopes)
- * `POST`: Creates a new contact and adds them to a contact list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes) 
+ * `POST`: Creates a new contact and adds them to a contact list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -324,20 +324,20 @@ Name | Required |Description | Data Type
 first_name | Yes | Contact first name | String
 last_name | Yes | Contact last name | String
 email | Yes |Contact email address | String
-custom_fields | No | Contact custom fields | Object 
+custom_fields | No | Contact custom fields | Object
 
 ###/contact_lists/{id}/contacts/bulk
 
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/contact_lists/{contact_list_id}/contacts/bulk
+POST https://api.surveymonkey.com/v3/contact_lists/{contact_list_id}/contacts/bulk
 ```
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contact_lists/1234/contacts/bulk -d '{ "contacts": [{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com"}] }'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists/1234/contacts/bulk -d '{ "contacts": [{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com"}] }'
 ```
 
 ```python
@@ -364,7 +364,7 @@ payload = {
     }
   }]
 }
-url = "https://api.surveymonkey.net/v3/contact_lists/%s/contacts/bulk" % (contact_list_id)
+url = "https://api.surveymonkey.com/v3/contact_lists/%s/contacts/bulk" % (contact_list_id)
 s.post(url, json=payload)
 ```
 
@@ -423,13 +423,13 @@ data[\_].custom_fields | No | Custom contact fields | Object
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/contacts
+POST https://api.surveymonkey.com/v3/contacts
 ```
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contacts -d '{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com" }'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contacts -d '{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com" }'
 ```
 
 ```python
@@ -454,7 +454,7 @@ payload = {
     "6": "Phone Number"
   }
 }
-url = "https://api.surveymonkey.net/v3/contacts" 
+url = "https://api.surveymonkey.com/v3/contacts"
 s.post(url, json=payload)
 ```
 
@@ -474,7 +474,7 @@ s.post(url, json=payload)
     "5": "Country",
     "6": "Phone Number"
   },
-  "href": "https://api.surveymonkey.net/v3/contacts/1234"
+  "href": "https://api.surveymonkey.com/v3/contacts/1234"
 }
 ```
 
@@ -483,7 +483,7 @@ s.post(url, json=payload)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a list of all contacts. Public App users need access to the **View Contacts** [scope](#scopes)
- * `POST`: Creates a new contact, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes) 
+ * `POST`: Creates a new contact, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -521,13 +521,13 @@ custom_fields | No | Contact custom field | Object
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/contacts/bulk
+POST https://api.surveymonkey.com/v3/contacts/bulk
 ```
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contacts -d '{ "contacts": [{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com" }'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contacts -d '{ "contacts": [{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com" }'
 ```
 
 ```python
@@ -554,7 +554,7 @@ payload = {
     }
   }]
 }
-url = "https://api.surveymonkey.net/v3/contacts/bulk"
+url = "https://api.surveymonkey.com/v3/contacts/bulk"
 s.post(url, json=payload)
 ```
 
@@ -613,13 +613,13 @@ data[\_].custom_fields | No | Custom contact fields | Object
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/contacts/{contact_id}
+GET https://api.surveymonkey.com/v3/contacts/{contact_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contacts/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contacts/1234
 ```
 
 ```python
@@ -631,7 +631,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/contacts/%s" % (contact_id)
+url = "https://api.surveymonkey.com/v3/contacts/%s" % (contact_id)
 s.get(url)
 ```
 >Example Response
@@ -678,13 +678,13 @@ custom_fields | Contact custom fields | Object
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/contact_fields
+GET https://api.surveymonkey.com/v3/contact_fields
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contact_fields
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_fields
 ```
 
 ```python
@@ -696,7 +696,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/contact_fields" 
+url = "https://api.surveymonkey.com/v3/contact_fields"
 s.get(url)
 ```
 
@@ -709,12 +709,12 @@ s.get(url)
   "total": 1,
   "data": [
     {
-      "href": "https://api.surveymonkey.net/v3/contact_fields/1",
+      "href": "https://api.surveymonkey.com/v3/contact_fields/1",
       "id": "1",
       "label": "Custom 1"
     }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/contact_fields?page=1&per_page=1"
+    "self": "https://api.surveymonkey.com/v3/contact_fields?page=1&per_page=1"
   }
 }
 ```
@@ -746,13 +746,13 @@ data[\_].href | Resource API URL | String
 >Definition
 
 ```
-PATCH https://api.surveymonkey.net/v3/contact_fields/{contact_field_id}
+PATCH https://api.surveymonkey.com/v3/contact_fields/{contact_field_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X PATCH -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/contact_fields/1 -d '{"label: "5"}'
+curl -i -X PATCH -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_fields/1 -d '{"label: "5"}'
 ```
 
 ```python
@@ -767,14 +767,14 @@ s.headers.update({
 payload = {
   "label" = "address"
 }
-url = "https://api.surveymonkey.net/v3/contact_fields/1" 
+url = "https://api.surveymonkey.com/v3/contact_fields/1"
 s.patch(url)
 ```
 >Example Response
 
 ```json
 {
-  "href": "https://api.surveymonkey.net/v3/contact_fields/1",
+  "href": "https://api.surveymonkey.com/v3/contact_fields/1",
   "id": "1",
   "label": "address"
 }

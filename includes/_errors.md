@@ -7,13 +7,13 @@ Get a list of errors or lookup an error by its id. See also [error codes](#error
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/errors
+GET https://api.surveymonkey.com/v3/errors
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/errors
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/errors
 ```
 
 ```python
@@ -25,7 +25,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/errors" 
+url = "https://api.surveymonkey.com/v3/errors"
 s.get(url)
 ```
 
@@ -42,7 +42,7 @@ s.get(url)
     "name": "Known Error"
   }],
   "links": {
-    "self": "https://api.surveymonkey.net/v3/errors?page=1&per_page=1"
+    "self": "https://api.surveymonkey.com/v3/errors?page=1&per_page=1"
   }
 }
 ```
@@ -73,13 +73,13 @@ data[\_].name | Error name | String
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/errors/{error_id}
+GET https://api.surveymonkey.com/v3/errors/{error_id}
 ```
 
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/errors/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/errors/1234
 ```
 
 ```python
@@ -91,7 +91,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/errors/%s" % (error_id)
+url = "https://api.surveymonkey.com/v3/errors/%s" % (error_id)
 s.get(url)
 ```
 

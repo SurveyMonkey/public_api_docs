@@ -20,13 +20,13 @@ You can specify one or more survey ids to be included.
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/webhooks
+POST https://api.surveymonkey.com/v3/webhooks
 ```
 
 >Example Request
 
 ```shell
-curl -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/webhooks -d \
+curl -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/webhooks -d \
   '{"name":"My Webhook", "event_type":"response completed", "object_type":"survey", "object_ids":["1234","5678"],"subscription_url":"https://surveymonkey.com/webhook_reciever"}'
 ```
 
@@ -46,7 +46,7 @@ payload = {
   "object_ids": ["1234", "5678"],
   "subscription_url": "https://surveymonkey.com/webhook_reciever"
 }
-url = "https://api.surveymonkey.net/v3/webhooks"
+url = "https://api.surveymonkey.com/v3/webhooks"
 s.post(url, json=payload)
 ```
 
@@ -60,7 +60,7 @@ s.post(url, json=payload)
   "object_type": "survey",
   "object_ids": ["1234", "5678"],
   "subscription_url": "https://surveymonkey.com/webhook_reciever",
-  "href": "https://api.surveymonkey.net/v3/webhooks/123"
+  "href": "https://api.surveymonkey.com/v3/webhooks/123"
 }
 ```
 ####Available Methods
@@ -102,13 +102,13 @@ authorization | No | Authorization header to pass when events are sent | String
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/webhooks/{webhook_id}
+GET https://api.surveymonkey.com/v3/webhooks/{webhook_id}
 ```
 
 >Example Request
 
 ```shell
-curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/webhooks/1234
+curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/webhooks/1234
 ```
 
 ```python
@@ -120,7 +120,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/webhooks/%s" % (webhook_id)
+url = "https://api.surveymonkey.com/v3/webhooks/%s" % (webhook_id)
 s.get(url)
 ```
 
@@ -134,7 +134,7 @@ s.get(url)
   "object_type": "survey",
   "object_ids": ["1234", "5678"],
   "subscription_url": "http://requestb.in/13qm6kg1",
-  "href": "https://api.surveymonkey.net/v3/webhooks/123"
+  "href": "https://api.surveymonkey.com/v3/webhooks/123"
 }
 ```
 

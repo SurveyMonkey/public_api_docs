@@ -8,14 +8,14 @@ These endpoints let you create responses directly via the API and view responses
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/surveys/{survey_id}/responses
+GET https://api.surveymonkey.com/v3/surveys/{survey_id}/responses
 
 ```
 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses
+curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses
 ```
 
 ```python
@@ -28,7 +28,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/responses/" % (survey_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/responses/" % (survey_id)
 s.get(url)
 ```
 
@@ -41,17 +41,17 @@ s.get(url)
   "total": 2,
   "data": [
     {
-      "href": "https://api.surveymonkey.net/v3/surveys/1234/responses/1234",
+      "href": "https://api.surveymonkey.com/v3/surveys/1234/responses/1234",
       "id": "1234"
     },
     {
-      "href": "https://api.surveymonkey.net/v3/surveys/1234/responses/1234",
+      "href": "https://api.surveymonkey.com/v3/surveys/1234/responses/1234",
       "id": "1234"
     }
   ],
   "page": 1,
   "links": {
-    "self": "https://api.surveymonkey.net/v3/surveys/1234/responses?page=1&per_page=50"
+    "self": "https://api.surveymonkey.com/v3/surveys/1234/responses?page=1&per_page=50"
   }
 }
 
@@ -69,12 +69,12 @@ s.get(url)
 >Definition
 
 ```
-POST https://api.surveymonkey.net/v3/collectors/{collector_id}/responses
+POST https://api.surveymonkey.com/v3/collectors/{collector_id}/responses
 ```
 >Example Request
 
 ```shell
-curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses -d '{"custom_variables":{"custvar_1": "one", "custvar_2": "two"},"response_status": "overquota","custom_value": "custom identifier for the response","date_created": "2015-10-06T12:56:55+00:00","ip_address": "127.0.0.1","recipient_id": "564728340", "pages": [{"id": "12345678","questions": [{"answers": [{"choice_id": "12345678"}], "id": "12345678"}, {"answers": [{"row_id": "12345678", "choice_id": "12345678"}], "id": "12345678"}, {"answers": [{"row_id": "12345678", "col_id": "12345678", "choice_id": "12345678"}], "id": "12345678"}, {"answers": [{"text": "Sample Text Response"}], "id": "12345678"}, {"answers": [{"row_id": "12345678", "text": "Sample Text Response"}], "id": "12345678"}]}]}'
+curl -i -X POST -H "Content-Type: application/json" -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses -d '{"custom_variables":{"custvar_1": "one", "custvar_2": "two"},"response_status": "overquota","custom_value": "custom identifier for the response","date_created": "2015-10-06T12:56:55+00:00","ip_address": "127.0.0.1","recipient_id": "564728340", "pages": [{"id": "12345678","questions": [{"answers": [{"choice_id": "12345678"}], "id": "12345678"}, {"answers": [{"row_id": "12345678", "choice_id": "12345678"}], "id": "12345678"}, {"answers": [{"row_id": "12345678", "col_id": "12345678", "choice_id": "12345678"}], "id": "12345678"}, {"answers": [{"text": "Sample Text Response"}], "id": "12345678"}, {"answers": [{"row_id": "12345678", "text": "Sample Text Response"}], "id": "12345678"}]}]}'
 ```
 
 ```python
@@ -136,7 +136,7 @@ payload = {
     }]
   }]
 }
-url = "https://api.surveymonkey.net/v3/surveys/%s/responses" % (survey_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/responses" % (survey_id)
 s.post(url, json=payload)
 ```
 
@@ -145,7 +145,7 @@ s.post(url, json=payload)
 ```json
 {
   "total_time": 144,
-  "href":"https:\/\/api.surveymonkey.net\/v3\/surveys\/1234\/responses\/1234",
+  "href":"https:\/\/api.surveymonkey.com\/v3\/surveys\/1234\/responses\/1234",
   "ip_address": "192.168.4.16",
   "recipient_id": "",
   "id": "5007154402",
@@ -269,15 +269,15 @@ Same as [/collectors/{id}/responses/bulk](#collectors-id-responses-bulk)
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/bulk
-GET https://api.surveymonkey.net/v3/collectors/{collector_id}/responses/bulk
+GET https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/bulk
+GET https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/bulk
 ```
 
 >Example Request
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/bulk
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/bulk
 ```
 
 ```python
@@ -289,7 +289,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/responses/bulk" % (survey_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/responses/bulk" % (survey_id)
 s.get(url, params=payload)
 ```
 
@@ -302,7 +302,7 @@ s.get(url, params=payload)
   "data": [{
     "total_time": 0,
     "collection_mode": "default",
-    "href": "https://api.surveymonkey.net/v3/responses/5007154325",
+    "href": "https://api.surveymonkey.com/v3/responses/5007154325",
     "custom_variables": {
       "custvar_1": "one",
       "custvar_2": "two"
@@ -330,7 +330,7 @@ s.get(url, params=payload)
   }],
   "page": 1,
   "links": {
-    "self": "https://api.surveymonkey.net/v3/surveys/123456/responses/bulk?page=1&per_page=2"
+    "self": "https://api.surveymonkey.com/v3/surveys/123456/responses/bulk?page=1&per_page=2"
   }
 }
 ```
@@ -406,15 +406,15 @@ Same as [/collectors/{id}/responses/{id}](#collectors-id-responses-id)
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}
-GET https://api.surveymonkey.net/v3/collectors/{collector_id}/responses/{response_id}
+GET https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}
+GET https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/{response_id}
 ```
 
 >Example Request
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}
 ```
 
 ```python
@@ -426,7 +426,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s" % (survey_id, response_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/responses/%s" % (survey_id, response_id)
 s.get(url)
 ```
 
@@ -498,15 +498,15 @@ Same as [/collectors/{id}/responses/{id}/details](#collectors-id-responses-id-de
 >Definition
 
 ```
-GET https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}/details
-GET https://api.surveymonkey.net/v3/collectors/{collector_id}/responses/{response_id}/details
+GET https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}/details
+GET https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/{response_id}/details
 ```
 
 >Example Request
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.net/v3/surveys/{survey_id}/responses/{response_id}/details
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}/details
 ```
 
 ```python
@@ -518,7 +518,7 @@ s.headers.update({
   "Content-Type": "application/json"
 })
 
-url = "https://api.surveymonkey.net/v3/surveys/%s/responses/%s/details" % (survey_id, response_id)
+url = "https://api.surveymonkey.com/v3/surveys/%s/responses/%s/details" % (survey_id, response_id)
 s.get(url)
 ```
 
