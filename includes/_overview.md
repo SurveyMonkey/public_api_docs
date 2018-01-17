@@ -24,7 +24,12 @@ All users of a Private app must belong to the same [SurveyMonkey team](https://h
 
 Anyone with a SurveyMonkey account can register an app. Registering creates a draft app with an access token you can use to query against your account for 90 days.  No other SurveyMonkey accounts can authenticate a draft app. Before the 90-day period ends, you must deploy your app as either Public or Private and upgrade your account as needed.
 
-###Scopes
+###Deploying an App
+
+Before the 90-day draft period ends, you must deploy your app or it'll be disabled. If your app is disabled, you must deploy it or contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to request an extension.
+
+
+##Scopes
 
 Scopes allow apps to access particular resources on behalf of a user. For example, the **Create/Modify surveys** scope allows your app to create a survey in a user's account. During the OAuth process, a user is asked to grant permission to scopes your app is requesting access to.
 
@@ -51,10 +56,6 @@ Two scopes, **Create/Modify Responses** and **Create/Modify Surveys**, require S
 |View Users|View your user information|users_read|No|
 |View Teams|View teams you belong to|groups_read|Yes|
 |View Library Assets|View your library of survey themes and templates|library_read|No|
-
-###Deploying an App
-
-Before the 90-day draft period ends, you must deploy your app or it'll be disabled. If your app is disabled, you must deploy it or contact us at [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) to request an extension.
 
 ##Request and Response Limits
 
@@ -85,15 +86,13 @@ Max Survey Size | 1000 questions, surveys over limit will return a 413
 
 ##Authentication
 
-<aside class="notice">We've updated our authentication and are no longer using Mashery. We now generate a unique client id that is not your Mashery username, and we've removed the use of API keys. If you're registering a new app or refreshing your credentials, you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. If you created your app before Nov 1st, 2016, your existing credentials will continue to work as outlined in <a href="https://developer.surveymonkey.com/api/v3/#old-authentication">OLD Authentication</a>, as long as you don't refresh them in our developer portal.</aside>
-
 If you have a [Private app](#deploying-your-app) and will only access your own SurveyMonkey account, you can use the access token, generated when you registered your app, as part of your app's configuration. Obtain this token in the **Settings** of your app in the [**MY APPS**](https://developer.surveymonkey.com/apps/) tab.
 
 If your app will access many SurveyMonkey accounts, implement the OAuth 2.0 three-step flow outlined below to allow users to authorize your app to access their accounts. This flow generates a long-lived access token your app can use with every API call to the associated SurveyMonkey account. It's important to note the access token only grants access when used in combination with your API credentials (client ID) and only to the SurveyMonkey account which was authorized. Your app will need to obtain additional access tokens for each SurveyMonkey account you wish to access.
 
 If your app has required [scopes](#scopes), users will need to approve all of them and may need a [paid SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) to successfully Oauth into your app.
 
-###NEW Authentication
+###OAuth 2.0 Flow
 
 ####Step 1: Direct user to SurveyMonkey's OAuth authorization page
 
@@ -196,122 +195,18 @@ def exchange_code_for_token(auth_code, client_secret, client_id, redirect_uri):
 		return None
 ```
 
-###OLD Authentication
-
-<aside class="notice">We've updated our authentication flow and are no longer using Mashery.  If you're <a href="https://developer.surveymonkey.com/apps/">registering a new app</a> or refreshing credentials for an existing app, you should follow the <a href="https://developer.surveymonkey.com/api/v3/#new-authentication">NEW Authentication flow</a>. Existing authentication credentials will continue to work.</aside>
-
-All code examples in our documentation assume use of our [NEW Authentication](#NEW-Authentication). If you're using our OLD Authentication, you'll need to pass your API key with each call like so:
-
-`curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/users/me?api_key=YOUR_API_KEY`
-
-####Step 1: Direct user to SurveyMonkey's OAuth authorization page
-
-You app should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.com. The page presented to the user will identify the app name you configured when you registered. Users will either be asked to enter their SurveyMonkey user name and password, or, if they're already logged into SurveyMonkey, just an "Authorize" button.
-
-The OAuth link should be `https://api.surveymonkey.com/oauth/authorize` with urlencoded parameters: `redirect_uri`, `client_id`, `response_type`, and `api_key`.
-
-* `response_type` will always be set to the value `code`
-* `client_id` your Mashery user name
-* `redirect_uri` URL encoded OAuth redirect URI you registered for your app (can be found and edited [here](https://developer.surveymonkey.com/apps/))
-
->Example OAuth Link
-
-```shell
-https://api.surveymonkey.com/oauth/authorize?response_type=code&redirect_uri=https%3A%2F%2Fapi.surveymonkey.com%2Fapi_console%2Foauth2callback&client_id=SurveyMonkeyApiConsole&api_key=u366xz3zv6s9jje5mm3495fk
-```
-
-
-```python
-SM_API_BASE = "https://api.surveymonkey.com"
-AUTH_CODE_ENDPOINT = "/oauth/authorize"
-
-def oauth_dialog(client_id, redirect_uri, api_key):
-	url_params = urllib.urlencode({
-		"redirect_uri": redirect_uri,
-		"client_id": client_id,
-		"response_type": "code",
-		"api_key": api_key
-	})
-
-	auth_dialog_uri = SM_API_BASE + AUTH_CODE_ENDPOINT + "?"" + url_params
-	print "\nThe OAuth dialog url was " + auth_dialog_uri + "\n"
-
-	# Insert code here that redirects user to OAuth Dialog url
-```
-
-####Step 2: User authorization generates short-lived code
-
-Once the user makes their choice whether to authorize access or not, SurveyMonkey will generate a 302 redirect sending their browser to your redirect URI along with a short-lived code included as a query parameter. Your app needs to use that code to make another API request before it expires (5 minutes). In that request, you'll send us the code you received along with your client secret, client ID, API key, and redirect URI. We'll verify all that information. If it's good, we'll return a long-lived access token in exchange.
-
->Generate Short Code or Deny Access
-
-```shell
-"Access Authorized" redirect: `https://api.surveymonkey.com/api_console/oauth2callback?code=SHORTLIVEDCODE`
-"Access Denied" redirect: `https://api.surveymonkey.com/api_console/oauth2callback?error_description=Resource+owner+canceled+the+request&error=access_denied`
-```
-
-
-```python
-def handle_redirect(redirect_uri):
-	# Parse authorization code out of url
-	query_string = urlparse.urlsplit(redirect_uri).query
-	authorization_code = urlparse.parse_qs(query_string).get("code", [])
-
-	# parse_qs returns a list for every query param, just get the first one
-	if not authorization_code:
-		return
-
-	return authorization_code[0]
-```
-
-####Step 3: Exchanging for a long-lived access token
-
-Create a form-encoded HTTP POST request to `https://api.surveymonkey.com/oauth/token?api_key=YOUR_API_KEY` with the following encoded form fields: `client_secret`, `code`, `redirect_uri` and `grant_type`. The grant type must be set to "authorization_code". The `client_secret` and `api_key` can be found [here](https://developer.surveymonkey.com/apps/).
-
-If successful, the access token will be returned encoded as JSON in the response body of your POST request. The key will be `access_token` and the value can be passed to our API as an HTTP header in the format `Authorization: bearer YOUR_ACCESS_TOKEN`. The value of the header must be "bearer" followed by a single space and then your access token.
-
-
->Exchange for long-lived token
-
-```shell
-curl -i -X POST https://api.surveymonkey.com/oauth/token?api_key=YOUR_API_KEY -d \
-	"client_secret=YOUR_CLIENT_SECRET \
-	&code=AUTH_CODE \
-	&redirect_uri=YOUR_REDIRECT_URI \
-	&client_id=YOUR_CLIENT_ID \
-	&grant_type=authorization_code"
-```
-
-```python
-SM_API_BASE = "https://api.surveymonkey.com"
-ACCESS_TOKEN_ENDPOINT = "/oauth/token"
-
-def exchange_code_for_token(auth_code, api_key, client_secret, client_id, redirect_uri):
-	data = {
-		"client_secret": client_secret,
-		"code": auth_code,
-		"redirect_uri": redirect_uri,
-		"client_id": client_id,
-		"grant_type": "authorization_code"
-	}
-
-	access_token_uri = SM_API_BASE + ACCESS_TOKEN_ENDPOINT + "?api_key=" + api_key
-	access_token_response = requests.post(access_token_uri, data=data)
-	access_json = access_token_response.json()
-
-	if "access_token" in access_json:
-		return access_json["access_token"]
-	else:
-		print access_json
-		return None
-```
-
-
 ###Token expiration and revocation
 
 Our access tokens don't currently expire but may in the future. We'll warn all developers before making changes.
 
 Access tokens can be revoked by the user. If this happens, you'll get a JSON-encoded response body including a key `status`with a value of `1` and a key `errmsg` with the value of `Client revoked access grant` when making an API request. If you get this response, you'll need to complete OAuth again.
+
+###Access URL
+
+Depending on the originating datacenter of the SurveyMonkey account, the API access URL may be different than `https://api.surveymonkey.com`.
+
+The correct API access URL for each SurveyMonkey account is returned in the response body of the [code for token exchange](#step-3-exchanging-for-a-long-lived-access-token) under the `access_url` key.
+
 
 ###Unauthorizing an app
 
