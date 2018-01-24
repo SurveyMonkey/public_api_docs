@@ -362,7 +362,8 @@ payload = {
       "5": "Country",
       "6": "Phone Number"
     }
-  }]
+  }],
+  "update_existing": true
 }
 url = "https://api.surveymonkey.com/v3/contact_lists/%s/contacts/bulk" % (contact_list_id)
 s.post(url, json=payload)
@@ -416,6 +417,7 @@ data[\_].first_name | Yes | Contact first name | String
 data[\_].last_name | Yes | Contact last name | String
 data[\_].email | Yes | Contact email | String
 data[\_].custom_fields | No | Custom contact fields | Object
+data[\_].update_existing | No | Whether or not to update existing contacts | Boolean
 
 
 ###/contacts
@@ -552,7 +554,8 @@ payload = {
       "5": "Country",
       "6": "Phone Number"
     }
-  }]
+  }],
+  "update_existing": true
 }
 url = "https://api.surveymonkey.com/v3/contacts/bulk"
 s.post(url, json=payload)
@@ -606,6 +609,7 @@ data[\_].first_name | Yes | Contact first name | String
 data[\_].last_name | Yes | Contact last name | String
 data[\_].email | Yes | Contact email | String
 data[\_].custom_fields | No | Custom contact fields | Object
+data[\_].update_existing | No | Whether or not to update existing contacts | Boolean
 
 
 ###/contacts/{id}
@@ -799,4 +803,3 @@ Name | Description | Data Type
 ------ | ------- | -------
 id | Contact field id | String
 label | Contact field Label | String
-
