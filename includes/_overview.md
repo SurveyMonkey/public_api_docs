@@ -319,6 +319,7 @@ Our API uses the following data types:
 |1015|403 Permission Error|The user does not have the required plan to make this request.|
 |1016|403 Permission Error|The user does not have permission to access the resource.|
 |1017|403 Permission Error|The user has hit a quota limit on this resource.|
+|1018|403 Permission Error|The user does not have permission to access the host in this region. See [Access URL](#access-url)|
 |1020|404 Resource Not Found|There was an error retrieving the requested resource.|
 |1025|409 Resource Conflict|Unable to complete the request due to a conflict. Check the settings for the resource.|
 |1026|409 Resource Conflict|The requested resource already exists.|

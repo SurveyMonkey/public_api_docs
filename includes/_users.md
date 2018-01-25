@@ -75,6 +75,7 @@ s.get(url)
   "account_type": "enterprise_platinum",
   "language": "en",
   "email": "user@surveymonkey.com",
+  "email_verified": true,
   "href": "https://api.surveymonkey.com/v3/users/me",
   "date_last_login": "2017-04-28T03:49:24.333000+00:00",
   "date_created": "2015-12-03T01:23:00+00:00",
@@ -90,6 +91,7 @@ first_name | User's first name | String
 last_name | User's last name | String
 language | ISO 639-1 code for the language set for the user's account | String-ENUM
 email | Email address for user's account | String
+email_verified | Email address for user's account has been verified | Boolean
 account_type | [SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs) the user has | String-ENUM
 date_created | Date user's account was created | Date String
 date_last_login | Date user last logged in | Date String in format YYYY-MM-DDTHH:MM:SS0000+HH:MM
