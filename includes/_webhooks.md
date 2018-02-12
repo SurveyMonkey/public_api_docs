@@ -90,9 +90,10 @@ data[\_].href | Resource API URL | String
 Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
 name | Yes | Webhook name | String
-event_type | Yes | Event type that the webhook listens to: `response_completed`, `response_updated`, `response_disqualified`, `response_created`, `response_deleted`, `response_overquota`, `collector_created`, `collector_updated`, `collector_deleted`. | String-ENUM
-object_type | Yes | Object type to filter events by: `survey` or `collector`. NOTE: Setting `object_type` to `collector` and `event_type` to `collector_created` will result in a 400 error.| String-ENUM
-object_ids | Yes | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event) | Array
+event_type | Yes | Event type that the webhook listens to: `response_completed`, `response_updated`, `response_disqualified`, `response_created`, `response_deleted`, `response_overquota`, `collector_created`, `collector_updated`, `collector_deleted`,
+`survey_created`, `survey_updated`, `survey_deleted`. | String-ENUM
+object_type | Yes | Object type to filter events by: `survey` or `collector`. NOTE: Setting `object_type` to `collector` and `event_type` to `collector_created` will result in a 400 error. Object type should not be provided for `survey_created` webhook| String-ENUM
+object_ids | Yes | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event). Object ids should not be provided for `survey_created` webhook| Array
 subscription_url | Yes. Url must accept a HEAD request and return a 200.  | Subscription url that events are sent to | String
 authorization | No | Authorization header to pass when events are sent | String
 
