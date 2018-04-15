@@ -56,6 +56,14 @@ Two scopes, **Create/Modify Responses** and **Create/Modify Surveys**, require S
 |View Users|View your user information|users_read|No|
 |View Teams|View teams you belong to|groups_read|Yes|
 |View Library Assets|View your library of survey themes and templates|library_read|No|
+|View Workgroups|View the workgroups in your team|workgroups_read|Yes|
+|Create/Modify Workgroups|Create or edit workgroups in your team|workgroups_write|Yes|
+|View Workgroup Members|View the members in a workgroup|workgroups_members_read|Yes|
+|Create/Modify Workgroup Members|Add or remove members from a workgroup|workgroups_members_write|Yes|
+|View Roles|View the roles available to assign to members in your team|roles_read|Yes|
+|Create/Modify Roles|Create or edit roles for your team|roles_write|Yes|
+|View Workgroups Shared Resources|View resources shared within a workgroup|workgroups_shares_read|Yes|
+|Create/Modify Workgroups Shared Resources|Add or remove resources shared within a workgroup|workgroups_shares_write|Yes|
 
 ##Request and Response Limits
 
