@@ -126,7 +126,41 @@ s.get(url)
 >Example Response
 
 ```json
-TODO
+{
+  "per_page": 50,
+  "total": 1,
+  "data": [{
+    "is_visible": true,
+    "members_count": 1,
+    "description": "Spreading the company brand",
+    "default_role": {
+      "is_enabled": true,
+      "description": "",
+      "metadata": {},
+      "id": "a1af2174db7c40c796f3b069d7efbc63",
+      "name": "Viewer"
+    },
+    "created_at": "2018-04-21T21:21:46",
+    "updated_at": "2018-04-21T21:21:46",
+    "shares": [],
+    "name": "Marketing",
+    "shares_count": 1,
+    "membership": {
+      "status": "active",
+      "is_owner": true
+    },
+    "members": [{
+      "is_owner": true,
+      "user_id": "1234567"
+    }],
+    "id": "71d9d408d1914c9ca85ffcda8330d675",
+    "metadata": {}
+  }],
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.com/v3/users/1234567/workgroups?page=1&per_page=50"
+  }
+}
 ```
 
 ####Available Methods
@@ -188,7 +222,21 @@ s.get(url)
 >Example Response
 
 ```json
-TODO
+{
+  "per_page": 50,
+  "total": 1,
+  "data": [{
+    "workgroup_id": "71d9d408d1914c9ca85ffcda8330d675",
+    "privileges": ["design.read_only", "collect.read_only", "analyze.read_only"],
+    "share_id": "0ca749c2893245c5b96a128eee4c2d42",
+    "resource_type": "survey",
+    "resource_id": "101101101"
+  }],
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.com/v3/users/61003234/shared?page=1&per_page=50"
+  }
+}
 ```
 
 ####Available Methods

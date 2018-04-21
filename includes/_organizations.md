@@ -32,7 +32,42 @@ s.get(url)
 >Example Response
 
 ```json
-TODO
+{
+  "per_page": 50,
+  "total": 1,
+  "data": [{
+    "is_visible": true,
+    "members_count": 1,
+    "description": "Spreading the company brand",
+    "default_role": {
+      "is_enabled": true,
+      "description": "",
+      "metadata": {},
+      "id": "a1af2174db7c40c796f3b069d7efbc63",
+      "name": "Viewer"
+    },
+    "created_at": "2018-04-21T21:21:46",
+    "updated_at": "2018-04-21T21:21:46",
+    "shares": [],
+    "name": "Marketing",
+    "shares_count": 0,
+    "membership": {
+      "status": "active",
+      "is_owner": true
+    },
+    "members": [{
+      "is_owner": true,
+      "user_id": "1234567"
+    }],
+    "id": "71d9d408d1914c9ca85ffcda8330d675",
+    "metadata": {}
+  }],
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.com/v3/workgroups?page=1&per_page=50"
+  }
+}
+
 ```
 
 ####Available Methods
@@ -103,7 +138,33 @@ s.get(url)
 >Example Response
 
 ```json
-TODO
+{
+  "is_visible": true,
+  "members_count": 1,
+  "description": "Spreading the company brand",
+  "default_role": {
+    "is_enabled": true,
+    "description": "",
+    "metadata": {},
+    "id": "a1af2174db7c40c796f3b069d7efbc63",
+    "name": "Viewer"
+  },
+  "created_at": "2018-04-21T21:21:46",
+  "updated_at": "2018-04-21T21:21:46",
+  "shares": [],
+  "shares_count": 0,
+  "membership": {
+    "status": "active",
+    "is_owner": true
+  },
+  "members": [{
+    "is_owner": true,
+    "user_id": "1234567"
+  }],
+  "metadata": {},
+  "id": "71d9d408d1914c9ca85ffcda8330d675",
+  "name": "Marketing"
+}
 ```
 
 ####Available Methods
@@ -160,7 +221,23 @@ s.get(url)
 >Example Response
 
 ```json
-TODO
+{
+  "per_page": 50,
+  "total": 1,
+  "data": [{
+    "workgroup_id": "71d9d408d1914c9ca85ffcda8330d675",
+    "status": "active",
+    "is_workgroup_owner": true,
+    "created_at": "2018-04-21T21:21:46",
+    "updated_at": "2018-04-21T21:21:46",
+    "role_assignment_id": "a1af2174db7c40c796f3b069d7efbc63",
+    "id": "1234567"
+  }],
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.com/v3/workgroups/71d9d408d1914c9ca85ffcda8330d675/members?page=1&per_page=50"
+  }
+}
 ```
 
 ####Available Methods
@@ -241,7 +318,15 @@ s.get(url)
 >Example Response
 
 ```json
-TODO
+{
+  "workgroup_id": "71d9d408d1914c9ca85ffcda8330d675",
+  "status": "active",
+  "role_assignment_id": "a1af2174db7c40c796f3b069d7efbc63",
+  "is_workgroup_owner": true,
+  "created_at": "2018-04-21T21:21:46",
+  "updated_at": "2018-04-21T21:21:46",
+  "id": "1234567"
+}
 ```
 
 ####Available Methods
@@ -294,7 +379,23 @@ s.get(url)
 >Example Response
 
 ```json
-TODO
+{
+  "per_page": 50,
+  "total": 1,
+  "data": [{
+    "workgroup_id": "71d9d408d1914c9ca85ffcda8330d675",
+    "organization_id": "54321",
+    "owner_user_id": "1234567",
+    "resource_id": "101101101",
+    "created_at": "2018-04-21T14:36:38",
+    "id": "0ca749c2893245c5b96a128eee4c2d42",
+    "resource_type": "survey"
+  }],
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.com/v3/workgroups/71d9d408d1914c9ca85ffcda8330d675/shares?page=1&per_page=50"
+  }
+}
 ```
 
 ####Available Methods
@@ -376,7 +477,15 @@ s.get(url)
 >Example Response
 
 ```json
-TODO
+{
+  "workgroup_id": "71d9d408d1914c9ca85ffcda8330d675",
+  "organization_id": "54321",
+  "owner_user_id": "1234567",
+  "resource_id": "101101101",
+  "created_at": "2018-04-21T14:36:38",
+  "id": "0ca749c2893245c5b96a128eee4c2d42",
+  "resource_type": "survey"
+}
 ```
 
 ####Available Methods
@@ -428,7 +537,41 @@ s.get(url)
 >Example Response
 
 ```json
-TODO
+{
+  "per_page": 50,
+  "total": 2,
+  "data": [{
+    "is_enabled": true,
+    "created_at": "2017-04-13T19:57:40",
+    "description": "",
+    "privileges": [
+      "design.read_only",
+      "collect.read_only",
+      "analyze.read_only"
+    ],
+    "updated_at": "2017-07-11T13:04:35",
+    "is_system_role": true,
+    "id": "a1af2174db7c40c796f3b069d7efbc63",
+    "name": "Viewer"
+  }, {
+    "is_enabled": true,
+    "created_at": "2017-04-13T19:57:40",
+    "description": "",
+    "privileges": [
+      "design.full_access",
+      "collect.full_access",
+      "analyze.full_access"
+    ],
+    "updated_at": "2017-06-26T13:12:11",
+    "is_system_role": true,
+    "id": "731fcd072de6426fba74ec7751aa6eab",
+    "name": "Full Access"
+  }],
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.com/v3/roles?page=1&per_page=50"
+  }
+}
 ```
 
 ####Available Methods
