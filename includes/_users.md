@@ -96,3 +96,172 @@ account_type | [SurveyMonkey plan](https://www.surveymonkey.com/pricing/?ut_sour
 date_created | Date user's account was created | Date String
 date_last_login | Date user last logged in | Date String in format YYYY-MM-DDTHH:MM:SS0000+HH:MM
 scopes | Contains two arrays: `available`, listing the [scopes](#scopes) available to the user and `granted`, listing the [scopes](#scopes) the user has approved during Oauth | Object
+
+###/users/{id}/workgroups
+
+>Definition
+
+```
+GET https://api.surveymonkey.com/v3/users/{user_id}/workgroups
+```
+
+>Example Request
+
+```shell
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/users/{user_id}/workgroups
+
+```python
+import requests
+
+s = requests.Session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
+
+url = "https://api.surveymonkey.com/v3/users/%s/workgroups" % user_id
+s.get(url)
+```
+
+>Example Response
+
+```json
+{
+  "per_page": 50,
+  "total": 1,
+  "data": [{
+    "is_visible": true,
+    "members_count": 1,
+    "description": "Spreading the company brand",
+    "default_role": {
+      "is_enabled": true,
+      "description": "",
+      "metadata": {},
+      "id": "a1af2174db7c40c796f3b069d7efbc63",
+      "name": "Viewer"
+    },
+    "created_at": "2018-04-21T21:21:46",
+    "updated_at": "2018-04-21T21:21:46",
+    "shares": [],
+    "name": "Marketing",
+    "shares_count": 1,
+    "membership": {
+      "status": "active",
+      "is_owner": true
+    },
+    "members": [{
+      "is_owner": true,
+      "user_id": "1234567"
+    }],
+    "id": "71d9d408d1914c9ca85ffcda8330d675",
+    "metadata": {}
+  }],
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.com/v3/users/1234567/workgroups?page=1&per_page=50"
+  }
+}
+```
+
+####Available Methods
+
+ * `HEAD`: Checks if resource is available
+ * `OPTIONS`: Returns available methods and options
+ * `GET`: Returns the workgroups that a specific user is in. Public App users need access to the **View Workgroups** [scope](#scopes)
+
+####Optional Query Strings for GET
+
+Name | Description | Data Type
+------ | ------- | -------
+page | Which page of resources to return. Defaults to 1 | Integer
+per_page | Number of resources to return per page | Integer
+
+####Workgroups List Resource
+
+Name | Description | Data Type
+------ | ------- | -------
+data[\_].id | ID of the workgroup | String
+data[\_].name | Name of the workgroup | String
+data[\_].description | Description of the workgroup | String
+data[\_].is_visible | Whether the workgroup is publicly visible or only visible to its members and administrators | Boolean
+data[\_].created_at | Datetime when the workgroup was created | DateTime
+data[\_].updated_at | Datetime when the workgroup was last updated | DateTime
+data[\_].members | The active members of the workgroup. | Array
+data[\_].shares_count | Number of resources shared with the workgroup | Integer
+data[\_].members_count | Number of members in the workgroup (includes non-active) | Integer
+data[\_].default_role | The default role for the workgroup | Object
+data[\_].membership | Membership information for the requested user | Object
+
+###/users/{id}/shared
+
+>Definition
+
+```
+GET https://api.surveymonkey.com/v3/users/{user_id}/shared
+```
+
+>Example Request
+
+```shell
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/users/{user_id}/shared
+```
+
+```python
+import requests
+
+s = requests.Session()
+s.headers.update({
+  "Authorization": "Bearer %s" % YOUR_ACCESS_TOKEN,
+  "Content-Type": "application/json"
+})
+
+url = "https://api.surveymonkey.com/v3/users/%s/shared" % user_id
+s.get(url)
+```
+
+>Example Response
+
+```json
+{
+  "per_page": 50,
+  "total": 1,
+  "data": [{
+    "workgroup_id": "71d9d408d1914c9ca85ffcda8330d675",
+    "privileges": ["design.read_only", "collect.read_only", "analyze.read_only"],
+    "share_id": "0ca749c2893245c5b96a128eee4c2d42",
+    "resource_type": "survey",
+    "resource_id": "101101101"
+  }],
+  "page": 1,
+  "links": {
+    "self": "https://api.surveymonkey.com/v3/users/61003234/shared?page=1&per_page=50"
+  }
+}
+```
+
+####Available Methods
+
+ * `HEAD`: Checks if resource is available
+ * `OPTIONS`: Returns available methods and options
+ * `GET`: Returns the resources shared with a user across all workgroups. Public App users need access to the **View Workgroup Shares** [scope](#scopes)
+
+####Optional Query Strings for GET
+
+Name | Description | Data Type
+------ | ------- | -------
+page | Which page of resources to return. Defaults to 1 | Integer
+per_page | Number of resources to return per page | Integer
+resource_type | The type of the shared resource, one of: `survey` | String-ENUM
+resource_id | Comma separated IDs of shared resources (must be used with resource_type) | Comma Separated String-ENUM
+include | Specify additional fields to return for each resource: `permissions`, `resource_details` | Comma Separated String-ENUM
+
+####Workgroup Shares List Resource
+
+Name | Description | Data Type
+------ | ------- | -------
+data[\_].share_id | ID of the share record | String
+data[\_].workgroup_id | D of the workgroup that was shared with | String
+data[\_].owner_user_id | The ID of the user who shared the resource | String
+data[\_].resource_type | The type of the shared resource (e.g. `survey`) | String-ENUM
+data[\_].resource_id | The ID of the shared resource (e.g. the ID of a survey) | String
+data[\_].privileges | An array of scoped privileges granted to the user by this share record | Array
