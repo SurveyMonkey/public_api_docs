@@ -1,6 +1,6 @@
 ##Organizations
 
-Use these endpoints to get organization's information, including roles and workgroups in your [team](http://help.surveymonkey.com/articles/en_US/kb/Groups) account.
+Use these endpoints to get an organization's information, including roles and workgroups in your [team](http://help.surveymonkey.com/articles/en_US/kb/Groups) account.
 
 ###/workgroups
 
