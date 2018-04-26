@@ -475,3 +475,13 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Endpoints Affected**: [/survey_languages](#survey_languages), [/surveys/{survey_id}/languages](#surveys-survey_id-languages), and [/surveys/{survey_id}/languages/{language_code}](#surveys-survey_id-languages-language_code).
 
 **Developer Actions Required**: None
+
+###April 26th, 2018
+
+####Launch Workgroups APIs
+
+**Description of Changes**: Add set of APIs to mange your [organization's workgroups](#workgroups).
+
+**Endpoints Affected**: [/users/{user_id}/workgroups](#users-user_id-workgroups), [/workgroups](#workgroups), [/workgroups/{workgroup_id}](#workgroups-workgroup_id), [/workgroups/{workgroup_id}/members](#workgroups-workgroup_id-members) [/workgroups/{workgroup_id}/members/bulk](#workgroups-workgroup_id-members-bulk) [/workgroups/{workgroup_id}/members/{member_id}](#workgroups-workgroup_id-members-member_id), [/workgroups/{workgroup_id}/shares](#workgroups-workgroup_id-shares), [/workgroups/{workgroup_id}/shares/bulk](#workgroups-workgroup_id-shares-bulk), [/workgroups/{workgroup_id}/shares/{share_id}](#workgroups-workgroup_id-shares-share_id), [/workgroups/{workgroup_id}/roles](#workgroups-workgroup_id-roles)
+
+**Developer Actions Required**: None

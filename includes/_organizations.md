@@ -108,7 +108,7 @@ name | Yes | Name of the workgroup | String
 description | Yes | Description of the workgroup | String-ENUM
 is_visible | Yes | Whether the workgroup is publicly visible or only visible to its members and administrators | String
 
-###/workgroups/{id}
+###/workgroups/{workgroup_id}
 
 >Definition
 
@@ -191,7 +191,7 @@ members_count | Number of members in the workgroup (includes non-active) | Integ
 default_role | The default role for the workgroup | Object
 membership | Membership information for the requested user | Object
 
-###/workgroups/{id}/members
+###/workgroups/{workgroup_id}/members
 
 >Definition
 
@@ -273,7 +273,7 @@ Name | Required | Description | Data Type
 user_id | Yes | The user ID of the new member to add | String
 is_workgroup_owner | Yes | Whether the new member will be an owner of the workgroup | Boolean
 
-###/workgroups/{id}/members/bulk
+###/workgroups/{workgroup_id}/members/bulk
 
 ####Available Methods
 
@@ -288,7 +288,7 @@ Name | Required | Description | Data Type
 members[\_].user_id | Yes | The user ID of the new member to add | String
 members[\_].is_workgroup_owner | Yes | Whether the new member will be an owner of the workgroup | Boolean
 
-###/workgroups/{id}/members/{id}
+###/workgroups/{workgroup_id}/members/{member_id}
 
 >Definition
 
@@ -334,7 +334,7 @@ s.get(url)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a member. Public App users need access to the **View Workgroup Members** [scope](#scopes)
- * `PATCH`: Modifies a member (updates any fields accepted as arguments to `POST` [/workgroups/{id}/members](#workgroups-id-members)). Public App users need access to the **Create/Modify Workgroup Members** [scope](#scopes)
+ * `PATCH`: Modifies a member (updates any fields accepted as arguments to `POST` [/workgroups/{workgroup_id}/members](#workgroups-workgroup_id-members)). Public App users need access to the **Create/Modify Workgroup Members** [scope](#scopes)
  * `DELETE`: Deletes a member from a workgroup. Public App users need access to the **Create/Modify Workgroup Members** [scope](#scopes)
 
 ####Workgroup Members Resource
@@ -349,7 +349,7 @@ status | The status of the member, either "active" or "pending" | String-ENUM
 created_at | Datetime when the member was created | DateTime
 updated_at | Datetime when the member was last updated | DateTime
 
-###/workgroups/{id}/shares
+###/workgroups/{workgroup_id}/shares
 
 >Definition
 
@@ -432,7 +432,7 @@ Name | Required | Description | Data Type
 resource_type | Yes | The type of the shared resource, one of: `survey` | String-ENUM
 resource_id | Yes | The ID of the shared resource (e.g. the ID of a survey) | String
 
-###/workgroups/{id}/shares/bulk
+###/workgroups/{workgroup_id}/shares/bulk
 
 ####Available Methods
 
@@ -447,7 +447,7 @@ Name | Required | Description | Data Type
 shares[\_].resource_type | Yes | The type of the shared resource, one of: `survey` | String-ENUM
 shares[\_].resource_id | Yes | The ID of the shared resource (e.g. the ID of a survey) | String
 
-###/workgroups/{id}/shares/{id}
+###/workgroups/{workgroup_id}/shares/{share_id}
 
 >Definition
 
