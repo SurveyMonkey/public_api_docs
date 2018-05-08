@@ -394,6 +394,8 @@ data[\_].pages[\_].questions[\_].answers[\_].row_id | The row selected | Integer
 data[\_].pages[\_].questions[\_].answers[\_].col_id | The column selected | Integer
 data[\_].pages[\_].questions[\_].answers[\_].other_id | The other text choice selected | Integer
 data[\_].pages[\_].questions[\_].answers[\_].text | Any open ended text | String
+data[\_].pages[\_].questions[\_].answers[\_].download_url | Download URL for `file_upload` question | String
+data[\_].pages[\_].questions[\_].answers[\_].content_type | MIME type for `download_url` | String
 
 
 
