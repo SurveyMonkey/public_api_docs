@@ -125,6 +125,12 @@ validation.max | Yes| Maximum value an answer can be to pass validation | Date s
 validation.sum | No | Only accepted is family=open_ended and subtype=numerical, the exact integer textboxes must sum to in order to pass validation | Integer
 validation.sum_text | No | Only accepted is family=open_ended and subtype=numerical, the message to display if textboxes do not sum to validation.sum | String
 forced_ranking | No | Required if type is matrix and subtype is rating or single, whether or not to force ranking | Boolean
+quiz_options | No | Object containing the quiz properties of this question, if quiz-mode is enabled
+quiz_options.scoring_enabled | Yes | Whether this question is quiz-enabled | Boolean
+quiz_options.feedback | Yes | Object containing the definitions for feedback on this quiz question | Object
+quiz_options.feedback.correct_text | Yes | Text to show when answer is correct | String
+quiz_options.feedback.incorrect_text | Yes | Text to show when the ansewr is incorrect | String
+quiz_options.feedback.partial_text | Yes | Text to show when the answer is partially correct | String
 answers |Yes for all question types except open_ended_single| Answers object, refer to [Formatting Question Types](#formatting-question-types) | Object
 display_options | Yes for File Upload, Slider, & Emoji/Star Rating [question types](#formatting-question-types)| Display option object, refer to [Formatting Question Types](#formatting-question-types) | Object
 
@@ -927,3 +933,45 @@ Name | Description | Data Type
  display_options[\_].display_type (required)| Turns and open ended single answer question into an emoji question. Always `emoji`|String-ENUM|
  display_options[\_].display_subtype (required)| Which emoji is displayed: `star`, `smiley`, `heart`, or `thumb`|String-ENUM|
 
+####Quiz Questions
+```json
+{
+    "headings": [
+        {
+            "heading": "Which monkeys are named after monks?"
+        }
+    ],
+    "position": 1,
+    "family": "multiple_choice",
+    "subtype": "vertical",
+    "answers": {
+        "choices":[
+            {
+                "text": "Capuchin",
+                "quiz_options": {
+                	"score": 10
+                }
+            },
+            {
+                "text": "Mandrill",
+                "quiz_options": {
+                	"score": 0
+                }
+            }
+        ]
+    },
+    "quiz_options": {
+    	"scoring_enabled": true,
+    	"feedback": {
+    		"correct_text": "Nice! That's correct",
+    		"incorrect_text": "Nope, that's wrong"
+    	}
+    }
+}
+```
+Quiz scores can be added to any question type with a `choices` field.
+
+Name | Description | Data Type
+----- | ----- | -----
+choices[\_].quiz_options | The configuration object for quiz options | Object
+choices[\_].quiz_options.score | How many points the respondent gets when answering this choice | Integer
