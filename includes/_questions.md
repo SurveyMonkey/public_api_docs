@@ -934,6 +934,7 @@ Name | Description | Data Type
  display_options[\_].display_subtype (required)| Which emoji is displayed: `star`, `smiley`, `heart`, or `thumb`|String-ENUM|
 
 ####Quiz Questions
+
 ```json
 {
     "headings": [
@@ -975,3 +976,27 @@ Name | Description | Data Type
 ----- | ----- | -----
 choices[\_].quiz_options | The configuration object for quiz options | Object
 choices[\_].quiz_options.score | How many points the respondent gets when answering this choice | Integer
+
+####Question Bank Questions
+
+```json
+{
+    "question_bank": {
+        "question_bank_question_id": "669",
+        "modifier_options": {
+            "36628": null
+        }
+    }
+}
+```
+
+Question bank questions can be created with just the question id.  Modifier options are either null, or a string, depending on whether the modifier option has user input (e.g. "this company" would be null, "specify a company" would be String).
+
+These question ids can be retrieved via the `/v3/question_bank/questions` endpoint.
+
+Name | Description | Data Type
+----- | ----- | -----
+question_bank | The configuration object for question bank options | Object
+question_bank[\_].question_bank_question_id | The id of the question bank question to be created | Integer
+question_bank[\_].modifier_options | Optional or required depending on the question, used to specify choices that would be in the dropdown menu in the 'create survey' page, not applicable for custom question bank | Object
+question_bank[\_].is_custom | Whether or not the question being created comes from a Team's custom question bank, as opposed to the main Surveymonkey one, defaults to `false` | Boolean
