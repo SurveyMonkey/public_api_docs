@@ -935,6 +935,8 @@ Name | Description | Data Type
 
 ####Quiz Questions
 
+>Quiz Questions
+
 ```json
 {
     "headings": [
@@ -979,6 +981,8 @@ choices[\_].quiz_options.score | How many points the respondent gets when answer
 
 ####Question Bank Questions
 
+>Question Bank Questions
+
 ```json
 {
     "question_bank": {
@@ -997,6 +1001,6 @@ These question ids can be retrieved via the `/v3/question_bank/questions` endpoi
 Name | Description | Data Type
 ----- | ----- | -----
 question_bank | The configuration object for question bank options | Object
-question_bank[\_].question_bank_question_id | The id of the question bank question to be created | Integer
-question_bank[\_].modifier_options | Optional or required depending on the question, used to specify choices that would be in the dropdown menu in the 'create survey' page, not applicable for custom question bank | Object
+question_bank[\_].question_bank_question_id | The id of the question bank question to be created | String
+question_bank[\_].modifier_options | Optional or required depending on the question, used to specify choices that would be in the dropdown menu in the 'create survey' page, not applicable for custom question bank.  This object is a dictionary of String:String, or String:Null | Object
 question_bank[\_].is_custom | Whether or not the question being created comes from a Team's custom question bank, as opposed to the main Surveymonkey one, defaults to `false` | Boolean
