@@ -123,6 +123,20 @@ buttons_text.done_button | No | Button text | String
 custom_variables | No | Dictionary of survey variables | Object
 footer| No (default=true)| If false, SurveyMonkey's [footer](https://help.surveymonkey.com/articles/en_US/kb/How-do-I-turn-off-the-Powered-by-SurveyMonkey-branding) is not displayed | Boolean
 folder_id| No | If specified, adds the survey to the folder with that id. | String
+quiz_options | No | An object describing the quiz settings, if this survey is a quiz | Object
+quiz_options.is_quiz_mode | Yes | On/off toggle for setting this survey as a quiz | Boolean
+quiz_options.default_question_feedback | No | An object containing the default feedback for newly created questions in this survey | Object
+quiz_options.default_question_feedback.correct_text | Yes | Text to show when answer is correct | String
+quiz_options.default_question_feedback.incorrect_text | Yes | Text to show when answer is incorrect | String
+quiz_options.default_question_feedback.partial_text | Yes | Text to show when answer is partially correct | String
+quiz_options.show_results_type | Yes | What to reveal to the user when they complete the quiz: `disabled`, `results_only` or `results_and_answers` | String-ENUM
+quiz_options.feedback | Yes | Text to show the user when they complete the quiz | Object
+quiz_options.feedback.ranges | Yes | The ranges at which to show users certain feedback | Array
+quiz_options.feedback.ranges_type | Yes | Configure whether the following parameters use `percentage` or `points`.  Note that these ranges are inclusive and may not overlap | String-ENUM
+quiz_options.feedback.ranges[\_].min | Yes | Minimum score for this feedback | Integer
+quiz_options.feedback.ranges[\_].max | Yes | Maximum score for this feedback | Integer
+quiz_options.feedback.ranges[\_].message | Yes | Feedback message | String
+
 
 ####Request Body Arguments for Bulk POST
 
