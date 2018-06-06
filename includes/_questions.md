@@ -132,7 +132,7 @@ quiz_options.feedback.correct_text | Yes | Text to show when answer is correct |
 quiz_options.feedback.incorrect_text | Yes | Text to show when the ansewr is incorrect | String
 quiz_options.feedback.partial_text | Yes | Text to show when the answer is partially correct | String
 answers |Yes for all question types except open_ended_single| Answers object, refer to [Formatting Question Types](#formatting-question-types) | Object
-display_options | Yes for File Upload, Slider, & Emoji/Star Rating [question types](#formatting-question-types)| Display option object, refer to [Formatting Question Types](#formatting-question-types) | Object
+display_options | Yes for File Upload, Slider, Image Choice, & Emoji/Star Rating [question types](#formatting-question-types)| Display option object, refer to [Formatting Question Types](#formatting-question-types) | Object
 
 ####Response Resource
 
@@ -218,12 +218,12 @@ All questions have a`family` and `subtype` that define their type and some quest
 
 |Family|Subtype|Display_Type|Display_Subtype
 |------|-------|--------------|------------|
-|single_choice|'vertical', 'horiz', 'menu'|NA|NA|
+|single_choice|'vertical', 'horiz', 'menu'|'image_choice'|NA|
 |matrix| 'single', 'rating', 'ranking', 'menu', 'multi'|'emoji' (with 'ranking')|'star'|
 |open_ended|'single','multi', 'numerical', 'essay'|'slider', 'file_upload' (with 'single')|NA|
 |demographic|'international', 'us'|NA|NA|
 |datetime|'both', 'date_only', 'time_only'|NA|NA|
-|multiple_choice|'vertical'|NA|NA|
+|multiple_choice|'vertical'|'image_choice'|NA|
 |presentation|'descriptive_text', 'image'|NA|NA|
 
 ####Single Choice
@@ -308,6 +308,53 @@ other (optional) | List of other answer options | Array
 other[\_].text | Text to display next to other option | String
 other[\_].num_chars | Set a character limit to the option | Integer
 other[\_].num_lines | Set a line limit to the option | Integer
+
+####Image Choice
+
+>Image Choice
+
+```json
+{
+    "headings": [
+        {
+            "heading": "Which monkey do you like more? Pick one or more"
+        }
+    ],
+    "position": 1,
+    "family": "multiple_choice",
+    "subtype": "vertical",
+    "display_options": {
+        "display_type": "image_choice"
+    },
+    "answers": {
+        "choices":[
+            {
+                "text": "This is an image of a monkey",
+                "image":{
+                    "url":"https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/presentation.png"
+                }
+            },
+            {
+                "text": "This is the same picture of the same monkey",
+                "image":{
+                    "url":"https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/presentation.png"
+                }
+            }
+        ]
+    }
+}
+```
+![Image Choice](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/PAPI-2254/images/image-choice.png)
+
+Name | Description | Data Type
+----- | ------ | -----
+choices (required) | List of available choices for the user | Array
+choices[\_].image (required) | Image choice | Object
+choices[\_].image[\_].url (required) | URL of image choice | String
+choices[\_].text (optional) | Choice for user selection | String
+choices[\_].position (optional) | Position of the current choice | Integer
+display_options (required) | Object of display options | Object
+display_options[\_].display_type | Type of the display | String (“image_choice”)
 
 ####Matrix - Single
 
