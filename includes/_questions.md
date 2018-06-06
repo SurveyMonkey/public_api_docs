@@ -344,7 +344,7 @@ other[\_].num_lines | Set a line limit to the option | Integer
     }
 }
 ```
-![Image Choice](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/PAPI-2254/images/image-choice.png)
+![Image Choice](https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/image-choice.png)
 
 Name | Description | Data Type
 ----- | ------ | -----
