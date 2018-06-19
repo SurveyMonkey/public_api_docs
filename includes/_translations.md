@@ -266,6 +266,7 @@ s.get(url, json=payload)
  * `GET`: Returns existing translations or the translation structure
  * `POST`: Creates a translation
  * `PATCH`: Updates a translation
+ * `DELETE`: Deletes a translation
 
 ####Request Body Arguments for POST and PATCH
 
@@ -277,7 +278,7 @@ translations | Yes | List of translation objects. Each object represents a strin
 ####Translation Object
 
 Name |Description | Data Type
------ ||------ | -----
+----- | ------ |------ | -----
 default| The text from the default language for the survey.|String
 translation|Translated text shown when a respondent chooses the survey in this language. Translate a survey by filling in all empty translations,|String
 context|Describes the string's role in the survey|String
