@@ -12,6 +12,9 @@ Create webhooks that subscribe to various events in SurveyMonkey. You can create
  * A collector is created ('collector_created')
  * A collector is updated ('collector_updated')
  * A collector is deleted ('collector_deleted')
+ * A collector is created ('collector_created')
+ * A collector is updated ('collector_updated')
+ * A collector is deleted ('collector_deleted')
 
 You can specify one or more survey ids to be included.
 
