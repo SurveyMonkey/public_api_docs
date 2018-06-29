@@ -15,6 +15,8 @@ Create webhooks that subscribe to various events in SurveyMonkey. You can create
  * A collector is created ('collector_created')
  * A collector is updated ('collector_updated')
  * A collector is deleted ('collector_deleted')
+ * A app is installed ('app_installed')
+ * A app is uninstalled ('app_uninstalled')
 
 You can specify one or more survey ids to be included.
 
@@ -93,8 +95,8 @@ data[\_].href | Resource API URL | String
 Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
 name | Yes | Webhook name | String
-event_type | Yes | Event type that the webhook listens to: `response_completed`, `response_updated`, `response_disqualified`, `response_created`, `response_deleted`, `response_overquota`, `collector_created`, `collector_updated`, `collector_deleted`, `survey_created`, `survey_updated`, `survey_deleted`. | String-ENUM
-object_type | Yes | Object type to filter events by: `survey` or `collector`. NOTE: Setting `object_type` to `collector` and `event_type` to `collector_created` will result in a 400 error. Object type should not be provided for `survey_created` webhook| String-ENUM
+event_type | Yes | Event type that the webhook listens to: `response_completed`, `response_updated`, `response_disqualified`, `response_created`, `response_deleted`, `response_overquota`, `collector_created`, `collector_updated`, `collector_deleted`, `survey_created`, `survey_updated`, `survey_deleted`, `app_installed`, `app_uninstalled`. | String-ENUM
+object_type | Yes | Object type to filter events by: `survey`, `collector` or `app`. NOTE: Setting `object_type` to `collector` and `event_type` to `collector_created` will result in a 400 error. Object type should not be provided for `survey_created` webhook| String-ENUM
 object_ids | Yes | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event). Object ids should not be provided for `survey_created` webhook| Array
 subscription_url | Yes. Url must accept a HEAD request and return a 200.  | Subscription url that events are sent to | String
 authorization | No | Authorization header to pass when events are sent | String
@@ -156,8 +158,8 @@ Name | Description | Data Type
 ------ | ------- | -------
 id  | Webhook id | String
 name  | Webhook name | String
-event_type | Event type that the webhook listens to: `response_completed`, `response_disqualified`, or `response_updated` | String-ENUM
-object_type | Object type to filter events by: `survey` or `collector` | String-ENUM
+event_type | Event type that the webhook listens to: `response_completed`, `response_disqualified`, `response_updated`, `response_created`, `response_deleted`, `response_overquota`, `collector_created`, `collector_updated`, `collector_deleted`, `survey_created`, `survey_updated`, `survey_deleted`, `app_installed`, `app_uninstalled` | String-ENUM
+object_type | Object type to filter events by: `survey`, `collector` or `app` | String-ENUM
 object_ids | Object ids to filter events by (for example, survey ids to listen for the `response_completed` event) | Array
 subscription_url | Subscription url that callback events are sent to | String
 authorization | Authorization header to pass when events are sent | String
@@ -256,14 +258,14 @@ hmac.compare_digest(generate_signature(request.body, api_key, api_secret), reque
 Name | Description | Data Type
 ----- | ----- | -----
 name | Webhook name | String
-filter_type | Which kind of object the webhook set to filter events by: `survey` or `collector` | String-ENUM
+filter_type | Which kind of object the webhook set to filter events by: `survey`, `collector` or `app` | String-ENUM
 filter_id |The id of the object triggering the event |String|
-event_type | Event type that the webhook listens to: `response_completed`, `response_disqualified`, or `response_updated` | String-ENUM
+event_type | Event type that the webhook listens to: `response_completed`, `response_disqualified`, `response_updated`, `response_created`, `response_deleted`, `response_overquota`, `collector_created`, `collector_updated`, `collector_deleted`, `survey_created`, `survey_updated`, `survey_deleted`, `app_installed`, `app_uninstalled` | String-ENUM
 event_id | Event id | String
 object_type | Type of object that event occured for | String
 object_id | id of object that event occured for | String
 event_datetime | ISO 8601 string of date/time that the event occured | String
-resources |Ids associated with th event. Depending on the webhook configuration can include: `respondent_id`, `recipient_id`, `collector_id`, `survey_id`, and `user_id`|Object
+resources |Ids associated with the event. Depending on the webhook configuration can include: `respondent_id`, `recipient_id`, `collector_id`, `survey_id`, `user_id`, and `app_id`|Object
 
 
 
