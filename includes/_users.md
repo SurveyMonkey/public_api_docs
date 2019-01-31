@@ -15,7 +15,7 @@ GET https://api.surveymonkey.com/v3/users/me
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/users/me
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/users/me
 ```
 
 ```python
@@ -108,7 +108,7 @@ GET https://api.surveymonkey.com/v3/users/{user_id}/workgroups
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/users/{user_id}/workgroups
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/users/{user_id}/workgroups
 
 ```python
 import requests
@@ -203,7 +203,7 @@ GET https://api.surveymonkey.com/v3/users/{user_id}/shared
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/users/{user_id}/shared
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/users/{user_id}/shared
 ```
 
 ```python

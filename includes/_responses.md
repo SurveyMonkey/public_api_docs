@@ -277,7 +277,7 @@ GET https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/bulk
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/bulk
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/bulk
 ```
 
 ```python
@@ -416,7 +416,7 @@ GET https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/{respons
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}
 ```
 
 ```python
@@ -508,7 +508,7 @@ GET https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/{respons
 
 ```shell
 
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}/details
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}/details
 ```
 
 ```python

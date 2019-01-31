@@ -13,7 +13,7 @@ GET https://api.surveymonkey.com/v3/workgroups
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/workgroups
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/workgroups
 ```
 
 ```python
@@ -119,7 +119,7 @@ GET https://api.surveymonkey.com/v3/workgroups/{workgroup_id}
 >Example Request
 
 ```shell
-curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/workgroups/1234
+curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/workgroups/1234
 ```
 
 ```python
@@ -202,7 +202,7 @@ GET https://api.surveymonkey.com/v3/workgroups/{workgroup_id}/members
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/workgroups/{workgroup_id}/members
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/workgroups/{workgroup_id}/members
 ```
 
 ```python
@@ -299,7 +299,7 @@ GET https://api.surveymonkey.com/v3/workgroups/{workgroup_id}/members/{member_id
 >Example Request
 
 ```shell
-curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/workgroups/1234/members/1234
+curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/workgroups/1234/members/1234
 ```
 
 ```python
@@ -360,7 +360,7 @@ GET https://api.surveymonkey.com/v3/workgroups/{workgroup_id}/shares
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/workgroups/{workgroup_id}/shares
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/workgroups/{workgroup_id}/shares
 ```
 
 ```python
@@ -458,7 +458,7 @@ GET https://api.surveymonkey.com/v3/workgroups/{workgroup_id}/shares/{share_id}
 >Example Request
 
 ```shell
-curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/workgroups/1234/shares/1234
+curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/workgroups/1234/shares/1234
 ```
 
 ```python
@@ -518,7 +518,7 @@ GET https://api.surveymonkey.com/v3/roles
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/roles
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/roles
 ```
 
 ```python

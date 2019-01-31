@@ -19,7 +19,7 @@ POST https://api.surveymonkey.com/v3/surveys
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys -d '{"title":"My Survey"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/surveys -d '{"title":"My Survey"}'
 ```
 
 ```python
@@ -166,7 +166,7 @@ GET https://api.surveymonkey.com/v3/surveys/{survey_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/1234
 ```
 
 ```python
@@ -279,7 +279,7 @@ GET https://api.surveymonkey.com/v3/surveys/{survey_id}/details
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/details
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/1234/details
 ```
 
 ```python
@@ -351,7 +351,7 @@ GET https://api.surveymonkey.com/v3/survey_categories
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/survey_categories
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/survey_categories
 ```
 
 ```python
@@ -418,7 +418,7 @@ GET https://api.surveymonkey.com/v3/survey_templates
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/survey_templates?category=all
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/survey_templates?category=all
 ```
 
 ```python
@@ -501,7 +501,7 @@ GET https://api.surveymonkey.com/v3/survey_languages
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/survey_languages
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/survey_languages
 ```
 
 ```python
@@ -568,7 +568,7 @@ POST https://api.surveymonkey.com/v3/surveys/{survey_id}/pages
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/pages -d '{"title":"Page Title"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/surveys/1234/pages -d '{"title":"Page Title"}'
 ```
 
 ```python
@@ -644,7 +644,7 @@ GET https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/pages/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/1234/pages/1234
 ```
 
 ```python

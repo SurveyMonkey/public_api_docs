@@ -15,7 +15,7 @@ GET https://api.surveymonkey.com/v3/surveys/{survey_id}/languages
 
 ```shell
 
-curl -i -X GET -H "Authorization: bearer YOUR_ACCESS_TOKEN" -H "content-Type":"application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/languages
+curl -i -X GET -H "Authorization: bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/{survey_id}/languages
 
 ```
 
@@ -101,7 +101,7 @@ POST https://api.surveymonkey.com/v3/surveys/{survey_id}/languages/{language_cod
 
 ```shell
 
-curl -i -X POST -H "Authorization: bearer YOUR_ACCESS_TOKEN" -H "content-Type":"application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/languages/fr -d '{"translations":[{"default":"Next","translation":"Suiv.","context":"survey_next","resource_id":"1234"},{"default":"Prev","translation":"Préc.","context":"survey_prev", "resource_id":"1234"},{"default":"Done", "translation":"Terminé", "context":"survey_done", "resource_id":"1234"},{"default":"Exit", "translation":"Quitter", "context":"survey_exit", "resource_id":"1234"
+curl -i -X POST -H "Authorization: bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/languages/fr -d '{"translations":[{"default":"Next","translation":"Suiv.","context":"survey_next","resource_id":"1234"},{"default":"Prev","translation":"Préc.","context":"survey_prev", "resource_id":"1234"},{"default":"Done", "translation":"Terminé", "context":"survey_done", "resource_id":"1234"},{"default":"Exit", "translation":"Quitter", "context":"survey_exit", "resource_id":"1234"
       },{"default":"Thank you for completing our survey!", "translation":"Merci d'avoir répondu à notre sondage!", "context":"collector_disqualification", "resource_id":"1234"}, {"default":"Are you multilingual?", "translation":"Êtes-vous multilingue?", "context":"question_heading", "resource_id":"5678"},{"default":"Yes", "translation":"Oui", "context":"question_option_text", "resource_id":"8912"},{"default":"No", "translation":"Non", "context":"question_option_text", "resource_id":"3456"}, {"default":"My Survey", "translation":"Mon Sondage", "context":"survey_title_html", "resource_id":"1234"}], "enabled":true}
 
 ```

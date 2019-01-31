@@ -15,7 +15,7 @@ GET https://api.surveymonkey.com/v3/surveys/{id}/rollups
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/rollups
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/1234/rollups
 ```
 
 ```python
@@ -151,7 +151,7 @@ GET https://api.surveymonkey.com/v3/surveys/{id}/trends
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/trends
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/1234/trends
 ```
 
 ```python

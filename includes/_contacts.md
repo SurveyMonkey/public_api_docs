@@ -13,7 +13,7 @@ POST https://api.surveymonkey.com/v3/contact_lists
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists -d '{"name": "My Contact List"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/contact_lists -d '{"name": "My Contact List"}'
 ```
 
 ```python
@@ -82,7 +82,7 @@ GET https://api.surveymonkey.com/v3/contact_lists/{contact_list_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/contact_lists/1234
 ```
 
 ```python
@@ -134,7 +134,7 @@ POST https://api.surveymonkey.com/v3/contact_lists/{contact_list_id}/copy
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists/1234/copy
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/contact_lists/1234/copy
 ```
 
 ```python
@@ -182,7 +182,7 @@ POST https://api.surveymonkey.com/v3/contact_lists/{contact_list_id}/merge
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists/1234/merge -d '{ "list_id": "4321" }'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/contact_lists/1234/merge -d '{ "list_id": "4321" }'
 ```
 
 ```python
@@ -240,7 +240,7 @@ POST https://api.surveymonkey.com/v3/contact_lists/{contact_list_id}/contacts
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists/1234/contacts -d '{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/contact_lists/1234/contacts -d '{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com"}'
 ```
 
 ```python
@@ -337,7 +337,7 @@ POST https://api.surveymonkey.com/v3/contact_lists/{contact_list_id}/contacts/bu
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_lists/1234/contacts/bulk -d '{ "contacts": [{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com"}] }'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/contact_lists/1234/contacts/bulk -d '{ "contacts": [{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com"}] }'
 ```
 
 ```python
@@ -431,7 +431,7 @@ POST https://api.surveymonkey.com/v3/contacts
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contacts -d '{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com" }'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/contacts -d '{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com" }'
 ```
 
 ```python
@@ -529,7 +529,7 @@ POST https://api.surveymonkey.com/v3/contacts/bulk
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contacts -d '{ "contacts": [{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com" }'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/contacts -d '{ "contacts": [{ "first_name": "John", "last_name": "Doe", "email": "test@surveymonkey.com" }'
 ```
 
 ```python
@@ -623,7 +623,7 @@ GET https://api.surveymonkey.com/v3/contacts/{contact_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contacts/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/contacts/1234
 ```
 
 ```python
@@ -688,7 +688,7 @@ GET https://api.surveymonkey.com/v3/contact_fields
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_fields
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/contact_fields
 ```
 
 ```python
@@ -756,7 +756,7 @@ PATCH https://api.surveymonkey.com/v3/contact_fields/{contact_field_id}
 >Example Request
 
 ```shell
-curl -i -X PATCH -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/contact_fields/1 -d '{"label: "5"}'
+curl -i -X PATCH -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/contact_fields/1 -d '{"label: "5"}'
 ```
 
 ```python
