@@ -75,7 +75,7 @@ Draft and Private apps are subject to rate limits:
 
 We permit three violations of up to 150% within a 30-day window. We begin to enforce limits at 100% once your app exceeds its limits three times within 30 days.
 
-We return your app's rate limits, requests remaining, and seconds to reset in our request [headers](#header).
+We return your app's rate limits, requests remaining, and seconds to reset in our request [headers](#headers).
 
 In addition, requests made to the API to create [contacts](#contacts-and-contact-lists) or send [invite messages](#collectors-and-invite-messages) are subject to our [sending and contact limits](http://help.surveymonkey.com/articles/en_US/kb/Is-there-a-limit-on-the-number-of-emails-I-can-send).
 
