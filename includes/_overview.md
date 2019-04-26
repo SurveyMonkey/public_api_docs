@@ -232,7 +232,7 @@ While a call to [/surveys/{id}/responses/bulk](#surveys-id-responses-bulk) retur
 
  1. Fetch the first 1,000 surveys in a SurveyMonkey account with a GET [/surveys](#surveys). This call returns a list resource containing survey ids.
  2. Using a survey id from the previous call, make a GET to [/surveys/{id}/details](#surveys-id-details). This call returns the survey's design with all question ids and answer option ids, as well as the values associated with them. Cache these values on your end to limit future calls and economize your [request and response limits](#request-and-response-limits).
- 3. Using the same survey id, fetch the first 100 responses to your survey with a GET to [/surveys/{id}/respones/bulk](#surveys-id-collectors). This endpoint returns question ids and the id of the selected answer or choice for each response. You can use these to associate the selected answer id to those returned from your GET to [/surveys/{id}/details](#surveys-id-details) and match question values to the answers selected.
+ 3. Using the same survey id, fetch the first 100 responses to your survey with a GET to [/surveys/{id}/responses/bulk](#surveys-id-collectors). This endpoint returns question ids and the id of the selected answer or choice for each response. You can use these to associate the selected answer id to those returned from your GET to [/surveys/{id}/details](#surveys-id-details) and match question values to the answers selected.
  4. Fetch the next page of 100 responses using the resource url returned in the `links.next` field.
 
 To export the results of all surveys in an account, iterate through all surveys ids returned in step 1, completing steps 2 through 4.
@@ -337,6 +337,7 @@ Our API uses the following data types:
 |1051|503 Internal Server Error|Service unreachable. Please try again later.|
 |1052|404 User Soft Deleted|The user you are making this request for has been soft deleted.|
 |1053|410 User Deleted|The user you are making this request for has been deleted.|
+|1054| Bad Gateway Error | Network was unable to connect to server.
 
 ##Help and Resources
 

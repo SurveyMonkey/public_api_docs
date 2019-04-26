@@ -283,6 +283,7 @@ recipient_status | No. If type is 'reminder', acceptable values are: 'has_not_re
 subject | No (default="We want your opinion") | Subject of the email message to be sent to recipients | String
 body_text | No | The plain text body of the email message to be sent to recipients. Message must include [SurveyLink], [OptOutLink], and [FooterLink] and the opt out link must be clearly labeled. | String
 body_html | No | The html body of the email message to be sent to recipients. This overrides body_text. Message must include [SurveyLink], [OptOutLink], and [FooterLink] and the opt out link must be clearly labeled.| String
+embed_first_question | No | If collector 'type' is 'invite' then setting to 'true' will embed first question into email body.
 is_branding_enabled | No (default=True) | Whether the email has SurveyMonkey branding  | Boolean
 
 
