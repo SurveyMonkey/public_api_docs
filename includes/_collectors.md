@@ -1,6 +1,6 @@
 ##Collectors and Invite Messages
 
-Collectors allow you to collect survey responses with a link to your survey. Two `types` of collectors are available through the API: `weblink` and `email`. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL and [email invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) send survey invite messages with a survey URL via the /messages endpoints. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)).
+Collectors allow you to collect survey responses with a link to your survey. Three `types` of collectors are available through the API: `sms`, `weblink` and `email`. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL, [email invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) and [sms invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Text-Message) send survey invite messages with a survey URL via the /messages endpoints. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)).
 
 <aside class="notice">Your email address needs to be <a href="https://help.surveymonkey.com/articles/en_US/kb/Sender-Email-Address">verified</a> in order to successfully send messages through our email invitation collector. You can <a href="">verify your address</a> in your SurveyMonkey account.</aside>
 
@@ -65,7 +65,7 @@ s.post(url, json=payload)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a list of collectors for a given survey. Public App users need access to the **View Collectors** [scope](#scopes)
- * `POST`: Creates a [weblink](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) or [email collector](http://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) for a given survey. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
+ * `POST`: Creates an [sms](https://help.surveymonkey.com/articles/en_US/kb/Text-Message), [weblink](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) or [email collector](http://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) for a given survey. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -98,7 +98,7 @@ from_collector_id | Yes | Collector ID to copy collector from | String
 
 Name | Required |Description | Data Type
 ------ | ------- | ------- | -------
-type | Yes | Collector type: 'weblink' or 'email'| String-ENUM
+type | Yes | Collector type: 'sms, 'weblink' or 'email'| String-ENUM
 name | No | Collector name | String
 thank_you_message | No (default="Thank you for completing our survey!"")| Message for [thank you page](http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-a-Thank-You-page)  | String
 disqualification_message | No (default="Thank you for completing our survey!)| Message for disqualification page  | String
@@ -147,6 +147,7 @@ s.get(url)
 {
   "status": "open",
   "id": "1234",
+  "survey_id": "123456789",
   "type": "weblink",
   "name": "My Collector",
   "thank_you_message": "Thank you for taking my survey.",
@@ -185,7 +186,8 @@ Name | Description | Type
 ------ | ------- | -------
 status | Collector status: 'open' or 'closed'| String-ENUM
 id | Collector id | String
-type | Collector type: 'weblink' or 'email' | String-ENUM
+survey_id | ID of the survey the collector belongs to | String
+type | Collector type: 'sms', 'weblink' or 'email' | String-ENUM
 name | Name of the collector | String
 thank_you_message | Message for thank you page | String
 disqualification_message | Message for disqualification page | String
@@ -252,7 +254,7 @@ s.post(url)
    "subject":"We want your opinion"
 }
 ```
-<aside class="notice">Email Invitations created with the SurveyMonkey API are subject to our <a href="https://www.surveymonkey.com/mp/policy/anti-spam-policy/">Anti Spam Policy</a>. While you can edit the text surrounding the opt out link to better customize your invitation message, per our Anti-Spam Policy you must clearly explain what the opt out link does, and you should not attempt to hide the link in the message.</aside>
+<aside class="notice">Email and SMS Invitations created with the SurveyMonkey API are subject to our <a href="https://www.surveymonkey.com/mp/policy/anti-spam-policy/">Anti Spam Policy</a>. While you can edit the text surrounding the opt out link to better customize your invitation message, per our Anti-Spam Policy you must clearly explain what the opt out link does, and you should not attempt to hide the link in the message.</aside>
 
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
@@ -278,10 +280,11 @@ include_recipients | No | Include recipients attached to existing message | Bool
 
 Name | Required |Description | Data Type
 ------ | ------- | ------- | -------
-type | Yes | Message type: 'invite', 'reminder', or 'thank_you' | String-ENUM
+type | Yes | Message type: 'sms', 'invite', 'reminder', or 'thank_you' | String-ENUM
 recipient_status | No. If type is 'reminder', acceptable values are: 'has_not_responded' or 'partially_responded', with the default being 'has_not_responded'. If type is 'thank_you', acceptable values are :'completed', 'responded', or 'partially_responded', with the default being 'completed' | Set of recipients to send to | String-ENUM
 subject | No (default="We want your opinion") | Subject of the email message to be sent to recipients | String
-body_text | No | The plain text body of the email message to be sent to recipients. Message must include [SurveyLink], [OptOutLink], and [FooterLink] and the opt out link must be clearly labeled. | String
+body_text (for email invitations)| No | The plain text body of the email message to be sent to recipients. Message must include [SurveyLink], [OptOutLink], and [FooterLink] and the opt out link must be clearly labeled. | String
+body_text (for sms messages)| No | Make your custom message 30 characters or less (including spaces) to keep your entire text invitation together as one text. If you exceed this limit, your text will be split into two separate messages. A single SMS text message has an overall limit of 160 characters. Every text you send through SurveyMonkey will include the following default text, which counts toward the overall limit: Reply HELP for info. STOP to opt out. Msg&DataRatesMayApply | String
 body_html | No | The html body of the email message to be sent to recipients. This overrides body_text. Message must include [SurveyLink], [OptOutLink], and [FooterLink] and the opt out link must be clearly labeled.| String
 embed_first_question | No | If collector 'type' is 'invite' then setting to 'true' will embed first question into email body.
 is_branding_enabled | No (default=True) | Whether the email has SurveyMonkey branding  | Boolean
@@ -352,7 +355,7 @@ is_scheduled | If a message has been secheduled to send. See [/collectors/{id}/m
 is_branding_enabled | Whether the email has SurveyMonkey branding | Boolean
 date_created | Date message was created | Date string
 scheduled_date | Date message is scheduled to be sent. If Null, message has not been scheduled to send.| Date string or Null
-type | Message type: 'invite', 'reminder', or 'thank_you' | String-ENUM
+type | Message type: 'sms', 'invite', 'reminder', or 'thank_you' | String-ENUM
 recipient_status | Recipient filter: 'reminder' or 'thank_you' | String-ENUM
 id | Message id | String
 
@@ -423,18 +426,18 @@ scheduled_date | No | Date when the message should send. If not specified, messa
 
 Name | Description | Data Type
 ------ | ------- | -------
-is_scheduled | If a message has been secheduled to send | Boolean
+is_scheduled | If a message has been scheduled to send | Boolean
 scheduled_date | Date message was scheduled to be sent | Date string
-body | The plain text body of the email message to be sent to recipients. | String
+body | The plain text body of the email or sms message to be sent to recipients. | String
 subject | Subject of the email message to be sent to recipients | String
 recipients | List of recipient ids | Array
-type | Message type: 'invite', 'reminder', or 'thank_you' | String
+type | Message type: 'sms', 'invite', 'reminder', or 'thank_you' | String
 recipient_status | Recipient filter: 'reminder' or 'thank_you' | String
 
 ###/collectors/{id}/messages/{id}/recipients
 
 <aside class="notice">
-If the contact_id is provided, fetch the contact from the address book. If contact_id is not provided, allow passing of the email, name, and custom_fields. A new contact will only be created if an existing contact with the same email cannot be found. If custom_fields are provided, update the contact with those fields, otherwise keep existing custom_fields.
+If the contact_id is provided, fetch the contact from the address book. If contact_id is not provided, allow passing of the email or phone number, name, and custom_fields. A new contact will only be created if an existing contact with the same email or phone number cannot be found. If custom_fields are provided, update the contact with those fields, otherwise keep existing custom_fields.
 </aside>
 
 >Definition
@@ -536,7 +539,7 @@ s.post(url, json=payload)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a list of recipients. Public App users need access to the **View Collectors** [scope](#scopes)
- * `POST`: Creates a new recipient for the specified message. See [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send) for sending. This method only available to messages of type `invite` if they have not already been sent. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
+ * `POST`: Creates a new recipient for the specified message. See [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send) for sending. This method only available to messages of type `sms`, or `invite` if they have not already been sent. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -552,6 +555,7 @@ Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Recipient id | String
 data[\_].email | Email of recipient added to collector | String
+data[\_].phone_number | Phone number of recipient added to collector | Phone number string
 data[\_].href | Resource API URL | String
 data[\_].survey_response_status | If the recipient has completed the survey: 'not_responded’, 'partially_responded’, 'completely_responded’. Only returned if requested | String-ENUM
 data[\_].mail_status | If an invite message to the recipient has been: 'sent’, 'not_sent’, or is 'processing’. Only returned if requested | String-ENUM
@@ -570,7 +574,8 @@ contact_id | Yes | Contact id | String
 
 Name |  Required |Description | Data Type
 ------ | ------- | ------- | -------
-email | Yes  | Email of the recipient | String
+email | Yes if email collector  | Email of the recipient | String
+phone_number | Yes if sms collector | Phone number of the recipient | Phone number string
 first_name | No | First name of the recipient | String
 last_name | No | Last name the recipient | String
 custom_fields | No | Custom fields for the recipient contact | Object
@@ -633,6 +638,7 @@ s.post(url, json=payload)
 ```json
 {
   "succeeded": [{
+    "phone_number": null,
     "id": "1234",
     "email": "test@surveymonkey.com",
     "href": "https://api.surveymonkey.com/v3/collectors/1234/recipients/1234"
@@ -656,6 +662,7 @@ Name |  Required |Description | Type
 contact_ids | No | Contact ids | Array
 contact_list_ids | No | Contact list ids | Array
 contacts[\_].email | No | Contact's email address | String
+contacts[\_].phone_number | No | Contact's phone number| Phone number string
 contacts[\_].first_name | No | Contact's first name | String
 contacts[\_].last_name  | No | Contact's last name | String
 contacts[\_].custom_fields | No | Custom fields for contact | Object
@@ -668,6 +675,7 @@ Name |Description | Type
 succeeded | List of successfully added recipient objects | Array
 succeeded.id | Contact id for the recipient | String
 succeeded.email | Email address for the recipient | String
+succeeded.phone_number | Phone number for the recipient | Phone number string
 succeeded.href | API resource URL for the recipient | String
 invalids | List of invalid recipient email addresses that were provided | Array
 existing | List of recipients email addresses that have already been added | Array
@@ -710,6 +718,7 @@ s.get(url)
   "per_page": 1,
   "total": 1,
   "data": [{
+    "phone_number": null,
     "href": "https://api.surveymonkey.com/v3/collectors/1234/recipients/1234",
     "id": "1234",
     "email": "test@surveymonkey.com"
@@ -741,6 +750,7 @@ Name | Description | Data Type
 ------ | ------- | -------
 data[\_].id | Recipient id | String
 data[\_].email | Email of recipient added to collector | String
+data[\_].phone_number | Phone number of recipient added to collector | Phone number string
 data[\_].href | Resource API URL | String
 data[\_].survey_response_status | If the recipient has completed the survey: 'not_responded’, 'partially_responded’, 'completely_responded’. Only returned if requested | String-ENUM
 data[\_].mail_status | If an invite message to the recipient has been: 'sent’, 'not_sent’, or is 'processing’. Only returned if requested | String-ENUM

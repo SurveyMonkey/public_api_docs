@@ -292,6 +292,7 @@ Our API uses the following data types:
 |String-ENUM|Predefined string values. Values are defined per field throughout our documentation.
 |Boolean| A boolean value: true or false. In JSON it will be represented using the native boolean type.
 |Date string| Dates are usually in the format YYYY-MM-DDTHH:MM:SS+HH:MM. Any deviations from this are shown in the documentation. All date strings are implicitly in UTC.
+|Phone number string| Phone numbers must be in the format +1XXXYYYZZZZ
 |Array| A simple list of values. In JSON this will be an array.
 |Object|A collection of name/value pairs. In JSON this will be an object.
 |Null|A null value. In JSON this is represented as the native null type.
