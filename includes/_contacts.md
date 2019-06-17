@@ -1,6 +1,6 @@
 ##Contacts and Contact Lists
 
-If your application is using [email collectors](http://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) to collect survey responses, these endpoints let you create contacts and contact lists to send survey invite messages to by passing a `contact_id` as an argument to `POST` [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients). NOTE: Contacts can also be created if they are passed directly to [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients).
+If your application is using [email collectors](http://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) or [sms collectors](https://help.surveymonkey.com/articles/en_US/kb/Text-Message) to collect survey responses, these endpoints let you create contacts and contact lists to send survey invite messages to by passing a `contact_id` as an argument to `POST` [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients). NOTE: Contacts can also be created if they are passed directly to [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients).
 
 ###/contact_lists
 
@@ -47,7 +47,7 @@ s.post(url, json=payload)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns all contact lists. Public App users need access to the **View Contacts** [scope](#scopes)
- * `POST`: Creates a contact list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
+ * `POST`: Creates a contact list, contacts can be sent survey invite messages using an email invite or sms collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -277,6 +277,7 @@ s.post(url, json=payload)
   "first_name": "John",
   "last_name": "Doe",
   "email": "test@surveymonkey.com",
+  "phone_number": null,
   "custom_fields": {
     "1": "Mr",
     "2": "Company",
@@ -293,7 +294,7 @@ s.post(url, json=payload)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns all contacts in a contact list. Public App users need access to the **View Contacts** [scope](#scopes)
- * `POST`: Creates a new contact and adds them to a contact list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
+ * `POST`: Creates a new contact and adds them to a contact list, contacts can be sent survey invite messages using an email invite or sms collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -315,6 +316,7 @@ data[\_].id | Contact id | String
 data[\_].first_name | Contact first name | String
 data[\_].last_name | Contact last name | String
 data[\_].email | Contact email address | String
+data[\_].phone_number | Contact phone number | Phone number string
 data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
@@ -323,7 +325,8 @@ Name | Required |Description | Data Type
 ------ | ------- | ------- | -------
 first_name | Yes | Contact first name | String
 last_name | Yes | Contact last name | String
-email | Yes |Contact email address | String
+email | Yes if no phone_number |Contact email address | String
+phone_number | Yes if no email |Contact phone_number | Phone number string
 custom_fields | No | Contact custom fields | Object
 
 ###/contact_lists/{id}/contacts/bulk
@@ -378,6 +381,7 @@ s.post(url, json=payload)
     "last_name": "Doe",
     "id": "1234",
     "email": "test@surveymonkey.com",
+    "phone_number": null,
     "custom_fields": {
       "1": "Mr",
       "2": "Company",
@@ -396,7 +400,7 @@ s.post(url, json=payload)
 ####Available Methods
 
  * `GET`: Returns a list of all contacts in the list with all available fields. Public App users need access to the **View Contacts** [scope](#scopes)
- * `POST`: Creates multiple contacts and adds them to a list, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
+ * `POST`: Creates multiple contacts and adds them to a list, contacts can be sent survey invite messages using an email invite or sms collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Contacts List Resource
 
@@ -406,6 +410,7 @@ data[\_].id | Contact id | String
 data[\_].first_name | Contact first name | String
 data[\_].last_name | Contact last name | String
 data[\_].email | Contact email address | String
+data[\_].phone_number | Contact phone number | Phone number string
 data[\_].custom_fields | Contact custom fields | Object
 data[\_].href | Resource API URL | String
 
@@ -415,7 +420,8 @@ Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
 data[\_].first_name | Yes | Contact first name | String
 data[\_].last_name | Yes | Contact last name | String
-data[\_].email | Yes | Contact email | String
+data[\_].email | Yes if no phone_number | Contact email | String
+data[\_].phone_number | Yes if no email | Contact phone number | Phone number string
 data[\_].custom_fields | No | Custom contact fields | Object
 data[\_].update_existing | No | Whether or not to update existing contacts | Boolean
 
@@ -468,6 +474,7 @@ s.post(url, json=payload)
   "first_name": "John",
   "last_name": "Doe",
   "email": "test@surveymonkey.com",
+  "phone_number": null,
   "custom_fields": {
     "1": "Mr",
     "2": "Company",
@@ -485,7 +492,7 @@ s.post(url, json=payload)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a list of all contacts. Public App users need access to the **View Contacts** [scope](#scopes)
- * `POST`: Creates a new contact, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
+ * `POST`: Creates a new contact, contacts can be sent survey invite messages using an email invite or sms collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -507,6 +514,7 @@ data[\_].id | Contact id | String
 data[\_].first_name | Contact first name | String
 data[\_].last_name | Contact last name | String
 data[\_].email | Contact email address | String
+data[\_].phone_number | Contact phone number | Phone number string
 data[\_].href | Resource API URL | String
 
 ####Request Body Arguments for POST
@@ -515,7 +523,8 @@ Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
 first_name | Yes | Contact first name | String
 last_name | Yes | Contact last name | String
-email | Yes | Contact email address | String
+email | Yes if no phone_number | Contact email address | String
+phone_number | Yes if no email | Contact phone number | Phone number string
 custom_fields | No | Contact custom field | Object
 
 ###/contacts/bulk
@@ -570,6 +579,7 @@ s.post(url, json=payload)
     "last_name": "Doe",
     "id": "1234",
     "email": "test@surveymonkey.com",
+    "phone_number": null,
     "custom_fields": {
       "1": "Mr",
       "2": "Company",
@@ -588,7 +598,7 @@ s.post(url, json=payload)
 ####Available Methods
 
  * `GET`: Returns a list of all contacts with all available fields. Public App users need access to the **View Contacts** [scope](#scopes)
- * `POST`: Creates multiple contacts, contacts can be sent survey invite messages using an email invite collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
+ * `POST`: Creates multiple contacts, contacts can be sent survey invite messages using an email invite or sms collector, see [Collectors and Invite Messages](#collectors-and-invite-messages). Public App users need access to the **Create/Modify Contacts** [scope](#scopes)
 
 ####Contacts List Resource
 
@@ -598,6 +608,7 @@ data[\_].id | Contact id | String
 data[\_].first_name | Contact first name | String
 data[\_].last_name | Contact last name | String
 data[\_].email | Contact email address | String
+data[\_].phone_number | Contact phone number | Phone number string
 data[\_].custom_fields | Contact custom fields | Object
 data[\_].href | Resource API URL | String
 
@@ -607,7 +618,8 @@ Name | Required | Description | Data Type
 ------ | ------- | ------- | -------
 data[\_].first_name | Yes | Contact first name | String
 data[\_].last_name | Yes | Contact last name | String
-data[\_].email | Yes | Contact email | String
+data[\_].email | Yes if no phone_number | Contact email | String
+data[\_].phone_number | Yes if no email | Contact phone number | Phone number string
 data[\_].custom_fields | No | Custom contact fields | Object
 data[\_].update_existing | No | Whether or not to update existing contacts | Boolean
 
@@ -646,6 +658,7 @@ s.get(url)
   "first_name": "John",
   "last_name": "Doe",
   "email": "test@surveymonkey.com",
+  "phone_number": null,
   "custom_fields": {
     "1": "Mr",
     "2": "Company",
@@ -674,6 +687,7 @@ id | Contact id | String
 first_name | Contact first name | String
 last_name | Contact last name | String
 email | Contact email address | String
+phone_number | Contact phone number | Phone number string
 custom_fields | Contact custom fields | Object
 
 
