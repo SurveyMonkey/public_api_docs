@@ -512,6 +512,7 @@ s.post(url, json=payload)
     "survey_response_status": "not_responded",
     "mail_status": "not_sent",
     "email": "test@surveymonkey.com",
+    "phone_number": null,
     "first_name": "John",
     "last_name": "Doe",
     "custom_fields": {
