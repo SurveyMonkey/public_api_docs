@@ -293,6 +293,7 @@ Our API uses the following data types:
 |Boolean| A boolean value: true or false. In JSON it will be represented using the native boolean type.
 |Date string| Dates are usually in the format YYYY-MM-DDTHH:MM:SS+HH:MM. Any deviations from this are shown in the documentation. All date strings are implicitly in UTC.
 |Phone number string| Phone numbers must be in the format +1XXXYYYZZZZ
+|Hex string| Must be in the format #HHH or #HHHHHH where each H represents hexadecimal format
 |Array| A simple list of values. In JSON this will be an array.
 |Object|A collection of name/value pairs. In JSON this will be an object.
 |Null|A null value. In JSON this is represented as the native null type.

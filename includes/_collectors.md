@@ -1,6 +1,6 @@
 ##Collectors and Invite Messages
 
-Collectors allow you to collect survey responses with a link to your survey. Three `types` of collectors are available through the API: `sms`, `weblink` and `email`. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL, [email invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) and [sms invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Text-Message) send survey invite messages with a survey URL via the /messages endpoints. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)).
+Collectors allow you to collect survey responses with a link to your survey. Many `types` of collectors are available through the API such as `sms`, `weblink`, `email` and general `popup` collectors. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL, [email invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) and [sms invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Text-Message) send survey invite messages with a survey URL via the /messages endpoints, [popup collectors](https://help.surveymonkey.com/articles/en_US/kb/Website-Collector) let you embed or pop-up surveys on your website. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)).
 
 <aside class="notice">Your email address needs to be <a href="https://help.surveymonkey.com/articles/en_US/kb/Sender-Email-Address">verified</a> in order to successfully send messages through our email invitation collector. You can <a href="">verify your address</a> in your SurveyMonkey account.</aside>
 
@@ -65,7 +65,7 @@ s.post(url, json=payload)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a list of collectors for a given survey. Public App users need access to the **View Collectors** [scope](#scopes)
- * `POST`: Creates an [sms](https://help.surveymonkey.com/articles/en_US/kb/Text-Message), [weblink](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) or [email collector](http://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) for a given survey. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
+ * `POST`: Creates an [sms](https://help.surveymonkey.com/articles/en_US/kb/Text-Message), [weblink](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector),[email collector](http://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) or [popup collector](https://help.surveymonkey.com/articles/en_US/kb/Website-Collector) for a given survey. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -98,7 +98,7 @@ from_collector_id | Yes | Collector ID to copy collector from | String
 
 Name | Required |Description | Data Type
 ------ | ------- | ------- | -------
-type | Yes | Collector type: 'sms, 'weblink' or 'email'| String-ENUM
+type | Yes | 'sms, 'weblink', 'email'. Popup Collectors: 'popup_invitation', 'embedded_survey', 'popup_survey'| String-ENUM
 name | No | Collector name | String
 thank_you_message | No (default="Thank you for completing our survey!"")| Message for [thank you page](http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-a-Thank-You-page)  | String
 disqualification_message | No (default="Thank you for completing our survey!)| Message for disqualification page  | String
@@ -113,6 +113,21 @@ password | No | Set a password to restrict access to your survey | String
 sender_email | No | Sender email for email collectors | String
 response_limit | No | Sets the collector to close after specified number of responses are collected | Integer
 redirect_type | No | Determines [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior: `url` (redirects to URL set in `redirect_url` or if none is set, shows standard SurveyMonkey thank you page), `close` (closes the survey window or tab), or `loop` (loops the survey back to the beginning, only available for `weblink` collectors with `allow_multiple_responses`:true)| String-ENUM
+width | No | Sets the width of your popup. Minimum 300, maximium 700 | Integer
+height | No | Sets the height of your popup. Minimum 300, maximium 700 | Integer
+border_color | No | Changes border color surrounding the survey | Hex string
+is_branding_enabled | No | Determines if SurveyMonkey branding is enabled | Boolean
+headline | No | Only applies to 'popup_invitation' and 'popup_survey'. Represents the title of the modal window surrounding the survey | String
+message | No | Only applies to 'popup_invitation'. Represents the message below the headline | String
+sample_rate | No | Only applies to 'popup_invitation' and 'popup_survey'. Determines the percentage of people who will see your popup. Must be between 1 and 100 | String
+primary_button | No | Only applies to 'popup_invitation'. Users who click the primary button will be taken to the beginning of your survey | Object
+primary_button.bg_color | No | Primary button's background color | Hex string
+primary_button.text_color | No | Primary button's text color | Hex string
+primary_button.text | No | The text on the primary button | String
+secondary_button | No | Only applies to 'popup_invitation'. The secondary button closes the popup. Once a user has seen the popup, they will not see it again | Object
+secondary_button.bg_color | No | Secondary button's background color | Hex string
+secondary_button.text_color | No | Secondary button's text color | Hex string
+secondary_button.text | No | The text on the secondary button | String
 
 ###/collectors/{id}
 
@@ -205,6 +220,21 @@ password_enabled | True if the collector is password protected | Boolean
 sender_email | Sender email for email collectors. User's email is used if null | String
 redirect_type | Determines [survey end page](https://help.surveymonkey.com/articles/en_US/kb/What-are-the-Survey-Completion-options) behavior: `url` (redirects to URL set in `redirect_url` or if none is set, shows standard SurveyMonkey thank you page), `close` (closes the survey window or tab), or `loop` (loops the survey back to the beginning, only available for `weblink` collectors with `allow_multiple_responses`:true)| String-ENUM
 href | Resource API URL | String
+width | Width of your popup | Integer
+height | Height of your popup | Integer
+border_color | Border color surrounding the survey | Hex string
+is_branding_enabled | If SurveyMonkey branding is enabled or not | Boolean
+headline | Title of the modal window surrounding the survey | String
+message | The message below the headline | String
+sample_rate | The percentage of people who will see your popup | String
+primary_button | The primary button of your popup | Object
+primary_button.bg_color | Primary button's background color | Hex string
+primary_button.text_color | Primary button's text color | Hex string
+primary_button.text | The text on the primary button | String
+secondary_button | The secondary button of your popup| Object
+secondary_button.bg_color | Secondary button's background color | Hex string
+secondary_button.text_color | Secondary button's text color | Hex string
+secondary_button.text | The text on the secondary button | String
 
 
 ###/collectors/{id}/messages
