@@ -223,7 +223,7 @@ href | Resource API URL | String
 width | Width of your popup | Integer
 height | Height of your popup | Integer
 border_color | Border color surrounding the survey | Hex string
-is_branding_enabled | Whether the email has SurveyMonkey branding | Boolean
+is_branding_enabled | Whether the popup has SurveyMonkey branding | Boolean
 headline | Title of the modal window surrounding the survey | String
 message | The message below the headline | String
 sample_rate | The percentage of people who will see your popup | String
