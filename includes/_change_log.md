@@ -485,3 +485,13 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 **Endpoints Affected**: [/users/{user_id}/workgroups](#users-user_id-workgroups), [/workgroups](#workgroups), [/workgroups/{workgroup_id}](#workgroups-workgroup_id), [/workgroups/{workgroup_id}/members](#workgroups-workgroup_id-members) [/workgroups/{workgroup_id}/members/bulk](#workgroups-workgroup_id-members-bulk) [/workgroups/{workgroup_id}/members/{member_id}](#workgroups-workgroup_id-members-member_id), [/workgroups/{workgroup_id}/shares](#workgroups-workgroup_id-shares), [/workgroups/{workgroup_id}/shares/bulk](#workgroups-workgroup_id-shares-bulk), [/workgroups/{workgroup_id}/shares/{share_id}](#workgroups-workgroup_id-shares-share_id), [/workgroups/{workgroup_id}/roles](#workgroups-workgroup_id-roles)
 
 **Developer Actions Required**: None
+
+###June 17th, 2019
+
+####Support SMS Collectors in API
+
+**Description of Changes**: Add support for [sms collectors](https://help.surveymonkey.com/articles/en_US/kb/Text-Message).
+
+**Endpoints Affected**: [/contact_lists/{id}/contacts](#contact_lists-id-contacts), [/contact_lists/{id}/contacts/bulk](#contact_lists-id-contacts-bulk), [/contacts](#contacts), [/contacts/bulk](#contacts-bulk), [/contacts/{id}](#contacts-id), [/surveys/{id}/collectors](#surveys-id-collectors), [/collectors/{id}](#collectors-id), [/collectors/{id}/messages](#collectors-id-messages), [/collectors/{id}/messages/{id}](#collectors-id-messages-id), [/collectors/{id}/messages/{id}/send](#collectors-id-messages-id-send), [/collectors/{id}/messages/{id}/recipients](#collectors-id-messages-id-recipients), [/collectors/{id}/messages/{id}/recipients/bulk](#collectors-id-messages-id-recipients-bulk), [/collectors/{id}/recipients](#collectors-id-recipients)
+
+**Developer Actions Required**: None
