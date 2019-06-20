@@ -1,6 +1,6 @@
 ##Collectors and Invite Messages
 
-Collectors allow you to collect survey responses with a link to your survey. Many `types` of collectors are available through the API such as `sms`, `weblink`, `email` and general `popup` collectors. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL, [email invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) and [sms invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Text-Message) send survey invite messages with a survey URL via the /messages endpoints, [popup collectors](https://help.surveymonkey.com/articles/en_US/kb/Website-Collector) let you embed or pop-up surveys on your website. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)).
+Collectors allow you to collect survey responses with a link to your survey. Many `types` of collectors are available through the API such as `sms`, `weblink`, `email` and general `popup` collectors. [Weblink collectors](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector) collectors give you a survey URL, [email invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) and [sms invitation collectors](https://help.surveymonkey.com/articles/en_US/kb/Text-Message) send survey invite messages with a survey URL via the /messages endpoints, [popup collectors](https://help.surveymonkey.com/articles/en_US/kb/Website-Collector) let you embed surveys on your website. A variety of [collector options](http://help.surveymonkey.com/articles/en_US/kb/Collector-Options#List) are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, `is_branding_enabled=False` require a [SurveyMonkey paid plan]((https://www.surveymonkey.com/pricing/?ut_source=dev_portal&amp;ut_source2=docs)).
 
 <aside class="notice">Your email address needs to be <a href="https://help.surveymonkey.com/articles/en_US/kb/Sender-Email-Address">verified</a> in order to successfully send messages through our email invitation collector. You can <a href="">verify your address</a> in your SurveyMonkey account.</aside>
 
@@ -65,7 +65,7 @@ s.post(url, json=payload)
  * `HEAD`: Checks if resource is available
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a list of collectors for a given survey. Public App users need access to the **View Collectors** [scope](#scopes)
- * `POST`: Creates an [sms](https://help.surveymonkey.com/articles/en_US/kb/Text-Message), [weblink](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector),[email collector](http://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) or [popup collector](https://help.surveymonkey.com/articles/en_US/kb/Website-Collector) for a given survey. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
+ * `POST`: Creates an [sms](https://help.surveymonkey.com/articles/en_US/kb/Text-Message), [weblink](http://help.surveymonkey.com/articles/en_US/kb/Web-Link-Collector), [email collector](http://help.surveymonkey.com/articles/en_US/kb/Email-Invitation-Collector) or [popup collector](https://help.surveymonkey.com/articles/en_US/kb/Website-Collector) for a given survey. Public App users need access to the **Create/Modify Collectors** [scope](#scopes)
 
 ####Optional Query Strings for GET
 
@@ -116,7 +116,7 @@ redirect_type | No | Determines [survey end page](https://help.surveymonkey.com/
 width | No | Sets the width of your popup. Minimum 300, maximium 700 | Integer
 height | No | Sets the height of your popup. Minimum 300, maximium 700 | Integer
 border_color | No | Changes border color surrounding the survey | Hex string
-is_branding_enabled | No | Determines if SurveyMonkey branding is enabled | Boolean
+is_branding_enabled | No | Whether the popup has SurveyMonkey branding| Boolean
 headline | No | Only applies to 'popup_invitation' and 'popup_survey'. Represents the title of the modal window surrounding the survey | String
 message | No | Only applies to 'popup_invitation'. Represents the message below the headline | String
 sample_rate | No | Only applies to 'popup_invitation' and 'popup_survey'. Determines the percentage of people who will see your popup. Must be between 1 and 100 | String
@@ -223,7 +223,7 @@ href | Resource API URL | String
 width | Width of your popup | Integer
 height | Height of your popup | Integer
 border_color | Border color surrounding the survey | Hex string
-is_branding_enabled | If SurveyMonkey branding is enabled or not | Boolean
+is_branding_enabled | Whether the email has SurveyMonkey branding | Boolean
 headline | Title of the modal window surrounding the survey | String
 message | The message below the headline | String
 sample_rate | The percentage of people who will see your popup | String
