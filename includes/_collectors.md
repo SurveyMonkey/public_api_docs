@@ -43,6 +43,7 @@ s.post(url, json=payload)
   "name": "My Collector",
   "thank_you_message": "Thank you for taking my survey.",
   "disqualification_message": "Thank you for taking my survey.",
+  "disqualification_url": "https://www.surveymonkey.com",
   "close_date": "2038-01-01T00:00:00+00:00",
   "closed_page_message": "This survey is currently closed.",
   "redirect_url": "https://www.surveymonkey.com",
@@ -102,6 +103,7 @@ type | Yes | Collector type: 'sms, 'weblink' or 'email'| String-ENUM
 name | No | Collector name | String
 thank_you_message | No (default="Thank you for completing our survey!"")| Message for [thank you page](http://help.surveymonkey.com/articles/en_US/kb/Can-I-create-a-Thank-You-page)  | String
 disqualification_message | No (default="Thank you for completing our survey!)| Message for disqualification page  | String
+disqualification_url | No | Redirect to this url for disqualification page | String
 close_date | No | Close date of collector | Date string
 closed_page_message | No (default="Thank you for completing our survey!") | Message shown when a survey is closed| String
 redirect_url | No | Redirect to this url upon survey completion | String
@@ -152,6 +154,7 @@ s.get(url)
   "name": "My Collector",
   "thank_you_message": "Thank you for taking my survey.",
   "disqualification_message": "Thank you for taking my survey.",
+  "disqualification_url": "https://www.surveymonkey.com",
   "close_date": "2038-01-01T00:00:00+00:00",
   "closed_page_message": "This survey is currently closed.",
   "redirect_url": "https://www.surveymonkey.com",
@@ -191,6 +194,7 @@ type | Collector type: 'sms', 'weblink' or 'email' | String-ENUM
 name | Name of the collector | String
 thank_you_message | Message for thank you page | String
 disqualification_message | Message for disqualification page | String
+disqualification_url | Redirect to this url for disqualification page | String
 close_date  | Close date of collector | Date string
 closed_page_message | Message shown when someone visits a closed survey | String
 redirect_url | Redirects respondent to this url upon survey completion | String
