@@ -81,7 +81,7 @@ In addition, requests made to the API to create [contacts](#contacts-and-contact
 
 ####Increasing Limits
 
-If you think you may be in danger of frequently exceeding your request-limit threshold, please [fill out this form](https://smenterprise.surveymonkey.com/Contactsales_en?&utm_source=website&utm_medium=website&utm_content=dev_portal&utm_campaign=dev_portal&family=SME&date=2016-08-31&program=7013A000000NnGKQA0&source=dev_portal&recent=dev_portal ) with an estimate of your anticipated API activity. Additional fees may apply for increased rate limits.
+All Draft and Private apps will initially be subject to request limits of 120 calls/minute and 500 calls/day. If you think you may be in danger of exceeding your request-limit threshold and only require a temporary increase email [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) otherwise, click [here](https://www.surveymonkey.com/enterprise/) and then the "Talk with us" button to contact our Enterprise Sales Team. SurveyMonkey will review all requests within 5 business days. Additional fees may apply for increased rate limits.
 
 ####Response Limits
 
