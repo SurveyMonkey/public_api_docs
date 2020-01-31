@@ -4,19 +4,19 @@
 
 The SurveyMonkey API is REST-based, employs [OAuth 2.0](https://oauth.net/2/), and returns responses in [JSON](http://www.json.org/). Our documentation is organized by endpoint, has code examples in Python and cURL, and provides a Postman collection with calls for each available method.We also have a [quick start guide](#quick-start-guide-two-common-use-cases) outlining flows for some common use cases.
 
-To use our API, you'll need to [register a draft app](#registering-an-app) to your SurveyMonkey account. You have a 90-day window to develop in a draft app, after which you'll need to [deploy](#deploying-an-app) publicly or privately. Public apps are available to anyone with a SurveyMonkey account and published in our [App Directory](https://www.surveymonkey.com/integrations/). If you're building an app for yourself or your organization, you can deploy a Private app.
+To use our API, you'll need to [register a draft app](#registering-an-app) to your SurveyMonkey account. You have a 90-day window to develop in a draft app, after which you'll need to [deploy](#deploying-an-app) publicly or privately. Public apps are available to anyone with a SurveyMonkey account and published in our [App Directory](https://www.surveymonkey.com/apps/). If you're building an app for yourself or your organization, you can deploy a Private app.
 
 ###Public Apps
 
-Public apps extend features to SurveyMonkey users. All apps must be reviewed and approved by SurveyMonkey and adhere to our [terms of use](https://developer.surveymonkey.com/tou/) before they can be published in our [App Directory](https://www.surveymonkey.com/integrations/).
+Public apps extend features to SurveyMonkey users. All apps must be reviewed and approved by SurveyMonkey and adhere to our [terms of use](https://developer.surveymonkey.com/tou/) before they can be published in our [App Directory](https://www.surveymonkey.com/apps/).
 
 Public apps use [scopes](#scopes) to request permissions from app users during OAuth. Some [scopes](#scopes) require your app's users to have a paid SurveyMonkey plan.
 
-Public apps published in our [App Directory](https://www.surveymonkey.com/integrations/) can make unlimited requests to our API. When a Public app is in draft (during development), it's subject to [draft request limits](##request-and-response-limits).
+Public apps published in our [App Directory](https://www.surveymonkey.com/apps/) can make unlimited requests to our API. When a Public app is in draft (during development), it's subject to [draft request limits](#request-and-response-limits).
 
 ###Private Apps
 
-Private apps don't need to be reviewed by SurveyMonkey. Only logged-in users of the SurveyMonkey team the app is registered to can see the app in the [App Directory](https://www.surveymonkey.com/integrations/). Private apps are subject to our [terms of use](https://developer.surveymonkey.com/tou/). Private apps have [API request limits](#request-and-response-limits) and [higher limits are available for purchase](#increasing-limits).
+Private apps don't need to be reviewed by SurveyMonkey. Only logged-in users of the SurveyMonkey team the app is registered to can see the app in the [App Directory](https://www.surveymonkey.com/apps/). Private apps are subject to our [terms of use](https://developer.surveymonkey.com/tou/). Private apps have [API request limits](#request-and-response-limits) and [higher limits are available for purchase](#increasing-limits).
 
 All users of a Private app must belong to the same [SurveyMonkey team](https://help.surveymonkey.com/articles/en_US/kb/Groups) and have a [paid SurveyMonkey plan that offers direct API access](https://www.surveymonkey.com/pricing/details/?ut_source=dev_portal&amp;ut_source2=docs).
 
@@ -81,7 +81,7 @@ In addition, requests made to the API to create [contacts](#contacts-and-contact
 
 ####Increasing Limits
 
-All Draft and Private apps will initially be subject to request limits of 120 calls/minute and 500 calls/day. If you think you may be in danger of exceeding your request-limit threshold and only require a temporary increase email [api-support@surveymonkey.com](mailto: api-support@surveymonkey.com) otherwise, click [here](https://www.surveymonkey.com/enterprise/) and then the "Talk with us" button to contact our Enterprise Sales Team. SurveyMonkey will review all requests within 5 business days. Additional fees may apply for increased rate limits.
+All Draft and Private apps will initially be subject to request limits of 120 calls/minute and 500 calls/day. If you think you may be in danger of exceeding your request-limit threshold and only require a temporary increase email [api-support@surveymonkey.com](mailto:api-support@surveymonkey.com) otherwise, click [here](https://www.surveymonkey.com/enterprise/) and then the "Talk with us" button to contact our Enterprise Sales Team. SurveyMonkey will review all requests within 5 business days. Additional fees may apply for increased rate limits.
 
 ####Response Limits
 
