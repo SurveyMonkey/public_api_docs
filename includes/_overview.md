@@ -2,7 +2,7 @@
 
 ##Getting Started
 
-The SurveyMonkey API is REST-based, employs [OAuth 2.0](https://oauth.net/2/), and returns responses in [JSON](http://www.json.org/). Our documentation is organized by endpoint, has code examples in Python and cURL, and provides a Postman collection with calls for each available method.We also have a [quick start guide](#quick-start-guide-two-common-use-cases) outlining flows for some common use cases.
+The SurveyMonkey API is REST-based, employs [OAuth 2.0](https://oauth.net/2/), and returns responses in [JSON](http://www.json.org/). Our documentation is organized by endpoint, has code examples in Python and cURL, and provides a Postman collection with calls for each available method. We also have a [quick start guide](#quick-start-guide-two-common-use-cases) outlining flows for some common use cases.
 
 To use our API, you'll need to [register a draft app](#registering-an-app) to your SurveyMonkey account. You have a 90-day window to develop in a draft app, after which you'll need to [deploy](#deploying-an-app) publicly or privately. Public apps are available to anyone with a SurveyMonkey account and published in our [App Directory](https://www.surveymonkey.com/apps/). If you're building an app for yourself or your organization, you can deploy a Private app.
 
