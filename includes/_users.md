@@ -1,8 +1,8 @@
 ##Users and Teams
 
-Use these endpoints to get user's account information, any [teams](http://help.surveymonkey.com/articles/en_US/kb/Groups) a user belongs to, the account information for the team's owner, and other members including their roles and whether or not they have accepted an invite into the team (are `active`).
+Use these endpoints to get user's account information, any [teams](https://help.surveymonkey.com/articles/en_US/kb/Teams) a user belongs to, the account information for the team's owner, and other members including their roles and whether or not they have accepted an invite into the team (are `active`).
 
-<aside class="notice">While our API uses the term group, SurveyMonkey's UI uses teams. These two terms refer to the same concept. Learn more about [teams in our Help Center](http://help.surveymonkey.com/articles/en_US/kb/Groups).</aside>
+<aside class="notice">While our API uses the term group, SurveyMonkey's UI uses teams. These two terms refer to the same concept. Learn more about teams in our <a href="https://help.surveymonkey.com/articles/en_US/kb/Teams">Help Center</a>.</aside>
 
 ###/users/me
 
