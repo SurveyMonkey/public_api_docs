@@ -418,7 +418,7 @@ All noteworthy changes and additions made to the V3 API are listed below. For ch
 
 **Description of Changes**: You can now request certain Pages or Questions to be included when calling Survey Responses endpoints, both in bulk and for individual responses.
 
-**Endpoints Affected**: [/surveys/{id}/response/{id}/details](#surveys-id-responses-id-details), [/collectors/{id}/response{id}/details](#collectors-id-responses-id-details), [/surveys/{id}/responses/bulk](#surveys-id-responses-bulk), [/collectors/{id}/respones/bulk](#collectors-id-responses-bulk)
+**Endpoints Affected**: [/surveys/{id}/response/{id}/details](#surveys-id-responses-id-details), [/collectors/{id}/response{id}/details](#collectors-id-responses-id-details), [/surveys/{id}/responses/bulk](#surveys-id-responses-bulk), [/collectors/{id}/responses/bulk](#collectors-id-responses-bulk)
 
 **Developer Actions Required**: None
 
