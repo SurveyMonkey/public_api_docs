@@ -604,7 +604,7 @@ data[\_].survey_link | Link to the survey in the invite. Only returned if reques
 Name |  Required |Description | Data Type
 ------ | ------- | ------- | -------
 contact_id | Yes | Contact id | String
-duplicates | No | Intended behavior while adding duplicate recipient (add, add_if_not_in_message, add_if_not_in_collector) | Object
+duplicates | No | Intended behavior while adding duplicate recipient (add (default), add_if_not_in_message, add_if_not_in_collector) | String
 
 ####Requests Body Arguments for POST (if not passing contact_id)
 
@@ -616,7 +616,7 @@ first_name | No | First name of the recipient | String
 last_name | No | Last name the recipient | String
 custom_fields | No | Custom fields for the recipient contact | Object
 extra_fields | No | Extra fields needed for the message body | Object
-duplicates | No | Intended behavior while adding duplicate recipient (add, add_if_not_in_message, add_if_not_in_collector) | Object
+duplicates | No | Intended behavior while adding duplicate recipient (add (default), add_if_not_in_message, add_if_not_in_collector) | String
 
 
 ###/collectors/{id}/messages/{id}/recipients/bulk

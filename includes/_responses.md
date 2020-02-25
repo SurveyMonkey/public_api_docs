@@ -206,6 +206,7 @@ s.post(url, json=payload)
  * `OPTIONS`: Returns available methods and options
  * `GET`: Returns a list of responses. Public App users need access to the **View Responses** [scope](#scopes)
  * `POST`: Creates a response. Public App users need access to the **Create/Modify Responses** [scope](#scopes)
+ * `DELETE`: Deletes all the responses from the Collector. Public App users need access to the **View/Edit Collectors**
 
 ####Optional Query Strings for GET
 
