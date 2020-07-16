@@ -337,7 +337,7 @@ results[\_].email | Email logged for activity | String
 results[\_].member_type | Member type for activity | String-HTML
 
 
-###/groups/{id}/activities/{activity_type}?interval={internal}
+###/groups/{id}/activities/{activity_type}
 
 >Definition
 
