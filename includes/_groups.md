@@ -419,7 +419,7 @@ end_date | The end date for the activity related data query | Date
 
 Name | Description | Data Type
 ------ | ------- | -------
-series | Series data of the count of the specified activity type per interval period | Array of Integers,
-times | Labels of times for series data set | Array of String,
+series | Series data of the count of the specified activity type per interval period | Array of Integers
+times | Labels of times for series data set | Array of String
 interval | The interval for the returned series | String
 
