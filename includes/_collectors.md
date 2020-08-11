@@ -268,7 +268,7 @@ payload = {
   "type": "invite"
 }
 url = "https://api.surveymonkey.com/v3/collectors/%s/messages" % (collector_id)
-s.post(url)
+s.post(url, json=payload)
 ```
 
 >Example Response
