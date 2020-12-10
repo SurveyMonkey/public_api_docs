@@ -331,13 +331,13 @@ other[\_].num_lines | Set a line limit to the option | Integer
             {
                 "text": "This is an image of a monkey",
                 "image":{
-                    "url":"https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/presentation.png"
+                    "url":"https://path.to.image/image.jpg"
                 }
             },
             {
                 "text": "This is the same picture of the same monkey",
                 "image":{
-                    "url":"https://raw.githubusercontent.com/SurveyMonkey/public_api_docs/master/images/presentation.png"
+                    "url":"https://path.to.image/image.jpg"
                 }
             }
         ]
