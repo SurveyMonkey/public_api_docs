@@ -73,7 +73,7 @@ Draft and Private apps are subject to rate limits:
 | ------- | -------
 120 | 500
 
-We permit three violations of up to 150% within a 30-day window. We begin to enforce limits at 100% once your app exceeds its limits three times within 30 days.
+The API limit is reset at 12:00 AM Greenwich Mean Time (GMT) every day. We permit three violations of up to 150% within a 30-day window. We begin to enforce limits at 100% once your app exceeds its limits three times within 30 days.
 
 We return your app's rate limits, requests remaining, and seconds to reset in our request [headers](#headers).
 
