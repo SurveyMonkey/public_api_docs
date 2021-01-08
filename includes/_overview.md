@@ -258,7 +258,7 @@ Any request to a list resource returns the following pagination fields, if avail
 |Name|Description|Type|
 |----|-----------|----|
 |per_page|Number of resources per page|Integer|
-|total|Number of pages available|Integer|
+|total|Total number of resources available|Integer|
 |page|Indicates which page is being returned|Integer|
 |links.self|Resource URL for the current page|String|
 |links.prev|Resource URL for the previous page of results|String|
