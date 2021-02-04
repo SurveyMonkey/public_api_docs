@@ -572,6 +572,7 @@ Name | Description | Data Type
 ------ | ------- | -------
 page_ids | List of survey pages to filter on. Returns all pages if not provided | Commas Seperated Strings
 question_ids | List of survey questions to filter on. Returns all questions if not provided | Commas Seperated Strings
+simple | When ‘true’, this includes the question and answer text, in addition to IDs. | String
 
 
 ####Response Resource
@@ -579,7 +580,6 @@ question_ids | List of survey questions to filter on. Returns all questions if n
 Name | Description | Type
 ------ | ------- | -------
 survey_id | ID of the survey the response was taken for | String
-simple | When ‘true’, this includes the question and answer text, in addition to IDs. | String
 collector_id | ID of the collector the response was taken for | String
 recipient_id | ID of the recipient (only for email collectors). See [collector recipient](#collectors-id-recipients-id) | String
 total_time | Total time in seconds spent on the survey | Integer
