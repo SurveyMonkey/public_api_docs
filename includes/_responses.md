@@ -572,6 +572,7 @@ Name | Description | Data Type
 ------ | ------- | -------
 page_ids | List of survey pages to filter on. Returns all pages if not provided | Commas Seperated Strings
 question_ids | List of survey questions to filter on. Returns all questions if not provided | Commas Seperated Strings
+simple | When ‘true’, this includes the question and answer text, in addition to IDs. | String
 
 
 ####Response Resource
