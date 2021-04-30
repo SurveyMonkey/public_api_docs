@@ -106,16 +106,17 @@ If your app has required [scopes](#scopes), users will need to approve all of th
 
 Your app should send the user whose SurveyMonkey account you wish to access to a specially crafted Oauth link at https://api.surveymonkey.com. The page presented to the user will identify your app, ask them to log into SurveyMonkey if they aren't already, and ask them to authorize any required [scopes](#scope).
 
-The OAuth link should be `https://api.surveymonkey.com/oauth/authorize` with urlencoded parameters: `redirect_uri`, `client_id`, and `response_type`.
+The OAuth link should be `https://api.surveymonkey.com/oauth/authorize` with urlencoded parameters: `redirect_uri`, `client_id`, `response_type` and `state`.
 
 * `response_type` will always be set to the value `code`
 * `client_id` the unique SurveyMonkey client id you got when registering your app
 * `redirect_uri` URL encoded OAuth redirect URI you registered for your app (can be found and edited [here](https://developer.surveymonkey.com/apps/))
+* `state` (recommended) A value included in the request that will also be returned in the token response. It can be a string of any content that you wish. A randomly generated unique value is typically used for preventing [cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12).
 
 >Example OAuth Link
 
 ```shell
-https://api.surveymonkey.com/oauth/authorize?response_type=code&redirect_uri=https%3A%2F%2Fapi.surveymonkey.com%2Fapi_console%2Foauth2callback&client_id=SurveyMonkeyApiConsole
+https://api.surveymonkey.com/oauth/authorize?response_type=code&redirect_uri=https%3A%2F%2Fapi.surveymonkey.com%2Fapi_console%2Foauth2callback&client_id=SurveyMonkeyApiConsole%2Fstate=uniquestring
 ```
 
 
@@ -138,12 +139,12 @@ def oauth_dialog(client_id, redirect_uri):
 
 ####Step 2: User authorization generates short-lived code
 
-Once the user makes their choice whether to authorize access or not, SurveyMonkey will generate a 302 redirect sending their browser to your redirect URI along with a short-lived code included as a query parameter. Your app needs to use that code to make another API request before it expires (5 minutes). In that request, you'll send us the code you received, along with your client secret, client ID, and redirect URI. We'll verify all that information. If it's good, we'll return a long-lived access token in exchange.
+Once the user makes their choice whether to authorize access or not, SurveyMonkey will generate a 302 redirect sending their browser to your redirect URI along with a short-lived code included as a query parameter (as well as the state parameter if it was specified originally). Your app needs to use that code to make another API request before it expires (5 minutes). In that request, you'll send us the code you received, along with your client secret, client ID, and redirect URI. We'll verify all that information. If it's good, we'll return a long-lived access token in exchange.
 
 >Generate Short Code or Deny Access
 
 ```shell
-"Access Authorized" redirect: `https://api.surveymonkey.com/api_console/oauth2callback?code=SHORTLIVEDCODE`
+"Access Authorized" redirect: `https://api.surveymonkey.com/api_console/oauth2callback?code=SHORTLIVEDCODE&state=uniquestring`
 "Access Denied" redirect: `https://api.surveymonkey.com/api_console/oauth2callback?error_description=Resource+owner+canceled+the+request&error=access_denied`
 ```
 
