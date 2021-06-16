@@ -14,7 +14,7 @@ POST https://api.surveymonkey.com/v3/surveys/{survey_id}/collectors
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/1234/collectors -d '{"type":"weblink"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/surveys/1234/collectors -d '{"type":"weblink"}'
 ```
 
 ```python
@@ -142,7 +142,7 @@ GET https://api.surveymonkey.com/v3/collectors/{collector_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/collectors/1234
 ```
 
 ```python
@@ -252,7 +252,7 @@ POST https://api.surveymonkey.com/v3/collectors/{collector_id}/messages
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages -d '{"type":"invite"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/collectors/1234/messages -d '{"type":"invite"}'
 ```
 
 ```python
@@ -339,7 +339,7 @@ GET https://api.surveymonkey.com/v3/collectors/{collector_id}/messages/{message_
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/collectors/1234/messages/1234
 ```
 
 ```python
@@ -406,7 +406,7 @@ POST https://api.surveymonkey.com/v3/collectors/{collector_id}/messages/{message
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/send -d '{"scheduled_date":"2015-10-06T12:56:55+00:00"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/send -d '{"scheduled_date":"2015-10-06T12:56:55+00:00"}'
 ```
 
 ```python
@@ -483,7 +483,7 @@ POST https://api.surveymonkey.com/v3/collectors/{collector_id}/messages/{message
 >Example Request (with contact_id)
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/recipients -d '{"contact_id:"1234"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/recipients -d '{"contact_id:"1234"}'
 ```
 
 ```python
@@ -505,7 +505,7 @@ s.post(url, json=payload)
 >Example Request (without contact_id)
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/recipients-d '{"email":"test@surveymonkey.com"}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/recipients-d '{"email":"test@surveymonkey.com"}'
 ```
 
 ```python
@@ -634,7 +634,7 @@ If custom_fields are provided for any one contact, all contacts will have their 
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/recipients/bulk -d '{"contact_ids":["1234", "5678"]}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/recipients/bulk -d '{"contact_ids":["1234", "5678"]}'
 ```
 
 ```python
@@ -732,7 +732,7 @@ GET https://api.surveymonkey.com/v3/collectors/{collector_id}/recipients
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/recipients
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/collectors/1234/recipients
 ```
 
 ```python
@@ -807,7 +807,7 @@ GET https://api.surveymonkey.com/v3/collectors/{collector_id}/recipients/{recipi
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/recipients/1234
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/collectors/1234/recipients/1234
 ```
 
 ```python
@@ -884,7 +884,7 @@ GET https://api.surveymonkey.com/v3/collectors/{id}/messages/{id}/stats
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/stats
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/collectors/1234/messages/1234/stats
 ```
 
 ```python

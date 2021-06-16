@@ -29,7 +29,7 @@ POST https://api.surveymonkey.com/v3/webhooks
 >Example Request
 
 ```shell
-curl -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/webhooks -d \
+curl -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/webhooks -d \
   '{"name":"My Webhook", "event_type":"response completed", "object_type":"survey", "object_ids":["1234","5678"],"subscription_url":"https://surveymonkey.com/webhook_reciever"}'
 ```
 
@@ -111,7 +111,7 @@ GET https://api.surveymonkey.com/v3/webhooks/{webhook_id}
 >Example Request
 
 ```shell
-curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/webhooks/1234
+curl -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/webhooks/1234
 ```
 
 ```python

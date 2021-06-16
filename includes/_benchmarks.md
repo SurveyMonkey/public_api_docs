@@ -16,7 +16,7 @@ GET https://api.surveymonkey.com/v3/benchmark_bundles
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/benchmark_bundles
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/benchmark_bundles
 ```
 
 ```python
@@ -105,7 +105,7 @@ GET https://api.surveymonkey.com/v3/benchmark_bundles/{bundle_id}
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/benchmark_bundles/test_bundle
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/benchmark_bundles/test_bundle
 ```
 
 ```python
@@ -191,7 +191,7 @@ GET https://api.surveymonkey.com/v3/benchmark_bundles/{bundle_id}/analyze
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" 'https://api.surveymonkey.com/v3/benchmark_bundles/test_bundle/analyze?question_ids=25651,25652'
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" 'https://api.surveymonkey.com/v3/benchmark_bundles/test_bundle/analyze?question_ids=25651,25652'
 
 ```
 
@@ -302,7 +302,7 @@ GET https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/question
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/benchmark
 ```
 
 ```python

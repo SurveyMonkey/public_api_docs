@@ -15,7 +15,7 @@ GET https://api.surveymonkey.com/v3/question_bank/questions
 >Example Request
 
 ```shell
-curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/question_bank/questions
+curl -i -X GET -H "Authorization:bearer YOUR_ACCESS_TOKEN" https://api.surveymonkey.com/v3/question_bank/questions
 ```
 
 ```python

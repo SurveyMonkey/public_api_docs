@@ -15,7 +15,7 @@ POST https://api.surveymonkey.com/v3/survey_folders
 
 ```shell
 
-curl -i -X POST -H "Authorization: bearer YOUR_ACCESS_TOKEN" -H "content-Type":"application/json" https://api.surveymonkey.com/v3/survey_folders -d "{"title":"My Team Folder"}"
+curl -i -X POST -H "Authorization: bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/survey_folders -d "{"title":"My Team Folder"}"
 
 ```
 

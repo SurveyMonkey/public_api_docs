@@ -9,7 +9,7 @@ POST https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questio
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions -d '{"headings": [{"heading": "A question about primates.", "random_assignment": {"percent": 50, "position": 1}},{"heading": "A question about primates phrased slightly differently.", "random_assignment": {"percent": 50, "position": 2},}], "family": "open_ended", "subtype": "single", "position": 1, "sorting": {"type": "textasc","ignore_last": True}, "required": {"text": "This question is required!", "type": "at_least", "amount": "1"},"validation": {"type": "integer","text": "Validation has failed!","min": 20,"max": 30}, "forced_ranking": True, "answers": { #SEE ANSWERS SECTION }}'
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions -d '{"headings": [{"heading": "A question about primates.", "random_assignment": {"percent": 50, "position": 1}},{"heading": "A question about primates phrased slightly differently.", "random_assignment": {"percent": 50, "position": 2},}], "family": "open_ended", "subtype": "single", "position": 1, "sorting": {"type": "textasc","ignore_last": True}, "required": {"text": "This question is required!", "type": "at_least", "amount": "1"},"validation": {"type": "integer","text": "Validation has failed!","min": 20,"max": 30}, "forced_ranking": True, "answers": { #SEE ANSWERS SECTION }}'
 
 ```
 
@@ -181,7 +181,7 @@ GET https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/question
 >Example Request
 
 ```shell
-curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type": "application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}
+curl -i -X POST -H "Authorization:bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}
 
 ```
 
