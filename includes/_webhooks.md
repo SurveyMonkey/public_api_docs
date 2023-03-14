@@ -195,7 +195,7 @@ api_secret = api_secret.encode("ascii")
 payload = payload.encode("ascii")
 
 signature = hmac.new(
-key='%s&%s' % (api_key, api_secret),
+key=b'%s&%s' % (api_key, api_secret),
 msg=payload,
 digestmod=hashlib.sha1)
 
